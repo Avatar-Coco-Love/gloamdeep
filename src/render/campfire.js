@@ -57,3 +57,15 @@ export function drawFires(c, room, t, still, breaths = [], smoke = []) {
   });
   for (const p of smoke) drawSmoke(c, p.x, p.y, t, still);
 }
+
+// § call (D-974): a cold brazier the Lampeater calls a gloamling out of, its ashes stirring with a faint
+// violet glow in its gloam's colours, the pixels shifting every 160 ms (steady with reduced motion),
+// and its breath's dashed ring and turn countdown
+const ASH = [[5, 9], [7, 8], [9, 9], [10, 8], [6, 10], [8, 10]], STIR = ['#a58ce0', '#6e58a8'];
+export function drawCalls(c, calls, t, still) {
+  for (const call of calls) {
+    const x = call.x * T, y = call.y * T - 3, k = still ? 0 : Math.floor(t / 160);
+    ASH.forEach(([dx, dy], i) => { c.fillStyle = STIR[(i + k) % 2]; c.fillRect(x + dx, y + dy - ((i + k) % 3 === 0 ? 1 : 0), 1, 1); });
+    drawWarn(c, call.x, call.y, call.left);
+  }
+}

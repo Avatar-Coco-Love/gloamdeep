@@ -2605,3 +2605,27 @@ the hero in it shows at the gap room's Archway; rooms already in a save
 keep their shape, so a gap room seen before gets no Archway (`beyond.js`).
 Next, the place's look. D-965 and D-966 move to
 `archive/DECISIONS-SUPERSEDED.md`, word for word.
+
+**D-939 · 2026-11-15 · Biome 1's boss: the Lampeater** (the owner's
+picks, all recommended; answers part of Q-105; builds D-463, D-636,
+D-643, W4, G3; [ideas page](https://claude.ai/artifact/GcWfnvHi4HAwfkugqyHtXR))
+Biome 1's boss is a piece of the gloam given shape, pooled against the
+Lightkeepers' old seal at the bottom of the dungeon, the Lampeater for
+now: light decides the fight (offered too: the Seal Warden, a 2 x 2
+stone guard; the Warren Mother, rising from linked holes; both kept on
+the page). It moves only through dark tiles and can't step onto a lit
+one, and can be hurt only while caught in light: lantern off, it comes;
+switched on beside it, it is caught a turn and struck. Lit braziers in
+its arena cut off its dark; caught with no dark tile beside it, it is
+pinned. Standing lit, it drinks from the light's edge. At half its
+hearts it snuffs braziers, and gloamlings crawl out of them; lure wisps
+show where it lurks. It fights in its own arena on depth 8, guarding the
+stairs down; the way in seals until it is beaten or the hero falls, and
+after a fall it is whole again (offered too: the door left open; off the
+way down; no special room). Beaten, it gives Leap, biome 1's found
+ability as drafted (offered too: Flare; Hold breath); the floor gives
+way and the hero leaps across to the way down at once (offered too: a
+shrine before the fight; no escape). Built one visible step at a time,
+in about 13 steps (the page's list); every name, number, look and line
+is set at its own step. D-927 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.

@@ -6,6 +6,12 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.417', date: '2026-11-18', title: 'The Lampeater calls', lines: [
+    "The Lampeater calls: struck and free again, it goes through the dark to a cold brazier and calls a gloamling out over 2 turns, the ashes stirring violet with a countdown and its eyes on the bowl. Catch it in light to stop the call, or light that brazier to spoil it. Never more than 6 gloamlings.",
+    "The boss bench, from 18%, 96% and 100%: Lean wins 12%, Middling 79%, Strong 83%.",
+    "The plan for a hands-off health check once its fight is built.",
+    "Decisions: D-974, D-975.",
+  ] },
   { v: '0.3.416', date: '2026-11-18', title: 'Gloamlings flank you', lines: [
     "The Lampeater's gloamlings flank you: while it comes for you, they take the free tiles beside you in the dark, spreading out, and leave the side toward it open. One standing on that side bites, then steps out of its way.",
     "The boss bench, from 52% and 100%: Lean wins 18%, Middling 96%, Strong 100%.",

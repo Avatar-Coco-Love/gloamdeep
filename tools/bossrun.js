@@ -61,9 +61,10 @@ function act(s) {
   const cold = tilesOf(s, 'brazier');
   const by = cold.find((b) => near(s.hero, b));
   if (by && s.oil >= KINDLE_OIL && canKindle(s, by.x, by.y)) return [kindle(s.lit ? s : switchLantern(s), by.x, by.y), 'kindle'];
-  // Lantern off, to lure it; walk to a cold brazier while the oil is good, else wait for it
+  // Lantern off, to lure it; walk to a cold brazier while the oil is good, else to it when it waits in its place, else wait for it
   const dark = s.lit ? switchLantern(s) : s;
   if (cold.length && s.oil >= KINDLE_OIL) { const d = toward(dark, cold.flatMap(beside)); if (d) return [step(dark, d), 'walk']; }
+  if (L && !L.chasing) { const d = toward(dark, beside(L)); if (d) return [step(dark, d), 'walk']; } // gone back to its place, after a call (D-974): go to it
   return [wait(dark), 'wait'];
 }
 

@@ -95,7 +95,8 @@ With the gloamlings in (0.3.392): Lean 25%, Middling 98%, Strong all.
 From 0.3.399 the bench starts in the way in, where walking in from the
 hallway puts you (D-958): over 400 fights, Lean 34% (26% before),
 Middling 97% (the same), Strong all. With its 4 gloamlings at the start
-(0.3.413, D-971), over 100: Lean 52% (37% before), Middling all (95%).
+(0.3.413, D-971), over 100: Lean 52% (37% before), Middling all (95%). Its calls
+(0.3.417, D-974): Lean 12%, Middling 79%, Strong 83%.
 
 **The owner's Lampeater polish** (raised 2026-11-16, at 0.3.405) Once its
 steps are done, the owner has ideas for its phases, how the cutscenes

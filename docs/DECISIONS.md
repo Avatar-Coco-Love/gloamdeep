@@ -77,30 +77,6 @@ early ones as a sign they had merged. Before the merge, the handoff ends
 Claude checks the PR is merged on GitHub, then gives them once (offered
 too: the words only; no prompts at all). CLAUDE.md says it too.
 
-**D-939 · 2026-11-15 · Biome 1's boss: the Lampeater** (the owner's
-picks, all recommended; answers part of Q-105; builds D-463, D-636,
-D-643, W4, G3; [ideas page](https://claude.ai/artifact/GcWfnvHi4HAwfkugqyHtXR))
-Biome 1's boss is a piece of the gloam given shape, pooled against the
-Lightkeepers' old seal at the bottom of the dungeon, the Lampeater for
-now: light decides the fight (offered too: the Seal Warden, a 2 x 2
-stone guard; the Warren Mother, rising from linked holes; both kept on
-the page). It moves only through dark tiles and can't step onto a lit
-one, and can be hurt only while caught in light: lantern off, it comes;
-switched on beside it, it is caught a turn and struck. Lit braziers in
-its arena cut off its dark; caught with no dark tile beside it, it is
-pinned. Standing lit, it drinks from the light's edge. At half its
-hearts it snuffs braziers, and gloamlings crawl out of them; lure wisps
-show where it lurks. It fights in its own arena on depth 8, guarding the
-stairs down; the way in seals until it is beaten or the hero falls, and
-after a fall it is whole again (offered too: the door left open; off the
-way down; no special room). Beaten, it gives Leap, biome 1's found
-ability as drafted (offered too: Flare; Hold breath); the floor gives
-way and the hero leaps across to the way down at once (offered too: a
-shrine before the fight; no escape). Built one visible step at a time,
-in about 13 steps (the page's list); every name, number, look and line
-is set at its own step. D-927 moves to `archive/DECISIONS-SURFACE.md`,
-word for word.
-
 **D-971 · 2026-11-17 · The Lampeater made harder, and Leap a find**
 (the owner's ideas and picks, all recommended; part of the owner's
 Lampeater polish, `OPEN-QUESTIONS-3.md`; builds D-939) The owner found
@@ -174,3 +150,43 @@ ever, so they flank only in the dark (`flank.js`). The bench, from 52% and
 100%: Lean 18%, Middling 96%, Strong 100%, their bites up from about 157 to
 about 277 in 100 fights (Q-111). D-970 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-974 · 2026-11-18 · The Lampeater's calls** (the owner's picks, all
+recommended, the look's three together; builds D-971 and D-972, their
+step 3) Struck and free again, it walks through the dark to a tile beside
+the nearest cold brazier and calls from there (offered too: from where it
+stands, as its breath does). The call shows as the cold bowl's ashes
+stirring with a faint violet glow, with its breath's dashed ring and turn
+countdown, its eyes turned a pixel toward the bowl, and "The Lampeater
+calls into the ashes." (Claude's draft) as it starts. Until the wary step,
+with 6 gloamlings alive or no cold brazier it can reach, it fights on as
+now (offered too: waiting where it stands); its half-hearts snuff and the
+snuff after each catch stay until the phases replace them (offered too:
+gone now). Claude's calls: a blow that hurts it marks it struck, and a
+call ended clears the mark, so one call each time it is struck and free;
+the nearest brazier by steps through the dark, the first of up, down,
+left, right on a tie; gloamlings waiting in a bowl count toward the 6; the
+one called crawls out as from a snuffed bowl (brood.js), the arena's own;
+its Bestiary words end "Struck, it goes to a cold brazier and calls one
+out." (Claude's draft) (`call.js`). The bench's bot now walks to it when it
+waits in its place. The bench, from 18%, 96% and 100%: Lean 12%, Middling
+79%, Strong 83% (Q-111). D-939 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.
+
+**D-975 · 2026-11-18 · The third health check, run hands-off** (the
+owner's wish and picks) Once the Lampeater's fight is built (the calls,
+guards, wary and phases, each its own PR, the owner's pick; offered too:
+the calls alone, recommended; the calls and guards), a third health check
+runs while the owner is away: no questions while it runs, nothing in the
+game changed, findings only, each picked later as a step, as H-01 on were
+(D-860). One coordinating conversation reads little; each area goes to a
+helper agent with its own context, Sonnet to look and Opus to check each
+finding before it is kept (recommended; offered too: all Opus; all
+Sonnet). A checklist of areas, and each area's findings, saved to the
+branch and pushed as each is done, so nothing is lost if a session ends.
+If it ends or the usage limit is reached, a scheduled check-in every 3
+hours carries on from the checklist, and the owner can wake it with any
+message (the owner's pick, with their addition; offered too: every hour;
+only when the owner is back). At the end: a report page for the phone,
+the findings in `HEALTH-CHECK-3.md` (split under 8 KB), one PR, and the
+questions for the owner all at the end.

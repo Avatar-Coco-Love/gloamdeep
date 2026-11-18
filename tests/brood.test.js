@@ -22,7 +22,7 @@ const lings = (s) => s.enemies.filter((e) => e.id === 'gloamling');
 
 test('its line and its Bestiary words', () => {
   assert.equal(LINES.gloamlingCrawls.text, 'A gloamling crawls out of the ashes.');
-  assert.match(get('lampeater').acts, /Gloamlings crawl from the braziers it snuffs\.$/);
+  assert.match(get('lampeater').acts, /Gloamlings crawl from the braziers it snuffs\./);
 });
 
 test('one gloamling crawls out beside the snuffed bowl as it goes cold, its line after the gutter', () => {

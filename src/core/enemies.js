@@ -118,7 +118,7 @@ export const ENEMIES = {
   // From half its hearts it `snuffs` the lit brazier nearest it, `warns` turns' breath first (step 7, D-947, snuff.js); a `brood` crawls from each bowl it snuffs, its `crawls` said the first time (step 8, D-949, brood.js). How it acts and how to fight it are
   // written once it can be beaten (step 9); until then its page shows the grey hints, as the Warden's,
   // and how to fight it opens after 1 beaten.
-  lampeater: { id: 'lampeater', kind: 'enemy', name: 'Lampeater', acts: "Moves only through the dark, never onto a lit tile. Caught in light, it can't move for a turn. With no dark beside it, it is pinned. At your light's edge, it drinks from it. At half its hearts, it snuffs your braziers. Gloamlings crawl from the braziers it snuffs.", fights: 'Your blows sink into it in the dark, and hurt it only while it is lit.', health: 12, bite: 2, ways: ['darkOnly'], eyesGlow: true, burns: true, sinks: 'lampeaterSinks', caughtSays: 'lampeaterCaught', pins: 2, pinnedSays: 'lampeaterPinned', edgeDrinks: 1 / 60, edgeSays: 'lampeaterDrinks', snuffs: { warns: 2, says: 'lampeaterBreathes', out: 'brazierGutters', brood: 'gloamling', crawls: 'gloamlingCrawls' }, sips: 'sip', bites: 'lampeaterBite', sound: 'gloam', fightAt: 1, flankers: 'gloamling' },
+  lampeater: { id: 'lampeater', kind: 'enemy', name: 'Lampeater', acts: "Moves only through the dark, never onto a lit tile. Caught in light, it can't move for a turn. With no dark beside it, it is pinned. At your light's edge, it drinks from it. At half its hearts, it snuffs your braziers. Gloamlings crawl from the braziers it snuffs. Struck, it goes to a cold brazier and calls one out.", fights: 'Your blows sink into it in the dark, and hurt it only while it is lit.', health: 12, bite: 2, ways: ['darkOnly'], eyesGlow: true, burns: true, sinks: 'lampeaterSinks', caughtSays: 'lampeaterCaught', pins: 2, pinnedSays: 'lampeaterPinned', edgeDrinks: 1 / 60, edgeSays: 'lampeaterDrinks', snuffs: { warns: 2, says: 'lampeaterBreathes', out: 'brazierGutters', brood: 'gloamling', crawls: 'gloamlingCrawls' }, sips: 'sip', bites: 'lampeaterBite', sound: 'gloam', fightAt: 1, flankers: 'gloamling', calls: { turns: 2, most: 6, says: 'lampeaterCalls' } },
 };
 
 // § drops: how often a beaten creature leaves its common material, and its rare one,
@@ -154,7 +154,7 @@ export const enemyAt = (state, x, y) => state.enemies.find((e) => e.x === x && e
 export function hitEnemy(enemies, foe, entry, damage) {
   const health = (foe.health ?? entry.health) - damage;
   if (health <= 0) return enemies.filter((e) => e !== foe);
-  return enemies.map((e) => (e === foe ? { ...foe, health, chasing: true } : e));
+  return enemies.map((e) => (e === foe ? { ...foe, health, chasing: true, ...(entry.calls && { struck: true }) } : e)); // struck, the Lampeater calls once free (call.js, D-974)
 }
 
 // § bites: (enemies, hero) → the enemies next to the hero, four ways (D-042),
