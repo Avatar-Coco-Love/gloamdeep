@@ -10,7 +10,7 @@
 // round cross closes the card.
 import { drawText, textWidth } from './font.js';
 import { drawMarker } from './menu.js';
-import { cardAt, drawCard, drawSlot, drawButton, slotAt, gridAt, inCard, onCross, isTall, BUTTON, PAD, SLOT, SLOT_GAP, LINE_H, TAP_PAD } from './bag.js';
+import { cardAt, drawCard, drawSlot, drawButton, slotAt, gridAt, inCard, onCross, isTall, BUTTON, PAD, SLOT, SLOT_GAP, LINE_H, onButton } from './bag.js';
 import { TAKE, TAKE_W, TALL_SPLIT, take } from './benchpanel.js';
 import { BAG_SLOTS } from '../core/bag.js';
 import { bagShape } from './bag.js';
@@ -44,8 +44,8 @@ export function chestAt(x, y, vw, vh, size = BAG_SLOTS) {
   if (i >= 0) return { slot: i };
   const j = gridAt(card, x, y, b.grid, b.shape.cols, size, b.x, b.shape.slot);
   if (j >= 0) return { slot: CHEST_BAG + j };
-  if (y >= t.y - TAP_PAD && y < t.y + BUTTON.h + TAP_PAD && x >= t.x - TAP_PAD && x < t.x + TAKE_W + TAP_PAD) return 'take';
-  if (y >= st.y - TAP_PAD && y < st.y + BUTTON.h + TAP_PAD && x >= st.x - TAP_PAD && x < st.x + STORE_W + TAP_PAD) return 'store';
+  if (onButton(t, TAKE_W, x, y)) return 'take';
+  if (onButton(st, STORE_W, x, y)) return 'store';
   return null;
 }
 

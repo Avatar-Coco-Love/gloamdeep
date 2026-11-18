@@ -24,6 +24,13 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.426 (2026-11-18)
+- Card buttons are easier to tap on a phone: MAKE, STORE, TAKE, SELL, DRINK, DROP and the rest now take a tap a little above or below them, 44 px tall as they should be. On a small card, DROP sits a touch higher.
+- Choosing a draught (or a heartcap or oilcap) in the bag no longer hides its "Now" picture under its look line.
+- "Leap which way?" goes away as soon as you leap or let the leap go.
+- On a new journey's first day, no mole comes out in the room you start in; the bunny still does, and the mole comes the next day.
+- Decisions: D-986, D-987. D-981 to D-983 moved to the archive, word for word.
+
 ## 0.3.425 (2026-11-18)
 - No change in play. The tests: a quick run, `npm run quick`, checks a tenth of the biggest seed sweeps while Claude works, and `npm test` still checks every seed before each handoff; two tests that broke at every save change now don't.
 - New tests can share their setups (`tests/fixtures.js`), and the place beyond's tests have their own file, named for what they test.
@@ -35,9 +42,3 @@ Entry format:
 - The 14 small files that bring an older save up to date now sit together in their own folder and share one helper instead of 8 copies; the little tile helpers copied into 12 files live once in `tile.js`.
 - Where the Lampeater is named in the code is written down for when a second boss is planned. The playbook of how we work keeps growing, ready for your next game.
 - Decisions: D-983, D-984.
-
-## 0.3.423 (2026-11-18)
-- No change in play. Each PR now costs less and is safer: a new test checks that every decision from D-001 on is kept, once, and that no archive file shrinks or goes, as one did at 0.3.414 and nothing noticed.
-- `tools/release.js` now splits the in-game Version history by itself, 50 versions to a file (0.3.351 to 0.3.400 moved to `history-0.3-7.js` word for word), makes a new minor version's file, and refuses a `docs/PROGRESS.md` over 4 KB; a new `tools/audit.js` lists the docs near their caps and what a conversation reads at its start.
-- The archive index's biggest row, hand-edited in most PRs, is a short line now (its old text kept word for word in its file); the PR checklist says how to redo the record-keeping files if two conversations ever overlap.
-- Decisions: D-982.

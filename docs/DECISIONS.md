@@ -128,52 +128,6 @@ too. Changed before the merge, the owner's words: not a rule never to
 ask; what really matters, such as the five gameplay rulings (H-71, H-75,
 H-78, H-79, H-81), is still asked, as multiple choice.
 
-**D-981 · 2026-11-18 · Reading less** (Claude's picks, hands-off, D-980;
-H-87 to H-93, the first fix suggested for each) Moved word for word:
-`CLAUDE.md`'s table of docs to a new `docs/INDEX.md`, a line per family
-left (H-88); the nine old rules on how we work (D-338, D-363, D-431,
-D-518, D-732, D-741, D-790, D-852, D-923) to `archive/DECISIONS-WAYS.md`
-(H-89; the Lampeater's when its fight ends); the build plan's done parts
-and the "Waiting" lines that repeat `OPEN-QUESTIONS*.md` to
-`archive/PROGRESS-LOG.md`, keeping the vault door's sound and the older
-iPhone, found nowhere else (H-87); `WORKFLOW-3.md` to `-7` to `archive/`
-(H-90); the first two health checks' pages and their order, all done, to
-`archive/HEALTH-CHECK-DONE.md` (H-91). The near-full pages split now
-(H-92): the music to `SOUNDS-4.md`, `CONTENT-4.md`'s tiles to
-`CONTENT-5.md`, the playbook's "Since the last audit" to
-`WORKFLOW-SINCE.md`; `OPEN-QUESTIONS-3.md`'s Lampeater questions when
-its polish ends. `npm test` uses the dot reporter, `npm run test:full`
-the full output (H-93). The start's four files, 29 KB before, are about
-23 KB.
-
-**D-982 · 2026-11-18 · Each PR costs less** (Claude's picks, hands-off,
-D-980; H-94 to H-98, the fix suggested for each) `tests/kept.test.js`:
-every decision from D-001 on is kept, once, and no archive file is gone
-or smaller than on main, its index aside (H-94). The archive index's
-`DECISIONS-SURFACE.md` row is a short "D-209 on, grep" line, its old text
-word for word at the end of that file (H-95). `tools/release.js` moves
-each 50 versions of the in-game history to its own file and import once
-a newer one is in (0.3.351 to 0.3.400 to `history-0.3-7.js` now), makes
-a new minor version's file and import, and refuses a `PROGRESS.md` over
-4 KB (H-96, H-97). `tools/audit.js` lists the docs near their caps (less
-than a twentieth left) and the bytes read at the start; the doc test
-reads its caps from there (H-97). `PR-CHECKLIST.md` says how to redo the
-record-keeping files if `main` moved on (H-98).
-
-**D-983 · 2026-11-18 · Less code to read** (Claude's picks, hands-off,
-D-980; H-99 to H-102, the fix suggested for each) `lines.js`'s words split
-by topic into `lines-finds.js`, `lines-home.js`, `lines-deep.js` and
-`lines-draughts.js`, word for word, gathered into `LINES` as before; the
-title's screens and the cards over play move from `frame.js` to
-`render/cards.js`; `tests/codesize.test.js` lets no code file pass 20 KB
-but the 17 already over, a list that only shrinks, the history files
-aside (H-99). The 14 save fix-up files move to `src/core/fixups/`, their
-copied `unseen` in one `fixups/shared.js` (`strewn.js` uses it too)
-(H-100). `same`, `dist` and `key` live once in `src/core/tile.js`;
-`cave.js`'s number key is `cellKey` (H-101). No second boss is planned,
-so the boss field waits: `CONTENT-BOSSES.md` lists where the Lampeater's
-id is checked, for that step (H-102).
-
 **D-984 · 2026-11-18 · Lessons for the next game** (the owner's pick)
 The playbook (D-732) keeps growing as it does, each audit adding its
 lessons; a starter kit for a new project's Claude is made only when the
@@ -189,3 +143,20 @@ holds setups new tests share (H-105). `beyond.test.js` is `widen.test.js`;
 the place beyond's tests move to `beyond.test.js` word for word (H-106).
 `window.gloamdeep` reads the running game, and `tools/drive.js` serves,
 opens and drives it; `perf.js` uses it, and now reaches play (H-107).
+
+**D-986 · 2026-11-18 · No mole on the first day's start room** (the
+owner's pick, recommended; H-71's ruling; changes D-781's Claude's call)
+On a journey's first day no mole comes out in its start room, so a new
+hero is not met by one on the first turn. The bunny still comes, other
+woods rooms keep theirs, and the start room has its mole from the next
+day on. Offered too: a gentler surface mole; as is.
+
+**D-987 · 2026-11-18 · The game's first findings** (Claude's picks,
+hands-off, D-980; H-68 to H-70, the fix suggested for each) Every card
+button's tap reaches 5 game px above and below it, 22 tall, 44 px on a
+phone, through one shared band; DROP, a row up on a small card, moves up
+6 px so the two bands meet; one test measures every card (H-68). The
+chosen find's look line is not drawn over its "Now" picture, a draught's
+or its hearts' or oil's (H-69). "Leap which way?" goes once the leap is
+taken or let go (H-70). D-981 to D-983 move to
+`archive/DECISIONS-AUDITS.md`, word for word.

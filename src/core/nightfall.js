@@ -83,7 +83,7 @@ function comeOut(state, when) {
   const r = rng(seedFor(woodsSeed(state.seed ?? 1, state.place) ^ (night ? 0 : 0x5d4f1a37), n + 1)), out = [];
   const kinds = !night ? (state.place === HOME_ID ? HOME_KINDS : isMountain(state.place) ? MOUNTAIN_KINDS : rareDayRoom(state.seed ?? 1, n) === state.place ? [...DAY_KINDS, RARE_DAY_KIND] : DAY_KINDS)
     : isMountain(state.place) ? MOUNTAIN_NIGHT_KINDS : rareRoom(state.seed ?? 1, n) === state.place ? [...NIGHT_KINDS, RARE_KIND] : NIGHT_KINDS;
-  for (const id of kinds) {
+  for (const id of kinds.filter((k) => !(k === 'mole' && firstDayStart(state, n)))) {
     const free = spots.filter((s) => !out.some((o) => o.x === s.x && o.y === s.y));
     const byRock = id === 'rimLurker' ? free.filter((s) => besideRock(state.room, s)) : [];
     const left = byRock.length ? byRock : free; // the rim lurker waits by the rock (D-797)
@@ -93,6 +93,10 @@ function comeOut(state, when) {
   const room = night ? clearNightRoosts(state.room) : state.room; // an earlier night's flyers in trees gone too (D-922)
   return { ...state, room: { ...room, [when]: n }, enemies: [...stay, ...out] };
 }
+
+// § first day (H-71, D-986): no mole in a journey's start room on its first day, so a new hero
+// is not met by one on the first turn; the bunny still comes, and the mole from the next day
+const firstDayStart = (state, day) => day === 0 && !!state.start && state.place === state.home?.place;
 
 // Every grass tile off the edge with nothing on it, `FAR` steps or more from the hero; by night
 // out of their sight too (B3)

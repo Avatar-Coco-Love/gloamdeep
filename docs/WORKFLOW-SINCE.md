@@ -23,3 +23,4 @@ line here (D-741). Each audit moves the lines into the right sections.
 - Prove a guard test by breaking what it guards: cutting the surface archive to 14 lines made both of `tests/kept.test.js`'s checks fail, then git put it back (0.3.423).
 - Split a data file the way an earlier split did, and prove it: `LINES` was compared key by key against main's before and after (530 the same), and the moved screens were played in a browser, since no test draws them (0.3.424).
 - A tool that guesses where it is can measure the wrong thing for months: perf.js's three Enters stopped on the opening screen, found only once it could read the screen's name (0.3.425).
+- A test can turn up a bug of its own: measuring every card's buttons found DECONSTRUCT under the bag's slots on the smallest view; it went to BUGS.md (B-013) instead of into the step (0.3.426).

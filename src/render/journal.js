@@ -20,7 +20,7 @@ import { drawText, textWidth } from './font.js';
 import { drawMarker } from './menu.js';
 import { HEART } from './hearts.js';
 import { POISON_MARK, GLOW_MARK } from './marks.js';
-import { cardAt, drawCard, drawButton, frame, inCard, onCross, wrapWords, BUTTON, PAD, TAP_PAD } from './bag.js';
+import { cardAt, drawCard, drawButton, frame, inCard, onCross, wrapWords, BUTTON, PAD, TAP_PAD, onButton } from './bag.js';
 import { TABS } from '../core/journal.js';
 import { rowsOf, rowsOpen, START_PICK, embers, heartsBought, allPlaces, placesIn, told, upgradeAt } from '../core/growth.js';
 import { grown } from '../core/upgrades.js';
@@ -109,7 +109,7 @@ export function journalAt(x, y, vw, vh, tab = 'records', state = null, pick = nu
   const { spots, down } = tabsAt(whole), card = pageCard(whole, down);
   if (tab === 'growth') {
     const b = state && pick && told(state, pick).button, at = b && buttonOf(card, b.text.toUpperCase());
-    if (at && x >= at.x - TAP_PAD && x < at.x + at.w + TAP_PAD && y >= at.y - TAP_PAD && y < at.y + BUTTON.h + TAP_PAD) return 'buy';
+    if (at && onButton(at, at.w, x, y)) return 'buy';
     const box = treeOf(card, first, rowsOpen(state)).tiles.find((p) => x >= p.x - TAP_PAD && x < p.x + p.w + TAP_PAD && y >= p.y - TAP_PAD && y < p.y + p.h + TAP_PAD);
     if (box) return { pick: { col: box.col, row: box.row, slot: box.slot } };
   }

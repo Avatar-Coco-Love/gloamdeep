@@ -9,7 +9,7 @@
 // The workbench's card has two tabs where its title was, BUILD and GEAR (D-800); the mortar's keeps its title.
 import { drawText, textWidth } from './font.js';
 import { drawMarker } from './menu.js';
-import { cardAt, drawCard, drawSlot, drawButton, slotAt, gridAt, inCard, onCross, lookLine, wrapWords, detailAt, BUTTON, PAD, HELD_Y, LINE_H, SLOT, SLOT_GAP, TAP_PAD } from './bag.js';
+import { cardAt, drawCard, drawSlot, drawButton, slotAt, gridAt, inCard, onCross, lookLine, wrapWords, detailAt, BUTTON, PAD, HELD_Y, LINE_H, SLOT, SLOT_GAP, onButton } from './bag.js';
 import { BENCH_TAKE, BENCH_COLS, BENCH_SLOTS, BENCH_TABS } from '../core/menu.js';
 import { drawTabs, tabAt } from './bagtabs.js';
 import { get } from '../core/registry.js';
@@ -39,9 +39,8 @@ export function benchAt(x, y, vw, vh, tabbed = false) {
   if (tab) return { tab };
   const i = gridAt(card, x, y, TOP, BENCH_COLS, BENCH_SLOTS);
   if (i >= 0) return { slot: i };
-  if (y < button.y - TAP_PAD || y >= button.y + BUTTON.h + TAP_PAD) return null;
-  if (x >= button.x - TAP_PAD && x < button.x + BUTTON.w + TAP_PAD) return 'make';
-  if (x >= t.x - TAP_PAD && x < t.x + TAKE_W + TAP_PAD) return 'take';
+  if (onButton(button, BUTTON.w, x, y)) return 'make';
+  if (onButton(t, TAKE_W, x, y)) return 'take';
   return null;
 }
 

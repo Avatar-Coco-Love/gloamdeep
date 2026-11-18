@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.425 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.426 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
 The third health check's steps (D-979), hands-off (D-980): next, the
-game's findings, most noticed first, H-68 to H-71 (`HEALTH-CHECK-3.md`;
-H-71's ruling asked); then the rest.
+game's findings some players notice, H-72 to H-75 (`HEALTH-CHECK-3.md`;
+H-75's ruling asked); then the rest.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -40,12 +40,13 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-18, 0.3.426, Taps, lines and the first mole.**
+  Hands-off (D-980) but H-71's ruling, the owner's: card buttons 44 px
+  to tap, the look line off the picture, "Leap which way?" goes, no mole
+  in the start room on day 1 (H-68 to H-71). D-986, D-987. Playtest: https://claude.ai/artifact/JzUDv6fkyfAtFnCrV97vSh
 - **2026-11-18, 0.3.425, The tests.** Hands-off (D-980), nothing in
   the game changed: a quick test run, fixtures, beyond's own tests,
   window.gloamdeep and tools/drive.js (H-103 to H-107). D-985.
 - **2026-11-18, 0.3.424, Less code to read.** Hands-off (D-980), nothing
   in the game changed: lines.js and frame.js split, a code size test,
   a fixups folder, one tile.js (H-99 to H-102). D-983, D-984.
-- **2026-11-18, 0.3.423, Each PR costs less.** Hands-off (D-980), nothing
-  in the game changed: a test keeps every decision and the archive, and
-  release.js splits the history by itself (H-94 to H-98). D-982.

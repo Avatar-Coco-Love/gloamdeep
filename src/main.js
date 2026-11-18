@@ -47,6 +47,7 @@ import { createQuickSlot } from './input/quickslot.js';
 import { createSleepButton } from './input/sleepbutton.js';
 import { createBoonButton } from './input/boonbutton.js';
 import { createLeapButton } from './input/leapbutton.js';
+import { letGo } from './core/leap.js';
 import { createArrowPad } from './input/arrowpad.js';
 import { firstFlask } from './core/bag.js';
 import { createMapMoves } from './input/mapview.js';
@@ -236,7 +237,7 @@ const snap = (to) => { app.shown.x = to.x; app.shown.y = to.y; };
 
 function tryStep(dir) {
   if (app.fall || app.cutscene) return; // nothing is taken while the hero lies fallen, nor in the cutscene (D-957)
-  if (app.leapReady) { app.leapReady = false; if (typeof dir === 'string' && DIRS[dir]) dir = { leap: dir }; } // a leap got ready: the way picked leaps; anything else lets it go (D-962)
+  if (app.leapReady) { app.leapReady = false; if (typeof dir === 'string' && DIRS[dir]) dir = { leap: dir }; else app.state = letGo(app.state); } // a leap got ready: the way picked leaps; anything else lets it go (D-962), its line too (H-70)
   if (waitsInLine(app.screen, settled())) { app.queued = dir; return; } // a card's action happens at once (D-680)
   const before = app.state;
   let to = before.hero;
@@ -409,7 +410,7 @@ const getLeap = () => {
   if (app.screen !== 'play' || app.fall || app.cutscene || !app.state.leap) return;
   app.walk = app.padDir = app.hold = null;
   app.leapReady = !app.leapReady;
-  if (app.leapReady) app.state = say(app.state, 'leapWhich');
+  app.state = app.leapReady ? say(app.state, 'leapWhich') : letGo(app.state); // let go, its line goes too (H-70)
 };
 const leapButton = createLeapButton(hudCanvas, { onLeap: getLeap });
 
@@ -575,7 +576,7 @@ function update(t) {
   shown.y = arc ? glide(shown.y, s.hero.y, dt) : approach(shown.y, s.hero.y, dt);
   if (app.leapArc && (!arc || (shown.x === app.leapArc.to.x && shown.y === app.leapArc.to.y))) app.leapArc = null;
   for (const e of s.enemies) { const p = foeAt(e); p.x = approach(p.x, e.x, dt); p.y = approach(p.y, e.y, dt); }
-  if (app.screen !== 'play') { app.walk = app.padDir = app.hold = null; app.leapReady = false; } // a card or menu ends a walk, the pad's and a hold's
+  if (app.screen !== 'play') { app.walk = app.padDir = app.hold = null; if (app.leapReady) { app.leapReady = false; app.state = letGo(app.state); } } // a card or menu ends a walk, the pad's and a hold's
   if (app.screen === 'strike' && needleAt(t - app.strike.start) === null) strikeAt(null); // too slow: gone (D-614)
   if (settled() && app.screen === 'play' && app.state.float?.strike !== undefined) screens.openStrike(); // pulled on a bite, once the hero is still; after loading too (D-614)
   if (settled() && app.screen === 'play') { // paused, no turn is taken

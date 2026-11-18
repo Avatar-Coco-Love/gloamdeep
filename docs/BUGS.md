@@ -36,3 +36,12 @@ Seen but not confirmed: the Lampeater's drink, breath or burning ring may
 show for one turn on coming back into the arena; a fall on the turn it
 gets free loses the snuff it owed; the Boss tab replaces a real
 journey's gear for good (a dev jump, D-948, maybe as meant).
+
+## Found at the third health check's steps
+
+**B-013 · 2026-11-18 · DECONSTRUCT under the bag's slots, on the smallest view**
+Found while testing H-68 (0.3.426), not seen in play: on the stash
+chest's card on the smallest upright view (176 × 221 game px), the
+bag's last rows of slots lie over DECONSTRUCT, so most taps on it pick
+a slot. A phone's view is bigger; whether any phone gets so small is
+not known. To look into at its own step.

@@ -5,7 +5,7 @@
 // (D-902), its Look line, and MAKE in the bottom right corner, dim with too few (all drawn by
 // benchpanel.js's drawMakeWords). With none shown yet, a grey line says why.
 import { drawText } from './font.js';
-import { cardAt, drawCard, drawSlot, drawButton, slotAt, gridAt, inCard, onCross, wrapWords, detailAt, BUTTON, PAD, HELD_Y, LINE_H, TAP_PAD } from './bag.js';
+import { cardAt, drawCard, drawSlot, drawButton, slotAt, gridAt, inCard, onCross, wrapWords, detailAt, BUTTON, PAD, HELD_Y, LINE_H, onButton } from './bag.js';
 import { TOP, SPLIT, DETAIL_X, TALL_SPLIT, drawMakeWords } from './benchpanel.js';
 import { drawBagTabs, bagTabAt } from './bagtabs.js';
 import { MAKE_COLS, MAKE_SLOTS } from '../core/bagmake.js';
@@ -24,7 +24,7 @@ export function makeCardAt(x, y, vw, vh) {
   if (tab) return { tab };
   const i = gridAt(card, x, y, TOP, MAKE_COLS, MAKE_SLOTS);
   if (i >= 0) return { slot: i };
-  if (y >= button.y - TAP_PAD && y < button.y + BUTTON.h + TAP_PAD && x >= button.x - TAP_PAD && x < button.x + BUTTON.w + TAP_PAD) return 'make';
+  if (onButton(button, BUTTON.w, x, y)) return 'make';
   return null;
 }
 
