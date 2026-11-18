@@ -6,6 +6,10 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.421', date: '2026-11-18', title: 'The third health check', lines: [
+    "No change in play. A third health check, run while the owner was away: helper agents looked at ten areas, from the Lampeater's fight to what each conversation reads, and a second agent tested every finding again before it was kept. Of 60 found, 40 are kept, from card buttons too small on a phone to a test run that prints 436 KB. The owner made every one a step, reading less first.",
+    "Decisions: D-975, D-979. D-975 moved to the archive, word for word.",
+  ] },
   { v: '0.3.420', date: '2026-11-18', title: 'The Lampeater\'s phases', lines: [
     "The Lampeater's phases: at 8 and 4 of its 12 hearts, once free of your light, it breathes out a lit brazier, and a gloamling crawls from the bowl; then it calls one more from another cold brazier. With no brazier lit, it only calls. Its snuff at half its hearts, and after each catch, are gone.",
     "A snuffed bowl brings out a gloamling only while fewer than 6 are out.",

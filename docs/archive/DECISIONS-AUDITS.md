@@ -699,3 +699,21 @@ nine first uses all built, to `archive/DECISIONS-SURFACE.md`, word for
 word (offered too: D-790, the first next prompts rule, to
 `archive/DECISIONS-AUDITS.md`; kept). The Lampeater's and the standing
 rules stay. Its own docs-only version, 0.3.384. No game change.
+
+**D-975 · 2026-11-18 · The third health check, run hands-off** (the
+owner's wish and picks) Once the Lampeater's fight is built (the calls,
+guards, wary and phases, each its own PR, the owner's pick; offered too:
+the calls alone, recommended; the calls and guards), a third health check
+runs while the owner is away: no questions while it runs, nothing in the
+game changed, findings only, each picked later as a step, as H-01 on were
+(D-860). One coordinating conversation reads little; each area goes to a
+helper agent with its own context, Sonnet to look and Opus to check each
+finding before it is kept (recommended; offered too: all Opus; all
+Sonnet). A checklist of areas, and each area's findings, saved to the
+branch and pushed as each is done, so nothing is lost if a session ends.
+If it ends or the usage limit is reached, a scheduled check-in every 3
+hours carries on from the checklist, and the owner can wake it with any
+message (the owner's pick, with their addition; offered too: every hour;
+only when the owner is back). At the end: a report page for the phone,
+the findings in `HEALTH-CHECK-3.md` (split under 8 KB), one PR, and the
+questions for the owner all at the end.
