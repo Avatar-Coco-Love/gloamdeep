@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-18, 0.3.427, The dark again.** Hands-off (D-980) but H-75's
+  ruling, the owner's: the line moves up off the hero; the Shovel digs only
+  a bare stump; each sound file decoded once; perf.js times the dark and
+  the arena (H-72 to H-75). Found on the way: 0.3.424 broke the dark, fixed,
+  with a test. D-988. Playtest: https://claude.ai/artifact/816X48yNUEhcCjWKNaBHbe
 - **2026-11-18, 0.3.426, Taps, lines and the first mole.**
   Hands-off (D-980) but H-71's ruling, the owner's: card buttons 44 px
   to tap, the look line off the picture, "Leap which way?" goes, no mole

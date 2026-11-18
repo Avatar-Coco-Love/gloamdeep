@@ -24,6 +24,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.430 (2026-11-18)
+- Nothing in the game changed: the lantern's tank slot is planned as the next new step, after the Lampeater's polish or more flowers.
+- Decisions: D-991.
+
 ## 0.3.429 (2026-11-18)
 - Nothing in the game changed: the docs catch up with the Lampeater's fight, its 12 hearts, phases, calls, guards and wary, and the bench's half start on 6 hearts.
 - The docs no longer describe the falling floor round the Lampeater's stairs, taken out before it shipped; the Boss tab, the newest content page and which sound files to ship are written down.
@@ -37,11 +41,3 @@ Entry format:
 - After a dev jump, the dev stats line says "jumped: no goals or records".
 - Once you've learnt Leap, How to play shows it: the Leap button (or J), then a way.
 - Decisions: D-989. D-984 and D-985 moved to the archive, word for word.
-
-## 0.3.427 (2026-11-18)
-- Since 0.3.424 the dark below ground was not being drawn: rooms showed fully lit, and the little marks for poison, draughts and the rest went missing. Both are back, and a new test checks every code file for names it forgets to bring in.
-- The Shovel no longer digs out a stump with Wood lying on it: you walk onto it instead, so the Wood isn't lost and the tree still grows back.
-- A line along the bottom of the screen that would cover your hero now sits just above them instead.
-- Turning Sound On uses much less memory: each sound file is loaded once, not once for every sound that shares it.
-- tools/perf.js now also times a dark room and the Lampeater's arena: walking in the dark is over the frame budget, 17 ms a frame on a slow phone (H-73).
-- Decisions: D-988.

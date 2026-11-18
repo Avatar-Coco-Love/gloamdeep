@@ -4,13 +4,14 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.429 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.430 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
 The owner's pick: the third health check is done but H-82 and H-83,
 kept for later (`HEALTH-CHECK-3.md`); next, the Lampeater's polish
-(`OPEN-QUESTIONS-3.md`) or step 26, more flowers.
+(`OPEN-QUESTIONS-3.md`) or step 26, more flowers; then step 27, the
+lantern's tank slot (D-991).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -33,6 +34,8 @@ when merged, with its version, and move ticked steps there at each audit.
 The rest of the scope, proposed (D-482; may change):
 - [ ] 26 Filling the surface: more flowers (Q-092); its done parts, and
   19 Lore's, moved to `archive/PROGRESS-LOG.md` (D-981)
+- [ ] 27 The lantern's tank slot (D-991), after the Lampeater's polish
+  or step 26; its part, recipe and numbers the owner's picks
 
 **Next audit: 0.3.433** (D-518, D-951).
 
@@ -40,6 +43,9 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-18, 0.3.430, The tank slot planned.** Nothing in the game
+  changed: after a look at the game's RPG parts, the owner picked the
+  lantern's tank slot as step 27, after the current Next up. D-991.
 - **2026-11-18, 0.3.429, The docs catch up.** Hands-off (D-980), nothing
   in the game changed: the Lampeater's later steps and 12 hearts written
   in, the falling floor's leftovers gone, the Boss tab, CONTENT-5 and the
@@ -49,8 +55,3 @@ list in `RESEARCH.md`.
   only the cache behind a Leap gap (asked again: 47%, not 14%); Leap in
   How to play once learnt. Also the phase on the last oil, the re-lit
   bowl, the jump's word (H-76 to H-81). D-989. Playtest: https://claude.ai/artifact/43TVhNbJTDbwmUd5cXrqKP; map preview: https://claude.ai/artifact/5Y7yzYg646ToYkwDjrtXCu
-- **2026-11-18, 0.3.427, The dark again.** Hands-off (D-980) but H-75's
-  ruling, the owner's: the line moves up off the hero; the Shovel digs only
-  a bare stump; each sound file decoded once; perf.js times the dark and
-  the arena (H-72 to H-75). Found on the way: 0.3.424 broke the dark, fixed,
-  with a test. D-988. Playtest: https://claude.ai/artifact/816X48yNUEhcCjWKNaBHbe
