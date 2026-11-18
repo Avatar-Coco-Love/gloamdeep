@@ -24,6 +24,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.420 (2026-11-18)
+- The Lampeater's phases: at 8 and 4 of its 12 hearts, once free of your light, it breathes out a lit brazier, and a gloamling crawls from the bowl; then it calls one more from another cold brazier. With no brazier lit, it only calls. Its snuff at half its hearts, and after each catch, are gone.
+- A snuffed bowl brings out a gloamling only while fewer than 6 are out.
+- The boss bench, from 5%, 79% and 83%: Lean wins 35%, Middling 84%, Strong 94%; its half start counts the first phase done.
+- Decisions: D-978. D-976 moved to the archive, word for word.
+
 ## 0.3.419 (2026-11-18)
 - The Lampeater wary: struck, with no cold brazier to call from or 6 gloamlings out, it draws back for 3 turns to just past your lantern's reach, still drinking at its edge. With the lantern off it keeps the same distance, so lighting it no longer catches it. Its eyes dim while it is wary; then it comes for you again.
 - The boss bench, from 12%, 80% and 83%: Lean wins 7%, Middling 79%, Strong 85%.
@@ -33,9 +39,3 @@ Entry format:
 - The Lampeater's guards: once 6 gloamlings are alive, the 2 nearest it hold the tiles at its shoulders, leaving its way to you open. One beside you bites, then goes back to it; lit, they back off as ever.
 - The boss bench, from 12%, 79% and 83%: Lean wins 12%, Middling 80%, Strong 83%. Six are rarely out at once yet.
 - Decisions: D-976.
-
-## 0.3.417 (2026-11-18)
-- The Lampeater calls: struck and free again, it goes through the dark to a cold brazier and calls a gloamling out over 2 turns, the ashes stirring violet with a countdown and its eyes on the bowl. Catch it in light to stop the call, or light that brazier to spoil it. Never more than 6 gloamlings.
-- The boss bench, from 18%, 96% and 100%: Lean wins 12%, Middling 79%, Strong 83%.
-- The plan for a hands-off health check once its fight is built.
-- Decisions: D-974, D-975.

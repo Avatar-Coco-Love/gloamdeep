@@ -4,6 +4,12 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.417 (2026-11-18)
+- The Lampeater calls: struck and free again, it goes through the dark to a cold brazier and calls a gloamling out over 2 turns, the ashes stirring violet with a countdown and its eyes on the bowl. Catch it in light to stop the call, or light that brazier to spoil it. Never more than 6 gloamlings.
+- The boss bench, from 18%, 96% and 100%: Lean wins 12%, Middling 79%, Strong 83%.
+- The plan for a hands-off health check once its fight is built.
+- Decisions: D-974, D-975.
+
 ## 0.3.416 (2026-11-18)
 - The Lampeater's gloamlings flank you: while it comes for you, they take the free tiles beside you in the dark, spreading out, and leave the side toward it open. One standing on that side bites, then steps out of its way.
 - The boss bench, from 52% and 100%: Lean wins 18%, Middling 96%, Strong 100%.

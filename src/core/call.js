@@ -6,7 +6,8 @@
 // tries again once free; that brazier lit, the call is spoilt, and it turns to another cold one. At
 // the end the creature waits in the bowl and crawls out as one from a snuffed bowl does (brood.js).
 // With `most` of its brood alive (or waiting in a bowl), or no cold brazier it can reach, it is wary
-// instead (wary.js, D-977), and never calls while wary. Plain data, no drawing.
+// instead (wary.js, D-977), and never calls while wary. Owing a phase's snuff, the call waits till it is
+// breathed out; then it calls from another cold brazier than the one snuffed (D-978). Plain data, no drawing.
 import { get } from './registry.js';
 import { litAt } from './sight.js';
 import { DIRS } from './state.js';
@@ -14,8 +15,10 @@ import { say } from './lines.js';
 
 const around = (t) => Object.values(DIRS).map(([dx, dy]) => ({ x: t.x + dx, y: t.y + dy }));
 const coldAt = (state, t) => state.room.map[t.y]?.[t.x] === get('brazier').letter;
-// The cold brazier beside tile t, the first of up, down, left, right, or undefined
-const coldBeside = (state, t) => around(t).find((b) => coldAt(state, b));
+// Whether e may call from the cold brazier at t: not the one its phase just snuffed (D-972, D-978)
+const callable = (state, e, t) => coldAt(state, t) && !(e.phaseBowl && e.phaseBowl.x === t.x && e.phaseBowl.y === t.y);
+// The cold brazier beside tile t that e may call from, the first of up, down, left, right, or undefined
+const coldBeside = (state, e, t) => around(t).find((b) => callable(state, e, b));
 
 // How many of its brood are alive in the room, or waiting in a bowl
 export const broodCount = (state, e) => {
@@ -23,20 +26,23 @@ export const broodCount = (state, e) => {
   return state.enemies.filter((o) => o.id === brood).length + state.enemies.reduce((n, o) => n + (o.bowls?.length ?? 0), 0);
 };
 
+// Whether e still owes its phase's snuff, or is breathing it: the call waits (snuff.js, D-978)
+export const owesSnuff = (e) => !!e.breath || e.owes > 0;
+
 // Whether e, struck and free again, wants to call now
-const wants = (state, e) => !!get(e.id).calls && e.struck && !e.caught && !e.call && !e.wary && !litAt(state, e.x, e.y) && broodCount(state, e) < get(e.id).calls.most;
+const wants = (state, e) => !!get(e.id).calls && e.struck && !e.caught && !e.call && !e.wary && !owesSnuff(e) && !litAt(state, e.x, e.y) && broodCount(state, e) < get(e.id).calls.most;
 
 // § call step: (state, e, free) → the tile e steps onto on its way to a cold brazier (its own tile when
 // already beside one), or null to fight on as ever. `free`: whether e may step onto a tile (creatureturn.js)
 export function callStep(state, e, free) {
   if (e.call) return e; // calling: it stays where it is
   if (!wants(state, e)) return null;
-  if (coldBeside(state, e)) return e;
+  if (coldBeside(state, e, e)) return e;
   const key = (t) => `${t.x},${t.y}`, seen = new Set([key(e)]);
   let ring = around(e).filter((t) => free(state, e, t.x, t.y)).map((t) => ({ ...t, first: t }));
   ring.forEach((t) => seen.add(key(t)));
   while (ring.length) {
-    const there = ring.find((t) => coldBeside(state, t));
+    const there = ring.find((t) => coldBeside(state, e, t));
     if (there) return there.first;
     ring = ring.flatMap((t) => around(t).map((a) => ({ ...a, first: t.first })))
       .filter((t) => !seen.has(key(t)) && seen.add(key(t)) && free(state, e, t.x, t.y));
@@ -56,11 +62,11 @@ export function calls(state) {
       if (e.caught || litAt(state, e.x, e.y)) return rest; // caught: the call stops; it tries again once free (D-972)
       if (!coldAt(state, call)) return rest; // lit: spoilt; it turns to another cold one (D-972)
       if (call.left > 1) return { ...e, call: { ...call, left: call.left - 1 } };
-      const { struck, ...done } = rest;
+      const { struck, phaseBowl, ...done } = rest;
       return broodCount(state, e) < c.most ? { ...done, bowls: [...(e.bowls || []), { x: call.x, y: call.y }] } : done; // it waits in the bowl and crawls out (brood.js)
     }
     if (!wants(state, e)) return e;
-    const b = coldBeside(state, e);
+    const b = coldBeside(state, e, e);
     if (!b) return e;
     said = said || c.says;
     return { ...e, call: { x: b.x, y: b.y, left: c.turns }, ...(b.x !== e.x && { facing: b.x < e.x ? 'left' : 'right' }) };

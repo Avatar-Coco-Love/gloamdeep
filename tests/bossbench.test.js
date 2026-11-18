@@ -34,9 +34,10 @@ test('each build carries its kit, hearts full', () => {
   assert.deepEqual(Object.keys(BUILDS), ['lean', 'middling', 'strong']);
 });
 
-test('at half it is on 6 hearts with 3 braziers lit, and owes its snuff', () => {
+test('at half it is on 6 hearts with 3 braziers lit, its first phase counted done (D-978)', () => {
   const s = bench(newJourney(2), 'lean', true);
   assert.equal(boss(s).health, 6);
+  assert.equal(boss(s).phase, 1);
   assert.equal(count(s, 'brazierLit'), 3);
 });
 

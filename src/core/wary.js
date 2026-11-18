@@ -11,12 +11,13 @@
 import { get } from './registry.js';
 import { litAt, lanternReachOf } from './sight.js';
 import { DIRS } from './state.js';
+import { owesSnuff } from './call.js';
 
 const around = (t) => Object.values(DIRS).map(([dx, dy]) => ({ x: t.x + dx, y: t.y + dy }));
 const key = (t) => `${t.x},${t.y}`;
 
 // Whether e is wary, or turns wary now (callStep found no call for it, creatureturn.js)
-const isWary = (e) => !!get(e.id).calls?.wary && (e.wary > 0 || (e.struck && !e.caught && !e.call));
+const isWary = (e) => !!get(e.id).calls?.wary && (e.wary > 0 || (e.struck && !e.caught && !e.call && !owesSnuff(e))); // owing a phase's snuff, it waits for that first (D-978)
 
 // § wary step: (state, e, free) → the tile e steps onto while wary (its own tile to stay), or null to
 // act as ever. `free`: whether e may step onto a tile (creatureturn.js)
@@ -43,7 +44,7 @@ export function waryTurns(state) {
   return { ...state, enemies: state.enemies.map((e) => {
     if (!e.wary) return e;
     if (e.wary > 1) return { ...e, wary: e.wary - 1 };
-    const { wary, struck, ...rest } = e;
+    const { wary, struck, phaseBowl, ...rest } = e;
     return rest;
   }) };
 }

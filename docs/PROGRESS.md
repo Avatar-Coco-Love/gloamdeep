@@ -4,23 +4,23 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.419 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.420 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The Lampeater made harder (D-971, D-972), step 6: the phases (at 2/3
-and 1/3 of its hearts it snuffs a brazier, calls 2). Then the
-hands-off health check (D-975); then Leap as a find with its card, its
-sound, the place beyond a Leap gap (D-969).
+The hands-off health check (D-975), now the Lampeater's calls, guards,
+wary and phases are built. Then the Lampeater's drop and card, Leap as a
+find (D-971), its sound, the place beyond a Leap gap (D-969).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
   (a conversation can't delete branches; its saves are tests now).
 - The names Pillar and Seal stone, Claude's drafts (D-940); Gap, kept (D-963);
-  the archway's line, Claude's draft (D-970); the call's and wary's lines and Bestiary words, Claude's drafts (D-974, D-977).
+  the archway's line, Claude's draft (D-970); the call's and wary's lines and Bestiary words, Claude's drafts (D-974, D-977); the phases' Bestiary words, Claude's draft (D-978).
 - The owner's Lampeater polish after its steps (`OPEN-QUESTIONS-3.md`).
 - How hard the Lampeater should be (Q-111): 12 hearts for now (D-950);
-  wary (D-977), Lean 7%, Middling 79%, Strong 85%; again after each step (D-972).
+  easier with the phases (D-978), Lean 35%, Middling 84%, Strong 94%,
+  the catch's snuffs gone; again after each step (D-972).
 - Any time: a sound for the vault door and the rune wall opening (D-895,
   D-929); a duskstar on the home waystone's ring (Q-103); the herb
   mimic's and the bone rat's rare drops (Q-061); who the keeper is
@@ -53,12 +53,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-18, 0.3.420, The Lampeater's phases.** At 8 and 4 hearts it
+  snuffs a lit brazier, then calls one more.
+  D-978. Playtest: https://claude.ai/artifact/1DEhSgEJCHcKqP4Eh6NSUA
 - **2026-11-18, 0.3.419, The Lampeater wary.** Struck with none to call,
   it keeps just past your lantern's reach for 3 turns, lit or not.
   D-977. Playtest: https://claude.ai/artifact/6HfgssgKhBXHW9zY5QmmAj
 - **2026-11-18, 0.3.418, The Lampeater's guards.** With 6 gloamlings
   alive, the 2 nearest it hold its shoulders, its way to you left open.
   D-976. Playtest: https://claude.ai/artifact/4j656SjnHb3WPmiyCvgXUb
-- **2026-11-18, 0.3.417, The Lampeater calls.** Struck and free again,
-  it calls a gloamling from a cold brazier; and the plan for a hands-off
-  health check. D-974, D-975. Playtest: https://claude.ai/artifact/Ndd7XBfya6iWePcV6Bgghv
