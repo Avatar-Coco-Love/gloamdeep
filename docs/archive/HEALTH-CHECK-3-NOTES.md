@@ -1026,3 +1026,46 @@ Looked at: a phone journey (iPhone 13, touch only: taps, swipes, bag, Make tab, 
 - Seen: played: /tmp/claude-0/-home-user-gloamdeep/4949d8dd-d5fc-582b-8ac1-3b540fccd1d6/scratchpad/work/H2/n1.png (hp 1, "The mole claws you."), /tmp/claude-0/-home-user-gloamdeep/4949d8dd-d5fc-582b-8ac1-3b540fccd1d6/scratchpad/work/H2/o1.png
 - Who: some (new players who do not strike at once)
 - Fixes: 1) leave as is, and have the first goal teach "strike the mound when it comes up" 2) first-day mole sleeps or digs only after the player's first 40 turns 3) a heal at hand (a herb near the start)
+
+### As checked: area H2
+#### Area H2: Full journeys on phone and PC, boon button, line seconds, round map
+Looked at: a phone journey (iPhone 13, touch only, about 380 moves, three worlds); PC keyboard (about 100 moves, every screen) and mouse (every HUD button); no page or console errors. D-930, D-932, D-931 and D-921 hold as played. Not covered: the broken ember rim, a two-row line's 6 seconds, the boss fight, night play on PC.
+
+##### H2-4 The first-day mole costs a new hero 3 of 5 hearts
+- Where: src/core/enemies.js:48 (mole: health 4, bite 1, sight 5), src/core/room.js:184 ({ id: 'mole', from: 5 }), src/core/nightfall.js:38 (DAY_KINDS 'mole')
+- Against: D-541 "4 hearts, a bite of 1, in the pool from depth 5"; D-781 "a mole may meet a new journey on its first turn" (Claude's call the owner may change); D-726 "bites only on the turn after, so the hero strikes first"
+- What: The mole's numbers were picked for depth 5 and below, then D-781 put one in every woods room by day, the start room included. Even a new hero who strikes the moment it comes up needs 4 hits and takes 3 bites. In play, a hero who didn't strike at once went from 5 hearts to 1 or 2.
+- Seen: ran: work/H2-check/mole.mjs (the game's own step/wait, hero with starting hearts and the lantern only, striking from the turn it surfaces): 50 of 50 seeds "start 5, lost 3, hits 4". played: work/H2/n1.png (1 heart, "The mole claws you.")
+- Who: most new players, in their first minutes
+- Fixes: an owner's question, not a bug: 1) a gentler day mole on the surface (fewer hearts), the deep numbers kept from depth 5 2) the start room has no mole on the first day 3) leave it, and teach it with a first goal or a herb near the start
+- Checked: REVISE, the original's "killed it with one bump" is wrong (tests/mole.test.js:46 "four lantern hits beat it"); measured again with my own script
+
+##### H2-2 After a dev jump, goals, Bestiary and Records stop silently
+- Where: src/main.js:146-150,160-162 (keepGoals: "if (app.jumped) return false"), src/main.js:523-525 (goTo, bench, loadSpot set jumped), src/core/save.js:113 (jumped kept in the save), docs/DEV-TOOLS.md:65-67
+- Against: D-232 "Dev jumps don't count ... until a New journey" and DECISIONS-GOALS.md:73 "goals don't move after a dev jump" (the rule is decided; what's missing is any sign of it)
+- What: The stopping is on purpose. But nothing on screen says so, and DEV-TOOLS.md's Room line doesn't call Go to depth a dev jump (the Spots and Boss lines do, :83, :91), nor list what a jump stops. The flag is saved with the journey, so one tap of Go to depth (dev tools are on for everyone, D-086) stops goals and records for the whole journey.
+- Seen: played: work/H2/y2.png (boon taken, goal still "Find the waystone"); ran: work/H2/gl.mjs, the game's goalsAfter ticks "stone" on the same seed, so only the jump stops it; read: main.js:162
+- Who: few players (dev tools are open to all); dev time (every tester who jumps, then checks goals or records)
+- Fixes: 1) a short "Jumped: goals and records paused" on the dev stats line, and one sentence in DEV-TOOLS.md's Room line 2) the docs sentence only
+- Checked: REVISE, confirmed in code and decisions; Against corrected (decided, not a bug); Who widened since the flag is saved and dev tools are public
+
+##### H2-1 The text line can sit over the hero low in a room
+- Where: src/render/textline.js:17-20 (lineTop: a fixed height from the screen's bottom); nothing in the camera keeps the hero clear of it (only the creature list, frame.js:398, and the boss bar keep clear)
+- Against: D-381 "The text line sits on the same glass, along the bottom of the room" and D-505 (upright, above the corner pieces): the place is decided; it replaced D-094's "so no tile is ever covered". The owner once moved the top boxes out of the room because they covered the hero (D-198).
+- What: When the hero stands on the rows near the bottom of the screen (for example arriving by the stairs at a room's foot), a line like "You go down the stairs." is drawn across part of the hero. It lasts at most 4 seconds or 5 turns (D-932).
+- Seen: played: work/H2/r2.png (iPhone 13; hero at about y 487, line glass y 490-515, over the hero's lower right side)
+- Who: some, briefly
+- Fixes: an owner's question: 1) leave it, as the line is short-lived 2) the line moves up above the hero when the hero is within a tile of it 3) the hero drawn on top of the line's glass
+- Checked: REVISE, Where corrected (textline.js, not the camera clamp), Against added (D-381/D-505 decide the place, D-932 bounds the time); screenshot viewed
+
+##### H2-3 No hook lets a browser script read the running game
+- Where: src/main.js:505-528 (the dev hooks are passed to the dev panel only, nothing on the page), tools/perf.js:42,69,72 (drives by key presses and a seeded settings key only)
+- Against: none (a risk, dev time)
+- What: The game's rules can be scripted in Node (tools/bossrun.js, tests/), but checking real play in a browser means guessing the hero's place from pixels and the camera by hand; the dev stats line shows the hero's tile (DEV-TOOLS.md:33) but only as drawn text. Each playtest or health-check helper rebuilds this.
+- Seen: measured: about 10 helper scripts in work/H2, about 25 minutes of the run spent on them; read: no state or hero-screen-point getter in src/main.js
+- Who: none (players); dev time and context for each future browser playtest
+- Fixes: 1) a dev-only read getter (state, hero's screen point) plus a shared tools/drive.js with step, swipe and click 2) document the localStorage keys and a hero-position formula in DEV-TOOLS.md
+- Checked: REVISE, kept as concrete but narrowed: the Node side is already scriptable, so the gap is the browser only; order lowered
+
+#### Dropped
+None dropped. Order changed: H2-4 first (measured, hits most new players), H2-3 last (dev time only). Paths "work/..." are under the scratchpad.
