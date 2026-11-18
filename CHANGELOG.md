@@ -24,6 +24,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.422 (2026-11-18)
+- No change in play. Each conversation now starts by reading about a fifth less: the big table of docs moved out of `CLAUDE.md` to `docs/INDEX.md`, nine old rules on how we work out of `docs/DECISIONS.md`, and done plan steps and repeated questions out of `docs/PROGRESS.md`, all word for word.
+- The first two health checks' finished pages and five old audit-lesson pages moved to the archive; three near-full pages split (`SOUNDS-4.md`, `CONTENT-5.md`, `WORKFLOW-SINCE.md`); `npm test` prints a dot a test, about 2 KB instead of 436 KB.
+- From now on the health check's steps run hands-off: Claude builds its own recommended fixes and lists every pick in the PR.
+- Decisions: D-980, D-981.
+
 ## 0.3.421 (2026-11-18)
 - No change in play. A third health check, run while the owner was away: helper agents looked at ten areas, from the Lampeater's fight to what each conversation reads, and a second agent tested every finding again before it was kept. Of 60 found, 40 are kept, from card buttons too small on a phone to a test run that prints 436 KB. The owner made every one a step, reading less first.
 - Decisions: D-975, D-979. D-975 moved to the archive, word for word.
@@ -33,8 +39,3 @@ Entry format:
 - A snuffed bowl brings out a gloamling only while fewer than 6 are out.
 - The boss bench, from 5%, 79% and 83%: Lean wins 35%, Middling 84%, Strong 94%; its half start counts the first phase done.
 - Decisions: D-978. D-976 moved to the archive, word for word.
-
-## 0.3.419 (2026-11-18)
-- The Lampeater wary: struck, with no cold brazier to call from or 6 gloamlings out, it draws back for 3 turns to just past your lantern's reach, still drinking at its edge. With the lantern off it keeps the same distance, so lighting it no longer catches it. Its eyes dim while it is wary; then it comes for you again.
-- The boss bench, from 12%, 80% and 83%: Lean wins 7%, Middling 79%, Strong 85%.
-- Decisions: D-977.

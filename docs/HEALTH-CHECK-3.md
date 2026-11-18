@@ -6,7 +6,9 @@ another before it was kept (60 found, 40 kept). Nothing in the game
 changed. The owner picks which become steps; each step works as before
 (D-860): Claude checks the finding still holds, offers 2 or 3 fixes with
 a recommendation, and builds only the owner's pick. "Suggests" is
-Claude's recommendation, not a decision. Numbered on from the first two
+Claude's recommendation, not a decision. Since 0.3.422 (D-980), the
+owner's wish, Claude builds its recommended fix at each step without
+asking, and lists its picks in the PR; gameplay rulings are still asked. Numbered on from the first two
 checks, never reused. How we work (reading less, each PR costing less)
 is in `HEALTH-CHECK-3-WAYS.md`; the working notes, with every dropped
 finding and why, in `archive/HEALTH-CHECK-3-NOTES.md`.

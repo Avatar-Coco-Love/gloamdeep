@@ -5,7 +5,7 @@ game: a step that adds a moment worth hearing adds its line here. The
 sounds come from files, a free pack first (Kenney's, which needs no
 credit). Each sound is silent until its file is in; the footstep is
 the first (D-774), the lantern's click the second (D-775), the steps
-below the third (D-776), the fight's hit and beaten the fourth (D-777), the menus the fifth (D-819), the bag's the sixth (D-820), digging and chests the seventh (D-825), home's the eighth (D-828), the lantern and the light the ninth, the first from the elemental pack (D-830), the fight's rest the tenth (D-831), the creatures' bites the eleventh, all under one line, Bites (D-832), and the rest the twelfth, Claude's picks by the owner's go-ahead (D-833). Music began on the surface (D-837), its own pack and kind, in `SOUNDS-3.md`. Settings' Loudness turns every sound up or down together (D-822), and each of four kinds has its own share of it: Steps (Moving, and the lantern and the light), Fighting (and Creatures), Finds (the bag and home, digging and chests, and Places) and Menus (D-823); a fifth, Music, 50% until picked (D-837). Each heard sound can be turned On or Off on its own, in a list opened from its kind's line (D-824).
+below the third (D-776), the fight's hit and beaten the fourth (D-777), the menus the fifth (D-819), the bag's the sixth (D-820), digging and chests the seventh (D-825), home's the eighth (D-828), the lantern and the light the ninth, the first from the elemental pack (D-830), the fight's rest the tenth (D-831), the creatures' bites the eleventh, all under one line, Bites (D-832), and the rest the twelfth, Claude's picks by the owner's go-ahead (D-833). Music began on the surface (D-837), its own pack and kind, in `SOUNDS-3.md`, now `SOUNDS-4.md` (0.3.422). Settings' Loudness turns every sound up or down together (D-822), and each of four kinds has its own share of it: Steps (Moving, and the lantern and the light), Fighting (and Creatures), Finds (the bag and home, digging and chests, and Places) and Menus (D-823); a fifth, Music, 50% until picked (D-837). Each heard sound can be turned On or Off on its own, in a list opened from its kind's line (D-824).
 
 **How a line reads.** *Name*: the sound's name in the code, where it
 has one (`src/render/sound.js`). *When*: the moment it plays. *Feel*:
@@ -80,3 +80,7 @@ In `SOUNDS-2.md`, moved word for word at 0.3.277.
 ## Maybe and Later
 
 In `SOUNDS-2.md` (D-826).
+
+## Music
+
+In `SOUNDS-4.md`, moved word for word from `SOUNDS-3.md` at 0.3.422.
