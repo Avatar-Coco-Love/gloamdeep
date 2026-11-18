@@ -22,6 +22,7 @@ import { rise } from './bones.js';
 import { guards } from './guard.js';
 import { flankLead, flankStep } from './flank.js';
 import { callStep } from './call.js';
+import { guardLead, guardStep } from './guarding.js';
 
 // § enemies' turn: after the hero's, every enemy next to the hero bites, lit
 // or not (D-114). The bite line replaces any other said this turn (D-117).
@@ -235,6 +236,9 @@ function enemiesMove(state, bit = false) {
     const chasing = !seeks && ((!t.home && e.chasing) || noticesHero(state, e, t, soft, lit)); // one with a home chases only while it sees them (D-943)
     const back = t.home && !chasing && awayFrom(e) ? homeOf(e) : null, goal = seeks ? lightGoal(state, e) : back || state.hero;
     const flees = lit && t.whenLit === 'backAway', runs = fleeing(e);
+    const ward = !seeks && !flees && !runs && t.moves && guardLead({ ...state, enemies }, e); // with 6 out, 2 guard the Lampeater (guarding.js, D-976)
+    const held = ward && guardStep({ ...state, enemies }, e, ward, claims, free);
+    if (held) { enemies = enemies.map((o) => (o === e ? { ...e, x: held.x, y: held.y, ...facingTo(e, held) } : o)); continue; }
     if (!(seeks ? goal : (chasing || back) && t.moves) && !flees && !runs) continue;
     const near = !back && goal && Math.abs(e.x - goal.x) + Math.abs(e.y - goal.y) === 1;
     const now = { ...state, enemies };
