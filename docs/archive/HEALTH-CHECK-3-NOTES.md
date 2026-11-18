@@ -18,7 +18,7 @@ reused); while working, each area numbers its own (A-1, B-1...).
 - [x] D. Tests and tools: speed, noise, what's slow or doubled.
 - [x] E. The Lampeater's fight (0.3.381 to 0.3.420).
 - [x] F. Leap, the crumbling floor, gaps, the archway, the seal hall.
-- [ ] G. The Warden's Fist, vaults, the rune wall, shovel, doorways, flyers.
+- [x] G. The Warden's Fist, vaults, the rune wall, shovel, doorways, flyers.
 - [ ] H. Played as a player, on a phone and a PC, the screens since 0.3.329.
 - [ ] I. Saves and speed: old saves, save size, frame time, boot.
 - [x] J. The docs against the code since 0.3.329.
