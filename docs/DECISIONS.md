@@ -101,28 +101,6 @@ in about 13 steps (the page's list); every name, number, look and line
 is set at its own step. D-927 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
 
-**D-970 · 2026-11-17 · The place beyond, its doorway and one empty room**
-(the owner's picks, all recommended; answers part of Q-115; builds D-969)
-The doorway past a Leap gap is an Archway in a wall of the cut-off
-corner, leading to a room of its own off the floor's grid; it fits every
-gap (offered too: an opening into an empty square of the floor's grid,
-which fits under half; the grid square, else the archway). The room is
-one cell big, the size of a normal room on that floor (offered too: small,
-like the vault; a hall of 2 cells). The Archway is a new tile drawn in
-code, a dark round-topped opening (offered too: the vault's open door; a
-plain gap in the wall). Claude's calls: the Archway stands on the room's
-outer edge where the corner reaches it, else in a wall inside, beside no
-open ground but the corner's, never on a room's corner tile or an edge
-with a way out, the one farthest from the Gap; walked onto, it goes
-through as stairs do, "You go through the archway." (Claude's draft), the
-hero arriving on the other side's Archway, in the middle of the room
-beyond's edge facing back; the room is walls round an empty floor in the
-floor's own look, kept like any room; on the map it isn't drawn yet, and
-the hero in it shows at the gap room's Archway; rooms already in a save
-keep their shape, so a gap room seen before gets no Archway (`beyond.js`).
-Next, the place's look. D-965 and D-966 move to
-`archive/DECISIONS-SUPERSEDED.md`, word for word.
-
 **D-971 · 2026-11-17 · The Lampeater made harder, and Leap a find**
 (the owner's ideas and picks, all recommended; part of the owner's
 Lampeater polish, `OPEN-QUESTIONS-3.md`; builds D-939) The owner found
@@ -181,3 +159,18 @@ card, the sound. Claude's calls, to confirm at their steps: with 6 alive
 it is wary, as with no cold brazier; the 2 nearest it guard, and with
 fewer than 6 they act as the rest; the bench after each step. D-967 and
 D-969 move to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-973 · 2026-11-18 · The Lampeater's gloamlings flank you** (the
+owner's picks, both recommended; builds D-972, its step 2) While it comes
+for the hero, chasing and not caught, the side left open toward it is the
+tile beside the hero fewest steps from it, the first of up, down, left,
+right on a tie (offered too: the tile its own next step would end on). A
+gloamling on that side bites as ever, then steps off it toward another
+free side (offered too: staying there and biting). Claude's calls: the
+others go round to a free side by the shortest way that never crosses the
+open one, the farthest from each other first, as a rat pack spreads; one
+beside the hero on another side stays and bites; lit, they back off as
+ever, so they flank only in the dark (`flank.js`). The bench, from 52% and
+100%: Lean 18%, Middling 96%, Strong 100%, their bites up from about 157 to
+about 277 in 100 fights (Q-111). D-970 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

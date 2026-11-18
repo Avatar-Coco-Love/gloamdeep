@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-17, 0.3.413, Gloamlings in the seal hall.** A gloamling
+  beside each of the arena's 4 braziers at the start; the Lampeater's
+  6 steps planned. D-971. Playtest: https://claude.ai/artifact/HsG8ykgpN3VhcXZpcc9cez
 - **2026-11-17, 0.3.412, The archway beyond the gap.** An archway past
   each Leap gap to one empty room off the grid. D-970. Playtest: https://claude.ai/artifact/LjhoNv7EpDXV9awuNqKXCQ
   Map preview: https://claude.ai/artifact/JKFex9qZNgKzua11MYayn6
