@@ -23,6 +23,7 @@ import { guards } from './guard.js';
 import { flankLead, flankStep } from './flank.js';
 import { callStep } from './call.js';
 import { guardLead, guardStep } from './guarding.js';
+import { waryStep } from './wary.js';
 
 // § enemies' turn: after the hero's, every enemy next to the hero bites, lit
 // or not (D-114). The bite line replaces any other said this turn (D-117).
@@ -232,6 +233,12 @@ function enemiesMove(state, bit = false) {
     }
     const call = !lit && callStep({ ...state, enemies }, e, free); // struck and free again, the Lampeater goes to a cold brazier and calls (call.js, D-974)
     if (call) { enemies = enemies.map((o) => (o === e ? { ...e, x: call.x, y: call.y, ...facingTo(e, call) } : o)); continue; }
+    const wary = !lit && waryStep({ ...state, enemies }, e, free); // with none to call, it keeps just past the lantern's reach (wary.js, D-977)
+    if (wary) {
+      if (!e.wary) said = said || get(e.id).calls.warySays;
+      enemies = enemies.map((o) => (o === e ? { ...e, x: wary.x, y: wary.y, wary: e.wary || get(e.id).calls.wary, ...facingTo(e, wary) } : o));
+      continue;
+    }
     const seeks = t.moves === 'toLight';
     const chasing = !seeks && ((!t.home && e.chasing) || noticesHero(state, e, t, soft, lit)); // one with a home chases only while it sees them (D-943)
     const back = t.home && !chasing && awayFrom(e) ? homeOf(e) : null, goal = seeks ? lightGoal(state, e) : back || state.hero;

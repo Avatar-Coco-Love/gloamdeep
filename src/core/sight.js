@@ -44,6 +44,18 @@ export function litAt(state, x, y, less = 0) {
 // § lantern lit: (state, x, y) → true when the lantern's own light reaches tile x, y, by the same
 // rule, whatever else shines there (the Lampeater drinks from its edge, D-946)
 export const lanternLitAt = (state, x, y) => state.lit && litBy(state, x, y, lightsNow({ ...state, lights: [] }).slice(0, 1));
+// § lantern's reach: (state) → (x, y) → whether the lantern's own light would reach tile x, y were it
+// lit, by the same rule, worked out once (the Lampeater, wary, keeps just past it, D-977)
+export function lanternReachOf(state) {
+  const r = lanternReach(state);
+  if (r <= 0) return () => false;
+  const L = { ...lanternFrom(state.hero.x, state.hero.y), r }, { room } = state, cw = room.cols * TILE_SIZE / CELL;
+  const seen = seenCells(room, L.x, L.y, L.r, new Uint8Array(cw * room.rows * TILE_SIZE / CELL));
+  return (x, y) => {
+    const mx = x * TILE_SIZE + TILE_SIZE / 2, my = y * TILE_SIZE + TILE_SIZE / 2;
+    return Math.hypot(mx - L.x, my - L.y) < L.r * NEAR && seen[(my / CELL | 0) * cw + (mx / CELL | 0)] === 1;
+  };
+}
 function litBy(state, x, y, lights) {
   const { room } = state, cw = room.cols * TILE_SIZE / CELL;
   const mx = x * TILE_SIZE + TILE_SIZE / 2, my = y * TILE_SIZE + TILE_SIZE / 2;

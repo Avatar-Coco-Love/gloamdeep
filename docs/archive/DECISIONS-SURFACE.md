@@ -2644,3 +2644,25 @@ ever, so they flank only in the dark (`flank.js`). The bench, from 52% and
 100%: Lean 18%, Middling 96%, Strong 100%, their bites up from about 157 to
 about 277 in 100 fights (Q-111). D-970 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-974 · 2026-11-18 · The Lampeater's calls** (the owner's picks, all
+recommended, the look's three together; builds D-971 and D-972, their
+step 3) Struck and free again, it walks through the dark to a tile beside
+the nearest cold brazier and calls from there (offered too: from where it
+stands, as its breath does). The call shows as the cold bowl's ashes
+stirring with a faint violet glow, with its breath's dashed ring and turn
+countdown, its eyes turned a pixel toward the bowl, and "The Lampeater
+calls into the ashes." (Claude's draft) as it starts. Until the wary step,
+with 6 gloamlings alive or no cold brazier it can reach, it fights on as
+now (offered too: waiting where it stands); its half-hearts snuff and the
+snuff after each catch stay until the phases replace them (offered too:
+gone now). Claude's calls: a blow that hurts it marks it struck, and a
+call ended clears the mark, so one call each time it is struck and free;
+the nearest brazier by steps through the dark, the first of up, down,
+left, right on a tie; gloamlings waiting in a bowl count toward the 6; the
+one called crawls out as from a snuffed bowl (brood.js), the arena's own;
+its Bestiary words end "Struck, it goes to a cold brazier and calls one
+out." (Claude's draft) (`call.js`). The bench's bot now walks to it when it
+waits in its place. The bench, from 18%, 96% and 100%: Lean 12%, Middling
+79%, Strong 83% (Q-111). D-939 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.

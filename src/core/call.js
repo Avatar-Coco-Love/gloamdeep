@@ -5,8 +5,8 @@
 // marked `call` { x, y, left }, its `says` said as it starts. Caught in light, the call stops, and it
 // tries again once free; that brazier lit, the call is spoilt, and it turns to another cold one. At
 // the end the creature waits in the bowl and crawls out as one from a snuffed bowl does (brood.js).
-// With `most` of its brood alive (or waiting in a bowl), or no cold brazier it can reach, it fights
-// on as ever (the wary step comes later, D-972). Plain data, no drawing.
+// With `most` of its brood alive (or waiting in a bowl), or no cold brazier it can reach, it is wary
+// instead (wary.js, D-977), and never calls while wary. Plain data, no drawing.
 import { get } from './registry.js';
 import { litAt } from './sight.js';
 import { DIRS } from './state.js';
@@ -24,7 +24,7 @@ export const broodCount = (state, e) => {
 };
 
 // Whether e, struck and free again, wants to call now
-const wants = (state, e) => !!get(e.id).calls && e.struck && !e.caught && !e.call && !litAt(state, e.x, e.y) && broodCount(state, e) < get(e.id).calls.most;
+const wants = (state, e) => !!get(e.id).calls && e.struck && !e.caught && !e.call && !e.wary && !litAt(state, e.x, e.y) && broodCount(state, e) < get(e.id).calls.most;
 
 // § call step: (state, e, free) → the tile e steps onto on its way to a cold brazier (its own tile when
 // already beside one), or null to fight on as ever. `free`: whether e may step onto a tile (creatureturn.js)

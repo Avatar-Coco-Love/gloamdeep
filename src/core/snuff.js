@@ -13,6 +13,7 @@ import { note } from './events.js';
 import { say } from './lines.js';
 import { crawl } from './brood.js';
 import { calls } from './call.js';
+import { waryTurns } from './wary.js';
 
 const steps = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
 
@@ -66,4 +67,4 @@ export function breathe(before, state) {
 
 // § breath turn: (before, after) → after the creatures' turn, its calls (call.js, D-974), its breath and
 // then its brood's crawl (brood.js, D-949), unless the hero fell or left the room in it
-export const breathTurn = (before, after) => (after.fell !== before.fell || after.place !== before.place ? after : crawl(breathe(before, calls(after))));
+export const breathTurn = (before, after) => (after.fell !== before.fell || after.place !== before.place ? after : crawl(breathe(before, waryTurns(calls(after)))));
