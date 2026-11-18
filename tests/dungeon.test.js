@@ -2,6 +2,7 @@
 // floor's layout is checked in region.test.js (D-645)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { sweep } from './fixtures.js';
 import { generateRoom } from '../src/core/cave.js';
 import { unguardedOf } from '../src/core/unguarded.js';
 import { layoutAt } from '../src/core/region.js';
@@ -36,7 +37,7 @@ test('every dungeon room is made, not the fallback, and the stairs line up from 
 });
 
 test('halls: every seed gives one, the same each time, with the usual contents', () => {
-  for (let seed = 1; seed <= 300; seed++) {
+  for (let seed = 1; seed <= sweep(300); seed++) {
     const h = generateRoom(seed, 'halls');
     assert.ok(h, `seed ${seed}`);
     assert.deepEqual(h, generateRoom(seed, 'halls'));

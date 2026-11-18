@@ -9,30 +9,11 @@
 // Not part of the game. It needs Playwright and a Chromium, as on Claude's
 // cloud machine; nothing is added to package.json. Numbers change from
 // machine to machine: compare runs on the same one.
-import { createServer } from 'node:http';
-import { createRequire } from 'node:module';
-import { readFileSync } from 'node:fs';
-import { dirname, join, normalize } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { openGame, intoPlay } from './drive.js';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SLOW = Number(process.argv[2]) || 4;
 const SEED = 4127, SECONDS = 4;
 const BUDGET = { frame: 16.7, light: 8 }; // milliseconds, docs/TECH.md "Frame budget"
-
-// § serve: the repo's files
-const TYPES = { '.js': 'text/javascript', '.html': 'text/html', '.json': 'application/json', '.png': 'image/png' };
-const server = createServer((req, res) => {
-  const path = decodeURIComponent(new URL(req.url, 'http://x').pathname);
-  const file = normalize(join(ROOT, path === '/' ? '/index.html' : path));
-  if (!file.startsWith(ROOT)) return res.writeHead(403).end();
-  try {
-    res.writeHead(200, { 'content-type': TYPES[file.slice(file.lastIndexOf('.'))] ?? 'text/plain' }).end(readFileSync(file));
-  } catch {
-    res.writeHead(404).end();
-  }
-});
-await new Promise((ok) => server.listen(0, '127.0.0.1', ok));
 
 // § measure: frames counted in the page; where the time went from the profiler.
 // "In the light" is every sample with drawLight on its stack, its reads and writes of the pixels too.
@@ -61,15 +42,9 @@ async function measure(page, cdp, walking) {
   return { fps: frames / SECONDS, busy: busy / frames, light: light / frames };
 }
 
-const { chromium } = createRequire(import.meta.url)('playwright');
-const browser = await chromium.launch();
+const game = await openGame({ seed: SEED, scale: 3 }), { page } = game; // the serving and the browser: tools/drive.js (H-107)
 try {
-  const page = await browser.newPage({ viewport: { width: 844, height: 390 }, deviceScaleFactor: 3, hasTouch: true });
-  page.on('pageerror', (e) => { throw e; });
-  await page.addInitScript((seed) => { try { localStorage.setItem('gloamdeep-settings', JSON.stringify({ seed, taps: 2 })); } catch { /* not kept */ } }, SEED);
-  await page.goto(`http://127.0.0.1:${server.address().port}/`);
-  await page.waitForTimeout(1500);
-  for (let i = 0; i < 3; i++) { await page.keyboard.press('Enter'); await page.waitForTimeout(600); } // into play, on the surface
+  await intoPlay(page); // on the surface
   const cdp = await page.context().newCDPSession(page);
   await cdp.send('Emulation.setCPUThrottlingRate', { rate: SLOW });
   await cdp.send('Profiler.enable');
@@ -82,6 +57,5 @@ try {
     console.log(`${label}  fps ${r.fps.toFixed(0).padStart(2)} · frame ${ms(r.busy)} ms · light ${ms(r.light)} ms${over}`);
   }
 } finally {
-  await browser.close();
-  server.close();
+  await game.close();
 }

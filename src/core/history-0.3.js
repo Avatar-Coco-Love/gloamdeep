@@ -6,6 +6,12 @@
 // tools/release.js once a newer version is in (D-982); stage 0.2's are in history-0.2.js and its split
 // files.
 export const HISTORY_03 = [
+  { v: '0.3.425', date: '2026-11-18', title: 'The tests', lines: [
+    "No change in play. The tests: a quick run, npm run quick, checks a tenth of the biggest seed sweeps while Claude works, and npm test still checks every seed before each handoff; two tests that broke at every save change now don't.",
+    "New tests can share their setups (tests/fixtures.js), and the place beyond's tests have their own file, named for what they test.",
+    "Scripts can now read the running game (window.gloamdeep), so tools/perf.js really reaches play: before, it timed the opening screen. Walking on the surface now reads 57 ms a frame on a slow phone, for the frame-budget step (H-73).",
+    "Decisions: D-985.",
+  ] },
   { v: '0.3.424', date: '2026-11-18', title: 'Less code to read', lines: [
     "No change in play. Less code to read: the game's biggest file, its 530 text lines, is split by topic into four smaller files, and the title's screens and cards moved out of the frame-drawing file; a new test stops any other code file passing 20 KB.",
     "The 14 small files that bring an older save up to date now sit together in their own folder and share one helper instead of 8 copies; the little tile helpers copied into 12 files live once in tile.js.",

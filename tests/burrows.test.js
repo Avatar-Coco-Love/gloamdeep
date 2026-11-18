@@ -1,13 +1,14 @@
 // § burrows: earth burrows from depth 5 (D-165, D-212) and the dev Go to depth (D-166)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { seeds } from './fixtures.js';
 import { generateRoom } from '../src/core/cave.js';
 import { kindAt, placeFor, placeAt, makeRoom, tileAt } from '../src/core/room.js';
 import { goToDepth } from '../src/core/stairs.js';
 import { makeWorld } from '../src/core/turn.js';
 import { layoutAt } from '../src/core/region.js';
 
-const SEEDS = Array.from({ length: 500 }, (_, i) => i + 1);
+const SEEDS = seeds(500); // a tenth in a quick run (H-103)
 const count = (map, ch) => map.join('').split(ch).length - 1;
 
 test('depths 2 to 4 are grey rock chambers, 5 to 7 earth burrows (D-212, D-228)', () => {

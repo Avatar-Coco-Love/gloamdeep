@@ -147,7 +147,7 @@ test('met when light reaches it; its page shows the grey hints, how to fight it 
 });
 
 test('an older save: an arena made before it came gets it, once, never onto the hero', () => {
-  assert.equal(FORMAT, 37); assert.equal(UPGRADES[36], withLampeater);
+  assert.ok(FORMAT >= 37); assert.equal(UPGRADES[36], withLampeater); // at least: a later save step keeps this one (H-104)
   const seed = 3, id = arenaOf(seed).id, inside = goToPlace(makeWorld('first', seed), id);
   const empty = { ...inside, enemies: [] }, s = withLampeater(empty);
   assert.deepEqual(s.enemies, [{ id: 'lampeater', ...LAMPEATER_AT }]);

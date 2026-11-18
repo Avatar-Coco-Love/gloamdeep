@@ -41,7 +41,9 @@ finding and why, in `archive/HEALTH-CHECK-3-NOTES.md`.
 - **H-73 Walking in a dark big room is over the frame budget,** 17 to
   21 ms on a 4x slower CPU (D-430: 16.7 ms), and `tools/perf.js` plays
   only daylight, so its light reads 0.0 ms (`frame.js:337`). Measured.
-  Suggests: perf.js measures a dark room and the arena too.
+  Suggests: perf.js measures a dark room and the arena too. Since
+  0.3.425 perf.js reaches play; before, it timed the opening screen,
+  and walking on the surface now reads 57 ms (D-985).
 - **H-74 Sound On decodes shared files again for each voice:** 314
   copies of 111 files, about 69 MB held, not 28 (`sound.js:283-290`).
   Measured. Suggests: one decoded copy per file.

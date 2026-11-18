@@ -1,13 +1,14 @@
 // § cave: generated rooms (D-147 to D-149) and the seeded RNG
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { seeds } from './fixtures.js';
 import { generateRoom } from '../src/core/cave.js';
 import { rng, nextSeed, SEED_MAX } from '../src/core/rng.js';
 import { makeRoom, tileAt } from '../src/core/room.js';
 import { mountAt } from '../src/core/mount.js';
 import { litAt } from '../src/core/sight.js';
 
-const SEEDS = Array.from({ length: 2000 }, (_, i) => i + 1);
+const SEEDS = seeds(2000); // a tenth in a quick run (H-103)
 const count = (map, ch) => map.join('').split(ch).length - 1;
 const near = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
 // Each seed's room, made once and shared by the tests below (D-570: the three

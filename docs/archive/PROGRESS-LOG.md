@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-18, 0.3.422, Reading less.** Hands-off (D-980): each
+  conversation starts by reading about a fifth less, nothing in the game
+  changed (H-87 to H-93). D-981.
 - **2026-11-18, 0.3.421, The third health check.** Hands-off, nothing in
   the game changed: 40 findings kept of 60, each checked twice (D-975).
   Report: https://claude.ai/artifact/EUFm1fPQY9EhzgnWBYSNdv
