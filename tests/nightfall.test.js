@@ -248,3 +248,13 @@ test('a rim lurker comes out by night in each mountain room, beside the rock, th
   }
   for (const id of [HOME_ID, ...ROUND_HOME]) assert.ok(!nightfall(at(id, 220)).enemies.some((e) => e.id === 'rimLurker'), id);
 });
+
+test('no mole in a journey\'s start room on its first day; the bunny comes, the mole the next day (H-71)', async () => {
+  const { newJourney } = await import('../src/core/state.js');
+  for (const seed of [1, 4127, 99]) {
+    const s = newJourney(seed), day1 = nightfall({ ...s, turn: 1 });
+    assert.equal(moles(day1).length, 0, `seed ${seed}`);
+    assert.equal(bunnies(day1).length, 1, `seed ${seed}: the bunny still`);
+    assert.equal(moles(nightfall({ ...day1, turn: 300 })).length, 1, `seed ${seed}: day 2`);
+  }
+});

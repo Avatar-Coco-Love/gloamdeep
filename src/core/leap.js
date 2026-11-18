@@ -24,5 +24,9 @@ export function leap(state, dir, step) {
   const mid = { x: h.x + dx, y: h.y + dy }, x = h.x + 2 * dx, y = h.y + 2 * dy;
   if (!over(state, mid.x, mid.y)) return say(state, 'leapTooTall');
   if (!lands(state, x, y)) return say(state, 'leapNoRoom');
-  return note(step({ ...state, hero: mid }, dir), 'leap', { from: h, x, y });
+  return note(step({ ...letGo(state), hero: mid }, dir), 'leap', { from: h, x, y });
 }
+
+// § let go (H-70): (state) → the state with "Leap which way?" gone, once a leap is taken or let
+// go; any other line stays
+export const letGo = (state) => (state.line?.id === 'leapWhich' ? { ...state, line: null } : state);

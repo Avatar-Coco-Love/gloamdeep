@@ -9,7 +9,7 @@ import { drawText, textWidth } from './font.js';
 import { drawMarker } from './menu.js';
 import { drawTabs, tabAt, tabRows, TAB_ROW } from './bagtabs.js';
 import { SETTINGS_TABS, kindListTab } from '../core/menu.js';
-import { cardAt, drawCard, drawButton, inCard, onCross, wrapWords, BUTTON, PAD, TAP_PAD, RULE_Y } from './bag.js';
+import { cardAt, drawCard, drawButton, inCard, onCross, wrapWords, BUTTON, PAD, RULE_Y, onButton } from './bag.js';
 
 const GREY = '#9790a4', GOLD = '#ffd66b', CORE = '#efe6cc';
 const ROWS_Y = 30, ROW_STEP = 16; // the first row's top inside the card, and from one row's top to the next
@@ -45,7 +45,7 @@ export function settingsCardAt(x, y, vw, vh, menu, list = null) {
   if (onCross(card, x, y)) return 'close';
   const tab = tabAt(card, x, y, tabsOf(list));
   if (tab) return list ? 'back' : { tab };
-  if (y >= h.y - TAP_PAD && y < h.y + BUTTON.h + TAP_PAD && x >= h.x - TAP_PAD && x < h.x + HISTORY_W + TAP_PAD) return 'history';
+  if (onButton(h, HISTORY_W, x, y)) return 'history';
   const half = (step - 9) / 2, i = tops.findIndex((top, j) => y >= top - half && y < top - half + values[j].length * step);
   return i >= 0 ? { line: i } : null;
 }

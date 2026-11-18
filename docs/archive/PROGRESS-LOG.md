@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-18, 0.3.423, Each PR costs less.** Hands-off (D-980), nothing
+  in the game changed: a test keeps every decision and the archive, and
+  release.js splits the history by itself (H-94 to H-98). D-982.
 - **2026-11-18, 0.3.422, Reading less.** Hands-off (D-980): each
   conversation starts by reading about a fifth less, nothing in the game
   changed (H-87 to H-93). D-981.

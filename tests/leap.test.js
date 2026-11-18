@@ -55,3 +55,13 @@ test('no room to land: a creature there, a wall or the room\'s edge, free', () =
     assert.equal(next.line.id, 'leapNoRoom');
   }
 });
+
+test('"Leap which way?" goes once the leap is taken or let go; another line stays (H-70)', async () => {
+  const { say } = await import('../src/core/lines.js'), { letGo } = await import('../src/core/leap.js');
+  const ready = say(at(['.....'], { x: 0, y: 0 }), 'leapWhich');
+  assert.equal(leap(ready, 'right').line?.id === 'leapWhich', false);
+  assert.equal(shownLine(leap(ready, 'right')), null);
+  assert.equal(letGo(ready).line, null);
+  const other = say(ready, 'leapNoRoom');
+  assert.equal(letGo(other), other);
+});

@@ -70,6 +70,11 @@ const buttonText = (entry) => (entry.oil ? 'POUR' : entry.eats ? entry.verb ?? '
 export const secondText = (entry) => (entry?.rest ? SLEEP : entry?.eats ? (entry.craft ? 'MAKE' : entry.oil ? 'EAT' : null) : null);
 export const twoButtons = (entry) => !!secondText(entry);
 export const TAP_PAD = 4; // game pixels around a slot, the cross or a button that still pick it
+// § button's tap: every card button's, the one shared band (H-68): TAP_PAD each side, and
+// BUTTON_PAD above and below, so it is at least 22 game px tall, 44 px at a phone's zoom of 2
+// (TECH.md, D-513). `b` its top left, `w` its width.
+export const BUTTON_PAD = Math.ceil((22 - BUTTON.h) / 2);
+export const onButton = (b, w, x, y, left = TAP_PAD, right = TAP_PAD) => x >= b.x - left && x < b.x + w + right && y >= b.y - BUTTON_PAD && y < b.y + BUTTON.h + BUTTON_PAD;
 // § cross's place: the round cross in the middle of the title's strip, as far in from the
 // card's right edge as the title is from its left (PAD); the rule under them stops short of it (D-512)
 const CROSS_R = 8;
@@ -117,7 +122,7 @@ export function cardAt(vw, vh, left = DETAIL_X) {
   const tall = isTall(vw, vh), make = { x: bx - 4 - BUTTON.w, y: by }, set = { x: bx + BUTTON.w - SET_W, y: by }, rest = { x: set.x - 4 - SLEEP_W, y: by };
   const dx = x + (tall ? PAD : left), cramped = dx + DROP_W + 4 > Math.min(make.x, set.x); // on a small screen, a row up
   const restCramped = dx + DROP_W + 4 > rest.x; // with SLEEP beside SET DOWN (D-804)
-  return { x, y, w, h, tall, close: crossAt(x, y, w), button: { x: bx, y: by }, make, set, rest, drop: { x: dx, y: cramped ? by - BUTTON.h - 4 : by }, restDrop: { x: dx, y: restCramped ? by - BUTTON.h - 4 : by } };
+  return { x, y, w, h, tall, close: crossAt(x, y, w), button: { x: bx, y: by }, make, set, rest, drop: { x: dx, y: cramped ? by - BUTTON.h - 2 * BUTTON_PAD : by }, restDrop: { x: dx, y: restCramped ? by - BUTTON.h - 2 * BUTTON_PAD : by } }; // a row up, its tap band just meeting the row's (H-68)
 }
 // Slot i's top left in the 3 × 2 grid, whose top is `top` and left `left` inside the card's,
 // `cols` wide (the stash chest's 4 × 3, D-387), its slots `size` wide (a bigger bag's, D-548)
@@ -154,16 +159,16 @@ export function bagAt(x, y, vw, vh, two = false, wide = false, filled = false, s
   if (!inCard(card, x, y)) return 'out';
   if (onCross(card, x, y)) return 'close';
   const st = storeAt(card);
-  if (store && y >= st.y - TAP_PAD && y < st.y + BUTTON.h + TAP_PAD && x >= st.x - 3 && x < st.x + STORE_W + 2) return 'store';
+  if (store && onButton(st, STORE_W, x, y, 3, 2)) return 'store';
   const so = sortAt(card, store);
-  if (y >= so.y - TAP_PAD && y < so.y + BUTTON.h + TAP_PAD && x >= so.x - TAP_PAD && x < so.x + SORT_W + (store ? 3 : 2)) return 'sort';
+  if (onButton(so, SORT_W, x, y, TAP_PAD, store ? 3 : 2)) return 'sort';
   const i = gridAt(card, x, y, GRID_Y, shape.cols, size, PAD, shape.slot);
   if (i >= 0) return { slot: i };
   const g = gearAt(card, x, y);
   if (g >= 0) return { gear: g };
-  const foot = y >= button.y - TAP_PAD && y < button.y + BUTTON.h + TAP_PAD;
+  const foot = y >= button.y - BUTTON_PAD && y < button.y + BUTTON.h + BUTTON_PAD;
   if (off) return foot && x >= button.x + BUTTON.w - OFF_W - TAP_PAD && x < button.x + BUTTON.w + TAP_PAD ? 'act' : null;
-  if (filled && y >= drop.y - 2 && y < drop.y + BUTTON.h + 2 && x >= drop.x - TAP_PAD && x < drop.x + DROP_W + 2) return 'drop';
+  if (filled && onButton(drop, DROP_W, x, y, TAP_PAD, 2)) return 'drop';
   if (rest && foot && x >= card.rest.x - TAP_PAD && x < set.x - 2) return 'make'; // SLEEP, the bedroll's (D-804)
   if (foot && x >= (wide ? set.x : button.x) - (two ? 2 : TAP_PAD) && x < button.x + BUTTON.w + TAP_PAD) return 'act';
   if (two && !rest && foot && x >= make.x - TAP_PAD && x < button.x) return 'make';
@@ -251,6 +256,10 @@ export function drawCard(c, vw, vh, title, split = SPLIT_X, crossed = true, spli
 // find's MAKE makes, for the line above it, "Makes an Oil flask", or null (D-787); refill: the
 // chosen find's hearts or oil now and after, refills' (core/numbers.js, D-908); sips: a chosen
 // draught's turns now and after, draughtTurns' (D-909), or null
+// § look over the picture (H-69): whether `line` (the state's) is the chosen find's own look
+// line while the card shows its "Now" and "After" picture, a draught's turns or its hearts or
+// oil (D-908, D-909); the text line is not drawn over the card then, as the picture says it
+export const hidesPicture = (entry, line, refill = [], sips = null) => !!entry?.look && line?.id === entry.look && (!!sips || refill.length > 0);
 export function drawBag(c, vw, vh, bag, chosen, spriteOf, gear = [], full = false, told = {}, size = BAG_SLOTS, store = false, t = 0, still = true, poisoned = false, makes = null, sleepy = false, refill = [], sips = null) {
   const shape = bagShape(size);
   const card = { ...drawCard(c, vw, vh, '', shape.split, true, shape.tallSplit, GRID_Y - 4), drop: cardAt(vw, vh, shape.detail).drop }, { x, y, w } = card;

@@ -11,7 +11,7 @@
 // or Space sell or buy one; the cross closes it.
 import { drawText, textWidth } from './font.js';
 import { drawMarker } from './menu.js';
-import { bagShape, cardAt, drawCard, drawSlot, drawButton, frame, slotAt, gridAt, inCard, onCross, wrapWords, detailAt, BUTTON, PAD, LINE_H, TAP_PAD } from './bag.js';
+import { bagShape, cardAt, drawCard, drawSlot, drawButton, frame, slotAt, gridAt, inCard, onCross, wrapWords, detailAt, BUTTON, PAD, LINE_H, TAP_PAD, onButton } from './bag.js';
 import { bagSize, carried } from '../core/bag.js';
 import { coins, priceOf, priceWords, wares, cantBuy, costWords } from '../core/trade.js';
 import { get } from '../core/registry.js';
@@ -39,7 +39,7 @@ export function tradeAt(x, y, vw, vh, tab = 'sell', size = 6) {
   if (onCross(card, x, y)) return 'close';
   const i = gridAt(card, x, y, undefined, shape.cols, tab === 'buy' ? wares().length : size, undefined, shape.slot);
   if (i >= 0) return { slot: i };
-  if (y >= b.y - TAP_PAD && y < b.y + BUTTON.h + TAP_PAD && x >= b.x - TAP_PAD && x < b.x + BUTTON.w + TAP_PAD) return 'act';
+  if (onButton(b, BUTTON.w, x, y)) return 'act';
   const xs = tabXs(card);
   if (y >= card.y + TABS_Y - 8 && y < card.y + COINS_Y - 4 && x < xs[1] + textWidth(TABS[1].text) + TAP_PAD) return { tab: x < (xs[0] + textWidth(TABS[0].text) + xs[1]) / 2 ? 'sell' : 'buy' };
   return null;

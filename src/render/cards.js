@@ -16,7 +16,7 @@ import { drawOpening } from './openingcard.js';
 import { ABOUT_BOONS, ABOUT_BOONS_BUTTON } from '../core/opening.js';
 import { drawLook } from './cloak.js';
 import { drawMap } from './map.js';
-import { drawBag } from './bag.js';
+import { drawBag, hidesPicture } from './bag.js';
 import { drawBenchPanel } from './benchpanel.js';
 import { drawMakeCard } from './makecard.js';
 import { bagMakes, makeFor, knownOf, stationFor } from '../core/bagmake.js';
@@ -125,8 +125,9 @@ export function createCards(app, ui) {
       else if (app.screen === 'aboutBoons') { if (app.boonsFrom === 'journal') journalOn(hc, t); aboutBoonsOn(hc); } // the boons card on the room, or over the Journal (D-712)
       else if (app.screen === 'map') drawMap(hc, view.w, view.h, app.view, t, still(), screens.turns()); // a card on the room (D-395)
       else if (app.screen === 'bag') {
-        drawBag(hc, view.w, view.h, state.bag, app.chosen, kitOf(state), gearRow(state), state.health >= maxHealth(state), state.told, bagSize(state), chestsNear(state).length > 0, t, still(), state.poisoned > 0, makesOf(state, app.chosen), canSleepOut(state), refills(state, get(state.bag[app.chosen]?.id)), draughtTurns(state, get(state.bag[app.chosen]?.id))); // hearts or oil, or a draught's turns, now and after (D-908, D-909) // a card on the room (D-385), its STORE with a chest in reach (D-558)
-        textLine.draw(hc, line, t, still()); // over the card, so a line said in the bag shows ("Only on the surface.")
+        const entry = get(state.bag[app.chosen]?.id), refill = refills(state, entry), sips = draughtTurns(state, entry);
+        drawBag(hc, view.w, view.h, state.bag, app.chosen, kitOf(state), gearRow(state), state.health >= maxHealth(state), state.told, bagSize(state), chestsNear(state).length > 0, t, still(), state.poisoned > 0, makesOf(state, app.chosen), canSleepOut(state), refill, sips); // hearts or oil, or a draught's turns, now and after (D-908, D-909) // a card on the room (D-385), its STORE with a chest in reach (D-558)
+        if (!hidesPicture(entry, state.line, refill, sips)) textLine.draw(hc, line, t, still()); // over the card, so a line said in the bag shows ("Only on the surface."); not the chosen find's look line over its "Now" picture (H-69)
       }
       else if (app.screen === 'make') {
         drawMakeCard(hc, view.w, view.h, bagMakes(state), app.chosen, spriteOf, state.told, picsOf(state)); // the bag's Make tab, a card on the room (D-787)

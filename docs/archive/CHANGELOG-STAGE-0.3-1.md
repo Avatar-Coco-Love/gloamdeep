@@ -4,6 +4,12 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.423 (2026-11-18)
+- No change in play. Each PR now costs less and is safer: a new test checks that every decision from D-001 on is kept, once, and that no archive file shrinks or goes, as one did at 0.3.414 and nothing noticed.
+- `tools/release.js` now splits the in-game Version history by itself, 50 versions to a file (0.3.351 to 0.3.400 moved to `history-0.3-7.js` word for word), makes a new minor version's file, and refuses a `docs/PROGRESS.md` over 4 KB; a new `tools/audit.js` lists the docs near their caps and what a conversation reads at its start.
+- The archive index's biggest row, hand-edited in most PRs, is a short line now (its old text kept word for word in its file); the PR checklist says how to redo the record-keeping files if two conversations ever overlap.
+- Decisions: D-982.
+
 ## 0.3.422 (2026-11-18)
 - No change in play. Each conversation now starts by reading about a fifth less: the big table of docs moved out of `CLAUDE.md` to `docs/INDEX.md`, nine old rules on how we work out of `docs/DECISIONS.md`, and done plan steps and repeated questions out of `docs/PROGRESS.md`, all word for word.
 - The first two health checks' finished pages and five old audit-lesson pages moved to the archive; three near-full pages split (`SOUNDS-4.md`, `CONTENT-5.md`, `WORKFLOW-SINCE.md`); `npm test` prints a dot a test, about 2 KB instead of 436 KB.

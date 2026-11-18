@@ -17,6 +17,7 @@ finding and why, in `archive/HEALTH-CHECK-3-NOTES.md`.
 "read": in the code only; "measured": numbers.
 
 ## 1. Most players notice
+All four done in 0.3.426 (D-986, D-987).
 - **H-68 Card buttons are under 44 px on a phone.** MAKE, STORE, TAKE,
   SELL, DRINK are 42 px tall, DROP 34 (`bag.js:62,72,164-168`,
   `makecard.js:27`, `benchpanel.js:42`, `chestpanel.js:47`); TECH.md
