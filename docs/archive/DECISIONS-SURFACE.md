@@ -2666,3 +2666,21 @@ out." (Claude's draft) (`call.js`). The bench's bot now walks to it when it
 waits in its place. The bench, from 18%, 96% and 100%: Lean 12%, Middling
 79%, Strong 83% (Q-111). D-939 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
+
+**D-976 · 2026-11-18 · The Lampeater's guards** (the owner's picks, all
+recommended; builds D-972, its step 4) Only while 6 gloamlings are alive,
+counting any waiting in a bowl as its calls do (offered too: only those
+out in the room), the 2 nearest it guard it, chosen again each turn
+(offered too: picked once, then kept). They hold its shoulders, the two
+tiles beside it across from the line to the hero, its front and back left
+open; a shoulder in a wall gives its place to the side behind (offered
+too: the back and one shoulder; the nearest free sides). No mark: their
+place shows it (offered too: a faint violet glint). Claude's calls: the
+front is the tile beside it nearest the hero (up, down, left, right on a
+tie); each takes the free shoulder nearest it the other doesn't, the
+shortest way, never over the front; they trail a step behind as it walks
+and close up as it stops; with no way to a shoulder, it acts as ever
+(`guarding.js`). Until the wary step, with 6 alive it fights on (D-974).
+The bench, from 12%, 79% and 83%: Lean 12%,
+Middling 80%, Strong 83%; 6 are rarely out at once yet (Q-111). D-973
+moves to `archive/DECISIONS-SURFACE.md`, word for word.

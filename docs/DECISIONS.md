@@ -154,24 +154,6 @@ only when the owner is back). At the end: a report page for the phone,
 the findings in `HEALTH-CHECK-3.md` (split under 8 KB), one PR, and the
 questions for the owner all at the end.
 
-**D-976 · 2026-11-18 · The Lampeater's guards** (the owner's picks, all
-recommended; builds D-972, its step 4) Only while 6 gloamlings are alive,
-counting any waiting in a bowl as its calls do (offered too: only those
-out in the room), the 2 nearest it guard it, chosen again each turn
-(offered too: picked once, then kept). They hold its shoulders, the two
-tiles beside it across from the line to the hero, its front and back left
-open; a shoulder in a wall gives its place to the side behind (offered
-too: the back and one shoulder; the nearest free sides). No mark: their
-place shows it (offered too: a faint violet glint). Claude's calls: the
-front is the tile beside it nearest the hero (up, down, left, right on a
-tie); each takes the free shoulder nearest it the other doesn't, the
-shortest way, never over the front; they trail a step behind as it walks
-and close up as it stops; with no way to a shoulder, it acts as ever
-(`guarding.js`). Until the wary step, with 6 alive it fights on (D-974).
-The bench, from 12%, 79% and 83%: Lean 12%,
-Middling 80%, Strong 83%; 6 are rarely out at once yet (Q-111). D-973
-moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-977 · 2026-11-18 · The Lampeater wary** (the owner's picks, all
 recommended, and dimmed eyes too; builds D-971 and D-972, their step 5)
 Struck and free again, with no cold brazier it can reach or 6 gloamlings
@@ -192,3 +174,20 @@ count down caught or not; it never calls while wary; with no way to such a
 tile it acts as ever (`wary.js`). The bench, from 12%, 80% and 83%: Lean
 7%, Middling 79%, Strong 85% (Q-111). D-974 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-978 · 2026-11-18 · The Lampeater's phases** (the owner's picks, all
+recommended; builds D-971 and D-972, their step 6) At 8 and 4 of its 12
+hearts it owes a snuff, done once free, as its breath was; caught, it waits
+(offered too: at once). The call it makes for being struck is the phase's
+second gloamling, so 2 from that blow (offered too: an extra call, 3). With
+no brazier lit when it is free, the phase is spent and it only calls
+(offered too: calling twice; waiting to snuff). The bench's half start
+counts the first phase done (offered too: owing it). The line at a phase
+and the 6 limit, Claude's to judge: no new line, the breath's says it; a
+snuffed bowl keeps a gloamling only while fewer than 6 are out. Claude's
+calls: owing or breathing, it neither calls nor is wary; its call after a
+snuff is from another cold brazier, else wary (D-972); one blow past both
+owes both; its Bestiary words "At two thirds and one third of its hearts,
+it snuffs a brazier." (Claude's draft). The bench, from 5%, 79% and 83%:
+Lean 35%, Middling 84%, Strong 94%, the catch's snuffs gone (Q-111).
+D-976 moves to `archive/DECISIONS-SURFACE.md`, word for word.

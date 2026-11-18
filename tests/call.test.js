@@ -77,3 +77,21 @@ test('with 6 gloamlings alive it does not call, but is wary (D-977)', () => {
 test('its Bestiary words tell of the call', () => {
   assert.match(get('lampeater').acts, /Struck, it goes to a cold brazier and calls one out\./);
 });
+
+// § phases (D-978): its call waits for the phase's snuff, then is from another cold brazier
+test('owing a phase snuff, or breathing it, it neither calls nor is wary', () => {
+  for (const owe of [{ owes: 1 }, { breath: { x: 9, y: 9, left: 2 } }]) {
+    const s = calls(at([eater({ x: 3, y: 2, ...owe })]));
+    assert.ok(!lamp(s).call && !lamp(s).wary);
+  }
+});
+
+test('after a phase snuff it calls from another cold brazier, and the mark clears when the call ends', () => {
+  let s = calls(at([eater({ x: 3, y: 2, phaseBowl: { x: 2, y: 2 } })]));
+  assert.ok(!lamp(s).call, 'not from the bowl just snuffed');
+  s = calls(at([eater({ x: 11, y: 10, phaseBowl: { x: 2, y: 2 } })]));
+  assert.deepEqual(lamp(s).call, { x: 12, y: 10, left: 2 });
+  s = calls(calls(s));
+  assert.ok(!lamp(s).call && !lamp(s).struck && !lamp(s).phaseBowl);
+  assert.equal(lamp(s).bowls.length, 1);
+});

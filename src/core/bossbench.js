@@ -1,7 +1,7 @@
 // § boss bench: the boss test bench (D-948), a dev jump. It puts the hero in the Lampeater's arena's
 // way in, on depth 8, so the first step up seals it behind them (D-958), the arena as it begins (the Lampeater whole, the braziers cold), carrying one
 // of three rough builds of what a player has by then. `half` starts it at half its hearts (6 of 12) with
-// 3 braziers lit, owing its first snuff, for the second half of the fight. No turn passes and
+// 3 braziers lit, its first phase counted done (D-978), for the second half of the fight. No turn passes and
 // nothing is spent; pressed again it starts over, the cutscene unseen again (`sealSeen`, D-958). tools/bossrun.js starts here.
 // `below` starts it lower, for the whole way up (D-960): the dev sheet's Boss tab and the playtest's #lampeater link put the
 // hero in the room before the hallway, one tile below its way into it, that room's creatures gone, the hallway fresh and the
@@ -39,7 +39,7 @@ export function bench(state, id = 'middling', half = false, below = false) {
     for (const t of room.map.flatMap((row, y) => [...row].map((ch, x) => ({ ch, x, y })))) {
       if (t.ch === get('brazier').letter && (t.x !== HALF_COLD.x || t.y !== HALF_COLD.y)) room = withTile(room, t.x, t.y, get('brazierLit'));
     }
-    there = { ...there, room, enemies: there.enemies.map((e) => (e.id === 'lampeater' ? { ...e, health: get('lampeater').health / 2 } : e)) };
+    there = { ...there, room, enemies: there.enemies.map((e) => (e.id === 'lampeater' ? { ...e, health: get('lampeater').health / 2, phase: 1 } : e)) };
   }
   if (state.place === place) away.place = 'bench'; // standing in it already: left as if from elsewhere
   const bag = Object.entries(b.bag).reduce((acc, [item, n]) => { for (let k = 0; k < n; k++) acc = bagAdd(acc, item); return acc; }, []);
