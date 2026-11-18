@@ -4,6 +4,12 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.420 (2026-11-18)
+- The Lampeater's phases: at 8 and 4 of its 12 hearts, once free of your light, it breathes out a lit brazier, and a gloamling crawls from the bowl; then it calls one more from another cold brazier. With no brazier lit, it only calls. Its snuff at half its hearts, and after each catch, are gone.
+- A snuffed bowl brings out a gloamling only while fewer than 6 are out.
+- The boss bench, from 5%, 79% and 83%: Lean wins 35%, Middling 84%, Strong 94%; its half start counts the first phase done.
+- Decisions: D-978. D-976 moved to the archive, word for word.
+
 ## 0.3.419 (2026-11-18)
 - The Lampeater wary: struck, with no cold brazier to call from or 6 gloamlings out, it draws back for 3 turns to just past your lantern's reach, still drinking at its edge. With the lantern off it keeps the same distance, so lighting it no longer catches it. Its eyes dim while it is wary; then it comes for you again.
 - The boss bench, from 12%, 80% and 83%: Lean wins 7%, Middling 79%, Strong 85%.

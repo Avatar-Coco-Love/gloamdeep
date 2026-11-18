@@ -71,3 +71,47 @@ test('it sets PROGRESS.md\'s Version line, leaving the rest of the line (D-665)'
   plan(fs);
   assert.ok(fs.disk['docs/PROGRESS.md'].includes('\n**Version:** 0.9.9 · **Stage:** 0.9\n'));
 });
+
+// The history splits by itself (D-982): each 50 versions to a part file and its import once a newer one is in
+const hEntry = (n) => `  { v: '0.9.${n}', date: '2026-11-02', title: 'T${n}', lines: [\n    "${n}.",\n  ] },`;
+const ALL = "import { HISTORY_09 } from './history-0.9.js';\nimport { HISTORY_08 } from './history-0.8.js';\n\nexport const VERSIONS = [...HISTORY_09, ...HISTORY_08];\n";
+function at51() {
+  const fs = repo();
+  for (const f of ['CHANGELOG.md', 'docs/PROGRESS.md']) fs.write(f, fs.read(f).replace('0.9.9', '0.9.51'));
+  fs.write('src/core/history-0.9.js', `// head\nexport const HISTORY_09 = [\n${Array.from({ length: 50 }, (_, i) => hEntry(50 - i)).join('\n')}\n];\n`);
+  fs.write('src/core/history-all.js', ALL);
+  return fs;
+}
+
+test('a 50 of versions moves word for word to its own file and import once a newer one is in (D-982)', () => {
+  const fs = at51(), before = fs.read('src/core/history-0.9.js');
+  plan(fs);
+  const top = fs.read('src/core/history-0.9.js'), part = fs.read('src/core/history-0.9-1.js');
+  assert.deepEqual(top.match(/v: '[^']+'/g), ["v: '0.9.51'"]);
+  assert.ok(part.includes(`export const HISTORY_09_1 = [\n${before.slice(before.indexOf("  { v: '0.9.50'"), before.lastIndexOf('];'))}];\n`));
+  assert.match(part, /^\/\/ § history 0\.9, part 1: 0\.9\.1 to 0\.9\.50,/);
+  assert.match(fs.read('src/core/history-all.js'), /import \{ HISTORY_09_1 \} from '\.\/history-0\.9-1\.js';\n[^]*\[\.\.\.HISTORY_09, \.\.\.HISTORY_09_1, \.\.\.HISTORY_08\]/);
+  const once = JSON.stringify(fs.disk);
+  plan(fs);
+  assert.equal(JSON.stringify(fs.disk), once);
+});
+
+test('the 50 waits while it is the newest, and a new minor version gets its own file first (D-982)', () => {
+  const fs = at51();
+  for (const f of ['CHANGELOG.md', 'docs/PROGRESS.md']) fs.write(f, fs.read(f).replace('0.9.51', '0.9.50'));
+  fs.write('src/core/history-0.9.js', fs.read('src/core/history-0.9.js').replace(/ {2}\{ v: '0\.9\.50'[^]*?\] \},\n/, ''));
+  plan(fs);
+  assert.equal(fs.read('src/core/history-0.9-1.js'), null);
+  const next = repo();
+  next.write('src/core/history-all.js', ALL);
+  for (const f of ['CHANGELOG.md', 'docs/PROGRESS.md']) next.write(f, next.read(f).replace('0.9.9', '1.0.0'));
+  plan(next);
+  assert.match(next.read('src/core/history-1.0.js'), /export const HISTORY_10 = \[\n {2}\{ v: '1\.0\.0'/);
+  assert.match(next.read('src/core/history-all.js'), /^import \{ HISTORY_10 \} from '\.\/history-1\.0\.js';\n[^]*\[\.\.\.HISTORY_10, \.\.\.HISTORY_09, \.\.\.HISTORY_08\]/);
+});
+
+test('it refuses a PROGRESS.md over 4 KB (D-982)', () => {
+  const fs = repo();
+  fs.write('docs/PROGRESS.md', fs.read('docs/PROGRESS.md').replace('## End', `## End\n${'x'.repeat(4096)}`));
+  assert.throws(() => plan(fs), /PROGRESS\.md would be \d+ bytes, over its 4096/);
+});

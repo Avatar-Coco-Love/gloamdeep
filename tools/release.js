@@ -3,7 +3,9 @@
 // entry of docs/PROGRESS.md's log (`- **date, 0.3.33, its title.** ...`). Then
 // `node tools/release.js` does the rest: VERSION, the in-game history, the 3 newest changelog
 // entries and log entries (older ones move to the archive word for word, D-338), and a warning
-// when DECISIONS.md nears its cap. Safe to run again (after playtest tweaks).
+// when DECISIONS.md nears its cap. It splits the history by itself: each 50 versions to its own
+// file and import once a newer one is in, and a new minor version's file (D-982). It refuses a
+// PROGRESS.md over its cap (D-982). Safe to run again (after playtest tweaks).
 // `node tools/release.js --check` changes nothing, lists what it would do, and exits 1 if anything.
 import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -11,6 +13,8 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const KEEP = 3;                     // CHANGELOG.md entries and PROGRESS.md log entries kept
 const DECISIONS_WARN = 11 * 1024;   // the cap is 12 KB (tests/docs.test.js)
+const PROGRESS_CAP = 4 * 1024;      // PROGRESS.md's cap (tests/docs.test.js); refused, not warned (D-982)
+const PART = 50;                    // versions in each history part file (D-982)
 const TOOL = '`tools/release.js`';
 
 // § files: read and write through one map, so --check can compare without writing
@@ -79,8 +83,8 @@ export function plan(fs) {
   if (vNew !== vt) { fs.write(vf, vNew); notes.push(`VERSION set to ${v}`); }
 
   // The in-game history: this version's block at the top of history-<minor>.js, replaced if there
-  const hf = `src/core/history-${minorOf(v)}.js`, ht = fs.read(hf);
-  if (ht === null) throw new Error(`${hf} doesn't exist: a new minor version needs its history file made by hand`);
+  const hf = `src/core/history-${minorOf(v)}.js`;
+  const ht = fs.read(hf) ?? newMinor(fs, minorOf(v), notes);
   const hl = ht.split('\n');
   const q = (s) => `'${s.replaceAll('\\', '\\\\').replaceAll("'", "\\'")}'`;
   const block = [`  { v: '${v}', date: '${date}', title: ${q(title)}, lines: [`,
@@ -93,6 +97,7 @@ export function plan(fs) {
     hl.splice(hl.findIndex((l) => /^export const HISTORY_\w+ = \[$/.test(l)) + 1, 0, ...block);
   }
   if (hl.join('\n') !== ht) { fs.write(hf, hl.join('\n')); notes.push(`${hf}: ${v} "${title}"`); }
+  splitHistory(fs, minorOf(v), notes);
 
   // CHANGELOG.md keeps its newest 3; older ones go to the top of their stage's archive file
   if (heads.length > KEEP) {
@@ -122,6 +127,8 @@ export function plan(fs) {
     notes.push(`${logs.length - KEEP} log entr${logs.length - KEEP > 1 ? 'ies' : 'y'} moved to ${pf}`);
   }
   if (prog.join('\n') !== progText) fs.write('docs/PROGRESS.md', prog.join('\n'));
+  const pb = Buffer.byteLength(prog.join('\n'));
+  if (pb > PROGRESS_CAP) throw new Error(`docs/PROGRESS.md would be ${pb} bytes, over its ${PROGRESS_CAP}: shorten it, moving text to archive/PROGRESS-LOG.md word for word`);
 
   // DECISIONS.md: only a suggestion; grouping decisions by topic is for Claude to propose (D-572)
   const dt = fs.read('docs/DECISIONS.md');
@@ -132,6 +139,49 @@ export function plan(fs) {
       + ` Superseded: ${sup.join(', ') || 'none'}. Oldest: ${ids.slice(0, 6).join(', ')}.`);
   }
   return { notes, warn };
+}
+
+// § history files: history-<minor>.js holds the newest; each 50 before it, its own part file (D-982)
+const constOf = (minor, part) => `HISTORY_${minor.replace('.', '')}${part ? `_${part}` : ''}`;
+const HEADER_TAIL = '// Newest first. Each line is the change\'s line in CHANGELOG.md or its archive, word for word, without\n'
+  + '// backticks (D-254); tests/history.test.js checks every one. Plain data.';
+function newMinor(fs, minor, notes) {
+  const name = `history-${minor}.js`, c = constOf(minor);
+  const text = `// § history ${minor}: version ${minor}, made by ${TOOL} (D-982). New versions go at the top here;\n`
+    + `// each 50 before them moves to history-${minor}-N.js by the same tool.\n${HEADER_TAIL}\nexport const ${c} = [\n];\n`;
+  addImport(fs, name, c, null);
+  notes.push(`src/core/${name} made, with its import`);
+  return text;
+}
+// The import goes in history-all.js, and its list into VERSIONS just after `after` (or first)
+function addImport(fs, name, c, after) {
+  const af = 'src/core/history-all.js', al = fs.read(af).split('\n');
+  const firstImport = al.findIndex((l) => l.startsWith('import '));
+  const at = after ? al.findIndex((l) => l.startsWith(`import { ${after} }`)) + 1 : firstImport;
+  al.splice(at, 0, `import { ${c} } from './${name}';`);
+  const vi = al.findIndex((l) => l.startsWith('export const VERSIONS = ['));
+  al[vi] = after ? al[vi].replace(`...${after}, `, `...${after}, ...${c}, `).replace(`...${after}]`, `...${after}, ...${c}]`)
+    : al[vi].replace('= [', `= [...${c}, `);
+  fs.write(af, al.join('\n'));
+}
+function splitHistory(fs, minor, notes) {
+  const hf = `src/core/history-${minor}.js`, hl = fs.read(hf).split('\n');
+  const starts = hl.flatMap((l, i) => (l.startsWith("  { v: '") ? [i] : []));
+  const patch = (i) => Number(hl[i].match(/v: '([^']+)'/)[1].split('.')[2]);
+  if (!starts.length) return;
+  const oldest = patch(starts[starts.length - 1]), end = Math.max(PART, Math.ceil(oldest / PART) * PART);
+  if (patch(starts[0]) <= end) return; // the 50 is not yet followed by a newer version
+  const from = starts.find((i) => patch(i) <= end), to = hl.lastIndexOf('];');
+  const moved = hl.slice(from, to);
+  const parts = fs.list('src/core').map((f) => f.match(new RegExp(`^history-${minor.replace('.', '\\.')}-(\\d+)\\.js$`))?.[1]).filter(Boolean).map(Number);
+  const n = Math.max(0, ...parts) + 1, name = `history-${minor}-${n}.js`, c = constOf(minor, n);
+  const range = `${minor}.${oldest} to ${minor}.${end}`;
+  fs.write(`src/core/${name}`, `// § history ${minor}, part ${n}: ${range}, moved word for word from history-${minor}.js\n`
+    + `// by ${TOOL} (D-982).\n${HEADER_TAIL}\nexport const ${c} = [\n${moved.join('\n')}\n];\n`);
+  hl.splice(from, to - from);
+  fs.write(hf, hl.join('\n'));
+  addImport(fs, name, c, constOf(minor));
+  notes.push(`${range} moved to src/core/${name}, with its import`);
 }
 
 // § archive: moved entries go word for word under the file's header, newest first

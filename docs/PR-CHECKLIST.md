@@ -14,8 +14,19 @@ or updating a PR.
   the archive word for word (with the archive index), and warns when
   `DECISIONS.md` passes 11 KB. Run it again after any edit to either
   entry. `npm test` runs `node tools/release.js --check` and fails if
-  anything is out of step. The rest of this list is still done by hand
-  where the tool doesn't reach.
+  anything is out of step. It also moves each 50 versions of the in-game
+  history to its own file and import, makes a new minor version's file,
+  and refuses a `docs/PROGRESS.md` over 4 KB (D-982). `node tools/audit.js`
+  lists the docs near their caps and the bytes read at the start. The rest
+  of this list is still done by hand where the tool doesn't reach.
+- **If `main` moved on while the PR was open** (another conversation
+  merged first, D-982): merge `origin/main` into the branch; in the
+  record-keeping files (`CHANGELOG.md`, `docs/PROGRESS.md`,
+  `docs/DECISIONS.md`, `src/core/version.js`, the history files,
+  `docs/archive/PROGRESS-LOG.md` and the changelog archive) take main's
+  side, then write this PR's entries again on top with the next free
+  version and D-number, and run `node tools/release.js`. Never merge those
+  files line by line.
 
 - **CHANGELOG.md**: add a new version entry at the top (the format is in its
   header). Each PR has exactly one version. Add the same lines, with a

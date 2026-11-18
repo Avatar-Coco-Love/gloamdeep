@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-18, 0.3.420, The Lampeater's phases.** At 8 and 4 hearts it
+  snuffs a lit brazier, then calls one more.
+  D-978. Playtest: https://claude.ai/artifact/1DEhSgEJCHcKqP4Eh6NSUA
 - **2026-11-18, 0.3.419, The Lampeater wary.** Struck with none to call,
   it keeps just past your lantern's reach for 3 turns, lit or not.
   D-977. Playtest: https://claude.ai/artifact/6HfgssgKhBXHW9zY5QmmAj
