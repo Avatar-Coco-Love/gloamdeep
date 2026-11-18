@@ -427,7 +427,7 @@ export function drawGlows(c, enemies, t, still, hits = [], at = (e) => e, burnin
     if (e.breath && !flash && !burning(e)) drawThread(c, e, p, t, still, e.breath, BREATH, true); // breathing on a brazier (D-947)
     if (flared && up > 0) { drawFlare(c, e, p, up, flared.swell); continue; } // the cutscene's flare (D-957)
     if (BURNING[e.id] && burning(e)) { if (!flash) drawBurning(c, e, p, t, still); } // caught in light (D-944)
-    else if (GLOW_EYES[e.id]) { if (!flash) c.drawImage(GLOW_EYES[e.id], Math.round(p.x * 16), Math.round(p.y * 16) - 2 + 15 - lowest(SPRITES[e.id])); } // only its eyes (D-941)
+    else if (GLOW_EYES[e.id]) { const look = e.call ? { x: Math.sign(e.call.x - e.x), y: Math.sign(e.call.y - e.y) } : { x: 0, y: 0 }; if (!flash) c.drawImage(GLOW_EYES[e.id], Math.round(p.x * 16) + look.x, Math.round(p.y * 16) - 2 + 15 - lowest(SPRITES[e.id]) + look.y); } // only its eyes (D-941), turned a pixel toward the bowl it calls from (D-974)
     else drawEnemy(c, e, p, t, still, flash, null);
   }
   glowing = false;

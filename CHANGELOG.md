@@ -24,6 +24,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.417 (2026-11-18)
+- The Lampeater calls: struck and free again, it goes through the dark to a cold brazier and calls a gloamling out over 2 turns, the ashes stirring violet with a countdown and its eyes on the bowl. Catch it in light to stop the call, or light that brazier to spoil it. Never more than 6 gloamlings.
+- The boss bench, from 18%, 96% and 100%: Lean wins 12%, Middling 79%, Strong 83%.
+- The plan for a hands-off health check once its fight is built.
+- Decisions: D-974, D-975.
+
 ## 0.3.416 (2026-11-18)
 - The Lampeater's gloamlings flank you: while it comes for you, they take the free tiles beside you in the dark, spreading out, and leave the side toward it open. One standing on that side bites, then steps out of its way.
 - The boss bench, from 52% and 100%: Lean wins 18%, Middling 96%, Strong 100%.
@@ -32,9 +38,3 @@ Entry format:
 ## 0.3.415 (2026-11-18)
 - Nothing changes in the game: a new test makes sure nothing kept in the notes goes missing. Every decision, every version's changelog entry and every log entry must still be found, in its page or that page's archive.
 - It was added after 0.3.414's first try emptied the archive of surface decisions by a slip in a script, which every other test let through; the owner spotted it.
-
-## 0.3.414 (2026-11-17)
-- Nothing changes in the game yet: the Lampeater's next steps are planned, with the gloamlings working alongside it.
-- While it comes for you, or stands calling at a brazier, its gloamlings will take the tiles beside you away from it, leaving its side open; it calls from cold braziers when it breaks free, up to 6 gloamlings at once; and its snuffs come at 2/3 and 1/3 of its hearts instead of at half.
-- With 6 gloamlings out, 2 will guard the Lampeater, following it and holding the tiles beside it away from you, and biting you if you come close.
-- Decisions: D-972. Questions closed: Q-116. D-967 moved to the archive, word for word.
