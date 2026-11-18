@@ -167,3 +167,10 @@ D-967 took out (H-85). TECH-2 sends newer tiles and places to
 CONTENT-5; STORE.md's Needed row: ship only the 117 sound files the game
 plays, 9.9 MB of 23 MB (H-86). D-979, D-986 and D-987 move to
 `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-991 · 2026-11-18 · The tank slot next** (the owner's picks, both
+recommended; builds D-459) Of the RPG upgrades talked over, the lantern's
+tank slot is planned first (offered too: the glass slot; the forge). It
+comes as build step 27, after the Lampeater's polish or step 26 (offered
+too: right away; after the 0.3.433 audit). Its part, recipe and numbers
+are the owner's picks at its step.

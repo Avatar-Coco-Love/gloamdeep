@@ -6,6 +6,10 @@
 // tools/release.js once a newer version is in (D-982); stage 0.2's are in history-0.2.js and its split
 // files.
 export const HISTORY_03 = [
+  { v: '0.3.430', date: '2026-11-18', title: 'The tank slot planned', lines: [
+    "Nothing in the game changed: the lantern's tank slot is planned as the next new step, after the Lampeater's polish or more flowers.",
+    "Decisions: D-991.",
+  ] },
   { v: '0.3.429', date: '2026-11-18', title: 'The docs catch up', lines: [
     "Nothing in the game changed: the docs catch up with the Lampeater's fight, its 12 hearts, phases, calls, guards and wary, and the bench's half start on 6 hearts.",
     "The docs no longer describe the falling floor round the Lampeater's stairs, taken out before it shipped; the Boss tab, the newest content page and which sound files to ship are written down.",
