@@ -792,3 +792,52 @@ Looked at: phone (iPhone 13, touch) from the title to depth 1 and 8; bag, Make t
 - Seen: played: /tmp/claude-0/-home-user-gloamdeep/4949d8dd-d5fc-582b-8ac1-3b540fccd1d6/scratchpad/work/H/l3.png, /tmp/claude-0/-home-user-gloamdeep/4949d8dd-d5fc-582b-8ac1-3b540fccd1d6/scratchpad/work/H/l6.png, /tmp/claude-0/-home-user-gloamdeep/4949d8dd-d5fc-582b-8ac1-3b540fccd1d6/scratchpad/work/H/n2.png, /tmp/claude-0/-home-user-gloamdeep/4949d8dd-d5fc-582b-8ac1-3b540fccd1d6/scratchpad/work/H/u1.png
 - Who: most (looks like clutter and wrong information)
 - Fixes: 1) clear the line when a card opens or the chosen slot changes 2) show only messages made by the card's own actions
+
+### As found: area G
+#### Area G: Warden, vault, rune wall, shovel, flyers, followers, stacks (0.3.330 to 0.3.380)
+Looked at: slam, Fist, harder Warden, vault (layout, braziers, door, prize, save/load, browser play on iPhone 13), rune wall, shovel, roosts, followers, cutting a room, stacks; ran 105 area tests (pass) and about 12 own scripts over 3,500 vault floors and 3,500 rune floors. Not covered: pictures and sounds heard by ear, the dev panel, the Lampeater's arena.
+
+##### G-1 Fist hit on an open Warden plays the "fists sink" thud
+- Where: src/render/moments.js:41 (the `sink` test), src/core/turn.js:206-212 (knockBack moves the Warden)
+- Against: D-938 "the thud plays as the fists sink, with the line"
+- What: The sink sound is picked by "an open warden at a tile where none was open before". The Fist knocks a standing Warden one tile, so an open Warden hit with the Fist sits on a new tile, still open, and counts as freshly open. The heavy thud and rumble play on an ordinary blow, with no slam miss and no line.
+- Seen: ran: /tmp/claude-0/-home-user-gloamdeep/4949d8dd-d5fc-582b-8ac1-3b540fccd1d6/scratchpad/work/G/sink.mjs (Fist on an open Warden gives moments [["sink"]]; the same blow with the knife gives []).
+- Who: some (anyone who beats the Warden with the Fist, which is the way the Fist is meant to be used on it)
+- Fixes: 1) Key the test on the `open` flag turning on (the slam-miss event or the line), not on a tile 2) Give the slam miss a `sink` event and play the sound from that
+
+##### G-2 Shovel held: fetching felled Wood destroys the regrowing tree
+- Where: src/core/turn.js:96 (`digsStump` comes before the pick-up at line 99-101), src/core/shovel.js:15-19
+- Against: D-926 "walking onto a stump digs it out" with D-934 "3 Wood on its stump"
+- What: D-934 (later) lays a felled tree's Wood on its stump. With the Shovel in the Tool slot, stepping onto that stump to take the Wood digs the stump out instead (the Wood stays, the tree is struck off the grow-back list for good), and a second step is needed to take the Wood. The player loses a renewable Wood tree just by walking to their Wood.
+- Seen: ran: /tmp/claude-0/-home-user-gloamdeep/4949d8dd-d5fc-582b-8ac1-3b540fccd1d6/scratchpad/work/G/shov.mjs (shovel held: stump becomes floor, Wood still lies, bag empty, regrow entry for the tree gone; no tool: Wood taken, stump stays)
+- Who: some (anyone who leaves the Shovel in the Tool slot while chopping)
+- Fixes: 1) A stump with something lying on it is not dug: the step takes the find as before; dig only when the stump is bare 2) Keep it, but ask or warn once (the dig is permanent) 3) Say so in the Shovel's look line
+
+##### G-3 Slam that kills after crossing a doorway records the fall in the wrong room
+- Where: src/core/sting.js:36-42 (`stingTurn` calls `fall(s)` after `knock` already walked the hero off), src/core/fall.js:43-44 and dropBag
+- Against: D-887 "the turn ends there" (the room beyond); no decision says where a death by slam lies
+- What: A Warden slam at 1 heart bites first, then the slide carries the hero out through the doorway, then the fall runs in the new room. The fall picture and the lost bag are in the room beyond (the doorway tile), not the room where the Warden struck.
+- Seen: ran: /tmp/claude-0/-home-user-gloamdeep/4949d8dd-d5fc-582b-8ac1-3b540fccd1d6/scratchpad/work/G/slamdie.mjs (lostbag at south 5,0; fell.place "south"; Warden's room has none)
+- Who: few players
+- Fixes: 1) Run the fall before the slide when the bite already took the last heart 2) Leave it and say so in D-887 (the bag lies safe past the door)
+
+##### G-4 The full test run takes about 2 minutes, 2,050 tests
+- Where: package.json:6 (`node --test`), tests/ (291 files)
+- Against: none (a risk; CLAUDE.md "Test output: one line per test")
+- What: `node --test` over everything passed 2050 of 2050 in 115 s (3m51 of CPU). Each PR runs it, and each conversation that runs it waits or pipes output. No quick set exists for a step that touches one area.
+- Seen: measured: `time node --test` 115 s
+- Who: most (dev time)
+- Fixes: 1) Add `npm run test:quick` running only the files whose source changed (git diff names) 2) Document the per-area file list in docs/TECH-2.md so a step runs its own tests first and the full run once at the end
+
+##### G-5 Archive index misses a few decisions
+- Where: docs/archive/README.md:26 (DECISIONS-SURFACE row) and the SUPERSEDED row
+- Against: CLAUDE.md "index in its README.md"
+- What: By a script reading `**D-nnn` headers against the README's ID lists, DECISIONS-SURFACE.md headers D-779, D-881, D-882, D-918, D-919, D-951 and DECISIONS-SUPERSEDED.md headers D-963 to D-966 do not show in their own row's list (some appear only in another row or as a range gap). The SURFACE row alone is 5.7 KB on one line, and D-885 and D-886 sit in the file in reverse order, so a lookup by range misleads.
+- Seen: ran: python over docs/archive/README.md and the DECISIONS-*.md headers
+- Who: some (context: a conversation grepping by ID still finds it, but the README cannot be trusted as the map)
+- Fixes: 1) Have tools/release.js write the index lines from the headers 2) Stop listing every ID and list ranges per topic
+
+##### Checked and fine (no finding)
+- Vault: 88 layouts (2 sizes, 4 openings, every gap spot) pass a flood check: both braziers reachable, the plinth unreachable while sealed and reachable once open. 3,512 vault floors over 300 seeds: all empty, all with a prize, never the rune wall's, the Leap gap's or a stairs room. Half-solved then saved and loaded keeps one lit; leaving cools it; solved keeps all lit and the door open. Prize taken twice gives nothing the second time; a full bag keeps it, free; one free slot takes both. Played in the browser (iPhone 13): ask card, both braziers, door sinks open, "A mole claw!", then "A bare stone plinth." No page errors.
+- Rune wall: 3,500 floors, every face has plain floor, the nook is walled, and the front tile is walkable from the room's start.
+- Slam: edge, doorway, wall, creature, person, water, bones, 1-heart death all as D-887 says. Follow list matches D-925 (warden, scorpion, mole do not follow). Roost, drive-out and felled-tree paths read as D-922 says.
