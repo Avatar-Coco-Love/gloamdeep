@@ -19,7 +19,7 @@ tools to be chosen together later.
 - Spawn any registry entry (item, enemy, NPC, tile) at a chosen tile (D-006).
 - Always on; a wrench button opens the panel, switches all off at first
   (D-086, D-047). Code: `src/dev/dev.js` (button, keys, stats line).
-- The panel has sections, View, Spawn, Room, Oil, Hero, Share, Spots, one open
+- The panel has sections, View, Spawn, Room, Oil, Hero, Share, Spots, Boss, one open
   at a time, remembered (D-087). Colours: D-093. Code: `src/dev/panel.js`. **A new tool
   goes into a section there**, or a new section.
 - It is a sheet along the screen's foot, half its height, the room
@@ -90,8 +90,8 @@ tools to be chosen together later.
   Lampeater's fight afresh in the room below its hallway on depth 8, one
   tile below the way up, that room emptied, for the whole way up: the
   warning, the quiet, the seal and, each time, the cutscene (D-958, D-960); the build
-  carried, full oil and hearts; at half it has 4 hearts and 3 braziers are
-  lit. A dev jump, no turn passed. The playtest's #lampeater link opens
+  carried, full oil and hearts; at half it has 6 of its 12 hearts, 3 braziers
+  are lit and its first phase is counted done (D-950, D-978). A dev jump, no turn passed. The playtest's #lampeater link opens
   straight into it, Middling, kept nowhere. `tools/bossrun.js` plays it on
   many seeds, from the arena's way in. Code: `src/core/bossbench.js`.
 - Read by scripts (H-107, D-985): `window.gloamdeep.state()` and

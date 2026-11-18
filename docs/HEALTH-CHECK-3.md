@@ -83,6 +83,7 @@ All five done in 0.3.428 (D-989), H-81 too; H-79's 14% measured 47%.
   is until a phone is slow; then a key per room.
 
 ## 5. One docs step
+All three done in 0.3.429 (D-990).
 - **H-84** The Lampeater: CONTENT-BOSSES says 8 hearts (12, D-950),
   DEV-TOOLS.md:90 4 at half (6); snuffing, calls, guards, wary and
   phases (D-947, D-974 to D-978) are in no CONTENT or GLOSSARY doc.

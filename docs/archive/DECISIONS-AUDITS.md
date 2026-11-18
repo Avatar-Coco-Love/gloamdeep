@@ -781,3 +781,27 @@ holds setups new tests share (H-105). `beyond.test.js` is `widen.test.js`;
 the place beyond's tests move to `beyond.test.js` word for word (H-106).
 `window.gloamdeep` reads the running game, and `tools/drive.js` serves,
 opens and drives it; `perf.js` uses it, and now reaches play (H-107).
+
+**D-979 · 2026-11-18 · The third health check's steps** (the owner's
+picks, all recommended) Every finding, H-68 to H-107, becomes a step
+(`HEALTH-CHECK-3*.md`), related ones together. Reading less first
+(H-87 to H-93), then the rest; the five rulings (H-71, H-75, H-78,
+H-79, H-81) are asked at their steps. D-975 moves to
+`archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-986 · 2026-11-18 · No mole on the first day's start room** (the
+owner's pick, recommended; H-71's ruling; changes D-781's Claude's call)
+On a journey's first day no mole comes out in its start room, so a new
+hero is not met by one on the first turn. The bunny still comes, other
+woods rooms keep theirs, and the start room has its mole from the next
+day on. Offered too: a gentler surface mole; as is.
+
+**D-987 · 2026-11-18 · The game's first findings** (Claude's picks,
+hands-off, D-980; H-68 to H-70, the fix suggested for each) Every card
+button's tap reaches 5 game px above and below it, 22 tall, 44 px on a
+phone, through one shared band; DROP, a row up on a small card, moves up
+6 px so the two bands meet; one test measures every card (H-68). The
+chosen find's look line is not drawn over its "Now" picture, a draught's
+or its hearts' or oil's (H-69). "Leap which way?" goes once the leap is
+taken or let go (H-70). D-981 to D-983 move to
+`archive/DECISIONS-AUDITS.md`, word for word.

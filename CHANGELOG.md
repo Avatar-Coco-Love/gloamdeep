@@ -24,6 +24,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.429 (2026-11-18)
+- Nothing in the game changed: the docs catch up with the Lampeater's fight, its 12 hearts, phases, calls, guards and wary, and the bench's half start on 6 hearts.
+- The docs no longer describe the falling floor round the Lampeater's stairs, taken out before it shipped; the Boss tab, the newest content page and which sound files to ship are written down.
+- Decisions: D-990. D-979, D-986 and D-987 moved to the archive, word for word.
+
 ## 0.3.428 (2026-11-18)
 - A Lampeater blow that reaches a phase and burns your last oil no longer has it hang back while it breathes on a brazier; it hangs back afterwards, as it should.
 - A gloamling waiting in a snuffed brazier you light again now comes out, instead of waiting there for good and counting toward the six.
@@ -40,10 +45,3 @@ Entry format:
 - Turning Sound On uses much less memory: each sound file is loaded once, not once for every sound that shares it.
 - tools/perf.js now also times a dark room and the Lampeater's arena: walking in the dark is over the frame budget, 17 ms a frame on a slow phone (H-73).
 - Decisions: D-988.
-
-## 0.3.426 (2026-11-18)
-- Card buttons are easier to tap on a phone: MAKE, STORE, TAKE, SELL, DRINK, DROP and the rest now take a tap a little above or below them, 44 px tall as they should be. On a small card, DROP sits a touch higher.
-- Choosing a draught (or a heartcap or oilcap) in the bag no longer hides its "Now" picture under its look line.
-- "Leap which way?" goes away as soon as you leap or let the leap go.
-- On a new journey's first day, no mole comes out in the room you start in; the bunny still does, and the mole comes the next day.
-- Decisions: D-986, D-987. D-981 to D-983 moved to the archive, word for word.
