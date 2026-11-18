@@ -55,7 +55,7 @@ list in `RESEARCH.md`.
 ## Log (last 3)
 - **2026-11-18, 0.3.417, The Lampeater calls.** Struck and free again,
   it calls a gloamling from a cold brazier; and the plan for a hands-off
-  health check. D-974, D-975. Playtest: PLAYTEST
+  health check. D-974, D-975. Playtest: https://claude.ai/artifact/Ndd7XBfya6iWePcV6Bgghv
 - **2026-11-18, 0.3.416, Gloamlings flank you.** While the Lampeater
   comes for you, its gloamlings take the tiles beside you, leaving its side open. D-973.
   Playtest: https://claude.ai/artifact/4f6JFT9jz95ZYEzkRJknTM
