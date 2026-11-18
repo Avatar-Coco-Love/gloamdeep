@@ -944,3 +944,49 @@ Looked at: phone (iPhone 13) play to depth 1 and 8; bag, Make, workbench, chest,
 #### Dropped
 - H-3 Make costs read "3 / 4 Wood": decided that way: D-387 "each cost with how many are carried (3 / 5 Wood) ... Make ... dim with too few", D-560 "3 / 5 Wood".
 - H-4 A stale line repeats on cards: the line over the bag/bench card is decided (D-386, D-866 "as the bag's and the bench's lines do"), choosing a slot saying its look line is D-297, and since 0.3.374 every line goes after 4 s over cards too (B-009, D-932); the shots were within 4 s. The real part is folded into H-1.
+
+### As checked: area I
+#### Area I: Saves and speed (checked)
+Looked at: save/profile/aside code and the 2 old fixtures; round trips; save size and time; page load, frame times (iPhone 13, 4x slower CPU), sounds on/off. Not covered: a real phone's battery or GPU (headless Chromium draws in software), Safari's handling of repeated fetches.
+
+##### I-1 The speed check never measures a dark room
+- Where: tools/perf.js:72 (into play "on the surface"); docs/TECH.md:23-33; src/render/frame.js:337-349
+- Against: D-430 "16.7 ms a frame in all, the light at most 8 ms" (archive/DECISIONS-SPEED.md:23-28)
+- What: perf.js plays only the daylit surface, where "Full daylight needs no lantern" (frame.js:337), so its light number is 0.0 ms and its frame 2 ms. TECH.md's last light numbers (8.5 ms at 0.3.74) came from when it still measured the light. The same check run in a dark big room is over the frame budget while walking, so a drawing change in the dark can pass it unseen.
+- Seen: measured, 3 runs each, 4x slower: `node tools/perf.js` standing 2.0 ms, walking 1.8-2.1 ms, light 0.0; the same script loading a dark depth-3 room (`work/I-check/perfdark.mjs`): standing 7.7-8.4 ms (light 5.1-5.6), walking 17.4-21.2 ms, 37-42 fps (light 6.0-7.1); boss arena walking 10.0-11.1 ms, 52-54 fps. rAF timing on iPhone 13 (`work/I-check/fr.cjs`): dark room walking 46-48 fps, arena 46-52.
+- Who: some (phones, dark floors, where the game is mostly played); dev time
+- Fixes: 1) let perf.js load a saved dark-room journey (as perfdark.mjs does) and report the light there 2) add the boss arena as a third scene 3) keep as is, and note in TECH.md the surface number is a floor
+- Checked: REVISE, re-ran perf.js and a dark-room copy 3x each; helper's 26 ms/38 fps was one high run, light is under 8 ms but the frame is over 16.7.
+
+##### I-2 Sound On decodes and keeps shared sound files about 3 times
+- Where: src/render/sound.js:283-290 (`decode`, `fetchAll`), 65 (`FILES`)
+- Against: D-877 "the sound files are fetched once Sound is On" (archive/DECISIONS-SURFACE.md:1556); changelog 0.3.322 "saves phone data"
+- What: `fetchAll` fetches and decodes every file of every voice, with no check for a file two voices share: 314 file entries, 111 different files. In Chromium the network cost is not tripled (the browser merges the repeated requests: 1 server request per file), but each copy is decoded again and kept as its own raw audio, about 69 MB of decoded sound instead of 28 MB, and ~2.8 times the decoding work after the first tap.
+- Seen: measured: Sound On, woods, 12 steps, 2 runs: 315 page requests, 112 names, server log 112 GETs a run; Sound Off 0. Decoding the 111 files at 48 kHz: 28.3 MB, all 314 entries 69.0 MB, 0.8 s for the unique set (`work/I-check/snd.cjs`, `dec.cjs`).
+- Who: some (Sound On on phones with little memory; other browsers may refetch too)
+- Fixes: 1) keep one decoded buffer per file path, shared between voices 2) also fetch steps and fight sounds first, the rest when first needed
+- Checked: REVISE, the server log shows each file fetched once over the wire; the real cost is decoding and memory.
+
+##### I-3 Tests pin the exact format number, so the next save change breaks two
+- Where: tests/lampeater.test.js:150; tests/freepick.test.js:43
+- Against: none (a risk; dev time); every other step test uses `FORMAT >= n`
+- What: `assert.equal(FORMAT, 37)` (journey) and `assert.equal(FORMAT, 11)` (profiles) fail the moment a later step raises the format, so the next save change must also edit an older test. It already happened once: 0.3.382 pinned 36 in the arena test and 0.3.383 had to change it to `>= 36`.
+- Seen: read: grep `FORMAT` in tests; `git log -S"assert.equal(FORMAT, 36)" -- tests` gives 0.3.382 and 0.3.383.
+- Who: none (players); dev time
+- Fixes: 1) change both to `>=` and keep the `UPGRADES[36]` check 2) leave the pin in the newest test only
+- Checked: KEEP, grep and git history confirm; no doc asks for an exact pin (save.test.js:35 already checks every step exists).
+
+##### I-4 Every turn rewrites the whole world into one save
+- Where: src/core/save.js:131-139; src/main.js:136-141
+- Against: none (a risk; long journeys)
+- What: each turn saves the whole journey, every room ever made, as one text (D-238 "Saved after every turn"). A fresh journey is 26 KB; every room of depths 1 to 60 (700 rooms) is 1,062 KB, about 19 ms to write and 60-100 ms to read on this computer, so several times that per turn on a slow phone for a very deep journey; three such slots use over 3 MB of the ~5 MB store.
+- Seen: measured: `work/I-check/sz.mjs`, 5 runs: write 18-29 ms, read 61-106 ms.
+- Who: few players (very long journeys); context (the whole state in one text)
+- Fixes: 1) keep as is until a slow turn is measured on a phone, and note the size in TECH.md 2) later, save each room under its own key and rewrite only the one changed
+- Checked: REVISE, re-measured sizes; dropped the set-aside half (see below).
+
+#### Dropped
+- I-2 (old) It redraws 60 times a second even when nothing changes: already decided. D-686 holds the room under any card ("drawn once and kept"), D-687 with reduced motion; the flame, torches and title scene move on purpose. Measured: paused in a dark room 122-129 ms script a second vs 428-612 standing in play (4x slower, 3 runs), so the "no skip path" claim is false.
+- I-5 No fixture covers steps 17 to 36 end to end: weak and partly false. refetch.test.js loads both fixtures through `readJourney`, which runs every step 10/16 to 37 (a failing step fails the test); `withKnown` is tested in tests/bagmake.test.js:64; no bug found.
+- I-6 (half) set-aside copies never go: already decided. D-914 offered "only the newest; one copy per save" and the owner picked one copy per broken text. The rest is kept as I-4.
+- I-7 The first page load is 300 separate files: confirmed (300 requests, 299 JS, 3 runs), but a chosen trade-off: CLAUDE.md "no build step", and STORE.md's plan (Capacitor files in the app, a service worker for offline) removes the cost for the store build.
