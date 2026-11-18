@@ -506,3 +506,58 @@ Looked at: the last 40 merged PRs (0.3.381 to 0.3.420) by git numstat, follow-up
 #### Dropped
 - B-4 Playtest republish and its link: too weak; 1 link-only commit in 40 PRs, the same-link rule within a PR already exists (PR-CHECKLIST:60), and a standing link across PRs would make every old log link (D-074 "The playtest link goes in the log entry") show the newest game; D-073/D-256 don't say what was claimed.
 - B-5 Follow-up commits: too weak (1 avoidable follow-up in 40 PRs); its one fix folded into B-1 fix 2.
+
+### As found: area F
+#### Area F: Leap, the gaps, the archway beyond
+Looked at: Leap (rules, button, J, touch), the first Leap gaps (3,511 gap rooms over seeds 1-1500, depths 5-8), the archway and the room beyond (walk through, save/load, fall), the arena's gloamlings (300 seeds), the unused falling-floor code, the docs for them; the 46 tests for these pass. Not covered: the Lampeater's calls/phases, sounds by ear, the Leap card (D-971 step not built yet).
+
+##### F-1 Settings still lists a sound that can never play
+- Where: src/core/settings.js:89 (`giveWay`, "Floor gives way"), src/render/sound.js:183-185, src/render/moments.js:27, src/main.js:217,291
+- Against: D-967 "its Settings line" kept "for a later falling floor" | none (a player sees a switch for nothing)
+- What: Settings > Sounds > Steps shows "Floor gives way: On/Off", but nothing in the game raises the `giveWay` event now (`floorGives` in beaten.js:88 has no caller). The owner chose to keep the code; the player-visible switch is the odd part, and the quake, crumble and sound code is read by every conversation that touches sound or the arena.
+- Seen: ran: `soundsOf('steps')` lists "Floor gives way"; grep finds no caller of `floorGives`
+- Who: few players (a dead switch); dev time and context (about 150 lines: crumble.js, floorGives, quake, 3 sound entries, tests/escape.test.js)
+- Fixes: 1) hide the Settings line until a falling floor exists (keep the rest) 2) move the dead code and tests/escape.test.js to a parked folder with a one-line note in TECH.md 3) leave as is
+
+##### F-2 Glossary says the Gap is still the arena's escape
+- Where: docs/GLOSSARY-2.md:18; docs/CONTENT-4.md:52
+- Against: D-967 "no falling ground in the boss fight"
+- What: The Gap entry opens with "where the floor gave way, round the arena's stairs down once the Lampeater is beaten ... (D-964)", which D-967 undid; the real Gap now is only the line before a cache at depths 5-8 (its own sentence is last). CONTENT-4 correctly says arena stones only in old saves, so the two docs disagree.
+- Seen: read
+- Who: dev time (a conversation reading the glossary builds on a removed mechanic)
+- Fixes: 1) rewrite the Gap entry to lead with the depth 5-8 line and mention the arena only as "old saves" 2) add "superseded by D-967" beside D-964
+
+##### F-3 Leap and J are not in How to play
+- Where: src/core/howto.js:62-90 (keyboard page lists Walk, Wait, Lantern, Pause, Frame, Bag, Map; touch page the same)
+- Against: D-962 "J does the same" and the Leap button (no doc says How to play must list it)
+- What: Today Leap is taught only by the line "You learn Leap." and, at a Gap, "Too wide to step. Leap it." Nothing says to tap the round button, or press J, and then pick a way. D-971's card will teach it, but until that step, and for anyone who closes the card, the Help pages have no row.
+- Seen: read; played (phone and PC): the button and J work, nothing explains them
+- Who: some players (everyone who beats the Lampeater)
+- Fixes: 1) add one "Leap" row to each page ("The Leap button, then a way" / "J, then a way") when Leap is learnt, with the Leap card step 2) leave it to the card (D-971) and note that in Next up
+
+##### F-4 "Leap which way?" stays on the strip after the leap
+- Where: src/main.js:409-412 (sets the line), src/core/leap.js:24-28 (a leap says nothing)
+- Against: D-962 "Leap which way?" is the prompt, nothing on when it goes
+- What: The prompt line lasts its normal turns (`shownLine`, LINE_TURNS), so after a successful leap, and after cancelling, it still reads "Leap which way?" as if still asking. Tapping the button, leaping and screenshotting 1 s and 4 s later shows it on both phone and PC (the button itself correctly un-presses).
+- Seen: played (iPhone 13 and 1366x768, saves built at the gap room)
+- Who: most Leap users, a small confusion
+- Fixes: 1) clear the line when the leap is taken or let go (if the line is `leapWhich`) 2) say the line only on first use of each journey
+
+##### F-5 Gaps leave extra finds and creatures behind, not just the cache
+- Where: src/core/leapgap.js:57-62 (only the cache's 2-3 finds are checked)
+- Against: D-968 "its cache behind a line of Gap tiles" "every find out of walking reach"
+- What: Everything else standing in the cut-off corner is cut off too. Over 3,511 gap rooms: 521 (15%) have a creature behind the Gap, and many have 4-5 finds there (flask, herb, bat guano) against a cache of 2-3. Bats fly over; ground creatures sit there for ever. Stairs, people and waystones were never cut off (0 of 3,511), and every gap room has exactly one Archway.
+- Seen: ran: work/F/scan.mjs in the scratchpad (seeds 1-1500, depths 5-8)
+- Who: few players; matters when the owner next tunes how rich a cache is (Q-115)
+- Fixes: 1) leave as is but write in D-968/CONTENT-4 that the whole corner is behind the Gap 2) check the whole corner is empty of non-cache finds and creatures, or move them out
+
+##### F-6 tests/beyond.test.js is about something else
+- Where: tests/beyond.test.js:1-30 (tests `widen` past room edges, D-403); the Archway tests live in tests/leapgap.test.js:91-150
+- Against: none (a risk)
+- What: src/core/beyond.js is the Leap place; the test with the same name tests rock past a room's edge. A conversation on "the place beyond" opens the wrong test and finds no archway tests, then may write a duplicate.
+- Seen: read
+- Who: dev time
+- Fixes: 1) rename the old test to openings.test.js (or widen.test.js) and put the archway tests in beyond.test.js 2) note it in docs/TECH-2.md's tests list
+
+##### Checked and fine (no finding)
+Leap blocked by a wall, sealed door, off the map edge or a leap that would land on water, creature, person or Gap: free, right line; landing on a find takes it (full bag says so); on stairs takes them; with 0 oil, unlit, poisoned, a draught or a line out: one turn as a step; over a sleeping or chasing creature (it still bites). Arena: 4 braziers each with 1 gloamling on its outer side in 300 seeds (D-971). The Archway round trip, save and load while beyond, and a fall from beyond all work; gap rooms cost about 5 ms (23 worst). Leap button 44x44 css px, left of the quick slot, on the lantern arc (phone); J, then an arrow, W/A/S/D or tap works. Leap is lost on a hardcore fall as D-962 says; there is no "falling floor" anywhere in play now, so crumble, waiting and its save/load cases cannot happen.
