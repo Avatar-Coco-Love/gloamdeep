@@ -205,3 +205,47 @@ Looked at: the last 40 merged PRs (0.3.381 to 0.3.420) by git numstat, follow-up
 - Seen: measured: `git diff --numstat 230944c^1 230944c`; `time npm test` = 2m27s (another test run partly overlapped it)
 - Who: none (players) — dev time
 - Fixes: 1) A `tools/audit.js` that rotates history files (or retires them, B-3), lists docs near their cap and their bytes read at start (CLAUDE.md is 8106 of 8192 bytes, PR-CHECKLIST 4870, PROGRESS 4094) 2) Add `npm run test:quick` (docs, history, release checks only) for bookkeeping-only steps and keep full `npm test` for code steps 3) Move the audit due-line "Next audit" into release.js so it prints "audit due" at the right version
+
+### As found: area J
+#### Area J: the docs against the game
+Looked at: every registry entry (152) against GLOSSARY*/CONTENT* by script; creature hearts/bite rows vs enemies.js; SOUNDS*.md vs sound.js and the sounds folder; decision IDs cited vs defined; the 0.3.329-0.3.420 additions; OPEN-QUESTIONS, BUGS, HEALTH-CHECK*, DEV-TOOLS, TECH-2, README, STORE. Not covered: every wording in lines*.js against the glossary (only D-970 to D-978 quotes spot-checked, all match); art docs.
+
+##### J-1 Docs still describe a falling floor that D-967 removed
+- Where: docs/GLOSSARY-2.md:18; docs/SOUNDS.md:43; docs/OPEN-QUESTIONS-3.md:109-114; src/core/beaten.js:79-91
+- Against: D-967 "No falling ground in the boss fight" (supersedes D-963 to D-966); docs/CONTENT-4.md:52 already has it right
+- What: The glossary says the Gap is "where the floor gave way, round the arena's stairs down ... (D-964)", and SOUNDS.md lists `giveWay` "round the Lampeater's stairs (D-966)"; both decisions are superseded and nothing calls `floorGives` now (only tests/escape.test.js does). Q-114 still quotes the Gap line as "Too wide to step across." and says the Gap is "unused", but lines.js:351 says "Too wide to step. More lies beyond." and the Gap is in use for Leap gaps (leapgap.js).
+- Seen: read; ran: grep floorGives shows no caller outside beaten.js and one test
+- Who: none (players); context (a conversation writing the next gap or sound step reads a wrong rule)
+- Fixes: 1) correct those three entries to match CONTENT-4 and D-967/D-968 2) also decide whether to delete the dead `floorGives` code and its test, or keep it as Q-114 says
+
+##### J-2 The Lampeater's last four steps are in no content or glossary doc
+- Where: docs/CONTENT-BOSSES.md:11; docs/GLOSSARY-CREATURES.md:27; src/core/call.js, wary.js, snuff.js, guarding.js, enemies.js:121
+- Against: docs/TECH-2.md:54 "A new row goes in docs/CONTENT.md ... its word in GLOSSARY.md"
+- What: CONTENT-BOSSES says the Lampeater has 8 hearts; enemies.js:121 has `health: 12` (D-950). The calls from braziers, the gloamlings guarding its shoulders, wary, the two phases and the snuffed brazier (0.3.417 to 0.3.420) appear in neither CONTENT*.md nor GLOSSARY*.md (grep "wary", "phase", "snuffs", "calls" finds nothing there). Gloamling's row (CONTENT-CREATURES.md:13) has no mention of the arena, calls, flank or guard. Everything else in the registry is documented: 152 of 152 names found, 0 hearts/bite mismatches except this one.
+- Seen: ran: $S/work/J/hp.mjs, reg2.mjs, ids.mjs (scratchpad work/J)
+- Who: none (players); context and dev time (the next Lampeater step starts from a wrong sheet)
+- Fixes: 1) fix the hearts, add one short paragraph for calls/guards/wary/phases to CONTENT-BOSSES and the gloamling row, and add "update CONTENT/GLOSSARY/SOUNDS rows" to docs/PR-CHECKLIST.md's list (it names none of them; feature PRs did it by habit and 0.3.417-420 skipped it) 2) leave the docs and let the next audit catch it
+
+##### J-3 Done health-check findings still sit in docs/ and are named in CLAUDE.md
+- Where: docs/HEALTH-CHECK.md (23 findings), docs/HEALTH-CHECK-2.md (24), docs/HEALTH-CHECK-ORDER.md:last line, CLAUDE.md:54, docs/archive/README.md:101-103
+- Against: docs/HEALTH-CHECK.md:10 "moves to archive/HEALTH-CHECK-DONE.md at the next audit"; ORDER "Every step is done"
+- What: All 19 steps were done by 0.3.328 (D-883), and two audits since (0.3.353, 0.3.393) left about 10 KB (4672 + 5358 bytes) of finished findings, with no version marks, in docs/. The CLAUDE.md table still tells a conversation to read them "when Next up names one". The archive README also points to docs/HEALTH-CHECK-3.md, which does not exist yet (D-975 plans it).
+- Seen: measured: wc -c; grep "^- \*\*H-" counts
+- Who: none (players); context
+- Fixes: 1) at the audit due at 0.3.433, move both files' findings word for word into HEALTH-CHECK-DONE.md, keep ORDER, and make the CLAUDE.md line say "the third check's steps in HEALTH-CHECK-3.md" 2) do it now in the third check's own PR
+
+##### J-4 Two files sit within bytes of their caps, and several docs within 100 of 8 KB
+- Where: docs/PROGRESS.md (4094 of 4096 bytes), docs/DECISIONS.md (12179 of 12288), docs/CONTENT-4.md (8117), SOUNDS-3.md (8128), WORKFLOW.md (8179), tests/docs.test.js:7-22
+- Against: CLAUDE.md "No doc over 8 KB" and the 4 KB / 12 KB caps
+- What: PROGRESS.md has 2 bytes spare and its "Waiting on the owner" list is long and partly old (e.g. Q-052, Q-056 years of "later"). Every PR's log entry and a new decision will fail `npm test` unless the author trims by hand, as 0.3.420's "progress log under its 4 KB cap" commit shows. CONTENT-4 and SOUNDS-3 are where new places and sounds go next, so they will overflow at the next row. TECH-2.md:54 also sends new tiles to CONTENT-3 and places to CONTENT-4, while CLAUDE.md says newer ones go to CONTENT-5; two answers to "where does this row go".
+- Seen: measured: wc -c; git log shows the trim commit
+- Who: none (players); context and dev time every PR
+- Fixes: 1) at the audit, move the "Later" items out of PROGRESS to OPEN-QUESTIONS and archive older DECISIONS, and make TECH-2 say once which CONTENT file takes new rows 2) raise the PROGRESS cap to 5 KB (the owner's call)
+
+##### J-5 Small stale or missing doc facts
+- Where: docs/DEV-TOOLS.md:22; docs/CONTENT.md and GLOSSARY.md (no row for unlitTorch, bareBush, "Your bag" lostbag; "Stairs up" and mimicHeart in CONTENT-2 only); docs/STORE.md; sounds/packs
+- Against: DEV-TOOLS.md:22 "sections, View, Spawn, Room, Oil, Hero, Share, Spots"; docs/SOUNDS.md "Each sound ... its file"
+- What: panel.js:216 has a ninth section, Boss, that line 22 omits (it is described at line 85). Three registry names (Unlit torch, Bare bush, Your bag) are in no CONTENT or GLOSSARY doc. The sounds folder holds 701 files (23 MB) but the game uses 117 (about 9.9 MB, measured from sound.js FILES and MUSIC), and STORE.md's checklist does not mention the package size or removing unused files. The rune wall/vault/dark door, Leap, archway, seal hall, shovel and Warden's Fist are all documented.
+- Seen: ran: $S/work/J/snd.mjs, sz.mjs
+- Who: none (players); few (a store build 13 MB heavier than needed)
+- Fixes: 1) add the Boss section name, the three rows, and a STORE line "ship only the 117 used files" 2) skip, as none of it misleads a step
