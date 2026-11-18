@@ -6,6 +6,10 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.415', date: '2026-11-18', title: 'Nothing goes missing', lines: [
+    "Nothing changes in the game: a new test makes sure nothing kept in the notes goes missing. Every decision, every version's changelog entry and every log entry must still be found, in its page or that page's archive.",
+    "It was added after 0.3.414's first try emptied the archive of surface decisions by a slip in a script, which every other test let through; the owner spotted it.",
+  ] },
   { v: '0.3.414', date: '2026-11-17', title: 'The Lampeater\'s steps planned', lines: [
     "Nothing changes in the game yet: the Lampeater's next steps are planned, with the gloamlings working alongside it.",
     "While it comes for you, or stands calling at a brazier, its gloamlings will take the tiles beside you away from it, leaving its side open; it calls from cold braziers when it breaks free, up to 6 gloamlings at once; and its snuffs come at 2/3 and 1/3 of its hearts instead of at half.",

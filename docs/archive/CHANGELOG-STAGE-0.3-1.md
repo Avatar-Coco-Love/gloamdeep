@@ -4,6 +4,12 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.412 (2026-11-17)
+- Past each Leap gap, in the corner you leap into, a dark archway now stands in the wall. Step onto it ("You go through the archway.") and you come out in a room of its own beyond.
+- For now that room is empty: plain walls and floor in the floor's own look. Step back onto its archway to return to the same spot. Its look, creatures and finds come in the next steps.
+- On the map the room isn't drawn yet; while you are in it, the map shows you at the archway. Rooms you have already been in stay as they were. The map preview marks each archway in gold.
+- Decisions: D-970. D-965 and D-966 moved to the archive, word for word.
+
 ## 0.3.411 (2026-11-17)
 - Walk into a Leap gap before you have learnt Leap and it says "Too wide to step. More lies beyond." Once you have Leap, it says "Too wide to step. Leap it."
 - Decisions: D-969. D-963 moved to the archive, word for word.
