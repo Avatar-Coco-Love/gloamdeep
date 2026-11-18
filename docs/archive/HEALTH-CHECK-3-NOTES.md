@@ -303,3 +303,39 @@ Checked and clean (no finding): no circular imports; src/core imports nothing fr
 
 #### Dropped
 - C-5 (original) Each step also edits about 10 record files: counts are true (40/40 history, PROGRESS, CHANGELOG; median 17 files), but tools/release.js writes most of them, the history is lazy since D-868, and its own recommended fix is "keep as is", so nothing for the owner to decide.
+
+### As found: area E
+#### Area E: the Lampeater
+Looked at: every Lampeater rule D-940 to D-978 against arena, call, guarding, wary, snuff, brood, flank, beaten, save and bossrun; ran bossrun (Lean 35%, Middling 84%, Strong 94%, same as PROGRESS.md) with a per-turn rule checker over 300 fights (no two on a tile, never over 6 gloamlings, phases never missed: 0 hits), a save/load round trip each turn (0 differences in 146 turns), 9-to-3 with 2 and 6 gloamlings out, leaving and coming back mid-call (comes back whole), beating it mid-call (gloamlings gone, door open, Leap given). Not covered: the sound, the cutscene and the bar drawn in play (I only got as far as the hallway on an iPhone 13 and no errors came up; "too wide" lines are already checked by tests/lines.test.js), guards with 6 out (the bot rarely gets there).
+
+##### E-1 A phase blow starts "wary" before the debt is counted
+- Where: src/core/snuff.js:40 and :75 (the debt is counted after the creatures move), src/core/creatureturn.js:234-240, src/core/wary.js:20, src/core/call.js:33
+- Against: D-978 "owing or breathing, it neither calls nor is wary"; "so 2 from that blow"
+- What: On the very turn a blow takes it to 8 or 4 hearts, the creatures move first and see "struck, owing nothing yet", so it turns wary (or steps toward a cold brazier) and only then the snuff is owed. Its 3 wary turns run out during the 2 breath turns and clear the struck mark, so the phase's second gloamling call, or the 3 wary turns D-978 says follow the snuff when no other brazier is cold, never happen; the wary line is also overwritten by the breath line.
+- Seen: ran: scratch/work/E/b.mjs p1 (4 braziers lit, 8 hearts, struck): turn 0 shows breath and wary 2 together, struck is gone by turn 2, no call, no second wary. tests/call.test.js:82 only tests it with `owes` already set, so it misses this path.
+- Who: some (anyone who has lit all the braziers or has 6 gloamlings out when the phase blow lands)
+- Fixes: 1) count the phase inside the blow (in hitEnemy, or run `owed` before the creatures move) so every later check sees the debt 2) leave it and change D-978's words to match
+
+##### E-2 CONTENT-BOSSES.md still says 8 hearts and stops at D-973
+- Where: docs/CONTENT-BOSSES.md:9 (the Lampeater row); src/core/enemies.js:121-122
+- Against: D-950 "12 hearts"; D-971, D-972, D-974, D-976, D-977, D-978
+- What: The one doc "before adding content" for a boss gives Hearts 8, and its Ways and Decisions cells say nothing of the calls, guards, wary, phases or the 6-gloamling limit. The Bestiary words in enemies.js also leave out the guards (D-976).
+- Seen: read (the table row against `health: 12` and `calls: { turns: 2, most: 6, ... wary: 3 }`)
+- Who: few players; dev time (a conversation that trusts the row will build on the wrong hearts)
+- Fixes: 1) put the row right: 12 hearts, add calls, guards, wary, phases and D-974 to D-978 2) shorten the row to a pointer at enemies.js and the decisions so it cannot drift again
+
+##### E-3 Lampeater decisions fill DECISIONS.md, 109 bytes from its cap
+- Where: docs/DECISIONS.md:80-190 (D-971, D-972, D-975, D-977, D-978 are about 7.8 KB of 12 KB); docs/OPEN-QUESTIONS-3.md (7677 of 8192)
+- Against: CLAUDE.md "No doc over 8 KB, except docs/DECISIONS.md (12 KB)"
+- What: DECISIONS.md is 12179 bytes of 12288, so the next decision (the drop and card, the sound) forces an archive move in the same PR, and each Lampeater step so far has moved the one before it word for word. Every conversation reads all of it at the start.
+- Seen: measured: wc -c, awk sizes per decision (D-971 1796, D-972 2272, D-975 1192, D-977 1410, D-978 1157)
+- Who: none (players); context and dev time
+- Fixes: 1) move D-971 and D-972 now (they are built and their rules live in the code and tests) with a one-line pointer each 2) have the step PR that finishes the fight archive the whole Lampeater run at once
+
+##### E-4 Waiting bowls count toward the 6 even after the brazier is lit again
+- Where: src/core/brood.js:25-40 (crawl never checks the bowl is still cold), src/core/call.js:22-25 (broodCount counts `bowls`)
+- Against: D-972 "counting any waiting in a bowl"
+- What: A gloamling waiting in a bowl (no dark tile beside it) stays in the list if the hero kindles that brazier; a lit bowl keeps its light on every tile beside it, so it cannot crawl out and keeps using one of the 6 slots, which can leave the Lampeater wary where it would have called.
+- Seen: read (no run; I did not build the lit-bowl case)
+- Who: few players
+- Fixes: 1) drop a waiting gloamling when its brazier is lit (or let it out onto the lit tile) 2) leave it and say so in D-972
