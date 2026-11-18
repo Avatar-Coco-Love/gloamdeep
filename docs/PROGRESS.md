@@ -4,14 +4,14 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.413 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.414 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The Lampeater made harder (D-971), step 2: struck and free, it calls a
-gloamling from the nearest cold brazier over 2 turns. Then wary, the
-phases, Leap as a find with its card, its sound; then the place beyond a
-Leap gap, its look (D-969).
+The Lampeater made harder (D-971, D-972), step 2: its gloamlings flank
+you while it comes for you or calls, taking the tiles beside you away
+from it. Then the calls, the guards, wary, the phases, Leap as a find with its card,
+its sound; then the place beyond a Leap gap, its look (D-969).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -20,7 +20,7 @@ Leap gap, its look (D-969).
   the archway's line, Claude's draft (D-970).
 - The owner's Lampeater polish after its steps (`OPEN-QUESTIONS-3.md`).
 - How hard the Lampeater should be (Q-111): 12 hearts for now (D-950);
-  with its 4 gloamlings (D-971), Lean 52%, Middling all; their flanking (Q-116).
+  with its 4 gloamlings (D-971), Lean 52%, Middling all; again after each step (D-972).
 - Any time: a sound for the vault door and the rune wall opening (D-895,
   D-929); a duskstar on the home waystone's ring (Q-103); the herb
   mimic's and the bone rat's rare drops (Q-061); who the keeper is
@@ -53,12 +53,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-17, 0.3.414, The Lampeater's steps planned.** Its calls,
+  wary and phases, and its gloamlings flanking (Q-116) and guarding it, in 8 steps. D-972.
 - **2026-11-17, 0.3.413, Gloamlings in the seal hall.** A gloamling
   beside each of the arena's 4 braziers at the start; the Lampeater's
   6 steps planned. D-971. Playtest: https://claude.ai/artifact/HsG8ykgpN3VhcXZpcc9cez
 - **2026-11-17, 0.3.412, The archway beyond the gap.** An archway past
   each Leap gap to one empty room off the grid. D-970. Playtest: https://claude.ai/artifact/LjhoNv7EpDXV9awuNqKXCQ
   Map preview: https://claude.ai/artifact/JKFex9qZNgKzua11MYayn6
-- **2026-11-17, 0.3.411, The Gap's two lines.** Before Leap, "Too wide to
-  step. More lies beyond."; with it, "Too wide to step. Leap
-  it." The place beyond, its plan. D-969. Playtest: https://claude.ai/artifact/8x6SUZgjHqqeGsMTCWoLtc

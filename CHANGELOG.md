@@ -24,6 +24,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.414 (2026-11-17)
+- Nothing changes in the game yet: the Lampeater's next steps are planned, with the gloamlings working alongside it.
+- While it comes for you, or stands calling at a brazier, its gloamlings will take the tiles beside you away from it, leaving its side open; it calls from cold braziers when it breaks free, up to 6 gloamlings at once; and its snuffs come at 2/3 and 1/3 of its hearts instead of at half.
+- With 6 gloamlings out, 2 will guard the Lampeater, following it and holding the tiles beside it away from you, and biting you if you come close.
+- Decisions: D-972. Questions closed: Q-116. D-967 moved to the archive, word for word.
+
 ## 0.3.413 (2026-11-17)
 - The Lampeater's fight is harder from the start: a gloamling now waits beside each of the arena's 4 braziers, on the side toward the wall, and hunts you through the dark as soon as you walk in.
 - They are the arena's own, like the ones that crawl from a snuffed brazier: they drop nothing, count for nothing, crumble when the Lampeater is beaten, and are all back if you fall or leave before then.
@@ -34,7 +40,3 @@ Entry format:
 - For now that room is empty: plain walls and floor in the floor's own look. Step back onto its archway to return to the same spot. Its look, creatures and finds come in the next steps.
 - On the map the room isn't drawn yet; while you are in it, the map shows you at the archway. Rooms you have already been in stay as they were. The map preview marks each archway in gold.
 - Decisions: D-970. D-965 and D-966 moved to the archive, word for word.
-
-## 0.3.411 (2026-11-17)
-- Walk into a Leap gap before you have learnt Leap and it says "Too wide to step. More lies beyond." Once you have Leap, it says "Too wide to step. Leap it."
-- Decisions: D-969. D-963 moved to the archive, word for word.
