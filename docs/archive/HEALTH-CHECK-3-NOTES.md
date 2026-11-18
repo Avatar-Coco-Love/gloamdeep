@@ -990,3 +990,39 @@ Looked at: save/profile/aside code and the 2 old fixtures; round trips; save siz
 - I-5 No fixture covers steps 17 to 36 end to end: weak and partly false. refetch.test.js loads both fixtures through `readJourney`, which runs every step 10/16 to 37 (a failing step fails the test); `withKnown` is tested in tests/bagmake.test.js:64; no bug found.
 - I-6 (half) set-aside copies never go: already decided. D-914 offered "only the newest; one copy per save" and the owner picked one copy per broken text. The rest is kept as I-4.
 - I-7 The first page load is 300 separate files: confirmed (300 requests, 299 JS, 3 runs), but a chosen trade-off: CLAUDE.md "no build step", and STORE.md's plan (Capacitor files in the app, a service worker for offline) removes the cost for the store build.
+
+### As found: area H2
+#### Area H2: Full journeys on phone and PC, boon button, line seconds, round map
+Looked at: a phone journey (iPhone 13, touch only: taps, swipes, bag, Make tab, fight, stairs down and up, a fall, waystone, boon card) of about 380 moves over three worlds; PC keyboard (about 100 moves, every screen opened and closed: bag I, map M, pause P/Esc, Journal, Settings tabs with Tab, Version history, title menu) and mouse (every HUD button and X); no page errors and no console errors in any run. Checked against decisions and they hold: the boon button (D-930: 44 px, shows after a fall on the woken plate, a tap opens the card, stays after closing the card, goes on stepping off, card again on stepping back), a line's seconds (D-932: gone about 4 s after it is said, also over the bag and Make cards), the round map in the dark (D-931: fades evenly, no dark circle) and the rim (D-921: red, pulsing, with a chasing creature). Not covered: the broken ember rim, a two-row line's 6 seconds, the boss fight, night play on PC.
+
+##### H2-1 The text line is drawn over the hero in small rooms
+- Where: text line drawn at a fixed height (about y 500 on a 390x664 phone); camera clamp in src/render/frame.js
+- Against: none (a risk)
+- What: In the small crypt rooms the hero stands low on the screen (for example arriving by stairs at the room's foot), and "You go down the stairs." is drawn straight across the hero's feet and body. A line can also sit on a find or a creature at the same height.
+- Seen: played: /tmp/claude-0/-home-user-gloamdeep/4949d8dd-d5fc-582b-8ac1-3b540fccd1d6/scratchpad/work/H2/r2.png (hero at y 487, line box 490-515); same fixed height as the other lines in /tmp/claude-0/-home-user-gloamdeep/4949d8dd-d5fc-582b-8ac1-3b540fccd1d6/scratchpad/work/H2/t1.png
+- Who: some (small rooms at depth, every line said there)
+- Fixes: 1) move the line up or down when the hero's tile is within a tile of it 2) draw the hero on top of the line, or let the line fade faster there
+
+##### H2-2 After a dev jump, goals, Bestiary and Records stop with no sign
+- Where: src/main.js:160-161 (keepGoals: "if (app.jumped) return false"), docs/DEV-TOOLS.md (Go to depth)
+- Against: D-232 "Not after a dev jump" (the rule is kept, but nothing tells the player or the tester)
+- What: After one use of Room > Go to depth, "Find the waystone" never ticked though I stood on the waystone and took a boon, and the profile kept deepest 0 and falls 0 after reaching depth 2 and falling. It looks exactly like a goals bug; I nearly reported it as one.
+- Seen: played: /tmp/claude-0/-home-user-gloamdeep/4949d8dd-d5fc-582b-8ac1-3b540fccd1d6/scratchpad/work/H2/y2.png (boon taken, goal still "Find the waystone"); script /tmp/claude-0/-home-user-gloamdeep/4949d8dd-d5fc-582b-8ac1-3b540fccd1d6/scratchpad/work/H2/gl.mjs ran the game's own goalsAfter on the same seed and it ticks, so only the jump stops it
+- Who: none (players) but dev time (every tester who jumps, then checks goals or records)
+- Fixes: 1) add "Jumped: goals and records paused" to the stats line or the dev sheet header 2) say it once in DEV-TOOLS.md's Room line and in tools/playtest notes
+
+##### H2-3 Nothing lets a script read or drive the running game
+- Where: src/main.js (no exported state), tools/ (only playtest.js and pack.js)
+- Against: none (a risk); docs/DEV-TOOLS.md says tools "edit the game state" but only by hand
+- What: To play 300 moves I had to read the saved journey out of localStorage (which holds the state, but only after each turn), find the hero on screen by guessing its colour (fails in the dark and put taps on the hero's own tile, which waits a turn), and work out the camera by hand for mouse clicks. Every health-check helper will rebuild this.
+- Seen: measured: about 10 scripts in /tmp/claude-0/-home-user-gloamdeep/4949d8dd-d5fc-582b-8ac1-3b540fccd1d6/scratchpad/work/H2 (srv.js, run.sh, hero detection, BFS walker), about 25 minutes of the run spent on them
+- Who: none (players); dev time and context (each future playtest or audit helper)
+- Fixes: 1) one small read-only hook, for example a dev-only getter for state and a function giving the hero's screen point, plus a shared tools/drive.js with step, swipe and click helpers 2) document the localStorage key and a hero-position formula in DEV-TOOLS.md
+
+##### H2-4 The first-day mole takes 3 or 4 of 5 hearts from a new player
+- Where: src/core/enemies.js:48 (mole: health 4, bite 1, sight 5, digs), src/core/room.js:184 ({ id: 'mole', from: 5 }) and the surface day mole (CONTENT-CREATURES.md)
+- Against: D-858 "notices only within 5 steps" (kept); nothing says how a first-minute player is meant to cope
+- What: In all three journeys a mole dug, surfaced beside the hero and bit every turn: hearts 5 to 1 by turn 21 on the phone, 5 to 2 by turn 30 on the PC, with no healing in the bag yet. The only teaching is the line "The mole digs down into the earth!" and the red rim; I killed it with one bump each time, but only because the bot happened to walk into it.
+- Seen: played: /tmp/claude-0/-home-user-gloamdeep/4949d8dd-d5fc-582b-8ac1-3b540fccd1d6/scratchpad/work/H2/n1.png (hp 1, "The mole claws you."), /tmp/claude-0/-home-user-gloamdeep/4949d8dd-d5fc-582b-8ac1-3b540fccd1d6/scratchpad/work/H2/o1.png
+- Who: some (new players who do not strike at once)
+- Fixes: 1) leave as is, and have the first goal teach "strike the mound when it comes up" 2) first-day mole sleeps or digs only after the player's first 40 turns 3) a heal at hand (a herb near the start)
