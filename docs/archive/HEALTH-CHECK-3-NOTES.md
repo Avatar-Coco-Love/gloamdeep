@@ -12,7 +12,7 @@ reused); while working, each area numbers its own (A-1, B-1...).
 
 ## Checklist
 - [x] 0. Set up: this file, baseline `npm test` 2050 of 2050 pass, 72 s.
-- [ ] A. A conversation's start: what it reads, and how that grows.
+- [x] A. A conversation's start: what it reads, and how that grows.
 - [ ] B. A PR's overhead: the checklist, release, history, conflicts.
 - [x] C. The code's shape: big files, boot, duplication, the rules.
 - [ ] D. Tests and tools: speed, noise, what's slow or doubled.
