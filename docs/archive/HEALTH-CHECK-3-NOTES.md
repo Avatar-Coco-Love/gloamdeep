@@ -885,3 +885,36 @@ Timing note: other agents ran the suite at the same time, so all times are noisy
 
 #### Dropped
 - D-4 Four tools have no test; sharecard writes into the repo: weak. The packer at the heart of playtest/mappreview is tested (tests/audit868.test.js:24 `packScript`), every PR builds the playtest so a break shows in the same conversation, and writing share.png is sharecard's job (D-425, tested by tests/sharecard.test.js). Also it listed five tools, not four. I re-ran playtest, mappreview and soundboard to scratch: all fine, git status clean.
+
+### As checked: area G
+#### Area G: Warden, vault, rune wall, shovel, flyers, followers, stacks (0.3.330 to 0.3.380)
+Looked at: slam, Fist, harder Warden, vault, rune wall, shovel, roosts, followers, cutting a room, stacks; 105 area tests, about 12 scripts, browser play (iPhone 13). Not covered: pictures and sounds by ear, the dev panel, the Lampeater's arena.
+
+##### G-2 Shovel held: fetching felled Wood destroys the regrowing tree
+- Where: src/core/turn.js:96 (`digsStump` before the pick-up at 99), src/core/shovel.js:15-19
+- Against: D-926 "walking onto a stump digs it out" with D-934 "a felled tree's 3 Wood on its stump" (D-317 already laid leftover sticks there)
+- What: A tree felled with a full bag leaves its Wood on the stump. With the Shovel in the Tool slot, stepping onto that stump to take the Wood digs the stump out instead: the Wood stays, the tree is struck off the grow-back list for good, and a second step takes the Wood. No decision weighs the two rules against each other.
+- Seen: ran: work/G-check/shov2.mjs (real chop: full bag, 4 bumps, then make room. Shovel: step 1 stump becomes floor, hero stays, regrow list empty; step 2 takes 3 Wood. No tool: step 1 takes the Wood, stump and regrow entry stay.)
+- Who: some (a full bag while chopping, with the Shovel kept in the Tool slot)
+- Fixes: 1) A stump with something lying on it is not dug: the step takes the find; dig only a bare stump 2) Warn once before the first dig 3) Say so in the Shovel's look line
+- Checked: REVISE, reproduced through a real chop; it only happens when the bag was full as the tree fell.
+
+##### G-3 Slam that kills at a doorway: the fall is in the next room
+- Where: src/core/sting.js:36-42 (`fall(s)` runs after the slide already carried the hero out), src/core/fall.js:39-48
+- Against: none (a gap): D-887 "the slide goes on out into the room beyond, and the turn ends there" says nothing of a slam that takes the last heart
+- What: At 1 heart a Warden slam beside a doorway bites, slides the hero out, then the fall runs in the room beyond: the lost bag lies on its doorway tile and the fall picture shows that room, not the Warden that struck.
+- Seen: ran: work/G-check/slam2.mjs (makeWorld, hero 5,11 under a warden: 1 heart, fell.place "south", bag at south 5,0, none in "first"; 3 hearts, alive in south with 2)
+- Who: few players
+- Fixes: 1) Ask the owner (Open questions): fall where struck, or past the door 2) Run the fall before the slide when the bite took the last heart
+- Checked: REVISE, reproduced; framed as an undecided rule rather than a bug, since no decision covers it.
+
+##### G-4 The full test run takes about 2 minutes
+- Same as D-1 / D-2 (test output and test time); kept there.
+- Checked: KEEP as merged into D; not repeated here.
+
+##### G-5 Archive index misses a few decisions
+- Same as A-4 (the archive index row, 28 IDs not indexed); kept there.
+- Checked: KEEP as merged into A-4; not repeated here.
+
+#### Dropped
+- G-1 Fist hit on an open Warden plays the "fists sink" thud: not reachable in play. The helper's start (open, rests 2, hero beside it) can't happen: after a miss the hero stands diagonal, needs a step to get beside, and by the strike the Warden pulls free that same turn. A real slam-miss-then-Fist sequence gave no sink (work/G-check/sink2.mjs); 4,000 random 30-turn fights with the Fist gave 10,742 real sinks, 0 spurious (work/G-check/sinkfuzz.mjs).
