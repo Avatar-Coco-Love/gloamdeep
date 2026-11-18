@@ -5,7 +5,7 @@ import { byLetter, get, LANDMARKS, asleepAtFirst } from './registry.js';
 import { generateRoom, withMimic } from './cave.js';
 import { withGuano } from './guano.js';
 import { withCache } from './cache.js';
-import { withLeapGap, leapGapOrder } from './leapgap.js';
+import { withLeapGap, leapGapOrder, clearBehind } from './leapgap.js';
 import { isBeyond, roomBefore, beyondRoom, wayIn } from './beyond.js';
 import { vaultRoomOf, vaultRoom } from './vault.js';
 import { arenaRoom, hallwayRoom } from './arena.js';
@@ -338,7 +338,8 @@ function madeFor(id, seed, probe = false) {
   const gapped = lined; // the cache behind a Gap, from depth 5 to 8 (D-968)
   const relic = gapped && depth === LOCKET_DEPTH && id === locketRoom(seed) ? withRelic(cell.seed, gapped) : gapped; // placed after the rest (D-691)
   const packed = relic && withPack(cell.seed, relic, depth); // from depth 3, 1 room in 3, the flask's rat in a pack of 3, placed after the rest (D-727)
-  const room = packed && landmark ? { ...packed, map: unpad(packed.map, landmark.mark, landmark.at) } : packed; // its pad floor again (D-620)
+  const cleared = packed && lined !== cached ? clearBehind(packed, cached.items.slice(guanoed.items.length)) : packed; // only the cache behind the Gap (H-79, D-989)
+  const room = cleared && landmark ? { ...cleared, map: unpad(cleared.map, landmark.mark, landmark.at) } : cleared; // its pad floor again (D-620)
   return { ...(room || PLACES[DEEPER]), people: room?.people || [], depth, look };
 }
 

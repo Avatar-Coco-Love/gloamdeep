@@ -14,7 +14,8 @@
 // the Shell Vest blunts it, a strike of 2 hurting 1 (D-801).
 // One that slams (the warden, D-885) strikes so with a reach of 1, and its way's `knocks` sends the
 // hero hit that many tiles straight back, along the strike's way; a wall, a creature or a person
-// in the way hurts, and a doorway lets the hero slide out into the room beyond (knock, D-887).
+// in the way hurts, and a doorway lets the hero slide out into the room beyond (knock, D-887). A slam
+// that takes the last heart slides nowhere, so the hero falls where struck, beside it (H-78, D-989).
 import { get } from './registry.js';
 import { enemyAt, hitFoe } from './enemies.js';
 import { traits } from './behaviours.js';
@@ -78,7 +79,7 @@ function strike(state, e) {
   if (!hit) return foe ? say(s, 'stingsFoe', get(foe.id).name.toLowerCase()) : say(s, entry.misses);
   const hurt = blunted(state, entry.bite), health = state.god ? state.health : Math.max(0, state.health - hurt);
   const bitten = note(say({ ...s, health }, entry.bites), 'bite', { id: e.id, hurt });
-  return way.knocks ? knock(bitten, raised, way.knocks) : bitten;
+  return way.knocks && health > 0 ? knock(bitten, raised, way.knocks) : bitten; // a slam that takes the last heart slides nowhere: the hero falls where struck (H-78, D-989)
 }
 
 // § knock (D-885, D-887): (state, way, n) → the hero slid up to n tiles along `way`. Finds on the

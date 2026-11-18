@@ -82,7 +82,7 @@ export function createCards(app, ui) {
     const { screen } = app;
     if (screen === 'explore') { titleScene(0, t); drawMap(rc, view.w, view.h, app.view, t, still(), screens.turns(), { seed: shownSeed(app.seeds), back: canGoBack(app.seeds) }); } // the map's card on the title's scene (D-395)
     else if (screen === 'seed') { titleScene(0, t); drawSeedCard(rc, view.w, view.h, app.entry, app.chosen, t, still()); } // the card on the title's scene (D-394)
-    else if (screen === 'howto') { titleScene(0, t); drawHowTo(rc, view.w, view.h, app.page, app.settings, t, still()); } // the card on the title's scene (D-390)
+    else if (screen === 'howto') { titleScene(0, t); drawHowTo(rc, view.w, view.h, app.page, app.settings, t, still(), !!app.state?.leap); } // the card on the title's scene (D-390)
     else if (screen === 'history') { titleScene(0, t); drawHistory(rc, view.w, view.h, app.rows, app.opened, app.scroll, app.chosen, t, still()); } // the card on the title's scene (D-393)
     else if (screen === 'mode') { titleScene(0, t); drawWays(rc, view.w, view.h, screens.menuOf(screen), app.chosen, t, still()); } // the card on the title's scene (D-396)
     else if (screen === 'settings') { titleScene(0, t); drawSettingsCard(rc, view.w, view.h, screens.menuOf(screen), app.chosen, t, still(), app.settingsTab, app.soundList); } // the card on the title's scene (D-389)
@@ -119,7 +119,7 @@ export function createCards(app, ui) {
         if (app.screen === 'bed' && saysOver(state, app.bench)) textLine.draw(hc, line, t, still()); // a campfire's or the miners' camp's first words, over their card (H-33)
       }
       else if (app.screen === 'seed') drawSeedCard(hc, view.w, view.h, app.entry, app.chosen, t, still()); // a card on the room (D-394)
-      else if (app.screen === 'howto') drawHowTo(hc, view.w, view.h, app.page, app.settings, t, still()); // a card on the room (D-390)
+      else if (app.screen === 'howto') drawHowTo(hc, view.w, view.h, app.page, app.settings, t, still(), !!app.state?.leap); // a card on the room (D-390)
       else if (app.screen === 'history') drawHistory(hc, view.w, view.h, app.rows, app.opened, app.scroll, app.chosen, t, still()); // a card on the room (D-393)
       else if (app.screen === 'journal') journalOn(hc, t); // a card on the room (D-391)
       else if (app.screen === 'aboutBoons') { if (app.boonsFrom === 'journal') journalOn(hc, t); aboutBoonsOn(hc); } // the boons card on the room, or over the Journal (D-712)

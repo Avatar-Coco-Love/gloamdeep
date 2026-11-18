@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-18, 0.3.425, The tests.** Hands-off (D-980), nothing in
+  the game changed: a quick test run, fixtures, beyond's own tests,
+  window.gloamdeep and tools/drive.js (H-103 to H-107). D-985.
 - **2026-11-18, 0.3.424, Less code to read.** Hands-off (D-980), nothing
   in the game changed: lines.js and frame.js split, a code size test,
   a fixups folder, one tile.js (H-99 to H-102). D-983, D-984.

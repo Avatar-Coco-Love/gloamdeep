@@ -104,6 +104,14 @@ test('through a doorway, the slide goes on out into the room beyond, and the tur
   assert.ok(s.elsewhere.first.enemies.some((e) => e.id === 'warden'));
 });
 
+test('a slam that takes the last heart by a doorway slides nowhere: the hero falls where struck (H-78, D-989)', () => {
+  const w = makeWorld(), start = { ...w, hero: { x: 5, y: 11 }, health: 1, lit: true, oil: 99, enemies: [{ id: 'warden', x: 5, y: 10, chasing: true }] };
+  const s = wait(wait(start));
+  assert.ok(s.fell, 'fell');
+  assert.equal(s.fell.place, 'first', 'in the room it struck in');
+  assert.ok(!s.events.some((e) => e.type === 'knock' || (e.type === 'enter' && e.place === 'south')));
+});
+
 test('stepped out of its way, the slam hits the floor and the hero stays', () => {
   const s = stingTurn(at(5, warden(6, { raised: { dx: 0, dy: 1 } })));
   assert.deepEqual(s.hero, { x: 5, y: 2 });

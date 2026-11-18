@@ -158,7 +158,7 @@ export function createScreens(app, ui) {
     setVersionGap(!version.hidden); // the cards' foot clear of it (D-512)
     app.spokenLine = heardAs(next, app.state); // a line already showing isn't spoken over the card's words (D-670)
     spoken.textContent = next === 'settings' ? settingsWords() : next === 'seed' ? (app.padFrom === 'explore' ? EXPLORE_PAD_WORDS : SEED_WORDS)
-      : next === 'howto' ? howtoWords(app.page, app.settings) : next === 'bag' ? bagWords() : next === 'make' ? makeWords() : next === 'history' ? HISTORY_WORDS()
+      : next === 'howto' ? howtoWords(app.page, app.settings, !!app.state?.leap) : next === 'bag' ? bagWords() : next === 'make' ? makeWords() : next === 'history' ? HISTORY_WORDS()
       : next === 'journal' ? journalPageWords() : next === 'slots' ? slotsWords() : next === 'name' ? nameWords() : next === 'cloak' ? lookWords()
       : next === 'ways' ? waysWords() : next === 'easier' || next === 'drop' || next === 'bed' || next === 'sleepOut' ? askWords(next)
       : next === 'title' ? WORDS[app.saved ? 'saved' : 'title'] : next === 'place' ? placeWords() : next === 'bench' ? benchWords() : next === 'chest' ? chestWords(stashAt(app.state, app.bench.x, app.bench.y)) : next === 'trade' ? tradeWords(app.state) : next === 'travel' ? travelWords() : next === 'boons' ? boonsWords() : next === 'opening' ? openingWords() : next === 'aboutBoons' ? aboutBoonsWords() : WORDS[next];

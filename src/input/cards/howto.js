@@ -8,7 +8,7 @@ import { view } from '../../render/screen.js';
 export function howtoCard(app, ui, show, c) {
   const { spoken } = ui;
   const { closeHowTo } = c;
-  function openPage(id) { app.page = id; spoken.textContent = howtoWords(app.page, app.settings); }
+  function openPage(id) { app.page = id; spoken.textContent = howtoWords(app.page, app.settings, !!app.state?.leap); }
   const flipPage = (back = false) => openPage(nextPage(app.page, back));
   const pick = () => { flipPage(); }; // Enter turns to the next tab
   const dir = (dir) => { if (dir === 'left' || dir === 'right') flipPage(dir === 'left'); }; // the tabs (D-390)

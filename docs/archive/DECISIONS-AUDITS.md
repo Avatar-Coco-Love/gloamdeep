@@ -765,3 +765,19 @@ copied `unseen` in one `fixups/shared.js` (`strewn.js` uses it too)
 `cave.js`'s number key is `cellKey` (H-101). No second boss is planned,
 so the boss field waits: `CONTENT-BOSSES.md` lists where the Lampeater's
 id is checked, for that step (H-102).
+
+**D-984 · 2026-11-18 · Lessons for the next game** (the owner's pick)
+The playbook (D-732) keeps growing as it does, each audit adding its
+lessons; a starter kit for a new project's Claude is made only when the
+next game starts.
+
+
+**D-985 · 2026-11-18 · The tests** (Claude's picks, hands-off, D-980;
+H-103 to H-107, the fix suggested for each) `npm run quick` runs a tenth
+of the biggest seed sweeps (stand-ins, halls, burrows, peddler, caves,
+stamper, region); `npm test` runs every seed, before the handoff (H-103).
+The two save-format pins read "at least" (H-104). `tests/fixtures.js`
+holds setups new tests share (H-105). `beyond.test.js` is `widen.test.js`;
+the place beyond's tests move to `beyond.test.js` word for word (H-106).
+`window.gloamdeep` reads the running game, and `tools/drive.js` serves,
+opens and drives it; `perf.js` uses it, and now reaches play (H-107).

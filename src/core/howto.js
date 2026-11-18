@@ -29,7 +29,7 @@ function walkWays(settings, tap, swipe) {
 }
 
 // The page's rows: [{ action, ways: [text, …] }], one text per drawn line
-export function howtoRows(page, settings) {
+export function howtoRows(page, settings, leap = false) { // `leap`: learnt on this journey, so its row shows (H-81)
   if (page === 'basics') { // the aim and the oil, for a first run (D-507); the stairs stay a search (D-174)
     return [
       { action: 'Aim', ways: ['Find the stairs down', 'Search each room for them'] },
@@ -69,6 +69,7 @@ export function howtoRows(page, settings) {
       { action: 'Frame', ways: ['Tab'] },
       { action: 'Bag', ways: ['I'] }, // the bag and map keys (H-39)
       { action: 'Map', ways: ['M'] },
+      ...(leap ? [{ action: 'Leap', ways: ['J, then a way'] }] : []), // once Leap is learnt (H-81, D-989)
     ];
   }
   const touch = page === 'touch';
@@ -79,10 +80,11 @@ export function howtoRows(page, settings) {
     { action: 'Pause', ways: ['The pause button'] },
     { action: 'Frame', ways: [touch ? "Tap a creature's plaque" : "Click a creature's plaque"] },
     { action: 'Bag, map', ways: ['Their buttons'] }, // the bag and map buttons, one row to fit (H-39)
+    ...(leap ? [{ action: 'Leap', ways: ['The Leap button, then a way'] }] : []), // once Leap is learnt (H-81, D-989)
   ];
 }
 
 // The page in words, for screen readers
-export const howtoWords = (page, settings) =>
-  `How to play, ${pageName(page)}. ` + howtoRows(page, settings).map((r) => `${r.action}: ${r.ways.join(' ')}.`).join(' ') +
+export const howtoWords = (page, settings, leap = false) =>
+  `How to play, ${pageName(page)}. ` + howtoRows(page, settings, leap).map((r) => `${r.action}: ${r.ways.join(' ')}.`).join(' ') +
   ' Left or Right for another page. Esc or the close button goes back.';
