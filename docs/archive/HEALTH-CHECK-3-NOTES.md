@@ -918,3 +918,29 @@ Looked at: slam, Fist, harder Warden, vault, rune wall, shovel, roosts, follower
 
 #### Dropped
 - G-1 Fist hit on an open Warden plays the "fists sink" thud: not reachable in play. The helper's start (open, rests 2, hero beside it) can't happen: after a miss the hero stands diagonal, needs a step to get beside, and by the strike the Warden pulls free that same turn. A real slam-miss-then-Fist sequence gave no sink (work/G-check/sink2.mjs); 4,000 random 30-turn fights with the Fist gave 10,742 real sinks, 0 spurious (work/G-check/sinkfuzz.mjs).
+
+### As checked: area H
+#### Area H: Playing on phone and PC (checked)
+Looked at: phone (iPhone 13) play to depth 1 and 8; bag, Make, workbench, chest, peddler and draught cards. Not covered: a full journey, PC keyboard, boss, boon button.
+
+##### H-1 Choosing a draught covers its "Now" picture for 4 seconds
+- Where: src/core/bagturn.js:295-297 (choosing a slot says its look line, D-297); src/render/frame.js:480 (the line drawn over the bag card, D-386); the Now/After picture (D-909) in src/render/bag.js
+- Against: D-909 "left out where it would reach the buttons" and D-386 "a line said with the bag open ... shows": neither says what happens where the two meet
+- What: Each time a draught's slot is chosen, its look line ("A gold draught that glows.", "A green draught, bitter as leaves.") is drawn across the "Now" picture on a 390x664 phone, hiding its lower half. It goes after 4 seconds (B-009), then comes back the next time the slot is chosen.
+- Seen: played: work/H-check/d3_strip.png (Glow Draught at 0.4 s, 3 s, 6 s: covered, covered, clear), work/H-check/d5_pair.png (Mending Draught covered; the Oil Flask's bars clear)
+- Who: most (every draught chosen in the bag on a phone)
+- Fixes: 1) leave the Now/After picture where the line would cross it, as D-909 does for the buttons, or move the picture up 2) don't say the look line when the card shows the picture
+- Checked: REVISE, reproduced on iPhone 13; added that it lasts 4 s per choice (B-009) and why the line is there (D-297, D-386).
+
+##### H-2 Card buttons are under 44 px to tap, DROP only 34
+- Where: src/render/bag.js:62 (BUTTON h 13), :72 (TAP_PAD 4), :164-168 (act 4 each side, DROP 2); src/render/makecard.js:27, benchpanel.js:42-44, chestpanel.js:47-48 (TAP_PAD 4)
+- Against: docs/TECH.md:15 "Tap targets are at least 44 px."; D-513 "at least 44 px tall on a phone" (the slots card); D-867 the same for the Look tabs
+- What: On a phone the screen layer is drawn at 2x (hud canvas 195x332 shown at 390x664). MAKE, STORE, TAKE, SELL, DRINK reach 13 + 2x4 = 21 game px = 42 px; DROP 13 + 2x2 = 17 = 34 px. Same kind as done H-34 (Look tabs) and H-36 (boon marks), not a return of either; tests check 44 px only there (tests/looks.test.js:146, tests/profile.test.js:152).
+- Seen: measured: work/H-check/d4.js (scale 2 from canvas sizes; DROP taps missed at 586-592, hit at 594)
+- Who: most on phone; context: one shared tap test would stop each new card repeating it
+- Fixes: 1) a shared pad so (BUTTON.h + 2*pad)*2 >= 44 for every card button, DROP included where it doesn't share a row edge, plus one test over all cards 2) draw buttons taller
+- Checked: KEEP, re-measured scale and ranges; added the decisions and the missing test.
+
+#### Dropped
+- H-3 Make costs read "3 / 4 Wood": decided that way: D-387 "each cost with how many are carried (3 / 5 Wood) ... Make ... dim with too few", D-560 "3 / 5 Wood".
+- H-4 A stale line repeats on cards: the line over the bag/bench card is decided (D-386, D-866 "as the bag's and the bench's lines do"), choosing a slot saying its look line is D-297, and since 0.3.374 every line goes after 4 s over cards too (B-009, D-932); the shots were within 4 s. The real part is folded into H-1.
