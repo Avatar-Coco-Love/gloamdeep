@@ -146,3 +146,16 @@ its polish ends. `npm test` uses the dot reporter, `npm run test:full`
 the full output (H-93). The start's four files, 29 KB before, are about
 23 KB.
 
+**D-982 · 2026-11-18 · Each PR costs less** (Claude's picks, hands-off,
+D-980; H-94 to H-98, the fix suggested for each) `tests/kept.test.js`:
+every decision from D-001 on is kept, once, and no archive file is gone
+or smaller than on main, its index aside (H-94). The archive index's
+`DECISIONS-SURFACE.md` row is a short "D-209 on, grep" line, its old text
+word for word at the end of that file (H-95). `tools/release.js` moves
+each 50 versions of the in-game history to its own file and import once
+a newer one is in (0.3.351 to 0.3.400 to `history-0.3-7.js` now), makes
+a new minor version's file and import, and refuses a `PROGRESS.md` over
+4 KB (H-96, H-97). `tools/audit.js` lists the docs near their caps (less
+than a twentieth left) and the bytes read at the start; the doc test
+reads its caps from there (H-97). `PR-CHECKLIST.md` says how to redo the
+record-keeping files if `main` moved on (H-98).

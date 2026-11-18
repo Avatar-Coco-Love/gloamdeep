@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.422 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.423 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The third health check's steps (D-979), hands-off (D-980): next, each
-PR costs less, H-94 to H-98 (`HEALTH-CHECK-3-WAYS.md`); then the rest.
+The third health check's steps (D-979), hands-off (D-980): next, less
+code to read, H-99 to H-102 (`HEALTH-CHECK-3-WAYS.md`); then the rest.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -39,12 +39,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-18, 0.3.423, Each PR costs less.** Hands-off (D-980), nothing
+  in the game changed: a test keeps every decision and the archive, and
+  release.js splits the history by itself (H-94 to H-98). D-982.
 - **2026-11-18, 0.3.422, Reading less.** Hands-off (D-980): each
   conversation starts by reading about a fifth less, nothing in the game
   changed (H-87 to H-93). D-981.
 - **2026-11-18, 0.3.421, The third health check.** Hands-off, nothing in
   the game changed: 40 findings kept of 60, each checked twice (D-975).
   Report: https://claude.ai/artifact/EUFm1fPQY9EhzgnWBYSNdv
-- **2026-11-18, 0.3.420, The Lampeater's phases.** At 8 and 4 hearts it
-  snuffs a lit brazier, then calls one more.
-  D-978. Playtest: https://claude.ai/artifact/1DEhSgEJCHcKqP4Eh6NSUA
