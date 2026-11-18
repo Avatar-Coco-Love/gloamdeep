@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-18, 0.3.428, Corners and last hearts.** Hands-off (D-980)
+  but three rulings, the owner's: a slam's last heart falls where struck;
+  only the cache behind a Leap gap (asked again: 47%, not 14%); Leap in
+  How to play once learnt. Also the phase on the last oil, the re-lit
+  bowl, the jump's word (H-76 to H-81). D-989. Playtest: https://claude.ai/artifact/43TVhNbJTDbwmUd5cXrqKP; map preview: https://claude.ai/artifact/5Y7yzYg646ToYkwDjrtXCu
 - **2026-11-18, 0.3.427, The dark again.** Hands-off (D-980) but H-75's
   ruling, the owner's: the line moves up off the hero; the Shovel digs only
   a bare stump; each sound file decoded once; perf.js times the dark and

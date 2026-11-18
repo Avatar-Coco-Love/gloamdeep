@@ -13,6 +13,7 @@ import { drawJournal } from './journal.js';
 import { drawSlots } from './slots.js';
 import { drawAskCard } from './askcard.js';
 import { drawOpening } from './openingcard.js';
+import { drawAbility } from './abilitycard.js';
 import { ABOUT_BOONS, ABOUT_BOONS_BUTTON } from '../core/opening.js';
 import { drawLook } from './cloak.js';
 import { drawMap } from './map.js';
@@ -113,6 +114,7 @@ export function createCards(app, ui) {
       else if (app.screen === 'travel') drawWays(hc, view.w, view.h, screens.menuOf('travel'), app.chosen, t, still(), TRAVEL_TITLE, app.scroll); // the travel card, its rows the ways' (D-593)
       else if (app.screen === 'strike') drawStrikeCard(hc, view.w, view.h, state.float?.strike ?? 0, needleAt(t - (app.strike?.start ?? t)), zoneWidth(state.float, state)); // the strike meter, the room paused (D-614)
       else if (app.screen === 'opening') drawOpening(hc, view.w, view.h); // a new journey's first words, on the room (D-628)
+      else if (app.screen === 'ability') drawAbility(hc, view.w, view.h); // Leap learnt, its card on the room (D-992)
       else if (app.screen === 'boons') drawBoons(hc, view.w, view.h, app.offer || [], app.chosen); // the boon card, three cards in a row (D-603)
       else if (app.screen === 'easier' || app.screen === 'bed' || app.screen === 'sleepOut') {
         drawAskCard(hc, view.w, view.h, ...screens.askOf(app.screen), screens.menuOf(app.screen), app.chosen); // the ask card on the room (D-400); the bed's by day (D-488), the garden bed's (D-566)

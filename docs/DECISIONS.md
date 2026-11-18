@@ -13,65 +13,6 @@ Format: `D-xxx · date · title`, then the decision and, where useful, why.
 
 ---
 
-**D-971 · 2026-11-17 · The Lampeater made harder, and Leap a find**
-(the owner's ideas and picks, all recommended; part of the owner's
-Lampeater polish, `OPEN-QUESTIONS-3.md`; builds D-939) The owner found
-the fight too easy: lantern off, wait for it, lantern on, strike twice,
-it backs off, again; no time for snuffs or gloamlings, the braziers not
-mattering. It starts with a gloamling beside each of the 4 braziers, on
-its outer side (offered too: the room's corner tiles; crawling out of
-them), the arena's own as a snuffed bowl's are. It gets 3 new ways, all
-together, as the owner asked: struck and free again, it goes to the
-nearest cold brazier and calls a gloamling out over 2 turns, seen, and
-stopped if caught in light; never from a lit one; with no cold one, it is
-wary 3 turns, just past the lantern's reach; at 2/3 and 1/3 of its hearts
-it snuffs a lit brazier if one is lit, then calls 2; never more than 4
-gloamlings alive (Claude's numbers, approved; offered too: no limit; 3).
-Beaten, it leaves Leap where it falls, drawn as the Leap button's icon,
-used up when stepped on: a card opens, a new ability, the icon, its name
-and its use; closed, the door sinks open (offered too: at the last blow).
-Its sound, something special, from a sound board of 2 or 3 mixes (offered
-too: Claude's pick; a bigger level-up). Six steps, one a PR, gloamlings
-first (offered too: the drop first; the fight in one go): the gloamlings,
-the calls, wary, the phases, the drop and card, the sound. Step 1: the 4,
-back when it is whole again. The bench: Lean 37% to 52%, Middling 95% to
-100%, as they take the tiles beside the hero and it bites less; the next
-steps draw it away. D-968 moves to `archive/DECISIONS-SURFACE.md`, word
-for word. Its limit of 4 alive changed to 6 by D-972 (2026-11-17).
-
-**D-972 · 2026-11-17 · The Lampeater's calls, wary and phases, and its
-gloamlings flanking** (the owner's picks, recommended but one; answers
-Q-116; builds D-971) Before building, its steps 2 to 4 planned with the
-owner's flanking idea. The gloamlings work with it: while it comes for
-the hero (chasing, not caught, calling or wary) and while it calls, they
-take the free tiles beside the hero away from it, as a rat pack spreads,
-leaving the side toward it open; else they act as ever (offered too:
-only stepping out of its way; only the two sides across; always after
-its first phase). Struck and free again, it calls (D-971); a call is
-stopped by catching it in light, tried again once free, and spoilt by
-lighting that brazier, as it never calls from a lit one: it turns to
-another cold one, else is wary (offered too: a stopped call spent).
-Never more than 6 gloamlings alive, the owner's pick (changes D-971's 4;
-offered too: wary at 4, recommended; fighting on as now). Wary, it still
-drinks at the light's edge (offered too: only waiting). At each phase, 2/3
-and 1/3 of its hearts, the snuffed bowl's crawler is one of the 2, and 1
-more is called from another cold brazier (offered too: 2 more; both from
-that bowl). The phases replace its half-hearts snuff and the snuff owed
-after each catch (D-947; offered too: keep all; keep the half one).
-Added before the merge, the owner's idea: only while 6 are alive, 2
-guard it, following it and holding the tiles beside it away from the
-hero, so its way to them stays open (offered too: each keeping the hero
-in sight; both); one bites the hero beside it, then goes back to it, not
-chasing (offered too: stepping between); lit, they back off as ever,
-back to it in the dark (offered too: holding their ground). Eight steps
-now, one a PR, flanking first (offered too: the old order, flanking last;
-flanking inside the phases; the guards inside the calls, or after the
-phases): flanking, the calls, the guards, wary, the phases, the drop and
-card, the sound. Claude's calls, to confirm at their steps: with 6 alive
-it is wary, as with no cold brazier; the 2 nearest it guard, and with
-fewer than 6 they act as the rest; the bench after each step. D-967 and
-D-969 move to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-977 · 2026-11-18 · The Lampeater wary** (the owner's picks, all
 recommended, and dimmed eyes too; builds D-971 and D-972, their step 5)
 Struck and free again, with no cold brazier it can reach or 6 gloamlings
@@ -174,3 +115,35 @@ tank slot is planned first (offered too: the glass slot; the forge). It
 comes as build step 27, after the Lampeater's polish or step 26 (offered
 too: right away; after the 0.3.433 audit). Its part, recipe and numbers
 are the owner's picks at its step.
+
+**D-992 · 2026-11-18 · Leap's find and its card** (the owner's picks, all
+recommended; builds D-971 and D-972, their step 7; answers Q-083's note)
+Beaten, the Lampeater leaves Leap's find on its tile, always (its `sure`
+find), drawn as the Leap button's icon in gold; the door stays sealed.
+Stepped on, it is used up, Leap learnt; a card opens: "A new ability",
+the icon, "Leap", "Jump 2 tiles in a line, over a creature, water or a
+gap. Tap the Leap button or press J." and OK (offered too: shorter; a
+story line). Closed, the door sinks open, "The stone door sinks open."
+For every boss, its big rewards (found ability, Feat, relic) are never
+lost, whatever lands the last blow (offered too: stings and globs can't
+hurt it; the rule as it was). Your ideas for its cutscenes, phases and
+more are asked after step 8, the sound (offered too: now; no more).
+Claude's calls: the lines "The Lampeater fades. Something glows." and its
+look "A mark glows where it fell." (drafts); fallen before taking it, the
+find stays and the way in opens to come back; a journey saved under the
+card opens the door on the next step. D-971 and D-972 move to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-993 · 2026-11-18 · Four open questions settled** (the owner's picks)
+A picked duskstar never grows back on a waystone's ring, as boulders
+(answers Q-103; offered too: leave it). Claude's plan for special
+creatures' stories is approved: the lore pages tell the past, the
+Bestiary page what it is now, the guide and people rumours of where it
+is; bosses get all three and every reward, wanderers rumours, a Bestiary
+page, a Feat and perhaps a relic, rare named ones a Bestiary page, a
+Feat and a trophy (part of Q-083; offered too: everything for all;
+later). Play data is kept on the device, with a dev button to save it,
+and near 1.0 also sent if the player opts in, with a privacy note
+(answers Q-052, the owner's own answer). Half and Automatic light are
+measured again at the next audit, then the owner chooses (Q-069;
+offered too: drop them; make Half do more).

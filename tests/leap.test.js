@@ -12,12 +12,13 @@ import { shownLine } from '../src/core/lines.js';
 const room = (rows) => ({ cols: rows[0].length, rows: rows.length, map: rows, dark: {} });
 const at = (rows, hero, more = {}) => ({ ...makeState(room(rows), hero), leap: true, ...more });
 
-test('beating the Lampeater gives Leap, said with the door', () => {
+test('beating the Lampeater leaves Leap\'s find; stepped on, Leap is learnt (D-992)', () => {
   const s0 = bench(newJourney(1), 'middling'), boss = s0.enemies.find((e) => e.id === 'lampeater');
   const s = step({ ...s0, hero: { x: LAMPEATER_AT.x, y: LAMPEATER_AT.y + 1 }, enemies: [{ ...boss, health: 1, met: true }] }, 'up');
-  assert.equal(s.leap, true);
-  assert.ok(['doorLeap', 'levelLeap'].includes(s.line.id));
-  assert.match(shownLine(s).text, /You learn Leap\./);
+  assert.equal(s.leap, undefined);
+  const took = step(s, 'up');
+  assert.equal(took.leap, true);
+  assert.match(shownLine(took).text, /You learn Leap\./);
 });
 
 test('a new journey starts without Leap', () => {

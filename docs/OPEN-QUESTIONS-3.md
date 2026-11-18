@@ -18,23 +18,16 @@ region). Their story told in **lore pages** (D-464), on **their
 Bestiary page** and by **the guide or people**. Beating one gives a
 **one-off Feat** (beside the tiered ones, D-467; the Lampeater's built, D-955), a boss **its found
 ability** (D-463), and **a trophy or relic** (D-465, D-466).
-Claude's proposal, so it is not too much, the owner may change it: each
-place tells a different part: the pages the past, the Bestiary page what
-it is now, the guide and people rumours of where it is. Bosses, about 4,
-get all three places and every reward; wanderers rumours and a Bestiary
-page, a Feat and perhaps a relic; rare named ones a Bestiary page, a
-Feat and a trophy. Still open: each one's story, looks and fight, the
-numbers, and when each kind comes. Asked at its own step, after the
-Bestiary (step 19). Old Maren, the hero's teacher, is one boss with a
-history, freed when beaten (D-633, `LORE.md`), fought near the end after the 4
-biome bosses; about 8 wanderers and rare named ones (D-634).
-A note (raised 2026-11-10, the owner's thought on D-768): a creature
-beaten by a sting or a glob leaves no find and gives no experience, so a
-stray blow landing the last hit on a boss could lose its found ability,
-and with it the way on. Claude's options for this step, to ask then: its
-big rewards (found ability, Feat, relic) are never lost, whatever lands
-the last blow (recommended); stings and globs can't hurt it; or the rule
-stays as it is.
+Claude's proposal approved (D-993): the pages tell the past, the Bestiary
+page what it is now, the guide and people rumours of where it is; bosses,
+about 4, all three places and every reward; wanderers rumours, a Bestiary
+page, a Feat and perhaps a relic; rare named ones a Bestiary page, a Feat
+and a trophy. A boss's big rewards are never lost, whatever lands the last
+blow (D-992). Still open: each one's story, looks and fight, the
+numbers, and when each kind comes, each at its own step. Old Maren, the
+hero's teacher, is one boss with a history, freed when beaten (D-633,
+`LORE.md`), fought near the end after the 4 biome bosses; about 8
+wanderers and rare named ones (D-634).
 
 **Q-084 · Who the keeper is** (raised 2026-11-07, D-633) One lone
 keeper leaves the oil flasks, herbs and other finds, never caught and
@@ -65,12 +58,6 @@ Leap, each step's details at its own step; the lantern part slots after. New ide
 **The second health check's loose ends** (D-862): seen at 0.3.305 with
 no decision to measure against. Each is asked at the step named in
 `HEALTH-CHECK-ORDER.md` (now in `archive/HEALTH-CHECK-DONE.md`).
-
-**Q-103 · A duskstar on the home waystone's ring** (raised 2026-11-12,
-D-869) Laid out, a duskstar keeps off the home waystone's ring, but one
-picked can grow back on it (`regrow.js`'s roam), as a boulder could
-before 0.3.314. Flowers don't block the way. Leave it, or keep them off
-the ring too? Any time.
 
 **Q-106 · A shovel that digs up trees** (raised 2026-11-14, the owner's
 idea) With a shovel held, a tree could be dug up for good, no stump
@@ -104,7 +91,7 @@ Middling 79%, Strong 85%.
 steps are done, the owner has ideas for its phases, how the cutscenes
 work, and gloamlings at the start of the fight, among others; to be asked
 for then. Asked at 0.3.413 (D-971): the gloamlings at the start, its new
-ways and Leap as a find, in 6 steps; 8 with the flanking and the guards (D-972); the cutscenes and the rest still to ask.
+ways and Leap as a find, in 6 steps; 8 with the flanking and the guards (D-972); step 7, the find and card, is D-992; the cutscenes and the rest asked after step 8, the sound (D-992).
 
 **Q-114 · Where falling ground goes** (raised 2026-11-17, D-967) The
 boss fight has no falling ground; the owner saved it for another time.

@@ -90,7 +90,7 @@ import { tradeWords } from '../core/trade.js';
 import { stonesOf, stoneName, stoneNote } from '../core/travel.js';
 import { offer, boonRow } from '../core/boon.js';
 import { view } from '../render/screen.js';
-import { openingWords, aboutBoonsWords } from '../core/opening.js';
+import { openingWords, aboutBoonsWords, abilityWords } from '../core/opening.js';
 import { heardAs } from '../core/lines.js';
 import { LOUD_KINDS } from '../core/settings.js';
 import { waysScrollTo } from '../render/ways.js';
@@ -121,7 +121,7 @@ export function createScreens(app, ui) {
     : app.pageFrom === 'paused' ? settingsMenu(app.settings, reduceMotion.matches, app.journeySeed, app.state.mode, app.settingsTab, app.soundList) : settingsMenu(app.settings, reduceMotion.matches, null, null, app.settingsTab, app.soundList));
   const exploring = () => app.screen === 'explore' || (app.screen === 'seed' && app.padFrom === 'explore');
   // The boons card (D-712) is on the title's scene only over a Journal opened from the title
-  const onTitle = () => ['slots', 'name', 'cloak', 'drop', 'title', 'sure', 'mode', 'ended'].includes(app.screen) || exploring() || (app.screen === 'aboutBoons' ? app.boonsFrom === 'journal' && app.pageFrom === 'title' : !['play', 'paused', 'map', 'bag', 'make', 'place', 'bench', 'chest', 'trade', 'bed', 'sleepOut', 'travel', 'boons', 'strike', 'opening'].includes(app.screen) && app.pageFrom === 'title');
+  const onTitle = () => ['slots', 'name', 'cloak', 'drop', 'title', 'sure', 'mode', 'ended'].includes(app.screen) || exploring() || (app.screen === 'aboutBoons' ? app.boonsFrom === 'journal' && app.pageFrom === 'title' : !['play', 'paused', 'map', 'bag', 'make', 'place', 'bench', 'chest', 'trade', 'bed', 'sleepOut', 'travel', 'boons', 'strike', 'opening', 'ability'].includes(app.screen) && app.pageFrom === 'title');
   const menuTop = () => (onTitle() ? titleTop(menuOf(app.screen).length) : pauseTop(menuOf(app.screen).length, app.screen === 'settings'));
   // § asks (D-400): the ask card's question and note for Start over?, Delete …? and Play …?
   // The garden bed's card shows Plant and Deconstruct, Plant dim when it can't be planted (D-566),
@@ -161,7 +161,7 @@ export function createScreens(app, ui) {
       : next === 'howto' ? howtoWords(app.page, app.settings, !!app.state?.leap) : next === 'bag' ? bagWords() : next === 'make' ? makeWords() : next === 'history' ? HISTORY_WORDS()
       : next === 'journal' ? journalPageWords() : next === 'slots' ? slotsWords() : next === 'name' ? nameWords() : next === 'cloak' ? lookWords()
       : next === 'ways' ? waysWords() : next === 'easier' || next === 'drop' || next === 'bed' || next === 'sleepOut' ? askWords(next)
-      : next === 'title' ? WORDS[app.saved ? 'saved' : 'title'] : next === 'place' ? placeWords() : next === 'bench' ? benchWords() : next === 'chest' ? chestWords(stashAt(app.state, app.bench.x, app.bench.y)) : next === 'trade' ? tradeWords(app.state) : next === 'travel' ? travelWords() : next === 'boons' ? boonsWords() : next === 'opening' ? openingWords() : next === 'aboutBoons' ? aboutBoonsWords() : WORDS[next];
+      : next === 'title' ? WORDS[app.saved ? 'saved' : 'title'] : next === 'place' ? placeWords() : next === 'bench' ? benchWords() : next === 'chest' ? chestWords(stashAt(app.state, app.bench.x, app.bench.y)) : next === 'trade' ? tradeWords(app.state) : next === 'travel' ? travelWords() : next === 'boons' ? boonsWords() : next === 'opening' ? openingWords() : next === 'aboutBoons' ? aboutBoonsWords() : next === 'ability' ? abilityWords() : WORDS[next];
   }
   const backTo = (id) => () => show(app.pageFrom, menuOf(app.pageFrom).findIndex((l) => l.id === id));
   // § settings tabs (D-820): the next tab, or `tab`, opened on its first line, kept as Settings closes

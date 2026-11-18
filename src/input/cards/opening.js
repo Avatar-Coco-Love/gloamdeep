@@ -11,3 +11,10 @@ export function aboutBoonsCard(app, ui, show) {
   const go = () => show(app.boonsFrom === 'journal' ? 'journal' : 'play');
   return { pick: go, dir: () => {}, tap: (px, py, held) => { if (!held) go(); }, close: go };
 }
+
+// § the ability card (D-992): the same keys and taps go on, back to play, and the arena's door
+// sinks open as it closes (ui.learnt, main.js; beaten.js doorAfterLeap)
+export function abilityCard(app, ui, show) {
+  const go = () => { show('play'); ui.learnt?.(); };
+  return { pick: go, dir: () => {}, tap: (px, py, held) => { if (!held) go(); }, close: go };
+}

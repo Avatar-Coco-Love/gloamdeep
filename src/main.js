@@ -60,7 +60,7 @@ import { goFullScreen } from './input/fullscreen.js';
 import { cutOver } from './render/cutscene.js';
 import { createFrame, FADE_MS } from './render/frame.js';
 import { createSound, dripsIn, dripGap, musicOf } from './render/sound.js';
-import { quietHere, bossTuneHere } from './core/beaten.js';
+import { quietHere, bossTuneHere, doorAfterLeap } from './core/beaten.js';
 import { moments } from './render/moments.js';
 import { createDev } from './dev/dev.js';
 import { addAppCard } from './render/appicon.js';
@@ -321,7 +321,8 @@ function tryStep(dir) {
   // Experience earned shows as it rises over the hero; after stairs, once the new room shows (D-245)
   if (state.xp > before.xp || has(events, 'fang')) app.gain = { n: state.xp - before.xp, at: app.travel?.mid ?? performance.now(), heart: has(events, 'fang') }; // and a heart back from the Fang Charm (D-809)
   // Stepping onto the woken home plate with no boon held offers the boon card (D-596); the step that wakes it only wakes it (D-603)
-  if (!went && !fell && stepOffersBoons(before, state)) { app.walk = null; screens.openBoons(); }
+  if (has(events, 'learn')) { app.walk = app.padDir = app.hold = app.queued = null; screens.show('ability'); } // Leap's find stepped on: its card (D-992)
+  else if (!went && !fell && stepOffersBoons(before, state)) { app.walk = null; screens.openBoons(); }
   else if ((went || fell) && offersBoons(state)) app.boonHere = true; // arriving on it by travel or a fall: the boon button, not the card (B-007)
   else if (!offersBoons(state)) app.boonHere = false; // stepped off, or a boon taken: the button goes
 }
@@ -464,6 +465,7 @@ const screens = createScreens(app, {
     app.state = takeBoon(before, id); const events = eventsSince(before, app.state); hear(events); keepRecords(events, before);
     if (first && playing(app.profiles).goals?.boon?.done) { app.boonsFrom = 'play'; screens.show('aboutBoons'); }
   },
+  learnt: () => { const before = app.state; app.state = doorAfterLeap(before); const events = eventsSince(before, app.state); hear(events); keepRecords(events, before); }, // Leap's card closed: the arena's door sinks open (D-992)
   bought: (before) => keepRecords([], before), // a Growth buy in the Journal, free: the goals checked (D-713)
   strike: () => strikeAt(needleAt(performance.now() - app.strike.start)), // the strike card's tap (D-614)
   goByStone: (place) => tryStep({ travel: place }), // the travel card's pick: there by waystone, free, with the stairs' fade (D-593)
@@ -479,7 +481,7 @@ const onDir = (dir, how) => {
 };
 const onPoint = (px, py, held) => {
   if (app.screen === 'play') stepToward(px, py, held); // held: from a finger held still (D-408)
-  else if (!held) screens.onPoint(...(['map', 'explore', 'bag', 'make', 'bench', 'chest', 'trade', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'mode', 'ways', 'slots', 'name', 'cloak', 'sure', 'drop', 'easier', 'bed', 'sleepOut', 'travel', 'boons', 'strike', 'opening', 'aboutBoons', 'title'].includes(app.screen) ? toLayer([px, py]) : [px, py])); // the cards and the title are on the screen layer (D-385, D-387 to D-391, D-393 to D-401, D-444)
+  else if (!held) screens.onPoint(...(['map', 'explore', 'bag', 'make', 'bench', 'chest', 'trade', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'mode', 'ways', 'slots', 'name', 'cloak', 'sure', 'drop', 'easier', 'bed', 'sleepOut', 'travel', 'boons', 'strike', 'opening', 'aboutBoons', 'ability', 'title'].includes(app.screen) ? toLayer([px, py]) : [px, py])); // the cards and the title are on the screen layer (D-385, D-387 to D-391, D-393 to D-401, D-444)
 };
 const onWait = () => { if (app.screen === 'play') { app.walk = null; tryStep('wait'); } else if (!screens.onMapScreen()) screens.space(); };
 // Tab frames the first plaque, then the next, then none (CL2); on the bag's card, its other tab (D-787); the workbench's too (D-800); Settings' next (D-820)

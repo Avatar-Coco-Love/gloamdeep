@@ -11,7 +11,7 @@
 // It never comes back on a waystone's ring, the tiles kept open round it when its room was
 // made (D-869). A tree comes back only on its own stump (`on`, W3, D-317), even where it cuts
 // the room, chopping being the way through (D-899, D-924); a gloamberry bush fills again on its bare bush (D-531). A flower, which
-// `roam`s, comes back on another grass tile of the room (D-763).
+// `roam`s, comes back on another grass tile of the room (D-763), off the ring too (D-993).
 // Plain data, no drawing.
 import { get, LANDMARKS } from './registry.js';
 import { litAt } from './sight.js';
@@ -68,11 +68,11 @@ function onRing(state, x, y) {
 }
 
 // § roam: a flower comes back on another grass tile of its room, not its own (D-530, D-763): any
-// open tile off the edge, free and out of sight, picked by the seed; null when none is
+// open tile off the edge and off a waystone's ring (D-993), free and out of sight, picked by the seed; null when none is
 function roamTo(state, t, came) {
   const { room } = state, spots = [];
   for (let y = 1; y < room.rows - 1; y++) for (let x = 1; x < room.cols - 1; x++)
-    if ((x !== t.x || y !== t.y) && tileAt(room, x, y).id === 'floor' && free(state, { x, y }, came)) spots.push({ x, y });
+    if ((x !== t.x || y !== t.y) && tileAt(room, x, y).id === 'floor' && !onRing(state, x, y) && free(state, { x, y }, came)) spots.push({ x, y }); // never on a waystone's ring (Q-103, D-993)
   return spots.length ? pick(rng(seedFor(seedFor(state.seed ?? 1, t.at), t.y * room.cols + t.x)), spots) : null;
 }
 

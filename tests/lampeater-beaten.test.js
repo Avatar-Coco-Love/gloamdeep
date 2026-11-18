@@ -12,7 +12,7 @@ import { fall } from '../src/core/fall.js';
 import { arrive, fresh } from '../src/core/stairs.js';
 import { withTile } from '../src/core/room.js';
 import { LAMPEATER_AT, startingBrood } from '../src/core/arena.js';
-import { hallWarns } from '../src/core/beaten.js';
+import { hallWarns, doorAfterLeap } from '../src/core/beaten.js';
 
 const K = get('sealedDoor').letter, M = get('openDoor').letter, J = get('brazier').letter;
 const has = (s, ch) => s.room.map.some((row) => row.includes(ch));
@@ -24,13 +24,19 @@ const lastBlow = (seed = 1) => {
   return { ...s, hero: at, enemies: [{ ...boss(s), health: 1, met: true }, { id: 'gloamling', x: 1, y: 13, ash: { x: 2, y: 11, turn: 0 }, met: true }] };
 };
 
-test('beaten, its door sinks open at once and the gloamlings crumble, counting nothing', () => {
+// Beaten from below, then Leap's find taken where it fell and its card closed (D-992)
+const won = (s) => doorAfterLeap(step(step(s, 'up'), 'up'));
+
+test('beaten, the gloamlings crumble, counting nothing, and the door waits for Leap\'s find (D-992)', () => {
   const s = step(lastBlow(), 'up');
   assert.equal(boss(s), undefined);
-  assert.ok(!has(s, K) && has(s, M));
+  assert.ok(has(s, K) && !has(s, M));
   assert.equal(s.enemies.filter((e) => e.id === 'gloamling').length, 0);
-  assert.ok(s.events.some((e) => e.type === 'open'));
+  assert.ok(!s.events.some((e) => e.type === 'open'));
   assert.equal(s.events.filter((e) => e.type === 'beat').length, 1);
+  const opened = won(lastBlow());
+  assert.ok(!has(opened, K) && has(opened, M));
+  assert.ok(opened.events.some((e) => e.type === 'open'));
 });
 
 test('the 4 braziers lit no longer open the door while it lives', () => {
@@ -53,7 +59,7 @@ test('after a fall in the fight it is whole again; beaten, it stays beaten', () 
   const fell = fall({ ...lastBlow(4), health: 0 }), kept = fell.elsewhere[arenaPlace(4)];
   assert.equal(boss(kept).health, undefined);
   assert.deepEqual([boss(kept).x, boss(kept).y], [LAMPEATER_AT.x, LAMPEATER_AT.y]);
-  const won = step(lastBlow(4), 'up'), left = fall({ ...won, health: 0 }).elsewhere[arenaPlace(4)];
+  const left = fall({ ...won(lastBlow(4)), health: 0 }).elsewhere[arenaPlace(4)];
   assert.equal(boss(left), undefined);
   assert.ok(left.room.map.some((row) => row.includes(M)));
 });
@@ -81,9 +87,9 @@ test('a fall opens the way in again; beaten, it sinks open with the top door', (
   const s = inGap(), gap = wayIn(s), sealed = step(s, 'up');
   const back = fall({ ...sealed, health: 0 }).elsewhere[arenaPlace(s.seed)];
   assert.equal(back.room.map[gap.y][gap.x], get('floor').letter);
-  const won = step({ ...lastBlow(), room: sealed.room }, 'up');
-  assert.equal(won.room.map[gap.y][gap.x], M);
-  assert.ok(!has(won, K));
+  const opened = won({ ...lastBlow(), room: sealed.room });
+  assert.equal(opened.room.map[gap.y][gap.x], M);
+  assert.ok(!has(opened, K));
 });
 
 test('the hallway warns as the hero comes in, but not from the arena, nor once the Lampeater is beaten', () => {

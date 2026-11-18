@@ -18,7 +18,7 @@ import { lightAt, openSide } from './lights.js';
 import { mountAt } from './mount.js';
 import { inDaylight } from './daytime.js';
 import { takeStairs } from './stairs.js';
-import { lampeaterBeaten, sealArena, hallWarns } from './beaten.js';
+import { lampeaterBeaten, sealArena, hallWarns, doorAfterLeap } from './beaten.js';
 import { follow } from './follow.js';
 import { wakeStone } from './wake.js';
 import { offEdge, walkOff } from './openings.js';
@@ -67,6 +67,7 @@ export { pour, makeFrom, makeAt, eat, hold, setDown, takeDown, shelve, canShelve
 // wall. Every passed turn ends with the enemies' turn (D-114), in the room
 // the hero ends it in, but for the first step into a room (D-446). A tile walked onto is a `step` event (events.js).
 export function step(state, dir) {
+  state = doorAfterLeap(state); // a journey saved under Leap's card: its door sinks open now (D-992)
   const [dx, dy] = DIRS[dir];
   const x = state.hero.x + dx, y = state.hero.y + dy;
   if (offEdge(state.room, x, y)) {
@@ -120,6 +121,7 @@ function pickUp(state, found) {
   const entry = get(found.id), id = found.id;
   if (entry.fetch) return fetchBag(state, found);
   if (found.dropped) return takeBack(state, found);
+  if (entry.learns) return note(say({ ...state, items: state.items.filter((it) => it !== found), [entry.learns]: true }, entry.says), 'learn', { id: entry.learns }); // Leap's find, used up: learnt, its card next (main.js, D-992)
   const gone = { items: state.items.filter((it) => it !== found), taken: noteTaken(state, found).taken };
   if (entry.ember) return note(say({ ...state, ...gone, foundEmbers: (state.foundEmbers || 0) + 1 }, entry.says), 'take', { id }); // 1 more ember for Growth (D-896)
   if (entry.hold && !state.held) return note(say({ ...state, ...gone, held: id }, entry.says), 'take', { id });
@@ -197,7 +199,7 @@ function attack(state, foe) {
   for (const [id, e] of beaten) if (id) next = note(gain(next, xpOf(get(id))), 'beat', { id, ...(!e.met && { unmet: true }), ...(e.spawned && { spawned: true }), ...(e.ash && { ash: true }) }); // beaten in the dark, met too (D-630); one spawned, marked (D-720); one from a snuffed bowl too (D-949)
   let said = shove?.name ? say(next, 'foeSlamInto', get(foe.id).name.toLowerCase(), shove.name) : say(next, first.line);
   for (const [id, e] of beaten) if (id) said = fangMend(said, e); // the Fang Charm's heart back (D-809)
-  return endTurn(state, lampeaterBeaten(said)); // the arena's door sinks open, the gloamlings crumble (D-953)
+  return endTurn(state, lampeaterBeaten(said)); // the gloamlings crumble, Leap's find lying (D-953, D-992)
 }
 // § knock back (D-888): the Fist's foe, hit and standing, knocked a tile on (knockOf): onto a free
 // tile it slides there; into a wall it loses 1, into a creature both lose 1, each as a hit of the

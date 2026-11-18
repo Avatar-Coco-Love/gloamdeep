@@ -10,13 +10,14 @@ import { bench } from '../src/core/bossbench.js';
 import { step, leap } from '../src/core/turn.js';
 import { LAMPEATER_AT, ARENA_DOWN } from '../src/core/arena.js';
 import { shownLine } from '../src/core/lines.js';
-import { floorGives } from '../src/core/beaten.js';
+import { floorGives, doorAfterLeap } from '../src/core/beaten.js';
 
 const count = (s, id) => s.room.map.reduce((n, row) => n + row.split(get(id).letter).length - 1, 0);
 // The last blow from below the Lampeater (further off), or from the tile before the door (near)
 const beatenFrom = (y, way, seed = 1) => {
   const s = bench(newJourney(seed), 'middling'), boss = s.enemies.find((e) => e.id === 'lampeater');
-  return step({ ...s, hero: { x: LAMPEATER_AT.x, y }, enemies: [{ ...boss, health: 1, met: true }] }, way);
+  const beat = step({ ...s, hero: { x: LAMPEATER_AT.x, y }, enemies: [{ ...boss, health: 1, met: true }] }, way);
+  return doorAfterLeap(step(beat, way)); // Leap's find taken where it fell, its card closed (D-992)
 };
 const door = { x: ARENA_DOWN.x, y: ARENA_DOWN.y + 2 }, before = { x: door.x, y: door.y + 1 };
 const beatenFar = () => beatenFrom(LAMPEATER_AT.y + 1, 'up');
@@ -32,15 +33,14 @@ test('beaten further off, the door sinks open and the seal stones stand (D-967)'
   const s = beatenFar();
   assert.deepEqual([count(s, 'sealStone'), count(s, 'gap')], [8, 0]);
   assert.ok(s.leap);
-  assert.ok(['doorLeap', 'levelLeap'].includes(s.line.id));
-  if (s.line.id === 'doorLeap') assert.equal(shownLine(s).text, 'The door sinks open. You learn Leap.');
+  assert.equal(shownLine(s).text, 'The stone door sinks open.');
   assert.ok(!gaveWay(s));
 });
 
 test('beaten from near the stairs, the stones stand too, said with the door (D-967)', () => {
   const s = beaten();
   assert.deepEqual([count(s, 'sealStone'), count(s, 'gap')], [8, 0]);
-  assert.ok(['doorLeap', 'levelLeap'].includes(s.line.id));
+  assert.equal(s.line.id, 'vaultOpens');
   assert.ok(!gaveWay(s));
 });
 
