@@ -87,3 +87,11 @@ test('Basics says the aim and how to keep the lantern lit, whatever the Controls
   assert.deepEqual(howtoRows('basics', { swipe: 'off', tap: 'walk' }), howtoRows('basics', { swipe: 'on', tap: 'walk' }));
   assert.match(howtoWords('basics', 'both'), /^How to play, Basics\. Aim: Find the stairs down Search each room for them\./);
 });
+
+test('once Leap is learnt, each way of playing gets its row; before, none (H-81, D-989)', () => {
+  const set = { swipe: 'on', tap: 'walk' };
+  for (const p of ['touch', 'mouse', 'keyboard']) assert.ok(!howtoRows(p, set).some((r) => r.action === 'Leap'), p);
+  for (const p of ['touch', 'mouse']) assert.deepEqual(howtoRows(p, set, true).at(-1), { action: 'Leap', ways: ['The Leap button, then a way'] });
+  assert.deepEqual(howtoRows('keyboard', set, true).at(-1), { action: 'Leap', ways: ['J, then a way'] });
+  assert.match(howtoWords('keyboard', set, true), /Leap: J, then a way\./);
+});

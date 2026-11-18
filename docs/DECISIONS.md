@@ -128,22 +128,6 @@ too. Changed before the merge, the owner's words: not a rule never to
 ask; what really matters, such as the five gameplay rulings (H-71, H-75,
 H-78, H-79, H-81), is still asked, as multiple choice.
 
-**D-984 · 2026-11-18 · Lessons for the next game** (the owner's pick)
-The playbook (D-732) keeps growing as it does, each audit adding its
-lessons; a starter kit for a new project's Claude is made only when the
-next game starts.
-
-
-**D-985 · 2026-11-18 · The tests** (Claude's picks, hands-off, D-980;
-H-103 to H-107, the fix suggested for each) `npm run quick` runs a tenth
-of the biggest seed sweeps (stand-ins, halls, burrows, peddler, caves,
-stamper, region); `npm test` runs every seed, before the handoff (H-103).
-The two save-format pins read "at least" (H-104). `tests/fixtures.js`
-holds setups new tests share (H-105). `beyond.test.js` is `widen.test.js`;
-the place beyond's tests move to `beyond.test.js` word for word (H-106).
-`window.gloamdeep` reads the running game, and `tools/drive.js` serves,
-opens and drives it; `perf.js` uses it, and now reaches play (H-107).
-
 **D-986 · 2026-11-18 · No mole on the first day's start room** (the
 owner's pick, recommended; H-71's ruling; changes D-781's Claude's call)
 On a journey's first day no mole comes out in its start room, so a new
@@ -175,3 +159,23 @@ doesn't (H-75; offered too: the hero on top; as is). Found doing H-73:
 no darkness was drawn in play and the effect marks went missing; the
 imports are back, and `tests/imports.test.js` checks every file uses
 only names it imports or makes.
+
+**D-989 · 2026-11-18 · The game's findings few players notice**
+(Claude's picks, hands-off, D-980, but H-78's, H-79's and H-81's rulings,
+the owner's, recommended; H-76 to H-81) What the Lampeater owes at a phase
+is known before the creatures move, so a phase blow that burns the last
+oil never starts it wary (H-76). A gloamling waiting in a bowl lit again
+comes out onto a free tile beside it, lit or not (H-77). A slam that
+takes the last heart slides nowhere: the hero falls where struck (H-78;
+offered too: past the door). Behind a Leap gap only the cache and the
+Archway: every other creature and find moves to the nearest bare floor
+on the near side, not within 2 tiles of the way in, a flask's rat
+nearest its flask, a pack moved left its lead alone; with no space left
+it is not made (H-79; the owner's pick, asked again once the check's 14%
+measured 47%: 440 of 927 gap rooms had a creature behind; offered too:
+leaving them out; as is). The stats line says "jumped: no goals or
+records" after a dev jump, and DEV-TOOLS.md says what a jump stops
+(H-80). Once Leap is learnt, How to play's Touch and Mouse pages say
+"The Leap button, then a way", Keyboard "J, then a way" (H-81; offered
+too: always; not yet). D-984 and D-985 move to
+`archive/DECISIONS-AUDITS.md`, word for word.

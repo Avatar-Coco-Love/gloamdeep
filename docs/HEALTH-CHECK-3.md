@@ -54,6 +54,7 @@ All four done in 0.3.427 (D-988).
   picks: as is; the line moves up; the hero on top.
 
 ## 3. Few players notice
+All five done in 0.3.428 (D-989), H-81 too; H-79's 14% measured 47%.
 - **H-76 A phase blow that burns the last oil** starts wary at once:
   it runs out during the breath, so the Lampeater bites on instead of
   hanging back (`snuff.js:40,75`, `creatureturn.js:234`; D-978). Ran.
@@ -73,7 +74,7 @@ All four done in 0.3.427 (D-988).
 
 ## 4. For later steps
 - **H-81 Leap is not in How to play** (`howto.js:63-82`): asked at
-  D-971's card step.
+  D-971's card step. Done in 0.3.428 (D-989).
 - **H-82 The page loads 299 files, 1.6 MB, before the title** (H-23
   made only the history wait). Measured. Suggests: measure on a phone;
   later, cards and dev tools load when first used.

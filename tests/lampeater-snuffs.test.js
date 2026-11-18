@@ -108,3 +108,10 @@ test('in the turn, what it owes is known before its call: struck at 8, it breath
   const s = breathTurn(s0, { ...s0, turn: s0.turn + 1, events: [] });
   assert.ok(s.enemies[0].breath, 'breathing'); assert.ok(!s.enemies[0].call, 'not calling yet');
 });
+
+test('a phase blow on the last oil: what it owes is known before the creatures move, so it is never wary in its breath (H-76)', async () => {
+  const { wait } = await import('../src/core/turn.js');
+  const s = wait(inHall({ health: 8, x: 9, struck: true, chasing: true }, { oil: 0 }));
+  const e = s.enemies.find((o) => o.id === 'lampeater');
+  assert.ok(e.breath, 'breathing'); assert.ok(!e.wary, 'not wary while it owes');
+});

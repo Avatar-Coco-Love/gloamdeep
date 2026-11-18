@@ -25,3 +25,4 @@ line here (D-741). Each audit moves the lines into the right sections.
 - A tool that guesses where it is can measure the wrong thing for months: perf.js's three Enters stopped on the opening screen, found only once it could read the screen's name (0.3.425).
 - A test can turn up a bug of its own: measuring every card's buttons found DECONSTRUCT under the bag's slots on the smallest view; it went to BUGS.md (B-013) instead of into the step (0.3.426).
 - The frame's safety net hides a broken name: 0.3.424's split lost 13 imports and every test passed, while the dark went undrawn in play; a split needs a check that every name is still brought in (now `tests/imports.test.js`), and browser scripts should report the page's logged errors (0.3.427).
+- Measure a finding's numbers again before asking its ruling: H-79's 14% was 47% when the fix was built, so the owner was asked again with the right count before it was finished (0.3.428).

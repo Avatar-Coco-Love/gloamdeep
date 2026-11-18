@@ -49,8 +49,8 @@ export function howtoAt(x, y, vw, vh) {
 }
 
 // c: the room's canvas, `vw` × `vh`; page: the open tab's id; settings: the walking switches;
-// still: prefers-reduced-motion
-export function drawHowTo(c, vw, vh, page, settings, t, still) {
+// still: prefers-reduced-motion; leap: Leap learnt, its row shown (H-81)
+export function drawHowTo(c, vw, vh, page, settings, t, still, leap = false) {
   const card = drawCard(c, vw, vh, 'HOW TO PLAY', 0), { x, y, w } = card, { spots, down } = tabsAt(card);
   HOWTO_PAGES.forEach((p, i) => {
     const on = p === page, name = pageName(p), s = spots[i];
@@ -62,7 +62,7 @@ export function drawHowTo(c, vw, vh, page, settings, t, still) {
   c.fillStyle = LINE; c.fillRect(x + 8, y + TABS_RULE_Y + down, w - 16, 1);
   const ax = tabsLeft(card);
   let ly = y + ROWS_Y + down;
-  for (const row of howtoRows(page, settings)) {
+  for (const row of howtoRows(page, settings, leap)) {
     drawText(c, row.action, ax, ly, GREY);
     for (const way of row.ways) for (const l of wrapWords(way, x + w - PAD - ax - WAYS_X)) { drawText(c, l, ax + WAYS_X, ly, CORE); ly += ROW_H; } // wrapped on a narrow card (D-505)
   }

@@ -87,3 +87,39 @@ const reach = (from, open) => {
   }
   return seen;
 };
+
+// § clear behind (H-79, D-989): (room, cache) → the room with only the cache's finds left behind its
+// Gap. Every other find or creature standing past the line (walked to from no way in) moves to the
+// nearest bare floor tile on the near side (straight-line steps, the map's order on a tie), not
+// within 2 tiles of the way in; with no such tile left it is not made. A flask's rat goes nearest
+// the flask; a pack moved is no pack, its lead alone. So the corner holds the cache and the Archway alone.
+export function clearBehind(room, cache) {
+  const map = room.map, rows = map.length, cols = map[0].length, arch = get('archway').letter;
+  const walkable = (x, y) => x >= 0 && y >= 0 && x < cols && y < rows && map[y][x] !== arch && !byLetter(map[y][x])?.solid;
+  const ways = [];
+  for (let y = 0; y < rows; y++) for (let x = 0; x < cols; x++) if ((x === 0 || y === 0 || x === cols - 1 || y === rows - 1) && walkable(x, y)) ways.push({ x, y });
+  if (room.start) ways.push(room.start);
+  const near = reach(ways, walkable), k = (o) => `${o.x},${o.y}`;
+  const kept = (i) => cache.some((c) => c.id === i.id && c.x === i.x && c.y === i.y);
+  const stray = (o) => !near.has(k(o)) && walkable(o.x, o.y);
+  if (!room.items.some((i) => stray(i) && !kept(i)) && !room.enemies.some(stray)) return room;
+  const taken = new Set([room.start, ...room.items, ...room.enemies, ...(room.people || [])].filter(Boolean).map(k));
+  const far = (t) => !room.start || Math.abs(t.x - room.start.x) + Math.abs(t.y - room.start.y) > 2;
+  const spots = [...near].map((s) => { const [x, y] = s.split(',').map(Number); return { x, y }; })
+    .filter((t) => map[t.y][t.x] === '.' && far(t)).sort((a, b) => a.y - b.y || a.x - b.x);
+  const steps = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
+  const move = (o, by = o) => { // to the free spot nearest `by`: its own tile, or the flask a rat guards
+    const to = spots.filter((t) => !taken.has(k(t))).reduce((b, t) => (!b || steps(t, by) < steps(b, by) ? t : b), null);
+    if (!to) return null; // no space left on the near side: not made (D-989)
+    taken.add(k(to));
+    return { ...o, x: to.x, y: to.y };
+  };
+  const moved = new Map(), items = room.items.map((i) => { if (!stray(i) || kept(i)) return i; const m = move(i); moved.set(i, m); return m; }).filter(Boolean);
+  const guarded = (e) => e.id === 'rat' && [...moved].find(([was, now]) => now && was.id === 'flask' && steps(was, e) <= 2)?.[1]; // a flask's rat stays by it (D-725)
+  let enemies = room.enemies.map((e) => (stray(e) ? move(e, guarded(e) || e) : e));
+  if (room.enemies.some((e, i) => e.pack && enemies[i] !== e)) { // a pack touched is no pack: the lead alone, as with no room for both (D-727)
+    const lead = room.enemies.findIndex((e) => e.pack);
+    enemies = enemies.map((e, i) => (i === lead ? e && (({ pack, ...rest }) => rest)(e) : room.enemies[i].pack ? null : e));
+  }
+  return { ...room, items, enemies: enemies.filter(Boolean) };
+}

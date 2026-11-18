@@ -64,7 +64,10 @@ tools to be chosen together later.
   Rules: `enemiesAct` in `src/core/creatureturn.js`.
 - Room: Go to depth, 0 to 99 with − and +, starting on 1; depth 0 is
   the crypt (D-212). It goes onto that depth's stairs up, no turn passed
-  (D-166). Rules: `goToDepth` in `src/core/stairs.js`.
+  (D-166). Rules: `goToDepth` in `src/core/stairs.js`. A dev jump (this,
+  a spot, the boss bench) stops the journey's goals, Bestiary and Records
+  till a New journey; the stats line says "jumped: no goals or records"
+  (D-232, H-80).
   Go outside goes to the woods, depth 0, the same way (D-209); the cave
   mouth there leads back into the crypt (D-211). TIME: +10 and +50
   move the clock only; the status line shows the turn of the day (D-217).

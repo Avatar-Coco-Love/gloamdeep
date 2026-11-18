@@ -42,12 +42,20 @@ test('the seeded dice pick its tile, the same each time', () => {
 });
 
 test('with no dark tile beside the bowl it waits, and comes out once one is dark', () => {
-  const lit = { ...inHall({ bowls: [{ x: 12, y: 3 }] }), lit: true, hero: { x: 11, y: 2 } };
+  const cold = makeRoom(hall.map((r, y) => (y === 3 ? r.replace(L, get('brazier').letter) : r))); // the bowl cold, as a snuffed one is
+  const lit = { ...inHall({ bowls: [{ x: 12, y: 3 }] }), room: cold, lit: true, hero: { x: 11, y: 2 } };
   let s = crawl(lit);
   assert.equal(lings(s).length, 0);
   assert.deepEqual(s.enemies[0].bowls, [{ x: 12, y: 3 }]);
   s = crawl({ ...s, lit: false, turn: s.turn + 1 });
   assert.equal(lings(s).length, 1);
+});
+
+test('its bowl lit again, it comes out into the light all the same, so it never waits for good (H-77)', () => {
+  const relit = { ...inHall({ bowls: [{ x: 12, y: 3 }] }), lit: false }, seen = relit.room.map.join('').split('').map(() => 1); // the hall's bowl at 12,3 lit again, seen: its glow on every tile beside
+  const s = crawl({ ...relit, seen });
+  assert.equal(lings(s).length, 1);
+  assert.deepEqual(s.enemies[0].bowls, []);
 });
 
 test('the line only the first time', () => {

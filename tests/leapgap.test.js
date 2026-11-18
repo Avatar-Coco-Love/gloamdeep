@@ -70,3 +70,14 @@ test('in play: the Gap\'s line without Leap, its reminder and a leap over it wit
   }
   assert.ok(tried >= 5, `only ${tried}`);
 });
+
+test('behind the gap, only the cache and the Archway: every other creature and find moved to the near side, or not made (H-79, D-989)', () => {
+  for (let seed = 1; seed <= 120; seed++) for (const d of [5, 6, 7, 8]) {
+    const id = leapGapAt(seed, d); if (!id) continue;
+    const p = placeFor(id, seed); if (!gapsIn(p.map).length) continue;
+    const room = makeRoom(p.map, undefined, p.look), at = `seed ${seed} ${id}`;
+    const near = walk(room, p.start, (x, y) => !tileAt(room, x, y).solid && tileAt(room, x, y).id !== 'archway');
+    for (const e of p.enemies) assert.ok(near.has(`${e.x},${e.y}`), `${at} ${e.id} behind`);
+    for (const i of p.items) if (!i.once) assert.ok(near.has(`${i.x},${i.y}`), `${at} ${i.id} behind`);
+  }
+});

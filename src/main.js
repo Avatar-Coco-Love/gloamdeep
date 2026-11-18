@@ -526,6 +526,7 @@ const dev = createDev(stage, roomCanvas, { // on for everyone (D-086)
   loadSpot: (s) => { app.jumped = true; app.journeySeed = s.seed; return s; }, // a test spot is a dev jump (D-627, D-232)
   goOutside: () => arrive(send(goToPlace(app.state, 'woods'), app.state.place)), // the woods, on the surface too (D-209); one freed and waiting goes home, simply there (D-496)
   settings: () => app.settings,
+  jumped: () => app.jumped, // the stats line says a jump stopped goals and records (H-80)
   camera: () => app.cam,
   screen: () => app.screen, // for window.gloamdeep (H-107)
 }, hudCanvas);

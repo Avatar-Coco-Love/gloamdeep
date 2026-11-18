@@ -175,6 +175,7 @@ export function createDev(stage, canvas, game, picture) {
         ? `fps ${fps} · turn ${state.turn} · ${day} · xp ${state.xp} · hero ${h.x},${h.y} · seed ${state.seed}`
         : `fps ${fps} · turn ${state.turn} · ${day} · oil ${Math.round(state.oil * 100)}% · ${state.lit ? 'lit' : 'dark'} · health ${state.health} · xp ${state.xp} · hero ${h.x},${h.y} · depth ${depthOf(state.place)} · seed ${state.seed}`;
       const more = [];
+      if (game.jumped?.()) more.push('jumped: no goals or records'); // a dev jump stops them till a New journey (D-232, H-80)
       if (picked) more.push(`placing ${nameOf(picked)}`);
       if (opts.coords && pointed) {
         let tile = `tile ${pointed.x},${pointed.y} ${tileAt(state.room, pointed.x, pointed.y).id}`;
