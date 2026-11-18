@@ -37,6 +37,8 @@ src/render/         drawing, lighting, sprites, and sound (D-255)
 src/input/          tap, mouse, keyboard
 src/dev/            dev mode (see DEV-TOOLS.md)
 tests/              node --test, for core/ (and input/ files that load without a page, D-570)
+tests/fixtures.js   setups new tests share, and seeds(n), a tenth in a
+                    quick run, `npm run quick` (H-103, H-105, D-985)
 tools/playtest.js   packs the game into one page for playtests (D-073);
                     not part of the game, which has no build step
 tools/pack.js       the packer the playtest and the map preview share
@@ -48,6 +50,8 @@ tools/make.js       the maker: writes every empty piece of a new creature,
 tools/soundboard.js packs the game's sounds into a page of buttons (D-256)
 tools/sharecard.js  draws share.png, the share card (D-425); needs Playwright
 tools/perf.js       times play on a simulated slow phone (D-430); Playwright
+tools/drive.js      what playtest scripts share: serves, opens, walks into
+                    play, reads the game by window.gloamdeep (H-107, D-985)
 tools/release.js    the record-keeping tool: VERSION, history, archive (D-572)
 tools/audit.js      docs near their caps, bytes read at start (D-982)
 tools/bossrun.js    the boss test bench's bot: plays the Lampeater's fight on

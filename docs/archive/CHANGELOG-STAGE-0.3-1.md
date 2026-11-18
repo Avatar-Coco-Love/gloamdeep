@@ -4,6 +4,12 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.422 (2026-11-18)
+- No change in play. Each conversation now starts by reading about a fifth less: the big table of docs moved out of `CLAUDE.md` to `docs/INDEX.md`, nine old rules on how we work out of `docs/DECISIONS.md`, and done plan steps and repeated questions out of `docs/PROGRESS.md`, all word for word.
+- The first two health checks' finished pages and five old audit-lesson pages moved to the archive; three near-full pages split (`SOUNDS-4.md`, `CONTENT-5.md`, `WORKFLOW-SINCE.md`); `npm test` prints a dot a test, about 2 KB instead of 436 KB.
+- From now on the health check's steps run hands-off: Claude builds its own recommended fixes and lists every pick in the PR.
+- Decisions: D-980, D-981.
+
 ## 0.3.421 (2026-11-18)
 - No change in play. A third health check, run while the owner was away: helper agents looked at ten areas, from the Lampeater's fight to what each conversation reads, and a second agent tested every finding again before it was kept. Of 60 found, 40 are kept, from card buttons too small on a phone to a test run that prints 436 KB. The owner made every one a step, reading less first.
 - Decisions: D-975, D-979. D-975 moved to the archive, word for word.

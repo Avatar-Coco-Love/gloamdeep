@@ -2,6 +2,7 @@
 // their stairs lined up floor to floor (D-202, D-203)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { seeds } from './fixtures.js';
 import { layoutAt, sizeAt, roomSize } from '../src/core/region.js';
 import { seedFor } from '../src/core/rng.js';
 import { unguardedOf } from '../src/core/unguarded.js';
@@ -10,7 +11,7 @@ import { makeWorld, step } from '../src/core/turn.js';
 import { goToDepth, goToPlace } from '../src/core/stairs.js';
 import { caves } from './caves.js';
 
-const SEEDS = Array.from({ length: 60 }, (_, i) => i + 1);
+const SEEDS = seeds(60); // a tenth in a quick run (H-103)
 // The edge tile of an opening `at` along side `dir`, in a room `c.cols` × `c.rows` (D-580)
 const EDGE = { up: (at) => ({ x: at, y: 0 }), down: (at, c) => ({ x: at, y: c.rows - 1 }), left: (at) => ({ x: 0, y: at }), right: (at, c) => ({ x: c.cols - 1, y: at }) };
 const BACK = { up: 'down', down: 'up', left: 'right', right: 'left' };

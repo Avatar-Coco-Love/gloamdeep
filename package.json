@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "test": "node --test --test-reporter=dot",
+    "quick": "GLOAMDEEP_QUICK=1 node --test --test-reporter=dot",
     "test:full": "node --test"
   }
 }

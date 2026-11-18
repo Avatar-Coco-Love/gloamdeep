@@ -40,7 +40,7 @@ test('profiles made before get one free pick each, kept through saving', () => {
   assert.equal(ps.slots[0].gift, null);
   const taken = giftedSlot(ps, 0, 'moth');
   assert.equal(unpackProfiles(packProfiles(taken)).slots[0].gift, 'moth');
-  assert.equal(FORMAT, 11);
+  assert.ok(FORMAT >= 11); // at least: a later profile step keeps this one (H-104)
   assert.equal(unpackProfiles({ format: 11, profiles: { current: 0, slots: [{ ...newProfile(), gift: 'moth' }, null, null] } }).slots[0], null, 'a gift not in bought is not read');
 });
 

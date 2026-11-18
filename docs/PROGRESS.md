@@ -4,12 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.424 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.425 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
 The third health check's steps (D-979), hands-off (D-980): next, the
-tests, H-103 to H-107 (`HEALTH-CHECK-3-WAYS.md`); then the rest.
+game's findings, most noticed first, H-68 to H-71 (`HEALTH-CHECK-3.md`;
+H-71's ruling asked); then the rest.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -39,12 +40,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-18, 0.3.425, The tests.** Hands-off (D-980), nothing in
+  the game changed: a quick test run, fixtures, beyond's own tests,
+  window.gloamdeep and tools/drive.js (H-103 to H-107). D-985.
 - **2026-11-18, 0.3.424, Less code to read.** Hands-off (D-980), nothing
   in the game changed: lines.js and frame.js split, a code size test,
   a fixups folder, one tile.js (H-99 to H-102). D-983, D-984.
 - **2026-11-18, 0.3.423, Each PR costs less.** Hands-off (D-980), nothing
   in the game changed: a test keeps every decision and the archive, and
   release.js splits the history by itself (H-94 to H-98). D-982.
-- **2026-11-18, 0.3.422, Reading less.** Hands-off (D-980): each
-  conversation starts by reading about a fifth less, nothing in the game
-  changed (H-87 to H-93). D-981.

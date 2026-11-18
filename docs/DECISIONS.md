@@ -179,3 +179,13 @@ The playbook (D-732) keeps growing as it does, each audit adding its
 lessons; a starter kit for a new project's Claude is made only when the
 next game starts.
 
+
+**D-985 · 2026-11-18 · The tests** (Claude's picks, hands-off, D-980;
+H-103 to H-107, the fix suggested for each) `npm run quick` runs a tenth
+of the biggest seed sweeps (stand-ins, halls, burrows, peddler, caves,
+stamper, region); `npm test` runs every seed, before the handoff (H-103).
+The two save-format pins read "at least" (H-104). `tests/fixtures.js`
+holds setups new tests share (H-105). `beyond.test.js` is `widen.test.js`;
+the place beyond's tests move to `beyond.test.js` word for word (H-106).
+`window.gloamdeep` reads the running game, and `tools/drive.js` serves,
+opens and drives it; `perf.js` uses it, and now reaches play (H-107).

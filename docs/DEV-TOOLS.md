@@ -91,6 +91,10 @@ tools to be chosen together later.
   lit. A dev jump, no turn passed. The playtest's #lampeater link opens
   straight into it, Middling, kept nowhere. `tools/bossrun.js` plays it on
   many seeds, from the arena's way in. Code: `src/core/bossbench.js`.
+- Read by scripts (H-107, D-985): `window.gloamdeep.state()` and
+  `.screen()` give a browser script the running game, read only, so a
+  playtest helper need not guess from pixels; `tools/drive.js` uses them.
+  Code: `src/dev/dev.js`.
 
 ## Candidates (the owner picks; record each pick as a decision)
 - Step enemies one turn at a time

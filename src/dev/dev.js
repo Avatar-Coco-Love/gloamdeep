@@ -41,6 +41,10 @@ export function createDev(stage, canvas, game, picture) {
   const opts = { grid: false, coords: false, noLight: false, reveal: false, revealMap: false, stats: false, open: ['view'], ...load() };
   save(opts);
 
+  // § read: what a browser script (tools/drive.js) reads of the running game, so a playtest
+  // helper need not guess from pixels (H-107). Read only: nothing here changes the game.
+  globalThis.gloamdeep = Object.freeze({ state: () => game.get(), screen: () => game.screen?.() });
+
   // § panel: the wrench button and the folding sections
   const button = el('button', { id: 'dev-button', type: 'button', title: 'Dev tools (`)' });
   button.setAttribute('aria-label', 'Dev tools');

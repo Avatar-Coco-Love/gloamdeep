@@ -3,6 +3,7 @@
 // (step 12a, D-490; step 12b, D-491); freed, he waits a little, then goes home (D-496)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { sweep } from './fixtures.js';
 import { placeFor, peddlerRoom, makeRoom, tileAt, PEDDLER_DEPTH } from '../src/core/room.js';
 import { layoutAt, cellOf } from '../src/core/region.js';
 import { get, byKind } from '../src/core/registry.js';
@@ -41,7 +42,7 @@ test('on depth 3, one room the seed picks holds him, every open tile around him 
 });
 
 test('his spot: a wall on one straight side at most, and nothing on or around him, things moved aside (D-586)', () => {
-  for (let seed = 1; seed <= 300; seed++) {
+  for (let seed = 1; seed <= sweep(300); seed++) {
     const p = placeFor(peddlerRoom(seed), seed), [him] = p.people, near = (o) => Math.abs(o.x - him.x) <= 1 && Math.abs(o.y - him.y) <= 1;
     assert.ok([[0, -1], [-1, 0], [1, 0], [0, 1]].filter(([dx, dy]) => p.map[him.y + dy][him.x + dx] === '#').length <= 1, `seed ${seed}`);
     assert.ok(![p.start, ...p.items, ...p.enemies].filter(Boolean).some(near), `seed ${seed}`);
@@ -52,7 +53,7 @@ test('his spot: a wall on one straight side at most, and nothing on or around hi
 });
 
 test('every journey has him: his room is made again until his ring fits, even the one-cell rooms (D-580, D-645)', () => {
-  for (let seed = 1; seed <= 300; seed++) {
+  for (let seed = 1; seed <= sweep(300); seed++) {
     const p = placeFor(peddlerRoom(seed), seed);
     assert.deepEqual(p.people.map((q) => q.id), ['peddler'], `seed ${seed}`);
     const c = cellOf(seed, peddlerRoom(seed), 3);

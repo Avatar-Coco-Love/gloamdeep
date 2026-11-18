@@ -2,13 +2,14 @@
 // (D-579, D-587, D-592); many rooms built, and old saves brought up to date once
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { seeds } from './fixtures.js';
 import { placeFor, stoneAt, stoneRoom, placeAt, makeRoom, tileAt, isStoneDepth, nextStoneDepth, STONE_DEPTH } from '../src/core/room.js';
 import { layoutAt } from '../src/core/region.js';
 import { LANDMARKS } from '../src/core/registry.js';
 import { around } from '../src/core/landmarks.js';
 import { spotIn, ringOf } from '../src/core/stamper.js';
 
-const SEEDS = Array.from({ length: 400 }, (_, i) => i + 1);
+const SEEDS = seeds(400); // a tenth in a quick run (H-103)
 const MARK = LANDMARKS.waystone, PLAN = MARK.plan;
 const platesIn = (map) => map.flatMap((l, y) => [...l].flatMap((ch, x) => (ch === 'Z' ? [{ x, y }] : [])));
 // The open tiles walked to from `from`, through anything not solid

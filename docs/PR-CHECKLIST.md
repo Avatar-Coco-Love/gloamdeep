@@ -6,6 +6,9 @@ or updating a PR.
 
 ## Keeping track: every PR does all of these
 
+- **Tests:** `npm run quick` while working (a tenth of the big seed
+  sweeps); `npm test`, every seed, before the handoff (H-103, D-985).
+
 - **Run `node tools/release.js`** (D-572) once the new top entries of
   `CHANGELOG.md` and the `docs/PROGRESS.md` log are written by hand (the
   log entry's `- **date, version, title.**` gives the history its title).

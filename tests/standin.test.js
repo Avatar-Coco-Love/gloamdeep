@@ -3,6 +3,7 @@
 // other room stays as it was; and an old save's stand-in room is made again, once
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { sweep } from './fixtures.js';
 import { layoutAt } from '../src/core/region.js';
 import { placeFor, makeRoom, PLACES, isGenerated, tileAt, stoneRoom, vaultAt } from '../src/core/room.js';
 import { upgradeState, UPGRADES } from '../src/core/save.js';
@@ -26,7 +27,7 @@ test('the rooms that fell back at 0.3.42 are made, stairs and all', () => {
 
 // depths 12 to 20 are in standin-2.test.js and standin-3.test.js, so the three run side by side
 test('no dungeon room falls back, seeds 1 to 300, depths 8 to 11', () => {
-  for (let depth = 8; depth <= 11; depth++) for (let seed = 1; seed <= 300; seed++) {
+  for (let depth = 8; depth <= 11; depth++) for (let seed = 1; seed <= sweep(300); seed++) {
     for (const c of layoutAt(seed, depth).cells) assert.ok(fits(seed, c), `depth ${depth} seed ${seed} ${c.id}`);
   }
 });
