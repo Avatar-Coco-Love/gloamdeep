@@ -98,6 +98,9 @@ header says when it moved and why.
 - `HEALTH-CHECK-DONE.md`: the health checks' done findings, moved from
   `docs/HEALTH-CHECK.md` and `HEALTH-CHECK-2.md` word for word, each with
   its version (D-868).
+- `HEALTH-CHECK-3-NOTES.md`: the third health check's working notes
+  (D-975): its checklist, every area's findings as found and as checked.
+  Grep only; the picked steps are in `docs/HEALTH-CHECK-3.md`.
 
 ## Progress
 
