@@ -12,6 +12,7 @@ import { get } from './registry.js';
 import { litAt } from './sight.js';
 import { DIRS } from './state.js';
 import { say } from './lines.js';
+import { key } from './tile.js';
 
 const around = (t) => Object.values(DIRS).map(([dx, dy]) => ({ x: t.x + dx, y: t.y + dy }));
 const coldAt = (state, t) => state.room.map[t.y]?.[t.x] === get('brazier').letter;
@@ -38,7 +39,7 @@ export function callStep(state, e, free) {
   if (e.call) return e; // calling: it stays where it is
   if (!wants(state, e)) return null;
   if (coldBeside(state, e, e)) return e;
-  const key = (t) => `${t.x},${t.y}`, seen = new Set([key(e)]);
+  const seen = new Set([key(e)]);
   let ring = around(e).filter((t) => free(state, e, t.x, t.y)).map((t) => ({ ...t, first: t }));
   ring.forEach((t) => seen.add(key(t)));
   while (ring.length) {

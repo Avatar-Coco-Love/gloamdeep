@@ -6,12 +6,12 @@
 // bush or branch in a path's way is cleared (B1); a path already open changes nothing. The
 // copies a fall and the dev Reset read (`home.places`) are brought up the same way, home's
 // with its old mouth made trees as step 19 did for the room itself (rehome.js, B3).
-import { ROOMS, HOME_ID, isMountain, pathsOf, cutPaths } from './hearthwood.js';
-import { beginPlace } from './room.js';
-import { fresh } from './stairs.js';
+import { ROOMS, HOME_ID, isMountain, pathsOf, cutPaths } from '../hearthwood.js';
+import { beginPlace } from '../room.js';
+import { fresh } from '../stairs.js';
 import { homeMap, HOME_MIDDLE } from './rehome.js';
+import { unseen } from './shared.js';
 
-const unseen = (p) => !p.seen || !Array.prototype.some.call(p.seen, Boolean);
 // A room's paths cut again, from its start as the seed makes it, or home's middle
 function recut(seed, id, room) {
   const start = id === HOME_ID ? HOME_MIDDLE : beginPlace(id, seed).start;

@@ -5,7 +5,7 @@ import { makeWorld } from '../src/core/turn.js';
 import { fresh } from '../src/core/stairs.js';
 import { locketRoom } from '../src/core/room.js';
 import { UPGRADES, FORMAT } from '../src/core/save.js';
-import { withOldLocket } from '../src/core/oldlocket.js';
+import { withOldLocket } from '../src/core/fixups/oldlocket.js';
 
 const SEED = 7, id = locketRoom(SEED);
 const bare = (p) => ({ ...p, items: p.items.filter((i) => i.id !== 'locket'), enemies: p.enemies.filter((e) => e.id !== 'warden') });

@@ -2,8 +2,8 @@
 // the Lampeater came. Once, as the save is brought up to date (save.js): an arena made and kept gets
 // the Lampeater on its tile below the sealed door, unless the hero stands there. Nothing else of
 // the room moves; its braziers and door stay as they were. Plain data, no drawing.
-import { layoutAt } from './region.js';
-import { ARENA_DEPTH, LAMPEATER_AT } from './arena.js';
+import { layoutAt } from '../region.js';
+import { ARENA_DEPTH, LAMPEATER_AT } from '../arena.js';
 
 export function withLampeater(s) {
   const id = layoutAt(s.seed, ARENA_DEPTH).cells.find((c) => c.arena)?.id, here = s.place === id, p = here ? s : s.elsewhere?.[id];

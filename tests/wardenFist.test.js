@@ -11,7 +11,7 @@ import { shownLine } from '../src/core/lines.js';
 import { FILES } from '../src/render/sound.js';
 import { fresh } from '../src/core/stairs.js';
 import { UPGRADES } from '../src/core/save.js';
-import { withOldFist } from '../src/core/oldfist.js';
+import { withOldFist } from '../src/core/fixups/oldfist.js';
 
 const map = ['TTTTTTTTTT', 'T........T', 'T........T', 'T........T', 'TTTTTTTTTT'];
 const room = makeRoom(map, SKY, 'woods');

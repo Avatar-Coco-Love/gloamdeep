@@ -3,11 +3,11 @@
 // seed picks gets it when never seen, with nothing taken, and its tile still open grass with
 // nothing on it; a room seen, or the one stood in, stays as it was. The copies a fall and the dev
 // Reset read (`home.places`) get theirs the same way.
-import { beginPlace } from './room.js';
-import { lamppostRoom } from './lamppost.js';
-import { get } from './registry.js';
+import { beginPlace } from '../room.js';
+import { lamppostRoom } from '../lamppost.js';
+import { get } from '../registry.js';
+import { unseen } from './shared.js';
 
-const unseen = (p) => !p.seen || !Array.prototype.some.call(p.seen, Boolean);
 // The lamppost's tile in the room the seed lays it, or null
 function spotOf(seed, id, letter) {
   const map = beginPlace(id, seed).room.map;

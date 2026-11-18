@@ -19,6 +19,10 @@ src/input/cards/    a card's keys, taps and picks, one file each, in table.js (D
 src/input/touch.js    in play: a tap, a held finger, walk on, and the mouse over a mark (D-660)
 src/input/queue.js    which turns wait in line for the slide: only those taken in play (D-680)
 src/render/frame.js   draws each frame from the shared `app` (D-235)
+src/render/cards.js   the title's screens and the cards over play, from frame.js (H-99)
+src/core/lines-*.js   the text lines by topic, gathered into LINES by lines.js (H-99)
+src/core/fixups/      an older save brought up to date, one change a file (H-100)
+src/core/tile.js      same, dist and key, the small tile helpers (H-101)
 src/core/bagmake.js   the bag's Make tab: its recipes and the finds known (D-787)
 src/core/numbers.js   what an item does, its rows of words and numbers (D-902); drawn by render/numbers.js;
                       its pictures by render/hits.js (D-907), render/refill.js (D-908) and render/sips.js (D-909)

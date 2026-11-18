@@ -5,9 +5,9 @@
 // rest of a seed's room stays where it was. Taken, it grows back (regrow.js).
 // Plain data, no drawing.
 import { rng, pick } from './rng.js';
+import { same } from './tile.js';
 
 export const GUANO_NEAR = 2;
-const same = (a, b) => a.x === b.x && a.y === b.y;
 
 // (seed, room) → the room with a pile by each bat that has a free tile near it
 export function withGuano(seed, room) {

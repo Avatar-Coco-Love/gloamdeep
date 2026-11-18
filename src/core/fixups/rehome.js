@@ -3,9 +3,9 @@
 // side of it in its edge become trees, as the mouth stands in the room beside it now, and
 // the paths to the rooms beside are cut, as a new journey's home has them. A hero
 // standing on the old mouth steps in onto the tile in front of it.
-import { mouthOf } from './mouth.js';
-import { HOME_ID, pathsOf, cutPaths } from './hearthwood.js';
-import { COLS, ROWS } from './cave.js';
+import { mouthOf } from '../mouth.js';
+import { HOME_ID, pathsOf, cutPaths } from '../hearthwood.js';
+import { COLS, ROWS } from '../cave.js';
 
 const ALONG = { up: [1, 0], down: [1, 0], left: [0, 1], right: [0, 1] };
 const IN = { up: [0, 1], down: [0, -1], left: [1, 0], right: [-1, 0] };

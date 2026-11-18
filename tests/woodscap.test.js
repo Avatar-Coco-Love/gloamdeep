@@ -5,7 +5,7 @@ import { ROOMS, HOME_ID, isMountain } from '../src/core/hearthwood.js';
 import { beginPlace } from '../src/core/room.js';
 import { besideTree } from '../src/core/woodscap.js';
 import { makeWorld } from '../src/core/turn.js';
-import { recap } from '../src/core/recap.js';
+import { recap } from '../src/core/fixups/recap.js';
 import { get } from '../src/core/registry.js';
 import { FORMAT, UPGRADES } from '../src/core/save.js';
 

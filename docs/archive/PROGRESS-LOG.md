@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-18, 0.3.421, The third health check.** Hands-off, nothing in
+  the game changed: 40 findings kept of 60, each checked twice (D-975).
+  Report: https://claude.ai/artifact/EUFm1fPQY9EhzgnWBYSNdv
 - **2026-11-18, 0.3.420, The Lampeater's phases.** At 8 and 4 hearts it
   snuffs a lit brazier, then calls one more.
   D-978. Playtest: https://claude.ai/artifact/1DEhSgEJCHcKqP4Eh6NSUA

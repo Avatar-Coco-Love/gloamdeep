@@ -10,7 +10,7 @@ import { lamppostRoom, IN } from '../src/core/lamppost.js';
 import { campfireOf, FIRE_ROOMS } from '../src/core/campfire.js';
 import { ROOMS } from '../src/core/hearthwood.js';
 import { joinedFrom, depthIn } from '../src/core/woods.js';
-import { relamp } from '../src/core/relamp.js';
+import { relamp } from '../src/core/fixups/relamp.js';
 import { FORMAT, UPGRADES } from '../src/core/save.js';
 
 const SEEDS = Array.from({ length: 60 }, (_, i) => i * 7919 + 3);

@@ -24,6 +24,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.424 (2026-11-18)
+- No change in play. Less code to read: the game's biggest file, its 530 text lines, is split by topic into four smaller files, and the title's screens and cards moved out of the frame-drawing file; a new test stops any other code file passing 20 KB.
+- The 14 small files that bring an older save up to date now sit together in their own folder and share one helper instead of 8 copies; the little tile helpers copied into 12 files live once in `tile.js`.
+- Where the Lampeater is named in the code is written down for when a second boss is planned. The playbook of how we work keeps growing, ready for your next game.
+- Decisions: D-983, D-984.
+
 ## 0.3.423 (2026-11-18)
 - No change in play. Each PR now costs less and is safer: a new test checks that every decision from D-001 on is kept, once, and that no archive file shrinks or goes, as one did at 0.3.414 and nothing noticed.
 - `tools/release.js` now splits the in-game Version history by itself, 50 versions to a file (0.3.351 to 0.3.400 moved to `history-0.3-7.js` word for word), makes a new minor version's file, and refuses a `docs/PROGRESS.md` over 4 KB; a new `tools/audit.js` lists the docs near their caps and what a conversation reads at its start.
@@ -35,7 +41,3 @@ Entry format:
 - The first two health checks' finished pages and five old audit-lesson pages moved to the archive; three near-full pages split (`SOUNDS-4.md`, `CONTENT-5.md`, `WORKFLOW-SINCE.md`); `npm test` prints a dot a test, about 2 KB instead of 436 KB.
 - From now on the health check's steps run hands-off: Claude builds its own recommended fixes and lists every pick in the PR.
 - Decisions: D-980, D-981.
-
-## 0.3.421 (2026-11-18)
-- No change in play. A third health check, run while the owner was away: helper agents looked at ten areas, from the Lampeater's fight to what each conversation reads, and a second agent tested every finding again before it was kept. Of 60 found, 40 are kept, from card buttons too small on a phone to a test run that prints 436 KB. The owner made every one a step, reading less first.
-- Decisions: D-975, D-979. D-975 moved to the archive, word for word.

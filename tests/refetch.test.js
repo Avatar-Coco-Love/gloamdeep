@@ -3,7 +3,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { readJourney, upgradeState, loadJourney, journeyKey, journeyText, FORMAT } from '../src/core/save.js';
-import { refetch } from '../src/core/refetch.js';
+import { refetch } from '../src/core/fixups/refetch.js';
 import { stoneHome } from '../src/core/mouth.js';
 import { peddlerRoom } from '../src/core/room.js';
 import { makeWorld } from '../src/core/turn.js';

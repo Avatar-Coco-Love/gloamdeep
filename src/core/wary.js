@@ -12,9 +12,9 @@ import { get } from './registry.js';
 import { litAt, lanternReachOf } from './sight.js';
 import { DIRS } from './state.js';
 import { owesSnuff } from './call.js';
+import { key } from './tile.js';
 
 const around = (t) => Object.values(DIRS).map(([dx, dy]) => ({ x: t.x + dx, y: t.y + dy }));
-const key = (t) => `${t.x},${t.y}`;
 
 // Whether e is wary, or turns wary now (callStep found no call for it, creatureturn.js)
 const isWary = (e) => !!get(e.id).calls?.wary && (e.wary > 0 || (e.struck && !e.caught && !e.call && !owesSnuff(e))); // owing a phase's snuff, it waits for that first (D-978)

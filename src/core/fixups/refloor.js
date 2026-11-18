@@ -11,12 +11,12 @@
 // § which rooms: every generated one by default; `remake` (id, place) picks fewer, as
 // the step that makes again only the crypt rooms standing in for dungeon rooms (D-585),
 // and then the hero goes to their floor's stairs up as that room was kept, if it was.
-import { isGenerated, depthOf, placeAt, tileAt, withTile, peddlerRoom, stoneRoom, isStoneDepth } from './room.js';
-import { fresh } from './stairs.js';
-import { goHome } from './homeward.js';
-import { get } from './registry.js';
-import { cellOf } from './region.js';
-import { ARENA_DEPTH } from './arena.js';
+import { isGenerated, depthOf, placeAt, tileAt, withTile, peddlerRoom, stoneRoom, isStoneDepth } from '../room.js';
+import { fresh } from '../stairs.js';
+import { goHome } from '../homeward.js';
+import { get } from '../registry.js';
+import { cellOf } from '../region.js';
+import { ARENA_DEPTH } from '../arena.js';
 
 // § stand-ins: a save from before 0.3.43 may hold a crypt room that stood in for a dungeon
 // room no try could make (Q-078); once, each is made again from its seed, at its floor's

@@ -5,8 +5,8 @@
 // dev Reset read (`home.places`) get theirs the same way.
 import { ROOMS, isMountain } from './hearthwood.js';
 import { beginPlace } from './room.js';
+import { unseen } from './fixups/shared.js';
 
-const unseen = (p) => !p.seen || !Array.prototype.some.call(p.seen, Boolean);
 function laid(p, stones) {
   if (!p?.room) return p;
   let items = p.items || [];

@@ -5,6 +5,7 @@ import { rng, int, pick } from './rng.js';
 import { toned } from './tones.js';
 import { setAside, stampIn, ringOf } from './stamper.js';
 import { around } from './landmarks.js';
+import { same, dist } from './tile.js';
 
 // § sizes: about 1.5 screens, 17 × 20, bigger than the screen, so the camera
 // follows the hero (D-195). The chambers (D-162): how many, their half-widths
@@ -115,7 +116,7 @@ function chambers(r, cols, rows) {
   joinCaves(r, g, caves);
   // a tile the smoothing cuts off goes back to wall
   const joined = reach(g, caves[0]);
-  for (const f of tilesWhere(g, (x, y) => g[y][x] === '.')) if (!joined.has(key(f))) g[f.y][f.x] = '#';
+  for (const f of tilesWhere(g, (x, y) => g[y][x] === '.')) if (!joined.has(cellKey(f))) g[f.y][f.x] = '#';
   return g;
 }
 
@@ -144,12 +145,12 @@ function fill(r, g, up = true, down = true, rats = 1, second = 'rat', weapon = n
   const from = at || doors[0], far = reach(g, from), cut = at ? [at] : [];
   let to = null;
   if (down === true) {
-    const downs = floors.filter((f) => !onEdge(g, f) && far.get(key(f)) >= 8 && free(f.x, f.y, [...cut, f]));
+    const downs = floors.filter((f) => !onEdge(g, f) && far.get(cellKey(f)) >= 8 && free(f.x, f.y, [...cut, f]));
     if (!downs.length) return null;
-    const most = Math.max(...downs.map((f) => far.get(key(f))));
-    to = pick(r, downs.filter((f) => far.get(key(f)) >= most - 2));
+    const most = Math.max(...downs.map((f) => far.get(cellKey(f))));
+    to = pick(r, downs.filter((f) => far.get(cellKey(f)) >= most - 2));
   } else if (down) {
-    if (!far.has(key(down)) || !free(down.x, down.y, [...cut, down])) return null;
+    if (!far.has(cellKey(down)) || !free(down.x, down.y, [...cut, down])) return null;
     to = down;
   }
   if (at) g[at.y][at.x] = '<';
@@ -175,10 +176,10 @@ function finds(r, g, floors, far, up, down, torch, doors, count = 1, second = 'r
   // It starts in the dark: at least 5 tiles from a torch (D-098) and 3 from
   // either stairs (D-134).
   const open = floors.filter((f) => !onEdge(g, f) && !same(f, up) && !(down && same(f, down)) && !doors.some((d) => same(f, d)));
-  const flasks = open.filter((f) => far.get(key(f)) >= 5);
+  const flasks = open.filter((f) => far.get(cellKey(f)) >= 5);
   if (!flasks.length) return null;
   const flask = pick(r, flasks);
-  const dark = (f) => far.get(key(f)) >= 5 && dist(f, up) >= 3 && (!torch || dist(f, torch) >= 5) && (!down || dist(f, down) >= 3);
+  const dark = (f) => far.get(cellKey(f)) >= 5 && dist(f, up) >= 3 && (!torch || dist(f, torch) >= 5) && (!down || dist(f, down) >= 3);
   const rats = open.filter((f) => !same(f, flask) && dist(f, flask) <= 2 && dark(f));
   if (!rats.length) return null;
   const rat = pick(r, rats);
@@ -205,7 +206,7 @@ function finds(r, g, floors, far, up, down, torch, doors, count = 1, second = 'r
   // stays as it was; any open tile when none is that far.
   const items = [{ id: 'flask', x: flask.x, y: flask.y }, { id: 'herb', x: herb.x, y: herb.y }];
   if (weapon) {
-    const free = open.filter((f) => !taken.some((t) => same(t, f))), far5 = free.filter((f) => far.get(key(f)) >= 5);
+    const free = open.filter((f) => !taken.some((t) => same(t, f))), far5 = free.filter((f) => far.get(cellKey(f)) >= 5);
     const at = (far5.length || free.length) && pick(r, far5.length ? far5 : free);
     if (at) { items.push({ id: weapon, x: at.x, y: at.y }); taken.push(at); }
   }
@@ -253,15 +254,15 @@ function withDeposits(r, room, count, veins = 0, keep = []) {
 const walkable = (g, t) => g[t.y]?.[t.x] !== undefined && !['#', 'O', 'V', 'U', '~', 'Y'].includes(g[t.y][t.x]);
 // leaving out the tiles in `skip`, where a person ringed in by rubble stands (H-09, D-873)
 function joined(g, skip = []) {
-  const open = tilesWhere(g, (x, y) => walkable(g, { x, y })).filter((t) => !skip.some((o) => same(o, t))), seen = new Set([key(open[0])]), queue = [open[0]];
+  const open = tilesWhere(g, (x, y) => walkable(g, { x, y })).filter((t) => !skip.some((o) => same(o, t))), seen = new Set([cellKey(open[0])]), queue = [open[0]];
   while (queue.length) {
     const t = queue.shift();
     for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
       const n = { x: t.x + dx, y: t.y + dy };
-      if (walkable(g, n) && !seen.has(key(n))) { seen.add(key(n)); queue.push(n); }
+      if (walkable(g, n) && !seen.has(cellKey(n))) { seen.add(cellKey(n)); queue.push(n); }
     }
   }
-  return open.every((t) => seen.has(key(t)));
+  return open.every((t) => seen.has(cellKey(t)));
 }
 
 // § pool: in about 1 room in 2, a still pool of 5 to 9 water tiles ('~', D-500), in a
@@ -280,7 +281,7 @@ export function withPool(seed, room, keep = []) {
   const things = [room.start, ...room.items, ...room.enemies, ...keep];
   const stairs = tilesWhere(g, (x, y) => g[y][x] === '<' || g[y][x] === '>');
   const free = (t) => g[t.y]?.[t.x] === '.' && !onEdge(g, t) && !things.some((o) => same(o, t))
-    && far.get(key(t)) >= POOL_CLEAR && stairs.every((s) => dist(s, t) >= POOL_CLEAR);
+    && far.get(cellKey(t)) >= POOL_CLEAR && stairs.every((s) => dist(s, t) >= POOL_CLEAR);
   const spots = tilesWhere(g, (x, y) => free({ x, y }) && RING.every(([dx, dy]) => g[y + dy]?.[x + dx] === '.'));
   const skipped = [];
   while (spots.length) {
@@ -320,7 +321,7 @@ export function withMimic(seed, room) {
     const n = { x: t.x + dx, y: t.y + dy }, ch = g[n.y]?.[n.x];
     return ch === '<' || ch === '>' || (ch === '.' && onEdge(g, n));
   });
-  const spots = tilesWhere(g, (x, y) => g[y][x] === '.').filter((t) => !onEdge(g, t) && far.get(key(t)) >= 5 && !beside(t) && !things.some((o) => same(o, t)));
+  const spots = tilesWhere(g, (x, y) => g[y][x] === '.').filter((t) => !onEdge(g, t) && far.get(cellKey(t)) >= 5 && !beside(t) && !things.some((o) => same(o, t)));
   while (spots.length) {
     const at = spots.splice(int(r, 0, spots.length - 1), 1)[0];
     g[at.y][at.x] = 'O';
@@ -349,7 +350,7 @@ export function withTrapped(seed, room, id) {
     return around.every((n) => (g[n.y][n.x] === '.' || g[n.y][n.x] === '#') && !onEdge(g, n)) && around.filter((n) => g[n.y][n.x] === '.').length >= RING_OPEN
       && STRAIGHT.filter(([dx, dy]) => g[t.y + dy][t.x + dx] === '#').length <= RING_WALLS && ![t, ...around].some((n) => same(room.start, n));
   };
-  const spots = tilesWhere(g, (x, y) => g[y][x] === '.').filter((t) => !onEdge(g, t) && far.get(key(t)) >= 5 && fits(t));
+  const spots = tilesWhere(g, (x, y) => g[y][x] === '.').filter((t) => !onEdge(g, t) && far.get(cellKey(t)) >= 5 && fits(t));
   while (spots.length) {
     const at = spots.splice(int(r, 0, spots.length - 1), 1)[0], open = ring(at).filter((n) => g[n.y][n.x] === '.');
     for (const n of [at, ...open]) g[n.y][n.x] = 'U';
@@ -367,13 +368,13 @@ export function withTrapped(seed, room, id) {
 // The open floor tile nearest `from` by steps, off the edge, outside `block` and with
 // nothing in `taken` on it, which it then joins; steps go over floor and rubble
 function nearestFree(g, from, block, taken) {
-  const seen = new Set([key(from)]), queue = [from];
+  const seen = new Set([cellKey(from)]), queue = [from];
   while (queue.length) {
     const t = queue.shift();
     if (g[t.y][t.x] === '.' && !onEdge(g, t) && !block.some((b) => same(b, t)) && !taken.some((o) => same(o, t))) { taken.push(t); return { x: t.x, y: t.y }; }
     for (const [dx, dy] of WAYS) {
       const n = { x: t.x + dx, y: t.y + dy };
-      if ((g[n.y]?.[n.x] === '.' || g[n.y]?.[n.x] === 'U') && !seen.has(key(n))) { seen.add(key(n)); queue.push(n); }
+      if ((g[n.y]?.[n.x] === '.' || g[n.y]?.[n.x] === 'U') && !seen.has(cellKey(n))) { seen.add(cellKey(n)); queue.push(n); }
     }
   }
   return from;
@@ -511,11 +512,9 @@ const SHAPES = { chambers, burrows, halls };
 // § helpers
 // The grid's size comes from the grid itself, rows of tiles or strings
 const walls = (cols, rows) => Array.from({ length: rows }, () => Array(cols).fill('#'));
-const key = (t) => t.y * 64 + t.x; // a tile's key, one number for each tile of any room up to 64 wide
+const cellKey = (t) => t.y * 64 + t.x; // a tile's key, one number for each tile of any room up to 64 wide
 const onEdge = (g, t) => t.x === 0 || t.y === 0 || t.x === g[0].length - 1 || t.y === g.length - 1;
 const inside = (g, x, y) => x > 0 && y > 0 && x < g[0].length - 1 && y < g.length - 1; // off the edge
-const same = (a, b) => a.x === b.x && a.y === b.y;
-const dist = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
 function tilesWhere(g, test) {
   const out = [];
   for (let y = 0; y < g.length; y++) for (let x = 0; x < g[0].length; x++) if (test(x, y)) out.push({ x, y });
@@ -523,13 +522,13 @@ function tilesWhere(g, test) {
 }
 // Steps from `from` to every floor tile it can walk to, not through `cut`
 function reach(g, from, cut = []) {
-  const out = new Map([[key(from), 0]]), queue = [from];
+  const out = new Map([[cellKey(from), 0]]), queue = [from];
   while (queue.length) {
     const t = queue.shift();
     for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
       const n = { x: t.x + dx, y: t.y + dy };
-      if (g[n.y]?.[n.x] !== '.' || out.has(key(n)) || cut.some((c) => same(c, n))) continue;
-      out.set(key(n), out.get(key(t)) + 1); queue.push(n);
+      if (g[n.y]?.[n.x] !== '.' || out.has(cellKey(n)) || cut.some((c) => same(c, n))) continue;
+      out.set(cellKey(n), out.get(cellKey(t)) + 1); queue.push(n);
     }
   }
   return out;

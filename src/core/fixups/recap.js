@@ -3,10 +3,10 @@
 // woods room never seen, with nothing taken, gets the oilcap the seed now lays there, when its
 // tile is still open grass with nothing on it; a room seen or the one stood in stays as it was.
 // The copies a fall and the dev Reset read (`home.places`) get theirs the same way.
-import { ROOMS, isMountain } from './hearthwood.js';
-import { beginPlace } from './room.js';
+import { ROOMS, isMountain } from '../hearthwood.js';
+import { beginPlace } from '../room.js';
+import { unseen } from './shared.js';
 
-const unseen = (p) => !p.seen || !Array.prototype.some.call(p.seen, Boolean);
 // The oilcap the seed lays in room `id`, or null
 const capOf = (seed, id) => beginPlace(id, seed).items.find((it) => it.id === 'oilcap') || null;
 // A place with `cap` among its items, when its tile is free grass and it has no oilcap yet

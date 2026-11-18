@@ -10,7 +10,7 @@ import { coolVault } from '../src/core/vault.js';
 import { makeWorld, kindle } from '../src/core/turn.js';
 import { goToPlace } from '../src/core/stairs.js';
 import { UPGRADES, FORMAT } from '../src/core/save.js';
-import { rearena } from '../src/core/refloor.js';
+import { rearena } from '../src/core/fixups/refloor.js';
 
 const SEEDS = Array.from({ length: 60 }, (_, i) => i + 1);
 const count = (map, id) => map.join('').split(get(id).letter).length - 1;

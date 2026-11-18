@@ -13,7 +13,7 @@ import { campfireOf } from '../src/core/campfire.js';
 import { lamppostRoom } from '../src/core/lamppost.js';
 import { ROOMS, isMountain } from '../src/core/hearthwood.js';
 import { joinedFrom, depthIn } from '../src/core/woods.js';
-import { recamp } from '../src/core/recamp.js';
+import { recamp } from '../src/core/fixups/recamp.js';
 import { FORMAT, UPGRADES } from '../src/core/save.js';
 
 const SEEDS = Array.from({ length: 60 }, (_, i) => i * 7919 + 3);

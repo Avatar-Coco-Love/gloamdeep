@@ -21,3 +21,4 @@ line here (D-741). Each audit moves the lines into the right sections.
 - Ask what a change does to a later trip: the owner saw that the hall falling in behind the hero would cut off the way back down, which the proposal hadn't checked; rooms a journey keeps need the return trip thought through before offering (0.3.409).
 - More foes can make a fight easier: the 4 gloamlings took the tiles beside the hero, so the Lampeater bit less and the bot won more; run the bench before offering a fight change (0.3.413).
 - Prove a guard test by breaking what it guards: cutting the surface archive to 14 lines made both of `tests/kept.test.js`'s checks fail, then git put it back (0.3.423).
+- Split a data file the way an earlier split did, and prove it: `LINES` was compared key by key against main's before and after (530 the same), and the moved screens were played in a browser, since no test draws them (0.3.424).

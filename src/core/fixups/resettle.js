@@ -2,8 +2,8 @@
 // once to the home waystone's room (B-001, D-855), as a newly freed one stands since
 // 0.3.300. He keeps whether he has greeted the hero, and simply stands there, not beaming
 // in. Anyone else there stays. Plain data, no drawing.
-import { goHome, HOME } from './homeward.js';
-import { stoneHome } from './mouth.js';
+import { goHome, HOME } from '../homeward.js';
+import { stoneHome } from '../mouth.js';
 
 // (state) → the state with each person at home in the middle room moved to the stone's room
 export function resettle(s) {

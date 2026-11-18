@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { ROOMS, HOME_ID, isMountain } from '../src/core/hearthwood.js';
 import { beginPlace } from '../src/core/room.js';
 import { makeWorld } from '../src/core/turn.js';
-import { restar } from '../src/core/restar.js';
+import { restar } from '../src/core/fixups/restar.js';
 import { regrow, noteTaken } from '../src/core/regrow.js';
 import { get } from '../src/core/registry.js';
 import { FORMAT, UPGRADES } from '../src/core/save.js';
