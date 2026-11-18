@@ -15,7 +15,7 @@ reused); while working, each area numbers its own (A-1, B-1...).
 - [x] A. A conversation's start: what it reads, and how that grows.
 - [x] B. A PR's overhead: the checklist, release, history, conflicts.
 - [x] C. The code's shape: big files, boot, duplication, the rules.
-- [ ] D. Tests and tools: speed, noise, what's slow or doubled.
+- [x] D. Tests and tools: speed, noise, what's slow or doubled.
 - [x] E. The Lampeater's fight (0.3.381 to 0.3.420).
 - [x] F. Leap, the crumbling floor, gaps, the archway, the seal hall.
 - [ ] G. The Warden's Fist, vaults, the rune wall, shovel, doorways, flyers.
