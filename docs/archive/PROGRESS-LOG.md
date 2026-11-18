@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-18, 0.3.418, The Lampeater's guards.** With 6 gloamlings
+  alive, the 2 nearest it hold its shoulders, its way to you left open.
+  D-976. Playtest: https://claude.ai/artifact/4j656SjnHb3WPmiyCvgXUb
 - **2026-11-18, 0.3.417, The Lampeater calls.** Struck and free again,
   it calls a gloamling from a cold brazier; and the plan for a hands-off
   health check. D-974, D-975. Playtest: https://claude.ai/artifact/Ndd7XBfya6iWePcV6Bgghv

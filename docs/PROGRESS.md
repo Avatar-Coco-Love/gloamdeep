@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.420 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.421 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The hands-off health check (D-975), now the Lampeater's calls, guards,
-wary and phases are built. Then the Lampeater's drop and card, Leap as a
-find (D-971), its sound, the place beyond a Leap gap (D-969).
+The owner picks the third health check's steps (D-975), from
+`HEALTH-CHECK-3*.md` and the report. Then the Lampeater's drop and card,
+Leap as a find (D-971), its sound, the place beyond a Leap gap (D-969).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -53,12 +53,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-18, 0.3.421, The third health check.** Hands-off, nothing in
+  the game changed: 40 findings kept of 60, each checked twice (D-975).
+  Report: https://claude.ai/artifact/EUFm1fPQY9EhzgnWBYSNdv
 - **2026-11-18, 0.3.420, The Lampeater's phases.** At 8 and 4 hearts it
   snuffs a lit brazier, then calls one more.
   D-978. Playtest: https://claude.ai/artifact/1DEhSgEJCHcKqP4Eh6NSUA
 - **2026-11-18, 0.3.419, The Lampeater wary.** Struck with none to call,
   it keeps just past your lantern's reach for 3 turns, lit or not.
   D-977. Playtest: https://claude.ai/artifact/6HfgssgKhBXHW9zY5QmmAj
-- **2026-11-18, 0.3.418, The Lampeater's guards.** With 6 gloamlings
-  alive, the 2 nearest it hold its shoulders, its way to you left open.
-  D-976. Playtest: https://claude.ai/artifact/4j656SjnHb3WPmiyCvgXUb

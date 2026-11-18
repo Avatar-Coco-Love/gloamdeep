@@ -22,13 +22,26 @@ reused); while working, each area numbers its own (A-1, B-1...).
 - [x] H. Played as a player, on a phone and a PC, the screens since 0.3.329.
 - [x] I. Saves and speed: old saves, save size, frame time, boot.
 - [x] J. The docs against the code since 0.3.329.
-- [ ] K. Every finding checked (Opus); IDs H-68 on given.
-- [ ] L. `HEALTH-CHECK-3.md`, the report page, the questions, one PR.
+- [x] K. Every finding checked (Opus); IDs H-68 on given. H2 was added: a
+  second play-through (a full journey, keyboard and mouse) for what H missed.
+- [x] L. `HEALTH-CHECK-3.md` and `-3-WAYS.md`, the report page
+  (https://claude.ai/artifact/EUFm1fPQY9EhzgnWBYSNdv), one PR (0.3.421);
+  the owner's questions at the end.
 
 Not done, and why:
 - The every-3-hours check-in (D-975) could not be made: the session's
   permission check refused creating a scheduled task. This checklist,
   pushed after each area, is what a new conversation carries on from.
+
+## Area IDs to H numbers
+H-68 H-2, H-69 H-1, H-70 F-4, H-71 H2-4, H-72 G-2, H-73 I-1 and D-3,
+H-74 I-2, H-75 H2-1, H-76 E-1, H-77 E-4, H-78 G-3, H-79 F-5, H-80 H2-2,
+H-81 F-3, H-82 C-2, H-83 I-4, H-84 J-1 and E-2, H-85 J-2, H-86 J-4,
+H-87 A-1, H-88 A-2, H-89 A-3 and E-3, H-90 A-7, H-91 J-3, H-92 A-5,
+H-93 D-1, H-94 B-2, H-95 A-4 and G-5, H-96 B-3, H-97 B-1 and B-7,
+H-98 B-6, H-99 C-1, H-100 C-3, H-101 C-4, H-102 C-5, H-103 D-2 and G-4,
+H-104 I-3, H-105 D-5, H-106 F-6, H-107 H2-3. A-6 sums A-1 to A-3, kept
+as the WAYS file's opening lines.
 
 ## Findings as found, then as checked
 
