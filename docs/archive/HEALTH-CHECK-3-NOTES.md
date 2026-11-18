@@ -249,3 +249,57 @@ Looked at: every registry entry (152) against GLOSSARY*/CONTENT* by script; crea
 - Seen: ran: $S/work/J/snd.mjs, sz.mjs
 - Who: none (players); few (a store build 13 MB heavier than needed)
 - Fixes: 1) add the Boss section name, the three rows, and a STORE line "ship only the 117 used files" 2) skip, as none of it misleads a step
+
+### As checked: area C
+#### Area C: code shape and what a step must read
+Looked at: sizes and sections of the big files, boot imports (script + a throttled browser load), unused exports, circular imports, the state/drawing, seeded-RNG and localStorage rules, the save-fix-up files, and the files 6 recent PRs and the last 40 PRs touched. Not covered: line-by-line code quality, performance of the light, tests.
+
+Checked and clean (no finding): no circular imports; src/core imports nothing from render/input/dev; Math.random once, src/main.js:87 (a new journey's seed, as TECH.md says); every localStorage use in try/catch; no dead export.
+
+##### C-1 No size limit on code files; every step reads big shared ones
+- Where: src/main.js (51 KB), src/core/lines.js (50 KB, one table), src/render/frame.js (44 KB, `createFrame` one closure, lines 130-517), src/render/sound.js (39 KB), sprites.js (38 KB), src/core/items.js (33 KB); tests/docs.test.js:18-24 (caps docs only)
+- Against: CLAUDE.md:97 "Keep code files small"; the audit splits only "one big code file" every 40 versions (CLAUDE.md:89-90, D-518) | no test checks it
+- What: 12 of 313 src files are over 30 KB (6 of them lazy history files) and 29 over 20 KB. In the last 40 merged PRs (0.3.381 to 0.3.420) lines.js was edited 16 times, enemies.js 12, main.js 11, sprites.js and frame.js 9 each, usually a few lines, so a step either reads 50 KB to add one line or must know to grep. 0.3.419 touched 10 src files, 196 KB whole, for +217 lines; 0.3.420 touched 6, 41 KB. One split per audit cannot keep up with 29 files over 20 KB.
+- Seen: measured: `find src -size +30k`, `git diff --name-only` per first-parent merge (work/C-check/m.txt).
+- Who: none (players) — context and dev time
+- Fixes: 1) Split the big shared tables by topic as `lines-creatures.js` already is (e.g. boss lines into their own file); 2) split `createFrame` along its `// §` sections into per-layer files under about 15 KB; 3) a src size-cap test (say 30 KB) with an allow-list that only shrinks, like docs.test.js.
+- Checked: KEEP, re-measured sizes and the 40-PR edit counts myself; added the one-split-per-audit context.
+
+##### C-2 The browser still loads 299 modules, 1.6 MB, before the title
+- Where: index.html:164 (`src/main.js`), src/main.js, src/render/frame.js, src/input/screens.js
+- Against: H-23 (done at 0.3.313, D-868) made only the Version history lazy | TECH.md "No service worker: nothing is cached"
+- What: everything but the history (14 files) is imported at boot: 299 of 313 files, 1,632,808 bytes, up from H-23's 266 files. Gzipped file by file they are 616 KB, about 2.6 times smaller (not 4). The helper's throttled load (200 KB/s, 150 ms: 300 requests, 12.1 s) was not re-run and not tried on a real phone. Cards (`src/input/cards/`, 32 files, 51 KB) and dev tools (26 KB) are candidates to load later.
+- Seen: measured: work/C-check/graph.js (import graph from main.js), gzip per file.
+- Who: some (first visit on a slow phone) — grows with each feature
+- Fixes: 1) Measure on the real host and a phone first, record the byte count each audit; 2) load cards, dev tools and the save fix-ups (C-3) with `import()` on first use, as history does; 3) leave as is.
+- Checked: REVISE, import graph re-run (299 files, same bytes); compression ratio corrected; tied to H-23.
+
+##### C-3 Save fix-up files pile up, copy a helper, and have misleading names
+- Where: src/core/recamp.js, recap.js, refetch.js, refloor.js, regrove.js, rehome.js, relamp.js, renew.js, resettle.js, restar.js, reherb.js, oldarena.js, oldfist.js, oldlocket.js (14 files, about 28 KB); all imported only by src/core/save.js (rehome also by renew.js)
+- Against: TECH.md:48 "keep saves upgradable" | none
+- What: each is a one-time fix for an older save ("an older save given its miners' camp"); 14 files for save FORMAT 37, one more per feature that adds a room thing. The same `const unseen = (p) => ...` line is copied into 8 files (7 fix-ups and strewn.js), and several point to the one before ("as relamp.js gave the lamppost"). The `re` prefix is shared with real rules (regrow, rescue, relic, record, region, registry), so a reader cannot tell a rule from a one-time fix.
+- Seen: read; `grep -rnE "const unseen = " src` = 8; `ls src/core | grep -E '^(re|old)'` = 20.
+- Who: none (players) — context and dev time
+- Fixes: 1) Move them to `src/core/fixups/` with one shared `unseen`, loaded only when an old save is read; 2) one table by format number so save.js names none; 3) just rename with a `fix-` prefix.
+- Checked: REVISE, opened all 14 headers and importers; "each opens with as relamp.js" was only true of recamp, reworded.
+
+##### C-4 Small tile helpers copied across files
+- Where: `same` in src/core/flank.js:14, relic.js:13, cache.js:13, guano.js:10, scatter.js:9, sized.js:14, pack.js:10, guarding.js:18, unguarded.js:13, cave.js:517; `dist` in scatter.js:10, cave.js:518, sized.js:15, pack.js:11, unguarded.js:14; `key` in wary.js:17, sized.js:16, unguarded.js:15 (a string) and cave.js:514 (a number)
+- Against: none (a risk)
+- What: new steps copy "same tile", "tile distance" and "tile key" into their own files; the two kinds of `key` return different things, a silent mix-up if someone later shares them.
+- Seen: measured: `grep -rnE "const (same|dist|key) = " src` = 10, 5, 4 at top level.
+- Who: none (players) — dev time
+- Fixes: 1) One `src/core/tile.js` with `same`, `dist`, `tileKey`, used by new files, older ones moved at audits; 2) a line in TECH.md; 3) leave it.
+- Checked: KEEP, grep re-run; lowest of the kept.
+
+##### C-5 Boss rules check the creature's id in several files
+- Where: src/main.js:314, src/core/beaten.js:14, src/render/frame.js:355, src/core/arena.js:55, src/core/bossbench.js:42 (dev); one rule file per boss step (call.js, snuff.js, wary.js, flank.js); docs/TECH-2.md:61-67 (a creature's list)
+- Against: docs/TECH.md:44-46 (D-261) "Add content as registry data, not special cases in the rules"
+- What: the Lampeater's rules are found by `e.id === 'lampeater'` in at least 5 files outside its enemies.js entry (feats.js, settings.js, sound.js only list it as data, which is fine). A second boss would have to find and copy each check. Most other content does go through the registry (registry.js).
+- Seen: read; `grep -rlE "'lampeater'" src` = 10 files, 5 of them rule checks.
+- Who: none (players) — dev time, when a second boss comes
+- Fixes: 1) When the second boss is planned, move the checks into a `boss: {...}` field on its enemies.js entry; 2) gather a boss's step files in `src/core/boss/`; 3) no change now.
+- Checked: REVISE, the quote is TECH.md's summary of D-261, not D-261's text; narrowed the 10 files to the 5 real rule checks.
+
+#### Dropped
+- C-5 (original) Each step also edits about 10 record files: counts are true (40/40 history, PROGRESS, CHANGELOG; median 17 files), but tools/release.js writes most of them, the history is lazy since D-868, and its own recommended fix is "keep as is", so nothing for the owner to decide.
