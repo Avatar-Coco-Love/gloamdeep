@@ -85,3 +85,63 @@ Checked and clean (no finding): no circular imports; src/core imports nothing fr
 - Seen: read; `grep -rlE "'lampeater'" src | wc -l` = 10.
 - Who: none (players) — dev time
 - Fixes: 1) Keep the one-file-per-boss-step pattern but put a boss's files in `src/core/boss/` with its lines and sprite hooks in one place; 2) when a second boss comes, move the 'lampeater' checks into a `boss: {...}` field on its enemies.js entry; 3) no change now.
+
+### As found: area A
+#### Area A: what a conversation reads at its start, and how it grows
+Looked at: sizes of CLAUDE.md, PROGRESS.md, the start hook, DECISIONS.md and its archive index; which docs the last 25 merged PRs (0.3.396 to 0.3.420) touched; doc sizes at 0.3.380, 0.3.400, 0.3.420. Not covered: whether each doc's words are right, the code docs' accuracy, and the real token counts (bytes only, about 4 bytes a token).
+
+##### A-1 PROGRESS.md: 72% of it is rarely needed
+- Where: docs/PROGRESS.md:35-39 (Build plan, 1047 bytes), :14-33 (Waiting on the owner, 1921 bytes)
+- Against: PROGRESS.md:3 "Keep this file under 4 KB"; the file's own rule "Tick a step when merged ... move ticked steps there at each audit"
+- What: the file is 4094 of 4096 bytes. The Build plan lists steps 19 and 26 with version numbers that are already merged (0.3.83 and 0.3.245 are both in archive/PROGRESS-LOG.md), so about 1 KB is done work. In "Waiting", five bullets (Any time, Each its own step, Later, Sounds, the lab; about 1,230 bytes) only repeat Q-numbers that OPEN-QUESTIONS*.md already holds.
+- Seen: measured: awk per section and per bullet; grep of the archive log for 0.3.83 and 0.3.245.
+- Who: most players: none. Context: every conversation reads it, so cutting it is a saving of about 2.2 KB (550 tokens) each time, and it stops the 2-byte margin that forces a trim in every PR.
+- Fixes: 1) Move the ticked build plan to the archive log now, and turn the five repeat bullets into one line "Later and any-time questions: OPEN-QUESTIONS*.md" (PROGRESS goes to about 1.9 KB). 2) Only drop the build plan (saves about 1 KB). 3) Make the audit check the plan against the log each time.
+
+##### A-2 CLAUDE.md: the routing table is 42% of the file
+- Where: CLAUDE.md "Where things live" (3374 bytes of the 8106; 86 bytes under the 8 KB cap)
+- Against: CLAUDE.md "Read the smallest file that answers the question" and "Keeping context small"
+- What: every conversation loads all 25 rows, but a typical step needs 2 to 4 of them (the last 25 PRs touched mostly OPEN-QUESTIONS-3, CONTENT-BOSSES, CONTENT-4, GLOSSARY-2, WORKFLOW, SOUNDS*). The table also has holes: GLOSSARY-2.md, GLOSSARY-HERO.md, GLOSSARY-HOME.md (11 KB, where "Leap" lives) and WORKFLOW-5/6/7.md are not named; they are reached only through other docs. So the table is both too long and incomplete.
+- Seen: measured: awk section sizes; script loop of every docs/*.md name against CLAUDE.md (29 files not named exactly; 3 glossary files and 3 workflow files have no route at all in the family descriptions).
+- Who: most players: none. Context: every conversation, about 2 KB (500 tokens) saved each time.
+- Fixes: 1) Move the full table to a new docs/INDEX.md (family by family, naming every file) and keep in CLAUDE.md about 8 lines: one per family plus "full list: docs/INDEX.md". Saves about 2 KB and fixes the holes. 2) Keep the table, but shorten each description to a few words (saves about 1 KB). 3) Put the index in docs/PROGRESS.md "Next up" only for the step at hand (the step names its docs).
+
+##### A-3 DECISIONS.md: half of it is process rules written elsewhere
+- Where: docs/DECISIONS.md:14-79 (nine standing decisions, 3858 bytes) and :80-105 (D-971, 1796 bytes); cap 12288, now 12179
+- Against: D-338 "Audits lose nothing" (moving word for word is allowed); CLAUDE.md already restates D-338, D-363, D-518, D-732, D-741, D-852, D-923
+- What: D-338, D-363, D-431, D-518, D-732, D-741, D-790, D-852, D-923 sit at the top of the "newest decisions" file though they are old; their rules are in CLAUDE.md or PR-CHECKLIST.md. The file was touched by 23 of the last 25 PRs, so a conversation must read all 12 KB to edit it. It is 109 bytes from the cap, and release.js already warns (11 KB).
+- Seen: measured: awk by line range; git diff --name-only on each of the last 25 merges (23 touched DECISIONS.md).
+- Who: most players: none. Context: about 3.9 KB (1K tokens) less read in nearly every PR, plus room before the cap.
+- Fixes: 1) Move the nine standing decisions to archive/DECISIONS-STANDING.md word for word, add the index row, and keep one line at the top: "Process rules: grep the archive for D-338, D-363 ...". 2) Move each decision to the archive the moment its step is done (D-971 when the Lampeater ends). 3) Lower the warning to 8 KB so the move happens before the cap.
+
+##### A-4 The archive index is rewritten in every PR but grep does not need it
+- Where: docs/archive/README.md:26 (the DECISIONS-SURFACE row, 5773 characters, of which the IDs cell is 3914); docs/DECISIONS.md:6-8; tests/docs.test.js:30-34
+- Against: D-336 "one index of the archive" (the test only checks file names)
+- What: archive/README.md was edited in all 25 sampled PRs, only to add one more "D-nnn," to a list of single IDs. Every decision header is `**D-nnn ·`; all 978 IDs are present once, with no gaps, in DECISIONS.md plus archive/DECISIONS-*.md, so one command finds any decision. The index is 22 KB (about 5.5K tokens if opened), and 28 old IDs (D-029 to D-168 in SUPERSEDED / STAGE-0.2-1 rows) are already not listed in the file that holds them.
+- Seen: ran: node script work/A/cov.js (header count 978, duplicates none; 964 archive IDs, 28 not indexed to their own file). grep -c '^\*\*D-' confirmed.
+- Who: most players: none. Context and dev time: smaller PR diffs, and no risk of reading the 22 KB index.
+- Fixes: 1) Say in CLAUDE.md and DECISIONS.md line 7 "find an ID: grep -n '^\*\*D-865 ·' docs/archive/DECISIONS-*.md" and change the SURFACE row to "D-209 to latest, scattered; grep" so release.js stops editing it. 2) Keep the index but make it ranges only. 3) Add a test that every header matches `**D-nnn ·` so grep stays reliable.
+
+##### A-5 Seven docs sit within 100 bytes of their cap
+- Where: docs/PROGRESS.md (2 bytes spare), docs/WORKFLOW.md (13), docs/SOUNDS-3.md (64), docs/CONTENT-4.md (75), CLAUDE.md (86), docs/DECISIONS.md (109), docs/PUZZLES.md (288)
+- Against: tests/docs.test.js:6-8 and :20-25 (8 KB, 12 KB, 4 KB caps)
+- What: the next PR touching any of these must trim or split first. Growth from 0.3.380 to 0.3.420: OPEN-QUESTIONS-3 4676 to 7677 bytes (touched by 20 of the last 25 PRs; 515 spare, so the cap is reached in about 7 versions, around 0.3.427), WORKFLOW 6846 to 8179 in the last 20 versions (its "Since the last audit" gets a line in about 10 of 25 PRs), CONTENT-4 6555 to 8117. The next audit is 0.3.433, so these hit their caps before it.
+- Seen: measured: git cat-file -s at 67d8774 (0.3.380), 78c77e2 (0.3.400) and HEAD; spare bytes from the caps.
+- Who: none (players). Dev time: a split in the middle of a step, a new file, and one more route to learn.
+- Fixes: 1) Plan the splits now, as one step: open-question "Lampeater" lines to a new file when its polish ends, CONTENT-4 and SOUNDS-3 to a -5 and -4 by region. 2) Let the "Since the last audit" lines live in their own file (WORKFLOW-SINCE.md) so WORKFLOW.md stops hitting its cap. 3) Raise the cap to 10 KB for docs read in pieces (fewer files).
+
+##### A-6 What a normal PR reads, and how total docs grow
+- Where: CLAUDE.md, docs/PROGRESS.md, docs/PR-CHECKLIST.md (4870), docs/DECISIONS.md, then the step's docs
+- Against: CLAUDE.md "Keeping context small"
+- What: the four files every PR reads or edits are 29.3 KB (about 7.3K tokens): 8.1 + 4.1 + 4.9 + 12.2. A boss step adds OPEN-QUESTIONS-3 7.7, CONTENT-4 8.1, CONTENT-BOSSES 2.5, GLOSSARY-2 3.5 and often WORKFLOW 8.2, so about 59 KB (15K tokens) before any code. With A-1, A-2 and A-3 the four files fall to about 21 KB (-28%). Live (non-archive) docs grew 310,207 to 330,104 bytes in 40 versions (+500 bytes a version; 57 to 62 files); the archive grew 1.16 MB to 1.25 MB (+2.1 KB a version), which costs nothing unless opened.
+- Seen: measured: wc, git ls-tree -r -l at three commits, git diff --name-only on the last 25 merges.
+- Who: none (players). Context: yes.
+- Fixes: 1) Do A-1 to A-3 first (about 8 KB less per conversation). 2) PR-CHECKLIST.md could shrink by putting the finish steps under the release tool's output (D-572), saving about 1.5 KB; this needs a check of what release.js now does itself. 3) Let the audit report these numbers so growth is seen every 40 versions.
+
+##### A-7 The WORKFLOW family is 46 KB in eight files, mostly frozen history
+- Where: docs/WORKFLOW.md:93-98, docs/WORKFLOW-3.md to WORKFLOW-7.md (24.6 KB together); also CLAUDE.md names only "WORKFLOW" and "-2, -3, -4"
+- Against: D-782 and D-338 (moved word for word); CLAUDE.md routing row "each audit's lessons in -3 and -4"
+- What: WORKFLOW-3..7 are each audit's lessons, copied in word for word, one new 5 KB file per audit (40 versions). Only an audit reads them, but they count as live docs and need routing (5, 6, 7 are not routed). The rules in force are already in CLAUDE.md and PR-CHECKLIST.md, as the files say themselves.
+- Seen: read: headers of WORKFLOW-3 and -7; grep for who names WORKFLOW-5..7 (only WORKFLOW.md and each other).
+- Who: none (players). Context and dev time: fewer live files, a shorter routing row.
+- Fixes: 1) Move WORKFLOW-3..7 to archive/ (one index row, grep only); an audit then adds WORKFLOW-lessons to the archive file directly. 2) Merge -3..-7 into one archive file per 5 audits. 3) Leave as is and add the routes (costs CLAUDE.md bytes).
