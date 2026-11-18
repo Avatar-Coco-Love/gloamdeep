@@ -1,4 +1,2572 @@
+# The surface decisions (D-209 to D-218, D-733 to D-739, D-744 to D-752)
 
+Moved unchanged from `docs/DECISIONS.md` at step 51b (D-221), when it
+neared 12 KB: the surface steps 48 to 51 (the woods, the lantern that
+switches itself, the cave mouth, depths moving up, day and night,
+daylight through the mouth) and the Seed Explorer, steps E1 and E2.
+These are still in force unless marked superseded. Grep for an ID or
+topic; never read this whole. D-734 to D-737, Hearthwood's 9 rooms,
+where a journey begins, Light your lantern and waking after a fall, all
+built (D-733's steps 1 to 3), followed at 0.3.192, the twelfth audit
+(D-740), word for word. D-738, mountain rooms, built (D-733's step 4),
+followed at 0.3.198 (D-746), word for word. D-739, rounded rock, and
+D-744, a craggy cave mouth (partly superseded by D-745), built, followed
+at 0.3.199 (D-747), word for word, as `docs/DECISIONS.md` neared 12 KB.
+D-745, the broken seal, and D-746, Find the crypt, both built, followed
+at 0.3.202 (D-750), word for word, for the same reason.
+D-747 to D-749, smooth rock edges, ponds and grass, all built, followed
+at 0.3.204 (D-753), word for word, for the same reason.
+D-733, a bigger surface's plan, all five steps built, followed at
+0.3.207 (D-756), word for word.
+D-771, alchemy, a station of its own, followed at 0.3.228 (D-778),
+word for word, as `docs/DECISIONS.md` neared 12 KB.
+D-780 and D-781, the rare gloamling and the mole, both built, followed
+at 0.3.239 (D-791), word for word, for the same reason.
+D-784, the bunny, built, followed at 0.3.240 (D-792), word for word,
+for the same reason.
+D-785, alchemy and cooking's shape, followed at 0.3.241 (D-793), word
+for word, for the same reason.
+D-786, the mortar and pestle and the Glow Draught, built, followed at
+0.3.242 (D-794), word for word, for the same reason.
+D-793, the rare herb mimic, built, followed at 0.3.244 (D-796), word
+for word, for the same reason.
+D-787, the bag's Make tab, built, followed at 0.3.243 (D-795), word for
+word, for the same reason.
+D-796, the skulker crab, built, and D-788, the Make tab's details,
+built, followed at 0.3.245 (D-797), word for word, for the same reason.
+D-789, the mortar's card, built, followed at 0.3.246 (D-798), word for
+word, for the same reason.
+D-795, the Ward Draught, built, followed at 0.3.248 (D-802), word for
+word, for the same reason.
+D-895 and D-896, the vault door opening and its prize, both built,
+followed at 0.3.346 (D-903), word for word, for the same reason.
+D-913 and D-914, Kind Herbs' words and a broken save set aside once,
+both built, followed at 0.3.359 (D-916), word for word, for the same
+reason.
+
+---
+
+**D-209 · 2026-10-20 · The first woods room** (step 48, owner's picks
+from a mock-up of three tree looks, https://claude.ai/artifact/7Hh8yfLvKzbSKYpbFziWya;
+part of Q-034 and Q-038) Until the cave mouth (step 49), only a dev
+drawer button, Go outside, leads to it; a new journey still starts in
+the crypt. It is plain daylight: the whole room is lit and remembered,
+no fog and no lantern needed; a lit lantern still burns oil as before.
+One round tree a tile, each with its own crown, trunk and shadow. The
+room is 17 × 20, like the caves, made from the seed: trees all round the
+edge, thick near it and thinner inside, every open tile joined. It is
+depth 0; the strip and the map say SURFACE until places have names.
+
+**D-210 · 2026-10-20 · A lantern that switches itself** (before step 49,
+owner's picks; answers Q-049) Settings gains "Lantern: By hand" under
+Seed, above Back; picking it, Left or Right flip it to "Lantern: By
+itself", kept on this device. It is By hand until picked. By itself, the
+lantern goes out as the hero comes into daylight and lights again as they
+leave it, only at that moment, so the player's own switch between holds.
+For now it reacts to daylight only; night (step 50) will join it. No line
+is said. Later, a choice of oil levels at which it goes out (an idea).
+
+**D-211 · 2026-10-20 · The cave mouth** (step 49, owner's picks from a
+mock-up of three looks, https://claude.ai/artifact/KsSQEcYgn71XLjaYAzVn8G;
+builds on D-184) For now the mouth sits on an edge of the one woods room,
+standing in for D-184's side cell until the region's 3 × 3 grid is
+built: the seed picks the edge (north, east, south or west) and a spot
+along it, kept from the corners. It is mock-up C: trees along the edge,
+a mound of grey rock either side of a dark mouth, an arch on the north
+edge, and the tile in front worn to earth. Walking through it, the hero
+arrives on the crypt's facing side, at a gap in its wall (the owner's
+rule: go in up, arrive at the bottom): going up, the south room's bottom,
+then on up into the first room; going down, left or right, the first
+room. Walking back out arrives on the mouth. A new journey still starts
+in the crypt, and dev Go outside stays. Daylight through the mouth waits
+for step 51.
+
+**D-212 · 2026-10-20 · A doorway keeps the depth; stairs change it**
+(the owner's idea; for step 49b) A way in through a doorway or mouth
+stays on the same level, and only stairs go down. So the two crypt rooms
+become depth 0, like the woods, and every depth below moves up one: the
+second room is depth 1, the generated floors 2, 3 and 4, still 5 levels
+in all (D-185), and the deeper kinds move up one with them. The strip
+says SURFACE in the crypt, until places have names. Built in its own
+step, 49b, after the mouth.
+
+**D-213 · 2026-10-21 · How the depths move up** (step 49b, owner's
+picks) *The map part superseded by D-222 (2026-10-21): the map joins the
+surface once both parts are visited.* A seed keeps its rooms: each place below the surface keeps the
+seed numbers of its old depth, so only the labels change. The map shows
+the part of the surface the hero is in, the woods or the two crypt
+rooms, both headed SURFACE; the second room's stairs up lead to the
+crypt. Dev Go to depth goes from 0, the crypt, and Go outside still goes
+to the woods. D-201 to D-208 moved unchanged to
+`archive/DECISIONS-REGION.md`; they stay in force.
+
+**D-214 · 2026-10-21 · A Seed Explorer** (the owner's idea, owner's
+picks) A dev entry on the title menu that opens the map screen instead
+of the game, with everything revealed and the seed it shows written on
+it. Easy-to-reach buttons: Reseed (a random seed each tap), type a seed
+(the seed pad), and back to the last seed; floors turn as on the map.
+On the surface it shows the woods and the crypt together, in the
+Explorer only; the game's map keeps D-213. Built next, before step 50:
+first the Explorer, then the whole surface on it. Later, as their own
+steps: a button that fits places far apart on one depth, painting
+rooms, and saving them to a file for Claude to build into the game.
+
+**D-215 · 2026-10-21 · How the Seed Explorer looks** (step E1, owner's
+picks) "Seed Explorer" is the title menu's last line, like the others.
+A bar along the map box's bottom shows "SEED 48213" with Back on its
+left and Type and Reseed on its right; the cross where the map button
+sits, Esc or a tap outside the box return to the title. It opens on the
+seed typed in Settings, else a random one, on the surface, and never
+changes Settings. Back steps through every seed shown this visit, newest
+first, and is greyed out when none is left. Proposed with the build:
+Reseed, Back and a typed seed keep the floor shown; the seed pad starts
+empty there, OK with nothing typed keeps the seed, Random shows a random
+one; R, T and B are the keys.
+
+**D-216 · 2026-10-21 · The whole surface in the Explorer** (step E2,
+owner's picks from a mock-up of three layouts,
+https://claude.ai/artifact/Qtjc4ZR6V9EDrekCgEBQQU) On the Explorer's
+surface map the crypt sits where walking through the cave mouth takes
+you: the mouth's tile right beside the gap in the crypt's wall, so it
+moves with the mouth's edge. The mouth stays plain floor on the map, with
+no mark of its own. The game's map keeps D-213.
+
+**D-217 · 2026-10-21 · Day and night outside** (step 50, owner's picks;
+builds on D-025, D-209, D-210; part of Q-027) A day is 300 turns from
+morning: 170 of full day, a 30-turn dusk, 70 of night, a 30-turn dawn
+(day 200, night 100). A journey starts in the morning and the clock runs
+below ground too; only rooms under the sky show it. Dusk and dawn fade
+the light. At night the woods are like a cave: only lights show tiles,
+never-seen ones are black, remembered ones a dim moonlit blue, the
+study's cold blue (D-060). Daylight lights and remembers the whole room
+until halfway through dusk and from halfway through dawn; the lantern set
+to By itself lights and goes out at those moments. No clock on screen,
+only the light. Dev: TIME, +10 and +50 in the Room tab move the clock
+only, and the status line shows the turn of the day.
+
+**D-218 · 2026-10-21 · Daylight through the cave mouth** (step 51,
+owner's picks; builds on D-173, D-211, D-217; part of Q-040) The gap the
+mouth leads to in the crypt is a light, like a torch: by day it reaches
+3 tiles in a pale daylight, through dusk it shrinks with the daylight and
+warms toward the torches' orange, at night it is gone, and dawn brings it
+back the same way. It is real light: tiles it reaches are remembered,
+lantern or not, and a creature standing in it sees the hero. Weather
+waits for Q-035.
+
+**D-733 · 2026-11-09 · A bigger surface, the plan** (the owner's picks,
+all recommended but where a fall wakes; builds D-182 to D-184, answers
+Q-081) The surface grows to Hearthwood's 3 × 3 rooms, mountains in the
+north row, woods elsewhere, home in the centre (D-182, D-183). A new
+journey no longer begins in the crypt nor at home or the cave: the seed
+picks one of the south woods rooms, never the cave's, and the hero walks
+north to find the waystone. A fall wakes the hero (the owner's own
+answer): in the last bed slept in; with none, at the home waystone once
+woken; otherwise in the room where the journey began. The rooms differ:
+mountain rooms, and woods from thick to open glades, the seed picking.
+The order, one step each: 1 the 9 rooms, all woods, walking off an edge
+into the next; home stays today's woods room, so what was set down keeps
+its place, and the cave mouth moves to a room beside home (D-184); 2 the
+south start, its teaching goal's words with it; 3 waking after a fall
+(supersedes D-119's crypt when built); 4 mountain rooms; 5 thick woods
+and open glades. Nothing is built yet. D-712 and D-713 move to
+`archive/DECISIONS-GOALS.md`, word for word.
+
+**D-734 · 2026-11-09 · Hearthwood's 9 rooms built** (the owner's picks,
+all recommended; builds D-733's step 1, opens Q-087) The surface is
+Hearthwood's 3 × 3 woods rooms, home in the centre. Every room is joined
+to every room beside it, 12 joins, each a path 3 tiles wide through the
+edge trees, at the same spot on both sides, the seed picking where, kept
+3 tiles from the corners; the fewest trees are cut from it to the room's
+open ground. Claude's calls: home grows as before, so its trees stay,
+and an older save's home keeps everything, only its mouth and rocks
+made trees and its paths cut; the cave mouth stands in the room beside
+home the way the seed picked (D-184), on that room's far edge, the same
+spot along it, so the crypt is reached as before; only home has the
+waystone; every woods room has its sticks, branch, pond and bush, each
+pond holding the Pond Minnow. D-705 and D-706 move to
+`archive/DECISIONS-GOALS.md`, word for word.
+
+**D-735 · 2026-11-09 · Where a journey begins** (the owner's picks,
+recommended but where noted; builds D-733's step 2, answers Q-087) A
+start is one entry in the registry (`src/core/starts.js`): its rooms,
+its tile, the lantern, the opening card's words and its goal rules, so
+a later start is a new entry; its own aims beyond teaching are settled
+at that start. The one start, South woods: one of the south row's rooms,
+the seed picking, never the cave mouth's; the hero on the open tile
+nearest its middle; by day, so the lantern starts off (the owner's own
+answer). The card: "You wake among the trees of Hearthwood." / "Your
+lantern is cold; keep its oil for the dark." / "Something waits below."
+"Find the waystone" shows from the first turn, its how line "Home is in
+the middle of the woods." (superseded by D-753, 2026-11-09); "Go home to the woods" never shows; every
+other goal keeps its own moment. Until step 3, a fall wakes where the
+journey began, a Hardcore one starting there again. Next, the owner's
+own idea: a teaching goal "Light your lantern" / "Tap the lantern, or
+press L.", shown at dusk or on stepping into the dark with it off, done
+once lit. Claude's calls the owner may change: a start's skipped goal
+is never paid; the tile is one the room's paths reach, with nothing on
+it. Partly supersedes D-628's words and D-119's crypt. D-727 and D-728
+move to `archive/DECISIONS-PACK.md`, word for word.
+
+**D-736 · 2026-11-09 · Light your lantern** (the owner's picks, all
+recommended; builds D-735's goal) "Light your lantern" / "Tap the
+lantern, or press L." shows when daylight no longer lights the room:
+halfway through dusk under the sky, or on stepping where the sky doesn't
+reach. It is done once the lantern is lit, by hand or By itself, paid
+and gold. A lantern lit before then, by day or from a crypt start, ticks
+it quietly, so every journey has it. While the dark is here and the
+lantern is off, it goes ahead of any goal waiting, as the ember's does.
+Claude's call the owner may change: switching the lantern, which passes
+no turn, checks the goals at once.
+
+**D-737 · 2026-11-09 · Waking after a fall** (the owner's picks, all
+recommended; builds D-733's step 3, supersedes D-119's crypt and D-735's
+"until step 3") A Normal or Gentle fall wakes the hero in the last bed
+slept in, on the tile they lay down from; with something there now, on
+the nearest open tile beside the bed. With no bed, on the home
+waystone's plate once it is woken, no boon offered until the hero steps
+off and back on (that part superseded by D-865, 2026-11-12: waking
+there opens the boon card). Otherwise in the room where the journey began, on its
+tile. Taking the bed down forgets it until it is slept in again. The
+fall line stays "You fall, and wake again." Hardcore still begins the
+world again. Claude's call the owner may change: the code is
+`src/core/waking.js`.
+
+**D-738 · 2026-11-09 · Mountain rooms** (the owner's picks, all
+recommended but the rock's look; builds D-733's step 4) Hearthwood's
+north row, every seed, is mountain rooms: rocky slopes, the woods' grass
+with rock where the trees would stand and a few lone trees inside. Each
+holds 3 grey boulders, as a Cave room does (D-282), and the woods' 3
+sticks and fallen branch; no pond or bush. The three are made the same
+way, only the seed differing. The next step, the owner's own picks:
+outside rock drawn rounded, as cave walls are, and rock going on past a
+mountain room's edges; till then it is drawn as the mouth's rocks.
+Claude's calls the owner may change: a tree 2 or more tiles in from the
+edge stays a tree 1 time in 4; a room grows as a woods room, its paths
+cut, then its trees made rock, so the paths stay where they were; a
+mountain room already visited in an older save stays woods; on the map,
+rock and boulders on the surface show in the cave rock's grey.
+
+**D-739 · 2026-11-09 · Rounded rock** (the owner's picks, all
+recommended; builds D-738's next step, added to D-733's plan before its
+step 5) The surface's rock,
+in the mountain rooms and by the cave mouth, is drawn rounded, as the cave
+walls are, but lit by day: a sunlit grey top, not the cave's near-black,
+and fuller, so a lone rock stays a lump, not a chip. Trees stand in front
+of the rock. Past a mountain room's edge the rock goes on, but for a
+grass passage straight out from each way on. The cave mouth's rocks are
+only rounded; the mouth's own look waits for its step. Next, the owner's
+picks: after the audit, a new cave mouth, one of a few looks the seed
+picks, shown first as mock-ups (rock arch in a mound, an overgrown mouth,
+a hole in the ground, a fallen-stone doorway); the outside art polished
+in steps of its own. Claude's calls the owner may change: a room's rock
+goes on past its edge when its edge holds rock and no tree or stump, so
+a mountain room an older save keeps as woods keeps its trees there; the
+code is `src/render/outcrop.js`.
+
+**D-744 · 2026-11-09 · A craggy cave mouth** (Partly superseded by D-745, 2026-11-09: the crypt's way in is the broken seal; the cave looks wait for later caves) (the owner's picks; builds
+D-739's step 24; mock-ups at https://claude.ai/artifact/MdF3oCUuabfT9v4EBbv2HS)
+Of round 1's four looks the owner turned down the hole in the ground
+(unless falling down holes ever comes, Q-089) and the grassy mound, which
+didn't look good and hardly read as a cave. Of round 2's five, darker and
+plainer, the owner picked the craggy cave and the overgrown mouth. The
+seed picks the mouth's look (mouthOf), today's small arch kept as a third.
+One look a step, each with its side and bottom edge mock-up first. First
+the craggy cave: on the top edge a wide, rough mouth in the rock, black
+inside, rock teeth hanging from its top; on another edge the rock roofs
+over the outer part of the tile, joining the rocks either side, and the
+ground dives black under it. Walking is unchanged. Claude's calls the
+owner may change: the looks are listed in the registry (`caveMouth`'s
+`looks`) and picked from their own seed stream, so each world's mouth
+stays where it was; a few pebbles lie at the rocks' feet, clear of the
+tile in front; the craggy cave has no worn path in front, as mocked.
+
+**D-745 · 2026-11-09 · The broken seal, the crypt's way in** (the owner's
+idea and picks, all recommended; supersedes D-744's looks for this way in;
+mock-ups at https://claude.ai/artifact/B8QBEGU6jtmhF9MEhoWn7q) The way in
+from the woods leads into the crypt, so it is a crypt's door, not a cave
+mouth. Of three looks (the Lightkeepers' door, the broken seal, the tomb
+gate) the owner picked the broken seal: a doorway of the crypt's bricks
+under a pale stone lintel with a carved flame, bricked up long ago, a hole
+broken through, fallen bricks on the grass. On a side or bottom edge the
+wall's top shows from above along the edge, pale posts at each end, broken
+open between. The worn path in front stays. Every world has it. The small
+arch and the craggy cave are kept for later cave mouths into caves (the
+registry's `caveLooks`), and the overgrown mouth waits with them; its step
+comes off the plan. Walking is unchanged. Claude's calls the owner may
+change: the tile keeps its id and name in the code (`caveMouth`), so saves
+stay as they were; the drawing is `src/render/seal.js`.
+
+**D-746 · 2026-11-09 · Find the crypt** (the owner's idea and picks,
+all recommended; builds D-745) Once the way in is the crypt's door, a
+new teaching goal sends the hero there: "Find the crypt", its how line
+"A broken door, beside home.". It shows once "Take a boon" is done and
+is done on walking into the crypt through the broken seal, paying a
+reward as every goal does (D-706). Only the crypt's own rooms count,
+not other places below the surface, as more ways down will come (the
+owner's pick; changed after review: any depth below no longer counts).
+Claude's call the owner may change: it is ticked quietly, unpaid in the
+line, when the crypt was reached already this journey, as in a journey
+begun in the crypt.
+
+**D-747 · 2026-11-09 · Smooth rock edges, and what to polish** (the
+owner's picks; builds D-739's step 24; mock-ups at
+https://claude.ai/artifact/DjvVKCpbeuDBnTBeTVmMcz) A look through all nine
+surface rooms found four things that look unnatural: the mountain rock's
+torn edges, star-shaped ponds with dripping rims, busy camouflage grass,
+and one tree stamp in rigid rows. The owner picked the rock first, and its
+look A: smooth edges, no loose pixels, nothing else changed. The edge's
+wobble is smooth noise, not a new random value every 3 pixels, and a lone
+pixel or spike is cleaned off. Caves keep their own rock as it was. For
+the trees, later, look A: still one round tree a tile (D-209), varied in
+size, place and three greens. For the ponds the owner likes both today's
+and the round, smooth look, and asked for a variation of that, shown as
+mock-ups at the ponds' step. Claude's calls the owner may change: the
+order after the rock is ponds, grass, trees, one a step; the grass's look
+is asked at its step; the code is `mask`'s `soft` in `src/render/rock.js`.
+
+**D-748 · 2026-11-09 · Ponds halfway to round** (the owner's picks, both
+recommended; builds D-747; mock-ups at
+https://claude.ai/artifact/EQfp8wLasizEnWkwonaWPi) Of four pond outlines,
+from today's to round, the owner picked B, halfway: half the tiles' blend,
+half a soft round blob on each water tile, the edge wobbling smoothly, a
+lone pixel cleaned off and a notch filled, so no star shapes and no
+dripping rim. The same tiles are water, so walking, fishing and the map
+are unchanged. Cave pools keep their own edge, as the caves' rock did.
+Claude's calls the owner may change: the code is `inPond` in
+`src/render/water.js`, chosen by the room's woods look; next is the grass.
+
+**D-749 · 2026-11-09 · Calmer grass** (the owner's picks, both
+recommended; builds D-747; mock-ups at
+https://claude.ai/artifact/VwxY2xAns7qoVPpwLPftyC) Of four grass looks,
+from today's camouflage to one flat green, the owner picked B: the same
+three greens in patches about three times bigger with smooth round edges,
+the middle green covering most of the ground, and the pale blades half as
+often. It is used for all surface grass, in the room and past its edge,
+so they match. Claude's calls the owner may change: the code is `grass`
+in `src/render/woods.js`; next are the trees, look A (D-747).
+
+**D-750 · 2026-11-09 · Trees in groves** (the owner's pick, recommended;
+builds D-747; mock-ups at
+https://claude.ai/artifact/MKPM5jTsPD8t5aPJy9NNnJ) Of four tree looks
+(today's, A1 gentle, A2 lively, A3 groves), the owner picked A3. Still
+one round tree a tile (D-209), each now 0.78 to 1.1 times the old size,
+moved up to 2 pixels, in one of three greens: the old green, a deep
+blue-green and a warm olive. Neighbouring trees share a green, so the
+woods shift colour in patches. Walking and cutting are unchanged; this
+ends step 24's polish. Claude's calls the owner may change: a crown may
+reach a little past its tile and is cut at the room's edge; the code is
+`paintTree` in `src/render/woods.js`.
+
+**D-751 · 2026-11-09 · Four ideas, and their order** (the owner's ideas
+and picks, all recommended) One small step each, in this order. 1. The
+oil tip: the first time the hero steps from the dark into daylight with
+the lantern lit, a goal like Light your lantern says "Put out your
+lantern" with "Tap the lantern, or press L, to save oil."; it goes once
+the lantern is out and never shows again. 2. The home waystone stands in
+the room with the cave mouth (the crypt's door), not the middle room,
+moved for old saves too, still awake if it was woken. 3. With Waymark,
+stairs down too far for the round map show as a violet dot on its rim,
+pulsing as the marks do, toward the nearest stairs down. 4. Once the
+way down is found, the motes stay: about 2 or 3, drifting slowly with
+no set direction, more or fewer by the place, most in the crypt and
+earth, fewer in grey rock, none under the sky. Supersedes D-605's
+"None once any of the floor's stairs down is remembered". Claude's
+calls the owner may change: the words, where the waystone stands in its
+new room and the motes' counts are shown at their steps.
+
+**D-752 · 2026-11-09 · The oil tip's rules** (the owner's picks, all
+recommended; step 25, 1, D-751) "Put out your lantern" shows when
+daylight comes with the lantern lit, by stepping out of the dark or by
+dawn. Already out as the daylight comes, as By itself does, it is ticked
+quietly and paid nothing. It pays a reward like every goal and goes
+ahead of any goal waiting while the lantern burns in daylight.
+
+**D-753 · 2026-11-09 · The home waystone by the crypt's door** (the
+owner's picks, recommended but where noted; step 25, 2, D-751) The home
+waystone stands in the room with the cave mouth, near its middle, 2
+tiles north of it, as it stood at home (the owner's pick of three, over
+near the door and halfway). A boon ends on arriving in that room, by
+any way, no longer in home. "Find the waystone" shows on reaching that
+room, and the South woods start's line says "Old standing stones, by
+the crypt's door." In an older save the stone moves there, woken if it
+was; at home its 9 tiles become grass, things set down there staying.
+Claude's calls the owner may change: a new game's home grows as it did
+and its stone's 9 tiles are grass, so home looks as an older save's
+does; boulders keep off the stone's ring in a mountain room; the travel
+card's Home and a fall's waking follow the stone; "Go home to the
+woods" is still done in home. Partly supersedes D-583's home, D-589's
+room and D-735's words. D-747 to D-749 move to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-754 · 2026-11-09 · Waymark's dot on the rim** (the owner's picks,
+all recommended; step 25, 3, D-751) While Waymark is held and the
+nearest stairs down don't fit whole on the round map, a violet dot one
+tile big, as the marks are, sits just inside its rim toward them,
+pulsing as the marks do (steady with reduced motion). Nearest is in a
+straight line, and any stairs down count, found or not. None on another
+floor, or with the map revealed. Builds on D-601.
+
+**D-755 · 2026-11-09 · The motes that stay** (the owner's picks, all
+recommended; step 25, 4, D-751) Once any of the floor's stairs down is
+remembered, 3 motes stay in the crypt and earth, 2 in grey rock, and 2
+in the dungeon, as grey rock (Claude's question, as D-751 left it out);
+none under the sky. Each wanders its own slow way, its heading bending
+gently, slower than the draft, fading in and out, only where the light
+falls, none with reduced motion or the lantern out. Builds on D-605.
+
+**D-756 · 2026-11-09 · Thick woods and glades** (the owner's picks, all
+recommended; builds D-733's step 5, its last) Each of the 5 woods rooms
+round home is thick woods, the woods as before or an open glade, the
+seed picking, with at least one thick and one glade each seed. Home
+stays as before, so what was set down keeps its place. In an older
+save a room already seen stays as it is; one never seen, with nothing
+taken, grows as its kind. The owner asked next for the surface to be
+filled: more to do, less empty (Q-090). Claude's calls the owner may
+change: thick trees 75, 55, 40 in 100 by ring in from the edge, at
+least 80 open tiles; glades 45, 12, then none; a room whose waystone
+is woken is never made again; the map preview names each room's kind.
+D-733 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-757 · 2026-11-09 · Filling the surface, campfires first** (the
+owner's picks; answers Q-090, Q-088's first step) Four things fill the
+surface: campfires, more to gather, landmarks and night creatures, about
+one thing in each room. Campfires come first; the order of the rest is
+picked later. One campfire a seed, in one of Hearthwood's 8 rooms
+outside home: blazing, embers or cold ashes, each with its words
+("A campfire, burning high. Someone was here not long ago." "The coals
+still glow. Whoever sat here is gone." "Cold ashes. No one has sat here
+for a long time."). Burning, it lights 3 tiles, embers 2; none burns
+down yet. Bumped, cold ashes ask Light the fire?, No picked; Yes makes
+them embers for one turn of oil. Claude's calls the owner may change:
+each level and room as likely; 2 tiles in from the edge; a line too
+long for the strip shows a sentence a bump, and cold ashes' first
+sentence on the strip, the rest on the card; "The fire catches."
+
+**D-760 · 2026-11-09 · Gathering, oilcaps first** (the owner's picks,
+the recommended order and finds, and the owner's addition; builds
+D-757, opens Q-092) The surface fills in this order: gathering, then
+landmarks, then night creatures. Gathering starts with oilcaps, then
+loose stones, then plants and flowers to harvest (Q-092). Oilcaps first:
+one in each woods room, home too, none in the mountain rooms, on open
+grass beside a tree; picked, it grows back after a day as in the caves.
+In an older save only rooms never seen, with nothing taken, get theirs.
+Claude's calls the owner may change: beside means a tree straight
+beside, not a corner; never on the start, a stick, the mouth's front or
+the waystone's ring; each its own tone, as underground. D-755 and D-756
+move to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-761 · 2026-11-09 · Gathering, step 2: loose stones** (the owner's
+picks, all recommended, the look after its mock-up; builds D-760) Loose
+stones lie in the mountain rooms only, the woods rooms keeping their
+sticks and oilcap: 2 in each, on open grass. Each is a plain Stone,
+drawn as the bag's pebble (look A of three), taken by walking onto it.
+Picked, it grows back after a day, 300 turns, as the oilcap outside.
+In an older save only mountain rooms never seen, with nothing taken,
+get theirs. Claude's calls the owner may change: never on the start, a
+find, the mouth's front or the waystone's ring; any open grass tile,
+not only beside rock; its lines "You pick up a loose stone.", "A stone
+from the slope. You keep it." and "You lift a stone from the grass.";
+a stone a boulder leaves when the bag is full still never grows back.
+
+**D-762 · 2026-11-09 · Gathering, step 3: herbs outside** (the owner's
+picks, all recommended, and the owner's words on flowers; builds D-760,
+part of Q-092) The first of Q-092's plants is the cave herb, growing
+outside too: one in each woods room, home too, none in the mountain
+rooms, on open grass. It is the same herb in every way: hurt, walking
+onto it eats it, 2 hearts; at full health into the bag; it makes the
+Antidote. Picked, it grows back after a day, 300 turns. In an older save
+only woods rooms never seen, with nothing taken, get theirs. Flowers come
+at their own steps: more than one kind, each drawn differently, picked
+for crafts later, potion making among them, each growing where it suits
+its kind (Q-092). Claude's calls the owner may change: never on the
+start, a find, the mouth's front or the waystone's ring; any open grass
+tile, not only beside a tree.
+
+**D-763 · 2026-11-09 · Gathering, step 4: the duskstar** (the owner's
+picks, all recommended, the look after its mock-up:
+https://claude.ai/artifact/G4ixYQbiLTsSrcNoAR4PKQ; builds D-762 and
+D-530, the first of Q-092's flowers) The first flower is look B, the
+**Duskstar**: five violet petals round a yellow heart. 2 grow in each
+woods room, home too, none in the mountain rooms, on open grass. Each
+faces left or right and has its own slight shade of violet, the seed
+picking. Walking onto one puts it in the bag, for crafts later. Picked,
+it comes back after a day, 300 turns, on another open grass tile of the
+same room (D-530). In an older save only woods rooms never seen, with
+nothing taken, get theirs. Claude's calls the owner may change: stacks
+of 20; never on the start, a find, the mouth's front or the waystone's
+ring when laid, any free grass tile out of sight when it comes back; its
+lines ("You pick a duskstar." and two more); a new violet shade, `#6e58a8`.
+D-758 and D-759 move to `archive/DECISIONS-SLEEPING-OUT.md`, word for word.
+
+**D-769 · 2026-11-10 · The first landmark: a dead lamppost** (the
+owner's picks, all recommended, the look after its mock-up; builds D-760,
+whose landmarks come after gathering) The landmarks start with a dead
+lamppost, then a miners' camp at its own step ("A miners' camp, long
+left. The pick is rusted through."). The lamppost is an old Lightkeeper's
+iron crook post, its cold lamp hanging from the arm (look B of three);
+solid, light passing it, as the campfire. It only looks and speaks for
+now: bumped, "An old lamppost. Its lamp went out long ago." One a seed,
+in one of Hearthwood's 8 rooms outside home, never the campfire's, so
+each room holds about one thing (D-757). Claude's calls the owner may
+change: on open grass 2 tiles in from the edge, never cutting the room,
+as the campfire; its words a sentence a bump, as they are too long for
+the strip; in an older save, its room gets it if never seen, with
+nothing taken. D-762 moves to `archive/DECISIONS-SURFACE.md`, word for
+word.
+
+**D-770 · 2026-11-10 · Landmarks, step 2: the miners' camp** (the
+owner's picks, the look after its mock-up:
+https://claude.ai/artifact/UFEKsFHF3XZBC8L5r51UcY; builds D-769) The
+camp is look A of three: a slumped canvas tent, its flap open on the
+dark, and an old crate with a pick leaning on it, 3 × 2 tiles, all
+solid, light passing them. The pick is the game's own Stone Pick
+picture (the owner's words), and it is gone from the camp once taken.
+One a seed, in one of Hearthwood's 3 mountain rooms, never the
+campfire's or the lamppost's. Bumped, "A miners' camp, long left." on
+the text line and the card Take the pick?, "An old pick leans on the
+crate.", No picked, as cold ashes ask; Yes puts a plain Stone Pick in
+the bag, a turn, and the camp turns bare; bare, a bump says its first
+words, free. This changes D-769's "The pick is rusted through.", as
+the pick now works. Claude's calls the owner may change: "An old pick
+leans on the crate." and "You take the old pick."; with a pick already
+carried, held too, "You already carry a stone pick.", with the bag
+full "Your bag is full.", free, the camp keeping its pick; on open
+grass 2 tiles in from the edge, never cutting the room; in an older
+save, its room gets it if never seen, with nothing taken. D-763 moves
+to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-771 · 2026-11-10 · Alchemy, a station of its own** (the owner's
+picks, recommended, with the owner's addition; changes D-415, D-455;
+opens Q-093) The owner asked if there are enough materials for more
+recipes and kinds of station, such as a mortar and pestle or an
+alchemy lab. There are: 16 finds wait "for crafts later". Alchemy
+becomes its own family and station at home, apart from the kitchen
+fire, which keeps cooking; small things are still made in the bag.
+Its form (a mortar and pestle, an alchemy lab, or both), its recipes
+and the other stations' are open (Q-093). They come after night
+creatures and then day creatures, the owner's order and addition.
+D-769 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-764 · 2026-11-09 · Dimmer doorway lines** (the owner's picks, both
+recommended, after a mock-up; changes D-225's brightness) The owner
+found the pale blue doorway lines too bright. In the game they are now
+about half as bright: they pulse from 30% to 50% strength, steady at
+45% with reduced motion. The fainter inner line stays 40% of the bright
+one. The map's doorway squares stay as they were.
+
+**D-772 · 2026-11-10 · A bow, after the alchemy station** (the owner's
+wish; builds D-457, D-652; opens Q-094) The hero gets a bow for ranged
+attacks, the first ranged weapon, where D-457's example named a sling.
+It comes after the alchemy station and its recipes (D-771), the owner's
+order. Its damage, range, how it aims on a phone, arrows, where it is
+made or found and its look are open (Q-094), asked at its step.
+D-770 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-778 · 2026-11-10 · Night creatures, first: lampmoths** (the
+owner's picks, all recommended; builds D-760, D-217) Night creatures
+start with a creature the game has: the lampmoth, so no new way. One
+comes out each night in each woods room round home, never home and
+never a mountain room: once daylight stops lighting the room (halfway
+through dusk), and any still standing are gone once it lights it again
+(halfway through dawn). New night kinds come later, one a step.
+Claude's calls the owner may change: on open grass off the edge, out
+of the hero's sight, picked by the seed and the night; one beaten stays
+beaten till the next night; they go by day without a word; they count
+in Records like any other. D-771 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.
+
+**D-779 · 2026-11-10 · Night creatures, second: the bat** (the owner's
+picks, the recommended plan after the owner's own answer; builds D-778)
+Of the three kinds shown (gloamling, bat, cave spider), the owner liked
+the gloamling as a rare one and the bat too. The bat comes now: one each
+night in each woods room round home, as the lampmoth, with the same
+rules (D-778). Next, a rare gloamling: each night the seed picks one of
+the woods rooms round home for it. Claude's calls the owner may change:
+a night bat leaves no guano, which lies only by a bat a room is made
+with; it never shares a tile with the lampmoth. D-772 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-780 · 2026-11-10 · Night creatures, third: the rare gloamling**
+(the owner's picks, all recommended; builds D-779) Each night the seed
+and the night pick one of the 5 woods rooms round home, and a gloamling
+comes out there beside that room's lampmoth and bat, with the same
+rules (D-778). It acts and leaves finds as it does below: a Gloam Wisp
+about 1 in 2, a Gloam Eye about 1 in 10. Claude's calls the owner may
+change: it may pick the same room two nights running; it never shares a
+tile with the others. D-778 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.
+
+**D-781 · 2026-11-10 · Day creatures, first: the mole** (the owner's
+picks, from the herb mimic, scorpion, centipede and mole; builds D-778,
+D-771's order) Day creatures are night creatures turned round, starting
+with a creature the game has: the mole. One comes out each day in each
+woods room round home, never home and never a mountain room, from
+halfway through dawn, and any still standing are gone from halfway
+through dusk. It acts and leaves finds as it does below. Claude's calls
+the owner may change: as daylight shows every tile, it comes out on
+open grass off the edge at least 4 steps from the hero, picked by the
+seed and the day; one beaten stays beaten till the next day; the start
+room is one of these rooms, so a mole may meet a new journey on its
+first turn. D-779 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-784 · 2026-11-10 · Day creatures, second: the bunny** (the owner's
+idea, from the herb mimic, scorpion and centipede offered; the rest of
+its picks all recommended; builds D-781) A new creature, the first that
+means no harm: a bunny, soft brown with a pale tail. It never bites.
+Within 3 steps of the hero it hops a tile away, its way `shy`: the lure
+wisp's way (D-649) but just away, never toward another creature. One
+heart; beaten, it may drop Bunny Fur, about 1 in 2, for crafts later.
+One comes out each day in each woods room round home, beside the mole,
+and one in the home room too, the first creature there; never by night,
+never underground. No rare day creature yet. Claude's calls the owner
+may change: its look (a dark eye, not a creature's pink one); Bunny Fur
+holds 20 and sells for 1, as the other furs; its lines; it has no sound
+of its own. A bunny within 3 steps counts as a creature near
+for sleeping out, as the lure wisp does. The people's glossary lines
+move back to `GLOSSARY.md` word for word, so `GLOSSARY-2.md` stays
+under 8 KB.
+
+**D-785 · 2026-11-10 · Alchemy and cooking, the shape** (the owner's
+picks, all recommended, with the owner's addition; narrows Q-093,
+Q-088; changes D-456's "stations don't improve for now" for alchemy)
+Alchemy starts at a mortar and pestle, a station built at home; an
+alchemy lab comes later as the better station, with stronger recipes.
+Recipes there are fixed, as Make is today: set finds always make the
+same thing, shown once their parts have been held (D-418); a base
+potion with add-ins was offered and not picked. Its first new potion
+makes the lantern reach farther for a while; its finds, amounts and
+turns are proposed at its step. Cooking comes after alchemy, at the
+kitchen fire (D-771), and simple food can also be cooked at a lit
+campfire in the world (the owner's addition). The mortar's cost and
+look, the lab and each recipe come at their own steps. Nothing in the
+game changes yet.
+
+**D-786 · 2026-11-10 · The mortar and pestle and the Glow Draught**
+(the owner's picks, all recommended, from a mock-up drawn with the
+game's own code, https://claude.ai/artifact/DwTohmU1v4fTrkkLTxBWL4;
+builds D-785, narrows Q-093) The Mortar and Pestle is a grey stone bowl
+on a short wooden stump, its wooden pestle leaning out (look A of
+three). It costs 4 Stone and 1 Wood. The workbench's 12 slots are all
+taken, so it is made in the bag, on the Make tab (D-787), and set down
+at home on the surface like the bed. Its first recipe is the Glow
+Draught: 2 Duskstar and 1 Wisp Glass, made at the mortar. Drunk from the
+bag, the lantern reaches 1 tile farther for 60 turns, as Wide Glow does
+and added to it; an empty lantern gets nothing. Claude's calls the owner
+kept: the names; the draught is the red potion's bottle in the
+lantern's gold and holds 5; the mortar bumped opens a card listing what
+it makes. Built in steps: the Make tab, then the mortar, then the
+draught.
+
+**D-787 · 2026-11-10 · The bag's Make tab** (the owner's idea, from the
+mortar's step; the owner's picks, from a mock-up, same link as D-786)
+The bag card gets two tabs, BAG and MAKE, in its title row. Make shows
+the recipes made in the bag in a grid like the workbench card's: a
+recipe shows once each of its parts has been held (D-418) and stays
+after, its cost counted from the bag, MAKE dim when short. A find's MAKE
+on the Bag tab stays, and opens the Make tab with its recipe chosen
+(its first, if it is in several). Above that button a line shows what
+it makes: the result's picture and "Makes a Flask" (look A of three).
+This lets a find be in more than one recipe. The first step adds the tab
+with today's bag recipes only.
+
+**D-793 · 2026-11-10 · Day creatures, third: the rare herb mimic**
+(the owner's picks, from the herb mimic, scorpion and centipede, as a
+rare one, recommended; builds D-784) Each day the seed and the day pick
+one of the 5 woods rooms round home, and a herb mimic comes out there
+beside that room's mole and bunny, with the day creatures' rules
+(D-781); never home. Day matches night: two that come each day, one
+rare. It acts and leaves finds as it does below. Claude's calls the
+owner may change: it comes out asleep, looking like a herb, on open
+grass 4 steps or more from the hero; it may pick the same room two days
+running; it never shares a tile with the others. The owner also wants
+brand-new kinds of creature, not only ones from below (Q-076). D-785
+moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-796 · 2026-11-10 · The skulker crab, the mountain rooms' first
+creature** (the owner's picks, all recommended; answers part of Q-076; mock-up:
+https://claude.ai/artifact/GVg8chN5wsic1iZR58aQ3n)
+A brand-new creature, the skulker crab, from the Q-076 list. It never
+moves and bites whoever stands beside it, the snapcap's way (D-543),
+and looks like a loose stone until the hero is beside it. Look B of its
+mock-up: a stony grey shell, rust legs and claws, pink eyes on stalks.
+2 hearts, a bite of 1; beaten, it may drop a Crab Shell, about 1 in 2,
+for crafts later. One comes out each day in each of the 3 mountain
+rooms, with the day creatures' rules (D-781); nothing there by night,
+never underground. Others offered: by night, in the woods or below; a
+mountain goat, shy as the bunny; a rock lizard with the rat's ways; a
+rare one; two a room; looks A (all grey) and C (eyes and teeth); 3 or 1
+hearts; a Crab Claw. Claude's calls the owner may change: its lines (a
+pinch, not a bite); it has no sound of its own; the Crab Shell holds
+20 and sells for 1. D-793 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.
+
+**D-788 · 2026-11-10 · The Make tab's details** (the owner's picks, all
+recommended; builds D-787) The game remembers every find ever in the bag
+(`known` in the save); an older save starts it from what is in its bag
+and stash chests. The two recipes making an Oil flask (3 Oilcaps; Mimic
+Glass with 2 Oilcaps) are two slots side by side. With nothing shown
+yet, the tab says "Nothing to make yet. Recipes show once you have held
+their finds." The bag always opens on BAG. Claude's calls: Tab, or a tap
+on a tab, turns the tabs; a find's MAKE (and C) opens its own recipe, or
+else the first it is in, and is dim only before that recipe shows; a
+cost is counted from the whole bag, so 2 and 1 Oilcaps in two stacks
+make a flask.
+
+**D-789 · 2026-11-10 · The mortar's card** (the owner's picks, all
+recommended; builds D-786) Bumped, day or night, the set-down Mortar and
+Pestle opens the workbench's card titled MORTAR, its grid empty until
+the Glow Draught's step, a grey line saying "Nothing to make here yet."
+DECONSTRUCT takes it back into the bag with no ask, as the workbench's
+does. Its lines: "You make a mortar and pestle.", "You set down the
+mortar.", "You take down the mortar.", "You already carry a mortar."; its
+look: "A stone bowl and a wooden pestle.", "Set it down on the
+surface.", "Grind finds into draughts." It shows on the Make tab once
+Stone and Wood have been held. Claude's call: the tile's letter `e`.
+
+D-791, D-792 and D-794, the mortar's first three draughts' rules, moved from
+`docs/DECISIONS.md` at 0.3.247 (D-801), word for word.
+
+**D-791 · 2026-11-10 · The Glow Draught's details** (the owner's picks,
+all recommended; builds D-786) Drunk again while it works, its time goes
+back to 60 turns, never more. A small gold bottle mark under the hearts
+panel shows it, with the turns left beside it, and a tap on it says
+"Glow Draught: {n} turns left."; lines as it is drunk and as it fades
+("The glow fades."). It can be drunk any time, the lantern empty too:
+its turns count down every turn, a night's sleep uses them, and the
+extra tile shows again once there is oil. The mortar lists it once
+Duskstar and Wisp Glass have both been held. A Duskstar's and a Wisp
+Glass's card then shows the draught's picture and "Makes a Glow Draught
+at the mortar" where MAKE sits, with no button. Claude's calls: a fall
+ends it, as it ends poisoned; its other lines ("You make a Glow
+Draught.", "You need 2 Duskstar and 1 Wisp Glass.", "You can't carry
+more Glow Draughts.", the three drink and look lines); the two finds'
+first look line says "good for making things" (D-677). D-780 and D-781
+move to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-792 · 2026-11-10 · Slowburn, the mortar's second recipe** (the
+owner's picks, both recommended, from Slowburn, a Ward Draught against
+poison and a Mending Draught offered; narrows Q-093) Slowburn is made at
+the mortar from 2 Tick Shell and 1 Oilcap. Drunk from the bag, for 60
+turns a lit turn burns 6/7 of its oil, so a full tank lasts 70 turns,
+not 60, as the Heart Charm does and added to it. Its rules are the Glow
+Draught's (D-791): drunk again, back to 60; any time, the turns running
+on; a night uses them and a fall ends it; it holds 5; a small mark
+under the hearts with the turns left. Claude's calls the owner may
+change: the red potion's bottle dark as lamp oil, its mark in the oil
+bar's deep amber; its lines ("The flame burns hungry again." as it
+fades); the mortar lists it after the Glow Draught; a Tick Shell's card
+then shows "Makes a Slowburn at the mortar". The Glow Draught's DRINK is
+no longer drawn dim at full health, as it never was. The handoff's next
+prompts are each in their own fenced code block, never an inline list
+(the owner's correction, D-790). D-784 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-794 · 2026-11-10 · The Mending Draught, the mortar's third recipe**
+(the owner's picks, all recommended, from a Mending Draught, a Ward
+Draught against poison, or both in turn; narrows Q-093) The Mending
+Draught is made at the mortar from 2 Mimic Leaf and 1 Herb. Drunk from
+the bag, it gives a heart every 15 turns for 60 turns, 4 in all, never
+above full. Its rules are the Glow Draught's (D-791): drunk again, back
+to 60; any time, full health too, the turns running on; a night uses
+them and a fall ends it; it holds 5; a small mark under the hearts with
+the turns left. Claude's calls the owner may change: the red potion's
+bottle in moss green, its mark too; a night's turns give no hearts; its
+heart comes before poison's in a turn; its lines ("The warmth fades."
+as it ends); the mortar lists it after Slowburn; a Mimic Leaf's card
+then shows "Makes a Mending Draught at the mortar". D-786 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-795 · 2026-11-10 · The Ward Draught, the mortar's fourth recipe**
+(the owner's picks, all recommended; narrows Q-093) The Ward Draught is
+made at the mortar from 2 Centipede Leg and 1 Herb. Drunk from the bag,
+it ends poisoned at once, and for 60 turns a bite that hurts never
+leaves the hero poisoned. Its rules are the Glow Draught's (D-791):
+drunk again, back to 60; any time, the turns running on; a night uses
+them and a fall ends it; it holds 5; a small mark under the hearts with
+the turns left. Its bottle and mark are a pale green-white, apart from
+poison's sick green and the Mending Draught's moss. Others offered: a
+ward only, no cure; poison milder, as the Centipede Charm; 1 Venom Sac
+and 1 Herb; 2 Stinger and 1 Snapcap Gill; pale blue; bone white.
+Claude's calls the owner may change: its lines ("The ward wears off."
+as it ends); a bite on the turn it is drunk is cured with the rest; the
+mortar lists it after the Mending Draught. The handoff's copyable next
+prompts are given once, after the owner merges, not also before (the
+owner's request; changes D-790). D-787 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-797 · 2026-11-10 · The rim lurker, the mountain rooms' first night
+creature** (the owner's picks; answers part of Q-076; mock-up:
+https://claude.ai/artifact/MW9qmr5aUJTzq75sHE7LMv)
+A brand-new creature, the rim lurker, from the Q-076 list. One comes
+out each night in each of the 3 mountain rooms, with the night
+creatures' rules (D-778); never by day, never underground. Look B of its
+mock-up: a hunched shade of dusky violet, long arms, pale claws, pink
+eyes. It waits where it came out until the hero comes within 3 steps,
+lit or not; then it chases, the rat's way, and keeps coming. 3 hearts,
+a bite of 2 (the owner's own pick); beaten, it may drop a Lurker Claw,
+about 1 in 2, for crafts later. Others offered: the gloamberry mimic,
+the dozing brute, the brood mother; the woods by night or day, or below;
+looks A (a grey crag stalker) and C (a rim lizard); chasing from the
+start, or shunning the lantern; 2 or 1 hearts with a bite of 1; no find.
+Claude's calls the owner may change: the new way is named Lurks, and it
+needs a clear line to the hero, as a chaser does; it comes out on grass
+beside the room's rock when such a tile is free; its lines (it claws);
+no sound of its own; the Lurker Claw holds 20 and sells for 1.
+D-796 and D-788 move to `archive/DECISIONS-SURFACE.md`, word for word, and
+`GLOSSARY-2.md`'s home words to a new `GLOSSARY-HOME.md`, word for word.
+
+**D-798 · 2026-11-10 · Steady Wick, Light's first upgrade** (the
+owner's picks, all recommended) The gaps are worked through one step a
+time, quickest first: the Growth tree; uses for the finds kept for
+crafts later; the herb mimic's and bone rat's rare drops; the lantern's
+parts; weapons; the forge and cooking; then found abilities, bosses,
+trophies and people. The Growth tree's Light branch gets its first
+upgrade, Steady Wick: 1 ember, bought once, for good; a lit turn burns
+9/10 of its oil, a full tank lasting about 66 turns, not 60, added to
+the wick, the charm, the boon and Slowburn. Where its box is too narrow
+for the name, it says "Steady". Others offered: drop uses or the lab
+first; Fuller Pour (a flask 50%, not 45%); Brighter Glass (1 tile
+farther); two lines in the box, or a shorter name. Claude's calls: its
+words "The lantern burns a little slower, for good."; its button "Get
+Steady Wick"; a small flame in the lantern's gold, dim until bought; it
+is kept on a Normal fall, as Tough is. D-789 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-800 · 2026-11-10 · The workbench's two tabs** (the owner's pick,
+recommended, from a fourth row or pages) The workbench's card was full,
+12 slots, so it gets two tabs where its title was, as the bag's: BUILD
+(the chest, Stone Pick, bed, bag upgrades, garden bed, rod, shelf) and
+GEAR (the wick, the vests, the charms), a 4 × 3 grid each. A tap on one
+or Tab turns it. Claude's calls: the tab last open is kept while the
+game runs; the mortar keeps its title, with no tabs.
+
+**D-801 · 2026-11-10 · The Shell Vest** (the owner's picks, all
+recommended; builds D-484, D-799) The second armour piece, on the GEAR
+tab: 4 Crab Shell, 1 Wood. Worn in the armour slot, in the Rat Hide
+Vest's place, it takes 1 off a bite of 2 or more, the scorpion's tail
+strike too, so the rim lurker and the scorpion hurt 1, not 2. Its look:
+overlapping stony grey plates with rust edges, the crab's colours.
+Claude's calls the owner may change: never below 1; its lines ("You
+put on the shell vest.", "A shell vest. Hard bites hurt less.");
+the Crab Shell's look line names it. D-791, D-792 and D-794 move to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-802 · 2026-11-10 · The Spitproof Draught, the mortar's fifth
+recipe** (the owner's picks, all recommended; builds D-799) Made at the
+mortar from 2 Grub Skin and 1 Herb. Drunk from the bag, for 60 turns a
+spit grub's glob that reaches the hero splashes off and hurts nothing;
+grubs still spit. Its rules are the Ward Draught's (D-795): drunk
+again, back to 60; any time; a night uses its turns and a fall ends it;
+it holds 5; a small mark under the hearts with the turns left. Its
+bottle and mark are dusty rose, from the grub's pink eye. Others
+offered: 3 Grub Skin; 2 Grub Skin and 1 Oilcap; a glob hurting less,
+never the last heart; grubs not seeing the hero; waxy bone-cream; slate
+blue-grey. Claude's calls the owner may change: its lines ("The glob
+splashes off you.", "Your skin feels dry again." as it ends); the glob
+breaks on the hero, flying no farther; the mortar lists it last; the
+Grub Skin's look line names it. D-795 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-803 · 2026-11-10 · The Fur Bedroll** (the owner's picks, all
+recommended; builds D-758, D-759, D-799) Bunny Fur's first use, made on
+the workbench's BUILD tab from 4 Bunny Fur and 1 Spider Silk; one at
+most, carried in the bag, taking a slot, never used up. Sleeping out
+with it in the bag, the hero wakes with 2 hearts back, never above full,
+and not stiff; the bed at home still heals to full. Its look: a roll of
+fur in the Bunny Fur's colours, tied round the middle with a pale silk
+cord. Others offered: healing to full; 3 Bunny Fur and 1 Spider Silk;
+5 Bunny Fur alone; the GEAR tab; a folded blanket. Claude's calls the
+owner may change: BUILD lists it last; its lines ("You make a fur
+bedroll.", "You wake warm in your fur bedroll."); the moon's ask says
+"Your fur bedroll is warm." while it is carried; only the bag counts,
+not a chest; the Bunny Fur's look line names it. D-797 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-804 · 2026-11-10 · The Fur Bedroll laid out, and SLEEP** (the
+owner's idea and picks, all recommended; builds D-758, D-803) In the
+bag the bedroll has SET DOWN and, left of it, SLEEP. SET DOWN lays it
+beside the hero, the bed's way, only under the sky. Bumped from dusk,
+it asks Sleep here until morning?; Yes is the bedroll's night, 2 hearts
+back and not stiff; by day it asks Roll up the bedroll?, Yes putting it
+back in the bag. SLEEP asks the same where the hero stands, dim by day,
+below ground or with a creature after the hero. It is no bed for a
+fall: home's bed still is (D-737). The moon button stays. Others
+offered: one card with Sleep and Roll up; USE or REST; a bedroll slept
+on as the bed for a fall; the moon hidden while carried. Claude's calls
+the owner may change: SLEEP or a bump that can't says why, free ("Only
+under the sky.", "Not with a creature after you.", "You aren't
+tired."); C in the bag is SLEEP; asleep beside a laid-out bedroll is
+warm too, the moon's ask saying so; "You lay out the fur bedroll." and
+"You roll up the fur bedroll."; laid out, it is drawn from above, its
+head end still rolled. D-798 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.
+
+**D-805 · 2026-11-10 · The Echo Charm** (the owner's picks, all
+recommended; builds D-799) Bat Wing's first use, made on the workbench's
+GEAR tab from 3 Bat Wing and 1 Copper Ore, as the other charms are.
+Worn, each creature within 4 tiles of the hero, walls between or not,
+that no light shines on shows as a pale outline of its shape over the
+dark, slowly pulsing (steady with reduced motion). Others offered: 3 Bat
+Wing and 1 Spider Silk; 4 Bat Wing and 1 Copper Ore; a ripple ring only;
+the creature itself, very dim; 3 or 5 tiles; only creatures in the
+open. Claude's calls the owner may change: GEAR lists it last; tiles are
+counted the king's way, a diagonal one step; one in disguise stays
+hidden, that being the Gloam Eye's work (D-799), and one with its own
+glow shows already; echoed is not met in the Bestiary; its look, a
+folded bat wing in the charms' copper setting; its lines ("You make an
+echo charm.", "You put on the echo charm.", "Near creatures show in
+the dark."); the Bat Wing's look line names it. D-800 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-806 · 2026-11-10 · The Shade Draught, the mortar's sixth recipe**
+(the owner's picks, all recommended; builds D-799) Lurker Claw's first
+use, made at the mortar from 2 Lurker Claw and 1 Duskstar. Drunk from
+the bag, for 60 turns a creature that has not noticed the hero notices
+them only within 2 steps, by light, by line or lurking; one already
+after the hero keeps coming, lampmoths still fly to the lantern and
+spit grubs still spit. Its rules are the Spitproof Draught's (D-802):
+drunk again, back to 60; any time; a night uses its turns and a fall
+ends it; it holds 5; a small mark under the hearts with the turns left.
+Its bottle and mark are dusky violet, the rim lurker's. Others offered:
+2 Lurker Claw and 1 Herb; 3 Lurker Claw; within 1 or 3 steps; chasers
+losing the hero too; grubs spitting only near; smoky grey; deep indigo.
+Claude's calls the owner may change: steps counted the lurker's way, no
+diagonals; its lines ("The dark folds round you.", "The shade lifts
+from you." as it ends); the mortar lists it last; the Lurker Claw's
+look line names it. D-801 moves to `archive/DECISIONS-SURFACE.md`, word
+for word.
+
+**D-807 · 2026-11-10 · The Bone Hook** (the owner's picks, all
+recommended; builds D-799, D-614) Rat Bone's first use, made on the
+workbench's BUILD tab from 3 Rat Bone and 1 Spider Silk; one at most.
+FIT in the bag ties it to the rod for good, free, the Copper Wick's way;
+it leaves the bag, and the rod is drawn with a small pale bone hook under
+its float. Fitted, the strike meter's amber zone is half again as wide:
+the minnow's 3/8 of the bar, not 1/4, the cavefish's 3/10, not 1/5;
+waiting for a bite stays the same. Others offered: bites coming sooner,
+1 turn in 4; a second try after a miss; a third wider; double; working
+from the bag; the rod made over at the bench; 2 Rat Bone and 1 Spider
+Silk; 4 Rat Bone. Claude's calls the owner may change: BUILD lists it
+last; FIT only with the rod carried, in the bag or the Tool slot, else
+"You have no rod to fit it to.", free; it stays on for good, there being
+one rod; its look, a rat bone bent into a J; its lines ("You make a bone
+hook.", "You tie the bone hook to your rod.", "A bone hook, for your
+rod."); the Rat Bone's look line names it. D-802 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-808 · 2026-11-10 · The Glow Lamp** (the owner's picks, all
+recommended; builds D-799, D-478) Glow Gland's first use, made in the
+bag (Make on the Glow Gland) from 1 Glow Gland and 1 Wood, as a torch
+is; 5 a stack. Set down the torch's way, anywhere, on the same stone
+foot: it lights 3 tiles in the gland's soft green, steady, no flicker,
+for 300 turns, then goes dark, leaving bare floor; it can't be picked
+back up. Others offered: the bench's BUILD tab from 1 Glow Gland and 1
+Copper Ore; 1 Glow Gland, 1 Moth Dust and 1 Wood; 200 turns; never
+going out; the torch's orange; green, 4 tiles; picked back up by a bump.
+Claude's calls the owner may change: its look, the gland in a small
+copper cup on the torch's stick, in its ring of stones, drawn bright
+with no embers; lampmoths and bats fly to it as to any light; it counts
+in no Torches feat; its lines ("You make a glow lamp.", "You set down
+the glow lamp.", "Your glow lamp goes dark."); the Glow Gland's look line
+names it. D-803 and D-804 move to `archive/DECISIONS-SURFACE.md`, and
+the lights' table to `CONTENT-2.md`, word for word.
+
+**D-809 · 2026-11-10 · The Fang Charm** (the owner's picks, all
+recommended; builds D-799) Bat Fang's first use, made on the
+workbench's GEAR tab from 1 Bat Fang and 1 Copper Ore, as the other
+charms are. Worn, each creature beaten gives back 1 heart about 1 time
+in 4, never past the most. Healed, its line shows and a small red heart
+rises beside the "+1" over the hero (steady with reduced motion).
+Others offered: 2 Bat Fang and 1 Copper Ore; 1 Bat Fang and 1 Spider
+Silk; 1 time in 3 or 5; a line only; nothing extra. Claude's calls the
+owner may change: GEAR lists it last; a pile of bones scattered counts
+as beaten, struck down into its pile does not; the spear's two beaten
+are a coin each; at full hearts nothing happens, no line; the coin is
+seeded as a drop's is; its line ("The fang drinks. You feel better.")
+is said over the creature's own; its look, a pale bat fang pointing down
+in the charms' copper setting; its other lines ("You make a fang
+charm.", "You put on the fang charm.", "Beaten creatures may mend
+you."); the Bat Fang's look line names it. D-805 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-810 · 2026-11-10 · The Mole Claw Pick** (the owner's picks, all
+recommended; builds D-799, D-480) Mole Claw's first use, the last quick
+one, made on the workbench's BUILD tab from 1 Mole Claw, 2 Wood and 2
+Stone; one at most. A Tool of its own beside the Stone Pick, one in the
+Tool slot at a time, swapped there as the rod is. Held, it does all the
+Stone Pick does, and copper veins and rubble break in half the bumps,
+rounded up: a vein in 2, not 4; rubble in 2, not 3. Other tiles, stone
+heaps among them, take their own. Others offered: stone heaps too;
+veins only; one bump fewer; 1 bump always; the Stone Pick made over
+with the claw, used up; 1 Mole Claw, 1 Copper Ore and 2 Wood; replacing
+the Stone Pick. Claude's calls the owner may change: BUILD lists it
+after the Stone Pick; made with the Tool slot empty it goes straight
+there, the Stone Pick's way; a vein's first bump says its first line,
+the second breaks it; its look, the Stone Pick's handle with a mole's
+pale claw lashed on as its head; its lines ("You make a mole claw
+pick.", "You hold the mole claw pick.", "Veins and rubble go in 2
+bumps."); the Mole Claw's look line names it. D-806 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-811 · 2026-11-10 · The Growth tree, ready to grow** (the owner's
+picks, all recommended, from a page of three looks:
+https://claude.ai/artifact/4Gif1nMAvjvi5ZztHwdz2y; builds D-462, D-481)
+Before the Hands upgrade, the tree is made ready for many more. Its look
+will be A, twigs: one drawn tree kept, each row a twig across the three
+limbs, its upgrades small picture tiles side by side, up to 3 a branch
+in a row, the name and words on the right when picked, and the tree
+scrolling once there are more rows than fit. Offered too: branch pages,
+one limb's tree a page; lists, like the Bestiary. In three steps: first,
+nothing visible, one list of upgrades in the code, each with its cost,
+the most times it can be bought and its look, and one record in the
+save of what was bought, older saves keeping their hearts, Tough and
+Steady Wick (offered too: each upgrade its own entry, as before); then
+the twigs; then the Hands upgrade. D-807 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-812 · 2026-11-10 · The Growth tree's twigs** (the owner's picks, all
+recommended, from a page of mock-ups:
+https://claude.ai/artifact/9U2gRwJi4C88wFJKev2RWU; builds D-811) The
+tree's look A: each row a twig across the three limbs, its number dim at
+the left; a branch's upgrades small picture tiles side by side; a bought
+tile's picture lit and its frame faintly gold; the heart a heart with
+how many are bought in its corner; one lock tile a limb on the locked
+row. A dashed "to come" tile only where a limb has nothing yet (offered
+too: a spare on every limb; none). The arrows read a row: Left and Right
+walk its tiles across the limbs, Up and Down change row on the same
+limb; past a row's ends, Records and the Bestiary (offered too: limb by
+limb). Claude's calls the owner may change: tiles 18 pixels, smaller on
+a small screen; the tree scrolls by a swipe or the wheel and follows
+the pick, a small arrow where rows are hidden. D-808 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-813 · 2026-11-10 · Quick Hands** (the owner's picks, all
+recommended; the last step of D-811) Hands' first upgrade, in the
+first row: a tree, a stone deposit or a fallen branch, gathered by
+hand, takes 1 bump fewer (a tree 3, a deposit 2, a branch 1; a berry
+bush stays 1). A tool's own count is kept: copper veins and rubble
+are unchanged. 1 ember, bought once; its tile's picture a pale open
+hand. Others offered: Full Hands, 1 more Wood or Stone from each;
+Deep Pockets, 1 more bag slot; 2 embers; a small axe or a sack.
+Claude's calls the owner may change: its name and words ("Trees,
+stone and branches take 1 bump fewer."); rubble around a trapped
+person is not gathering, so keeps its 3 bumps. D-809 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-814 · 2026-11-10 · Growth's second row** (the owner's picks, all
+recommended, from the map's row 2 drafts, D-639; builds D-462, D-811)
+Biome 2 is not built yet, so row 2 opens the first time the hero goes
+deeper than depth 8, biome 1's last floor (offered too: shown but
+locked until biome 2; more upgrades in row 1 instead). Each 1 ember,
+bought once. Light: Quick Pour, pouring a flask takes no turn (offered
+too: Long Torch, a set torch 200 turns; Last Drops, the last 5% of oil
+lasting twice as long). Body: Guard, about 1 bite in 6 glances off and
+does no harm, by the seeded dice (offered too: Second Wind, eating at 1
+heart heals 2 more; Quick Swap, a weapon swapped with no turn). Hands:
+Thrift, making something keeps its cheapest part about 1 time in 4
+(offered too: Steady Line, a wider light on the strike card; Deep
+Pockets, a bag slot). Built in four steps, one a PR: row 2 opening at
+depth 9 with a dashed tile a limb; then Quick Pour; Guard; Thrift. Each
+one's words, look and details are settled at its step. D-810 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-815 · 2026-11-11 · Row 2 opens** (the owner's picks; step 1 of
+D-814) The journey keeps a mark of Growth's rows open, set the first
+time the hero is deeper than depth 8 and never taken away; an older
+save already past depth 8 has it when loaded (offered too: worked out
+each time from the rooms kept; per profile, across journeys). A dev
+jump to depth 9 or deeper opens it too (offered too: only walking
+there). The owner's own pick: everything visible, with what it takes
+to open it; the locked tiles stay, and picking one says "Reach depth 9
+to open." (offered too: a depth tag on the row; dim upgrades shown
+locked). Once open, row 2 has a dashed tile a limb, and row 3 shows
+locked above it, "Opens deeper down." No line in the log yet: "Growth
+has a new row." is added with Quick Pour (offered too: a line now;
+never). D-811 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-816 · 2026-11-11 · Quick Pour** (the owner's picks, all
+recommended; step 2 of D-814) Light's row 2 upgrade, 1 ember, once: a
+flask poured by hand takes no turn, so no oil burns and no creature
+moves, and "You pour a flask." is said (offered too: nothing said). Its
+words "Pouring a flask takes no turn."; its tile a tipped flask, a drop
+falling (offered too: an upright flask and a drop, "You pour a flask in
+no time."; a lantern and a drop). A Pond Minnow's oil still takes its
+turn, as it is not a flask (D-611; offered too: any oil by hand).
+"Growth has a new row." is said the first time a row opens, walking
+down or by a dev jump, in place of that turn's line (offered too: kept
+in the log as well); an older save that loads already open says
+nothing. D-812 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-817 · 2026-11-11 · Guard** (the owner's picks, all recommended;
+step 3 of D-814) Body's row 2 upgrade, 1 ember, once: a bite the worn
+vest did not turn rolls Guard's own dice, and about 1 in 6 glances off
+and hurts nothing, so with the Rat Hide Vest about 3 bites in 8 glance
+off (offered too: the chances added; only the bigger one). Guard's line
+"The bite glances off you."; a bite the vest turned keeps "The bite
+glances off your vest." (offered too: the vest's line always; nothing
+said). Only bites: an oil drink, a glob and a sting are not turned
+(offered too: bites and drinks; every blow). Its words "About 1 bite in
+6 glances off."; its tile a small pale round shield, a boss in the
+middle (offered too: a fang turned aside; a heart in a ring). D-813
+moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-818 · 2026-11-11 · Thrift** (the owner's picks, all recommended;
+step 4 of D-814, the last) Hands' row 2 upgrade, 1 ember, once: about
+1 making in 4, by the seeded dice, keeps 1 of the part its recipe uses
+most of, the first listed on a tie, so the Mortar keeps 1 Stone and
+the Stash Chest 1 Wood (offered too: 1 of the part used least of; the
+whole part). The full cost is still needed; 1 fewer is taken. Every
+making: the bag's Make, the workbench, the mortar, the Pouch and the
+Big Bag (offered too: all but the bag upgrades; only the bench and
+mortar). "You keep 1 Stone." is said in place of the make line, naming
+the part (offered too: the make line, then a second; nothing said).
+Its words "Making something keeps 1 part about 1 time in 4."; its tile
+a small pale log on its side, an arrow curling back down to it
+(offered too: a tied pouch; a hand on a stone). D-814 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-819 · 2026-11-11 · The menus' sounds** (the owner's picks, all
+recommended, from a board of 6 taps, 4 page turns and 4 tocks; builds
+D-774; answers part of Q-095) Off play, a tap, Enter or Space that
+changes something on the same card ticks: Interface Sounds' tick 2, at
+half a step's peak (offered too: as loud as a step; click 2 or UI
+Audio's click 3; ObsydianX's cursor tone). A card opening turns a page,
+RPG Audio's flip 3, and closing turns one back, its flip 2, each as
+loud as a step (offered too: the same, soft; the book opening and
+shutting; Interface Sounds' open and close). A tap that opens or closes
+a card turns only its page, with no tick (offered too: both). A dim
+pick that can't be done tocks: Impact Sounds' light wood knock, a
+quarter lower, as loud as a step (offered too: bong 1; error 4;
+ObsydianX's error tone). None strays in pitch. Claude's calls the owner
+may change: play, setting a tile down and the title have no card, so
+reaching them closes; going back to a card still open under the rest
+closes, anything else opens; the tock plays on the bag's dim Make, the
+Make tab's dim recipe, the garden bed's and campfire's dim first line,
+a dim waystone row and a Growth upgrade with too few embers; the
+"You can't carry more" lines, the dim quick slot and the HUD buttons in
+play stay silent; the run ending waits for later. D-815 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-820 · 2026-11-11 · The bag's sounds** (the owner's picks, all
+recommended, from a board of 4 each; builds D-774; answers part of
+Q-095) An item into the bag pats: RPG Audio's cloth 1 to 4, taking
+turns, a little higher or lower each time (offered too: a small leather
+pouch; leather dropped; a cloth belt). A weapon from the bag into the
+hand is drawn: its knife draw 3 (offered too: draws 1 to 3; a belt
+buckle; a metal latch). A tile set down knocks: Impact Sounds' medium
+wood knocks (offered too: heavy; a plank; a book set down). Each as
+loud as a step (offered too: half). A weapon picked up only pats.
+Claude's calls the owner may change: every `take` pats, a fish's catch
+keeps only its splash, the stash chest's moves keep the menus' tick.
+Next, Settings gets tabs: Controls (Swipe, Tap, Arrow pad, Stop
+walking), Game (Seed, Mode, Lantern, Flasks), Screen (Motion, Attack
+marks, Stats line) and Sound (offered too: Play · Screen · Sound; Game ·
+Sound); later the Sound tab holds an overall loudness, a loudness for
+each kind, and On or Off for each sound (offered too: silent in the
+background). D-816 moves to `archive/DECISIONS-SURFACE.md`, word for
+word.
+
+**D-821 · 2026-11-11 · Settings in tabs** (the owner's picks, all
+recommended; builds D-820) The tabs CONTROLS, GAME, SCREEN and SOUND
+sit in the card's title row where SETTINGS was, as the bag's (offered
+too: under the title). Settings opens on the tab last open, Controls at
+first, kept as it closes until the game is closed (offered too: Controls
+every time). The Tab key turns to the next tab, as on the bag and the
+workbench, and a tap on one opens it (offered too: Up from the top line
+onto the tabs). VERSION HISTORY stays in the bottom corner on every tab
+(offered too: only on Game). On a card too narrow for one row (upright
+phones), the tabs take two, 2 and 2, the lines a row lower (offered too:
+3 and 1). Claude's calls the owner may change: each tab opens on its
+first line; Settings' spoken words name the open tab. D-817 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-828 · 2026-11-11 · Home's sounds** (the owner's picks, all
+recommended, from a board of 4, 4, 4 and 3; answers part of Q-095) An
+item sold to the peddler jingles: RPG Audio's handleCoins at a quarter
+loudness, in place of the tick (offered too: the short clink; the two
+taking turns; a pouch, then coins). A relic set on the shelf is a book
+set on wood: RPG Audio's bookPlace 1 to 3 at a quarter (offered too: a
+light wooden knock; a plank; the workbench's thunk, softer). A seed
+planted is two quick burrow steps, 0.13 s apart, the second softer
+(offered too: a soft thud; snow pressed; a leather bag set down). Bat
+Guano fed is the bag's cloth pat, muffled like the burrows' earth
+(offered too: a small soft thud; a carpet step). Each plays as its
+page closes, follows Finds' loudness and has its own line under Finds:
+Coins, Shelf, Planting, Feeding.
+
+**D-829 · 2026-11-11 · The elemental pack** (the owner's purchase and
+picks, all recommended; for Q-095) MorphonautAudio's Elemental Forces
+Sound Pack, bought by the owner on itch.io, is kept whole in
+`sounds/packs/morphonaut-elemental-forces/`: 134 sounds in four folders,
+`Earth`, `Fire`, `Water` and `Wind`, under the pack's own names. Its
+listing says CC0, so it may sit in the public repo; its `License.txt`
+says where it came from. Saved from the pack's 24-bit WAVs (113 MB) as
+`.ogg`, good quality, stereo (6 MB), nothing else changed; little
+silence to cut. Nothing in the game plays from it yet: the next sound
+steps pick from it, for fire, oil, water, wind and falls.
+
+**D-844 · 2026-11-12 · Sitting by a campfire** (the owner's picks, all
+recommended but the effects, where all three were picked; Q-088's buff,
+step 1) A burning campfire bumped says its first words and opens Sit by
+the fire?, its second words under it, No picked (offered too: just
+standing beside it; only when sleeping out beside it). Yes, a turn:
+hearts back, blazing 2, embers 1, never above full (offered too: 1
+either way; 2 either way), and stiff ends; the fire burns down a level,
+blazing to embers, embers to cold ashes (offered too: once a day a fire;
+both). Warmed, the lantern burning slower for a while, comes next, its
+own step (offered too: all three at once; one at a time). Claude's
+calls the owner may change: Yes grey with full hearts and not stiff;
+"You sit by the fire and warm up."; no sound of its own yet. D-839
+moves to `archive/DECISIONS-SOUNDS.md`, word for word. Its card's
+heading, Yes and No superseded by D-849 (2026-11-12).
+
+**D-845 · 2026-11-12 · Warmed** (the owner's picks, all recommended;
+Q-088's buff, step 2) Sitting by a burning campfire also leaves the hero
+Warmed for the fire's turns, blazing 60, embers 30 (offered too: 60
+either way; 30 either way). While Warmed, a lit turn burns 6/7 of its
+oil, so a full tank lasts 70 turns, not 60, as Slowburn does and added
+to it and the Heart Charm (offered too: 12/13, lasting 65; 3/4, lasting
+80; like Slowburn but not added to it). Yes on Sit by the fire? works
+whenever it helps: hurt, stiff, or Warmed would last longer; grey only
+when nothing would change (offered too: always; only hurt or stiff, as
+before). Sitting again sets the longer count, never a shorter one. Its
+mark is a small flame in the campfire's orange with its turns left
+(offered too: a tiny campfire; Slowburn's bottle in orange). Claude's
+calls the owner may change: Draught rules for the rest (the turns run
+with the lantern empty, a night uses them, a fall ends it); the mark
+after stiff's; "The fire's warmth fades." as it ends; a tap on the mark
+says "Warmed: oil lasts longer, {n} turns left."; no sound of its own.
+D-840 moves to `archive/DECISIONS-SOUNDS.md`, word for word. The turns
+beside the mark superseded by D-847 (2026-11-12).
+
+**D-847 · 2026-11-12 · The timer rim** (the owner's idea and picks, all
+recommended; supersedes the turns beside D-845's, D-791's and the other
+draughts' marks) A lasting effect's mark loses its number: its square's
+edge, 52 dots from the top middle going round like a clock, lights in
+the mark's colour for the share of time left (offered too: burning down
+like a candle). Full is that effect's longest time, from the registry,
+so embers' 30 turns start Warmed half lit (offered too: full at
+whatever it started with). A tap on the mark still says the turns left
+(offered too: nowhere). Claude's calls: any time left lights at least
+one dot; poisoned's and stiff's marks keep no rim for now. That last
+call superseded by D-848 (2026-11-12).
+
+**D-848 · 2026-11-12 · Bad marks: a rim and red glass** (the owner's
+idea and picks; supersedes D-847's no rim for poisoned and stiff)
+Poisoned's and stiff's marks get the timer rim too, full at their
+longest time, poisoned 6 turns and stiff 20, so a poison a worn find
+shortens starts part lit (recommended; offered too: full at whatever it
+started with). The bad marks, poisoned and stiff, sit on dark red glass
+instead of the night glass; the good ones are unchanged (offered too:
+a small red minus or green plus in a corner;
+the bad ones first with a red line under them; no sign for now).
+
+**D-849 · 2026-11-12 · Feeding a campfire** (the owner's picks, all
+recommended; Q-088's feeding) A burning fire's card shows Sit and Add
+wood (offered too: Put on the fire from the bag beside one; Add wood?
+asked after sitting). Add wood takes 1 Wood and a turn and raises
+embers a level, to blazing (offered too: 2 Wood a level; 1 Wood to
+blazing from anything; free). Only embers take wood: blazing takes no
+more and cold ashes are still lit with oil (offered too: wood lighting
+ashes too; feeding blazing to bank more sits). Add wood is grey with no
+Wood or on a blazing fire. Claude's calls the owner may change: the
+card's heading is Campfire, over its words as before; no No, the cross
+closes it; Sit picked, else Add wood; "You add wood. The fire burns
+high."; no sound of its own yet. D-842 moves to
+`archive/DECISIONS-SOUNDS.md`, word for word.
+
+**D-850 · 2026-11-12 · Building a campfire** (the owner's picks, all
+recommended but where; Q-088's building) A campfire is made on the bag's
+Make tab, then set down beside the hero with Set down, as the mortar and
+torch are (offered too: built straight on the ground from the bag; at
+the workbench). It costs 3 Stone and 2 Wood (offered too: 4 Stone, 3
+Wood; 2 Stone, 2 Wood). It goes only on the surface, for now, by the
+workbench's rules (offered too: below ground too, the torch's way, at
+first with no limit, then once it burns to cold ashes there, gone; home
+only). The owner asked what Claude truly thought of anywhere: a fire in
+the dark fits the game best, but one that never burns out by itself
+would make a safe base deep down, against the oil running low; the
+caves may come later as their own step. Set down, it is cold ashes, lit
+with one turn of oil as before (offered too: embers; blazing). The
+find's name, look and words come at its step. D-843 moves to
+`archive/DECISIONS-SOUNDS.md`, word for word.
+
+**D-851 · 2026-11-12 · The campfire in the bag** (the owner's picks, all
+recommended; D-850's name, look and words) In the bag it is the
+Campfire, "Makes a Campfire" on the Make tab (offered too: Fire Ring;
+Firepit). Its look is the cold ashes' picture, as it is set down
+(offered too: 3 stones piled on 2 logs; the ring round fresh logs).
+Its words: "Stones and wood for a campfire.", "Set it down on the
+surface.", "Light it with a little oil."; "You make a campfire."; set
+down, "You lay the stones in a ring." (offered too: warmer words; the
+mortar's way). One is carried at a time, "You already carry a
+campfire." (offered too: up to 3; up to 5). The code: the campfire
+holds its own recipe, `made`, so its button stays Set down (offered
+too: Stone holding two recipes; a recipe-only entry). D-827 moves to
+`archive/DECISIONS-AUDITS.md`, D-846 to `archive/DECISIONS-SOUNDS.md`,
+word for word.
+
+**D-853 · 2026-11-12 · Your own campfire** (the owner's picks, all
+recommended; Q-088's built fire) A campfire the hero built has its own
+words, found fires keeping theirs: cold ashes, "Light the fire?", "You
+laid these stones."; embers, "Your fire still glows."; blazing, "Your
+fire burns well." (offered too: no note at all; only the cold one
+changes). It can be taken back down only when cold: its cold ashes
+offer Take up the campfire?, which puts the Campfire back in the bag,
+whole, as the shelf does; a burning one burns down first (offered too:
+any time, put out; never). The code: three built twins of the fire's
+levels in the registry, the same pictures and rules, their own words
+(offered too: a mark on the tile, kept by the room). Claude's calls the
+owner may change, shown at the build step: where Take up sits on the
+card, and "You already carry a campfire." when one is carried. D-845
+moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-854 · 2026-11-12 · Taking up your campfire** (the owner's picks, all
+recommended, shown as a picture at the build step of D-853) Your own cold
+ashes' card shows three buttons, Yes, Take up and No, No picked as
+before (offered too: Take up in No's place, the cross meaning No; the
+burning card's way, Campfire over Light and Take up). With a campfire
+already carried, Take up says "You already carry a campfire.", free
+(offered too: Take up grey). Taken up, it says "You take up the stones."
+(offered too: "You pack up the campfire."; no line).
+
+**D-855 · 2026-11-12 · The Peddler by the home waystone** (the owner's
+picks, all recommended; fixes B-001, partly supersedes D-492's woods)
+Freed, the Peddler goes home to the home waystone's room, as D-753 moved
+the stone, no longer Hearthwood's middle room: on the open tile nearest
+the room's middle, not the middle, as before (offered too: right beside
+the stone; the middle room, with a hint). Claude's call the owner may
+change: never on the stone's own 3 × 3, so the way onto it stays clear.
+An older save's Peddler already at home in the middle room moves there
+once, keeping his greeting, not beaming in (offered too: stays put).
+D-847 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-856 · 2026-11-12 · The bed won't sleep in a fight** (the owner's
+picks, all recommended; fixes B-002) Bumped at night with a creature
+after the hero, the bed sleeps no more than the moon button does
+(D-758, D-826): it says "Not with a creature after you.", free, the
+same line (offered too: a bed-only line), so a fight can't be slept
+away (offered too: the hero lies down and is woken by a bite; those
+chasing are still there in the morning). D-848 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-857 · 2026-11-12 · The mole comes up when stuck** (the owner's
+picks, all recommended; fixes B-003) A mole under the earth with no
+tile toward the hero free comes up where it is, with its line, as it
+does beside them, and chases on foot from then on, so it can be hit
+and never lies stuck in the hero's way (offered too: the hero walks
+over the mound; it finds a way round). It still never runs (offered
+too: flees when hurt, as the rat; gives up under the earth). Next, its
+own step: a mole notices the hero only within 5 steps, by day or night
+(offered too: 3 steps; no limit). D-849 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-858 · 2026-11-12 · The mole's sight** (the owner's picks, all
+recommended; builds D-857) Every mole, on the surface and in the caves,
+notices the hero only within 5 steps, by day or night, as D-857 chose;
+daylight lights every tile, so before this a mole saw them across a
+whole woods room. One already after them keeps coming from farther, and
+a bite or a hit still makes it notice. The number lives on the mole's
+own entry, `sight: 5`, so another creature can have its own later
+(offered too: on the burrows way). Its Bestiary page says "Once it sees
+you in the light, within 5 steps, it digs down..." (offered too: the
+words as they were). The owner's new idea, deep moles for stone floors,
+is Q-096. D-850 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-859 · 2026-11-12 · Daylight still remembers the whole room** (the
+owner's pick, recommended; closes B-004) In daylight, the whole room the
+hero stands in is still remembered at once, the parts off the screen
+too, as D-209 has it. So a woods room only stepped into shows in full on
+the map, likely what B-004 saw; no room never entered was found showing.
+Offered too: only the tiles the screen shows; what the hero could see
+from where they stand. The owner: it will matter if rooms get really
+big, Q-097.
+
+**D-863 · 2026-11-12 · Hearts kept** (the owner's picks, both
+recommended; step 1 of `HEALTH-CHECK-ORDER.md`, fixes H-01 and H-19)
+The bed's gold heart stays when a boon is taken or ends, by a campfire
+and on waking warm in the fur bedroll: as the most changes (Stout
+Heart, Reckless) it stays one past the new most, and only a bite or a
+fall takes it, as D-488 has it (offered too: it goes, with a line; a
+separate gold heart, changing saves). The Growth tree's Heart tile
+counts only the hearts grown, never a boon's: "Hearts 10 of 10"
+(offered too: grown and the boon's, "+2 boon"; capped at the top).
+D-855 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-864 · 2026-11-12 · A full bag says so** (the owner's picks, both
+recommended; step 2 of `HEALTH-CHECK-ORDER.md`, fixes H-02 and H-18)
+A find stepped on with no room stays with a line: its kind's own when
+one is carried ("You can't carry more oilcaps."), else "Your bag is
+full.", the herb's way (D-511) for every find; wood gets "You can't
+carry more wood." (offered too: "Your bag is full." always; wood left
+silent). A second one-of-a-kind piece from the lost bag, a chest or a
+dropped stack says its own line, "You already carry a workbench.";
+"Your bag is full." only when the bag is (offered too: one shared
+line). D-856 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-865 · 2026-11-12 · Boons at the home stone** (the owner's picks,
+all recommended; step 3 of `HEALTH-CHECK-ORDER.md`, fixes H-32, H-44,
+H-35, and H-67, the owner's find) Arriving on the home
+plate by travel or a fall, holding no boon, opens the boon card once the
+hero is still (that part superseded by D-930, 2026-11-15: a boon button
+shows instead) (offered too: a tap on the plate opens it first; travel
+only), superseding D-737's "no boon offered until the hero steps off and
+back on". The 3 boons stay the same until the hero takes one or leaves
+the room (offered too: drawn anew, as before; one new draw). The words
+say "until you are back at the waystone" (offered too: "until you
+return"; keep "home"). A second one-of-a-kind piece put into a stash
+chest with room says "The chest already holds a workbench." (offered
+too: wait for the words step; its own step). D-857 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-866 · 2026-11-12 · First words over the ask card** (the owner's
+pick, recommended; step 4 of `HEALTH-CHECK-ORDER.md`, fixes H-33) A
+campfire's, your own campfire's and the miners' camp's first words show
+on the text line over their ask card, as the bag's and the bench's
+lines do, only while the line out is the bumped tile's own words
+(offered too: the line over every ask card; the words on the card
+itself). The bed's, garden bed's and shelf's cards stay as they are.
+D-858 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-867 · 2026-11-12 · The Look card's tabs and keys** (the owner's
+picks, all recommended; step 5 of `HEALTH-CHECK-ORDER.md`, fixes H-34,
+H-37) The Look card's tabs are 20 game pixels tall: with the gap, a
+44 px tap at 2× (D-513). The boxes stay 2× as the big hero drops to 5×
+on a 390 px phone; the smallest view shows 2 rows of choices, scrolling
+(offered too: 17 tall, about 38 px; drawn as now, taps reaching up).
+Up from RANDOM or OK goes to the open tab, keeping a rolled look
+(offered too: up to the picked choice). This step is 0.3.312; the audit
+is next, at 0.3.313 (offered too: audit first; after all 19 steps).
+D-859 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-869 · 2026-11-12 · H-24's three risks, and craft() out** (the
+owner's picks, all recommended) A broken deposit or copper vein never
+grows back on a waystone's ring, the tiles its room kept open as it was
+made: 2 round a generated room's stone, 1 round the home one (offered
+too: 1 everywhere; left as it was). A drop with no open tile on or among the
+8 round it looks ring by ring further out, nearest first; only with
+none in the room does it stay on its own tile (offered too: left on the
+bush or bed; left as it was). Dev Spawn puts no item, creature or wall
+on a person, as on the hero; floor still can (offered too: an item
+may). The unused `craft()` and `canCraft()` go; their tests use the Make
+tab's `makeFrom` (offered too: the craft-only tests deleted). D-865
+moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-870 · 2026-11-12 · One words page** (the owner's picks, all
+recommended; step 6 of `HEALTH-CHECK-ORDER.md`, fixes H-12, H-15, H-20,
+H-39, H-40, H-41, H-43, H-45, H-47) A find's name capitalises every
+word, in lines too: Oil Flask, Healing Herb, Healing Potion, Stash
+Chest, Glow Lamp; a creature's, tile's or place's only its first (Cave
+spider) (offered too: every name; one capital for all). The mortar's
+too-few lines say "Need 2 Mimic Leaf, 1 Healing Herb.", short to fit, as
+the charms' do. A stuck mole far off says "The mole bursts up out of
+the earth!" (offered too: one line for both). Kind Herbs: "Herbs,
+potions and fish heal 1 heart more." (offered too: the bed, fire,
+bedroll and Mending Draught heal more; "Anything you eat"). How to
+play: Pick, "Hold it to break veins"; Keyboard rows Bag: I and Map: M;
+Touch and Mouse one row, "Bag, map: Their buttons", to fit 8 lines
+(offered too: Keyboard only; a shorter Walk). A mark's last turn says
+"1 turn left." The Bestiary: the lure wisp drifts "toward another
+creature if there is one"; the bone rat, "Knocked down, it falls into
+a pile of bones". Settings' "Run ends" is "Journey ends". D-866 moves
+to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-871 · 2026-11-12 · The marks** (the owner's picks, both
+recommended; step 7 of `HEALTH-CHECK-ORDER.md`, fixes H-36, H-55) A tap
+or the mouse up to 4 game pixels past a mark's edge still finds it, the
+gaps between marks split to the nearer one; the marks look the same
+(offered too: bigger marks; only the gaps). A row of marks stops left of
+the round map and the buttons by it, as the goal line does (D-743), and
+the rest go on a second row under it, the goal line and creature list
+moving down; on a wide screen it stays one row (offered too: no gaps
+when crowded; a column down the side). D-867 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-872 · 2026-11-12 · Two clear bugs** (the owner's picks, both
+recommended; step 8 of `HEALTH-CHECK-ORDER.md`, fixes H-05, H-11) The
+spit grub's turn counts down only the rests of creatures that spit, so a
+scorpion near one rests its full turn (offered too: every rest counted
+down in one place). A creature's drink that takes the oil under the low
+mark, or to empty, says "The flame is getting low." or "The lantern
+gutters to an ember." over the drink's own line, with the sputter or the
+gutter's sound; the drink's sound still plays (offered too: the drink's
+line stays, the sound only; the warning only when empty). D-869 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-873 · 2026-11-12 · The Peddler's room** (the owner's pick,
+recommended; step 9 of `HEALTH-CHECK-ORDER.md`, fixes H-09) The check
+that a room stays joined leaves out the tile of a person still ringed in
+by rubble (not freed, not home), so a Torch or Glow Lamp set down, a
+deposit growing back and a flask mimic go in his room as in any other;
+every other tile must still be reached (offered too: the same, with no
+flask mimic in his room; left as it was). D-870 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-874 · 2026-11-12 · The owner's rulings** (the owner's picks, all
+recommended; step 10 of `HEALTH-CHECK-ORDER.md`, fixes H-04, H-06,
+H-46; answers Q-098, Q-100) Waystone travel passes no turn for poison,
+stiff and the draughts either: they keep their turns, as D-593 says
+(offered too: it counts as a turn; only the good ones pause). A night's
+sleep uses poison's turns as it uses the draughts': in bed it ends and
+the hero wakes healed; sleeping out it takes the hearts due in those
+turns, the last one too, so the hero falls (offered too: sleep cures
+it; one turn, as it was). A mole beside the hero as it notices never
+digs, as D-726 says, even once the hero steps off (offered too: it digs
+later). The warden, one a world, shows how to fight it once 1 is
+beaten, "Beat 1 to learn how to fight it."; every other creature still
+needs 3 (D-632) (offered too: shown once met; 3 as before). The locket
+taken wakes the warden, the owner's idea, as a bump does: its line and
+sound, it stirs that turn, then chases for its 6 turns (offered too:
+until beaten; its own step; first answered "fine as it is", changed
+before merging). Its special drop, the owner's idea too, waits for
+after the health check (Q-104). D-871 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-875 · 2026-11-12 · Goals and endings told** (the owner's picks, all
+recommended; step 11 of `HEALTH-CHECK-ORDER.md`, fixes H-10, H-13;
+answers Q-099) Ticked quietly, done before it could show, "Put out your
+lantern" and "Find the crypt" pay nothing, as D-752 and D-746 say; every
+other goal ticked quietly still pays, as D-705 has for older saves
+(offered too: only the oil's unpaid; no quiet goal pays; all paid, the
+decisions changed to match). Two or more goals done on one turn are
+named on one text line, "Goals done: Find the waystone. +1 Oil Flask.
+Wake the waystone. +2 Healing Herbs.", wrapping when long, the last one
+gold (offered too: one after the other, each with its gold turns; left
+as it was). Two or more effects ending on one turn are said on one line,
+"The stiffness wears off. The poison wears off.", in the order they
+count down (offered too: the second on the next turn; left as it was).
+D-872 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-876 · 2026-11-12 · Growing back at home, and cave pools** (the
+owner's picks, all recommended; step 12 of `HEALTH-CHECK-ORDER.md`,
+fixes H-07, H-08; answers Q-101) A night's sleep, in the bed or out,
+counts as being away: what is due to grow back by morning is there on
+waking, on any free tile, as when the hero comes into a room (offered
+too: by day at home, out of the lantern's reach counts as out of sight;
+left as it was). A still pool skips a tile that would cut the room and
+grows on elsewhere, and the roll is 0.62, so about 1 grey-rock room in 2
+holds one, as D-500 decided, measured 46% to 52% at depths 2 to 4, small
+rooms and big alike (offered too: the roll only, 0.9, big rooms nearly
+always; the growing only, about 39%). A pool never wraps three sides of
+an open tile, so nothing seems to float (offered too: only round a tile
+something lies on; left as it was). Rooms a save has already been in
+keep their maps. D-873 moves to `archive/DECISIONS-SURFACE.md`, word for
+word.
+
+**D-877 · 2026-11-12 · Sounds only when On** (the owner's picks, all
+recommended; step 13 of `HEALTH-CHECK-ORDER.md`, fixes H-03) With Sound
+Off nothing is fetched; the sound files are fetched once Sound is On, at
+that tap or the moment it turns On (offered too: as before, on the first
+tap). Each place's theme is fetched the first time its place wants it,
+and kept (offered too: all five once Sound is On). A sound turned Off on
+its own is still fetched, so it plays at once when turned back On
+(offered too: skipped). D-874 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.
+
+**D-878 · 2026-11-12 · The Peddler's fixes** (the owner's picks, all
+recommended; step 14 of `HEALTH-CHECK-ORDER.md`, fixes H-42, H-58, H-59;
+answers Q-102) On his Sell tab, a SELL that sells nothing, on an empty
+slot or on what he doesn't buy, leaves the frame where it is, with the
+refusing tock (offered too: SELL drawn dim there as well). The last of
+a stack sold, the frame stays and the next stack slides in under it
+(offered too: the frame to the first empty slot; one press only showing
+the new thing). Going home, his spot skips the hero's tile and any
+creature's too (offered too: only the hero's). Freed, a bump keeps him
+3 turns from then but never sends him sooner than he would go, so a
+bump at once still leaves his 5 (offered too: each bump adds 3; as
+D-496 had it). D-875 moves to `archive/DECISIONS-SURFACE.md`, word for
+word.
+
+**D-879 · 2026-11-12 · Falls** (the owner's picks, all recommended; step
+15 of `HEALTH-CHECK-ORDER.md`, fixes H-16, H-17, H-56) A draught drunk,
+or a fire sat by, on a turn that ends in a fall is lost to it: the
+draught is used up and Warmed never starts, as a fall ends every
+draught and Warmed (offered too: started earlier in the turn, one turn
+longer, for the fall to clear). With something set down or lying on the
+journey's first tile, a fall wakes the hero on the nearest open tile
+beside it, as by a bed (D-737) (offered too: nothing can be set down on
+that tile; both). D-876 moves to `archive/DECISIONS-SURFACE.md`, word
+for word.
+
+**D-880 · 2026-11-13 · Saves kept safe** (the owner's picks, all
+recommended; step 16 of `HEALTH-CHECK-ORDER.md`, fixes H-57, H-21,
+H-14) A new upgrade step (journey format 33 → 34) sends home a freed
+Peddler an older upgrade lost: one in no room once his room is begun
+stands in the waystone's room, not yet having greeted the hero (offered
+too: greeted already; back in his room, waiting). A profile slot that
+can't be read is made empty and the others kept, and a save that can't
+be read, broken or made by a newer version (the profile list or a
+journey), is copied word for word under a key of its own before it can
+be saved over; nothing is shown (offered too: a line on the slot screen;
+a newer save's slot left alone). Each part of a frame (moving, sound,
+saving, play time, drawing) has its own safety net (offered too: and a
+note on screen while an error repeats). The two old saves that showed
+H-57 are kept as tests (`tests/saves/`). D-877 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-881 · 2026-11-13 · The art's loose ends** (the owner's picks, all
+recommended, from a picture; step 17 of `HEALTH-CHECK-ORDER.md`, H-51
+to H-54, H-60, H-61) The quick slot's picture and the round map are
+enlarged exactly 2×, the map's outer pixel row under its ring as the
+arrow pad's. The version number is drawn in the game's pixel font at
+2×, grey. One dim grey, `#5c566a`, for a line that can't be picked, an
+empty slot or an unlit mark; bone `#efe6cc` for bright text, `#fff5d6`
+only in flames. Light and glows may stay soft; objects stay
+hard-edged pixels (a line in `ART-DIRECTION.md`). The colours one shade
+off match the one they meant (the plaque edge `#3a3448` as the art rules
+name it), and the torch handles take the woods' browns (D-314). Every
+colour only the code had is listed in `ART-DIRECTION-3.md`.
+
+**D-882 · 2026-11-13 · The dev tools** (the owner's picks, all
+recommended; step 18 of `HEALTH-CHECK-ORDER.md`, H-38, H-48 to H-50)
+The wrench and the sheet's buttons let go of the keys after a click or
+tap, so Space waits a turn again; one reached with Tab keeps them
+(offered too: Space never presses one). Spawn's Peddler is
+moved to the tapped free floor tile from wherever he is, as at home, a bump opening his trade (offered too: moved,
+trapped; no Peddler in Spawn). A Torch or Glow Lamp light spawned on a
+free floor tile stands on a torch's stone foot, as one set down, never
+burning out. A name shared by more than one picture has the code's
+word after it ("Campfire · ownEmbers"; offered too: written states).
+Room's TIME row comes second, +10, +50 and Grow three across, so Grow
+shows on every screen (Grow last on the TIME row, picked first, still
+hid on phones). D-878 moves to `archive/DECISIONS-SURFACE.md`, word for
+word.
+
+**D-883 · 2026-11-13 · The docs** (the owner's picks, all recommended;
+step 19 of `HEALTH-CHECK-ORDER.md`, H-25 to H-30, H-62 to H-65) The
+docs catch up with the decisions and the code. Pages too full for new
+lines move a section word for word to a roomy one: the hero's Growth
+entries to `GLOSSARY-2.md`, the Growth upgrades to `CONTENT-4.md`
+(offered too: split the full pages). The boon card's foot and words
+say "back at the waystone, or you fall", as the opening card does
+(offered too: as they were). The loose ends found beside the steps are
+fixed too: the marks' rims, the stinger's sale, a repeated "Rules:", a
+stale code comment (offered too: only the listed ones). The README's
+status is short: stage 0.3, the world, its places above and below
+(offered too: every room and depth). D-879 and D-880 move to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-884 · 2026-11-13 · Two glossary pages split** (the owner's picks,
+both recommended) Before the warden's drop, the two glossary pages
+near 8 KB split, word for word. `GLOSSARY-2.md`'s Creatures section
+moves whole to a new `GLOSSARY-CREATURES.md` (offered too: only the
+states and terms out; only Poisoned, Stiff and Warmed out).
+`GLOSSARY-FINDS.md` from Deposit to the Locket (stone, ore, picks,
+fishing, wood, the first relic) moves to a new `GLOSSARY-FINDS-2.md`
+(offered too: fishing to its own page). D-881 and D-882 move to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-886 · 2026-11-13 · The warden's slam built** (the owner's picks, all
+recommended; D-885's step 1 of 3) Beside the hero, the warden raises
+its fists for a turn instead of biting: a picture of its own, the
+fists over its head, trembling as a raised tail does, with the pink
+strike mark on the hero's tile (offered too: its own picture
+trembling; the new picture with no mark). Then it slams that tile,
+its bite of 1, and the hero slides 3 tiles straight back, 3 times as
+fast as a step (offered too: there at once, with a shake); the room's
+edge, a solid tile, a creature or a person stops the slide short, with
+no hurt more until step 2. Stepped out of its way, it hits the floor.
+Then it rests a turn, as the scorpion does (offered too: no rest).
+Fists up, it never settles back to sleep before it slams. Its lines,
+Claude's drafts: "The warden raises its fists!", "The warden slams you
+back!", "The warden's fists hit the floor." (offered too: "The
+warden's fists rise.", "The warden's blow throws you back.", "The
+warden slams the empty floor."). Its fists going up play its waking
+stone, `statue`, a draft. D-883 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.
+
+Its miss line changed by D-937 (2026-11-15): "The warden's fists sink into the floor!"
+
+**D-885 · 2026-11-13 · The warden's slam and its Fist** (the owner's
+ask and picks, all recommended; answers Q-104) The warden gets harder:
+in line beside the hero it raises its fists for a turn, as the
+scorpion's tail goes up, then slams: its bite, and the hero knocked 3
+tiles straight back (offered too: every bite knocks back 2; from half
+its hearts, every bite knocks back 2). Stopped by a wall (rock, a
+tree, a boulder, a thing set down) with tiles still to go, the hero
+loses 1 heart more (offered too: 1 a tile left). A creature in the
+way stops the slide, and it and the hero lose 1 each (offered too: it
+just stops, no hurt). Beaten, the warden always drops its special
+find, the Warden's Fist, a fist of old stone with a gold band at the
+wrist and a violet stone: held, it hits for 2 and knocks the creature
+back a tile, a wall hurting it as it hurts the hero; the first of
+D-636's hammer kind (offered too: the Warden's Eye, a charm that
+shows disguised creatures; the Warden's Band, a relic for a heart
+more). Three steps: the slam, then the wall's and the way's hurt,
+then the Fist. Claude's drafts the owner may change: the lines, the
+names, the look. Mock-ups: https://claude.ai/artifact/WZZyNqepzAbqzPYhvg2fxD
+D-868 moves to `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-887 · 2026-11-13 · The slam's hurt** (the owner's picks; D-885's
+step 2 of 3) Slid back with tiles still to go: a wall (any solid tile:
+rock, a tree, a boulder, a thing set down, an edge with no room beyond)
+costs the hero 1 heart more; a creature, it and the hero 1 each, one
+beaten so with no drop and no experience, as a sting's (offered too: a
+drop and experience); a person, the hero 1 and the person nothing
+(offered too: no hurt). At a doorway the slide goes on out into the
+room beyond, and the turn ends there (the owner's own answer; offered
+too: stops, no hurt; hurts as a wall). Water, one under the earth or a
+pile of bones only stops it, no hurt (offered too: hurts as a creature;
+passes over); once the hero can swim, a slam slides them into water
+(the owner's own answer, Q-039). The line, Claude's draft: "You slam
+into the {n}!", naming what was hit (offered too: crash; two lines).
+D-884 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-888 · 2026-11-13 · The Warden's Fist** (the owner's picks, all
+recommended; D-885's step 3 of 3) Beaten, the warden always leaves the
+Warden's Fist where it fell, even when a sting, a glob or a slam beats
+it. Held, it hits for 2 and knocks the creature, still standing, 1 tile
+straight back: a wall (any solid tile, the room's edge, a doorway too,
+as creatures never leave their room) costs it 1 more; another creature
+there, both 1 (offered too: only walls hurt; a doorway just stops it);
+a person, water, one under the earth or a pile of bones only stop it.
+Its hit is the warden's own knock of stone, a Fist hit line in
+Settings (offered too: the lantern's knock; the knife's slice). A save
+that beat the warden already gets the Fist laid once where the warden
+first stood (offered too: into the bag; none). Lines: "You take the
+Warden's Fist.", "The Warden's Fist goes in your bag.", "You hold the
+Warden's Fist.", "You put the Warden's Fist away.", "The {n} slams into
+the {m}!" (offered too: its look when taken; a line for every knock).
+Claude's drafts the owner may change: its picture, the mock-up's; one
+beaten by a wall or a creature as the hero's blow, its drop and
+experience. D-886 moves to `archive/DECISIONS-SURFACE.md`, word for
+word.
+
+**D-889 · 2026-11-13 · The puzzle plan** (the owner's picks; the
+long-term talk) Puzzles are planned first (offered too: biome 1's boss
+and ability; crafting tiers; the enemy toolkit). All four families, with
+time and pressure as a fifth (the owner's own addition): light and
+dark, push and knockback, tool and ability gates, creatures as pieces,
+and lore clues. Puzzles live in sealed side vaults (recommended), small
+everywhere, landmark set pieces and terminal mini-games, all four, with
+"many more to come". Biome 1 is finished first: its boss, found
+ability, first puzzles and lantern parts before the mines (recommended;
+offered too: biome 2 soon; a vertical slice). Every idea Claude drew up
+is kept, word for word, in `PUZZLES.md`, `-2` and `-3`, and the
+systems talk in `RESEARCH-SYSTEMS.md`; each is built only by its own
+decision, names and numbers placeholders until then. Opens Q-105.
+Ideas page: https://claude.ai/artifact/Mgq3BAacAAmqBje9NpwpBC
+D-885 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-890 · 2026-11-13 · The puzzle rules and the first four** (the
+owner's picks, all recommended; answers most of Q-105) The six puzzle
+rules in `PUZZLES.md` hold for every puzzle. Rule 4's solver is built
+only when the seed first lays a puzzle out; until then each puzzle is a
+fixed layout, checked by hand (offered too: the solver first; settle it
+at the first generated puzzle). The first four, in order: L1, the
+braziers and a sealed side vault; L3, the dark door; P1, the Fist and
+a plate; then T1, the gloam tide (offered too: L1 with P1 second; L3
+first; pick after each). Biome 1's boss and found ability (G3, W4) are
+planned after the first two are built (offered too: now; after all
+four). Each one's tiles, names, numbers and rewards are its own step.
+D-887 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-891 · 2026-11-13 · L1, the braziers and the sealed vault** (the
+owner's picks, all recommended; builds D-889, D-890; answers part of
+Q-105) A vault room holds 2 braziers, a tile pair (cold, lit), and a
+sealed door, a pair (sealed, open), whose flame rune glows one violet
+notch for each brazier lit; once both burn the slab sinks to a sill and
+stays open, the braziers lit, for good; left unsolved, they go cold
+again (rule 5) (offered too: 3 braziers; 2 to 4 by depth). The brazier
+is a crypt-stone fire bowl on a foot with a violet band, solid, light
+passing over it, like the campfire (offered too: an iron tripod; a wall
+niche). Bumped with the lantern lit, lighting one costs 5 turns' oil,
+grey with less (offered too: 1 turn's, as a campfire's ashes; 10).
+One vault a floor from depth 2: the seed turns one dead-end room into a
+vault, a fixed 11 x 13 layout checked by hand, drawn in the crypt's
+bricks wherever it stands (offered too: about 1 floor in 2; only from
+depth 8). The owner's addition: vaults will hold different puzzles
+(L3, P1, T1 and more, as each is built) and different rewards. The
+reward is one prize the seed draws per vault: a rare material or an
+ember, "and maybe other things" (the owner's addition; offered too: the
+cache behind the door; lore pages later). How the draw is weighted, the
+lines and the room's layout are the build step's. Mock-up:
+https://claude.ai/artifact/7Cy1QZoyguCTarQkPWkJQZ
+D-888 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-892 · 2026-11-13 · L1's build steps and the vault room** (the
+owner's picks, all recommended; builds D-891) L1 is built in 4 steps:
+the vault room, its braziers and its sealed door, standing still; then
+lighting a brazier, a rune notch glowing; then the door opening, staying
+open, an unsolved vault resetting; then the prize (offered too: 3 steps;
+5, the reset its own). The vault is turned to face its one opening: the
+vault above or below for an opening at the top or bottom, beside for one
+at the left or right, the gap wherever the opening is (offered too: top
+or bottom only). A floor with no one-cell dead end has no vault
+(offered too: one set inside a dead-end hall). Nothing else is in it: no
+creatures, finds or cache (offered too: creatures; everything as
+usual). From depth 8 the same two layouts, the outer room bigger with
+the cell (offered too: 11 x 13 in a ring of wall). Bumped, each says a
+line, Claude's drafts the owner may change: "A cold stone brazier.",
+"Old ash lies in its bowl."; "A sealed stone door.", "A flame rune is
+cut into it." (offered too: nothing). Their names: Brazier, Sealed door
+(offered too: Lightkeeper's brazier and door; Fire bowl, Rune door).
+Claude's calls: never the peddler's, the locket's or a waystone's room;
+the vault 3 tiles deep; the crypt's own bricks at every depth. Step 1
+built at 0.3.337. D-889 moves to `archive/DECISIONS-SURFACE.md`, word
+for word.
+
+**D-893 · 2026-11-13 · The lit brazier** (the owner's picks, all
+recommended; builds D-891, D-892) Lit, a brazier's violet band brightens,
+its ash turns to coals and the torch's orange flame sways in its bowl in
+3 frames, like a blazing campfire's (offered too: a violet flame; an
+orange flame with a violet heart). It lights 2 tiles round it in the
+torch's warm colour, as a campfire's embers do (offered too: 3 tiles;
+violet, 2 tiles). Bumped cold with the lantern lit, it opens the ask
+card: the text line says "A cold stone brazier.", the card "Light the
+brazier?" over "Old ash lies in its bowl.", No picked, Yes grey with
+less than 5 turns' oil; Yes says "The brazier catches." and passes a
+turn. Lit and bumped, it says "A brazier, burning.", then "Its flame
+burns steady.", free (offered too: "The old fire wakes."; nothing). With
+the lantern out, a cold brazier says its old words, no card (offered
+too: the card, Yes grey). Claude's calls: the door's left notch glows
+first; the campfire's lighting sound. Mock-up: https://claude.ai/artifact/WU3SNjtFvV5VPVqq7qTc73 Step 2 built at 0.3.338. D-890
+moves to `archive/DECISIONS-SURFACE.md`, word for word. Its notches moved
+to the lintel above the door by D-895 (2026-11-13).
+
+**D-895 · 2026-11-13 · The door opening** (the owner's picks, one the
+owner's own; builds D-891 to D-893) The door's 2 notches move off the
+slab to the lintel above it, in a dark socket in the wall's cap,
+glowing violet one a lit brazier, the left first, sealed or open (the
+owner's idea: lit parts outside the door, so it opens fully; offered
+too: on the jambs; on the slab, its top left as a sill). Once both
+braziers burn the slab is gone: the doorway fully open and dark, a worn
+line at its foot, walked through, light passing; the Open door (offered
+too: Vault door). Lit last, the brazier says "The stone door sinks
+open." (offered too: "With a groan, the slab sinks into the floor.";
+nothing more). Left with a brazier still cold, the vault room's lit
+braziers go cold again as the hero steps out, the oil spent (offered
+too: on leaving the floor). Mock-up:
+https://claude.ai/artifact/CdnkJkW2gd98jGn8Wi5hpb Claude's calls: the
+line said in "The brazier catches."'s place, as the strip holds one
+line; no new sound for now. D-891 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-896 · 2026-11-13 · The vault's prize** (the owner's picks, one not
+the recommended; builds D-891 to D-895; answers part of Q-105) The seed
+draws each vault's prize: 1 vault in 4 an ember, the rest 2 of one of
+the 7 rare materials, all alike (offered too: 1 in 2 an ember; a
+material above depth 8, an ember below; 1 of it; 1 to 3). It stands on
+a small crypt-stone plinth at the vault's heart with the brazier's dark
+violet band, the prize on its top (the owner's pick; recommended: on the
+floor as any find; offered too: in a crypt urn). Bumped, it is taken at
+once, a turn, the plinth left bare (offered too: an ask card first;
+free). An ember glows faintly 1 tile round in the torch's warm colour, a
+material lies dark till the lantern reaches it (offered too: no glow; a
+violet glint on any prize). Taken, an ember is 1 more to spend in
+Growth: "An ember! Spend it in Growth."; looked at, "An ember, still
+warm.", "It glows in your palm." (offered too: "An ember of the First
+Light!"; a hint line on stepping in). A material keeps its own lines.
+Bare, bumped: "A bare stone plinth.", "Something rested here once."
+(offered too: "An empty plinth."; nothing). Its name: Plinth (offered
+too: Altar, Pedestal). Mock-up:
+https://claude.ai/artifact/DqdFbgK9XW3mWi1H3JHR8c Claude's calls: with
+no room in the bag for both, nothing is taken, free, the bag's full
+line; the take sound of any find. D-892 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-897 · 2026-11-14 · The lantern's words** (the owner's picks, both
+recommended; the owner's find) The two lantern goals' how lines follow
+the way of playing last used, touch until something is pressed: touch
+"Tap the lantern." and "Tap the lantern, to save oil."; mouse "Click the
+lantern, or press L." (", to save oil."); keyboard "Press L." (", to
+save oil."), changing as the player switches (offered too: the device's
+kind, asked once, or both; touch against PC, two kinds only). Claude's
+call: the way is kept in `core/way.js`, set by `input.js`, never saved.
+
+**D-903 · 2026-11-14 · The vault's decisions archived** (the owner's
+picks, all recommended) Before the numbers' next step, with
+`DECISIONS.md` at 11,961 of its 12,288 bytes, D-895 and D-896, the
+vault door opening and its prize, both built, move to
+`archive/DECISIONS-SURFACE.md` beside D-889 to D-893, word for word
+(offered too: D-897 and D-898; D-894; D-799, the finds plan; a new
+`archive/DECISIONS-VAULT.md`). Its own docs-only version, 0.3.346
+(offered too: folded into the numbers' step). No game change.
+
+**D-898 · 2026-11-14 · Built things on the map** (the owner's picks,
+both recommended; the owner's find, B-005) What the hero built and set
+down shows on the map and the round map in one warm wood brown, not the
+room's wall colour, so a chest or a workbench never looks like a tree
+(offered too: each its own colour; the room's colour, dimmer). Claude's
+calls: the brown is the lantern base's `#a8642c`; the workbench, chest,
+bed, bedroll, garden beds, shelf, mortar, torch stand and your own
+campfire are marked `made` in the registry; a wild campfire stays a
+wall. D-893 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-911 · 2026-11-14 · Flyers over things: the fix** (the owner's picks,
+all recommended; fixes F-1) A bat, lampmoth or lure wisp over the
+workbench, a stash chest, a garden bed, the bed, a brazier or a bedroll:
+no card or ask opens while a creature is on the tile, so walking into it
+strikes it, as D-901 meant (offered too: main.js checks for a flyer
+first). The owner's idea, kept with the bow (Q-094): a ranged attack
+hits a flyer over a station, its drop landing on open floor, as over
+water. One short line in the in-game history. D-898 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-912 · 2026-11-14 · The oil's "After": the fix** (the owner's picks,
+all recommended; fixes F-2) The bag card's "After" takes off the turn's
+burn first, as the pour does, so it shows the oil the pour really gives
+(offered too: marked as near). No burn with Quick Pour on a flask, or
+with the lantern out. A test checks it against the real pour.
+
+**D-913 · 2026-11-14 · Kind Herbs' words** (the owner's pick,
+recommended; fixes F-3) The card reads "All you eat, and potions, heal
+1 heart more.", as D-599 is. Offered too: list every one; narrow the
+rule.
+
+**D-914 · 2026-11-14 · A broken save set aside once** (the owner's
+picks, all recommended; fixes F-4) A save the game can't read is not
+copied aside again when a copy with the same words is already kept for
+it, whichever copy that is (offered too: only the newest; one copy per
+save). A different broken save still gets its own copy. Nothing visible
+changes. F-4 and F-5 go in one PR as two versions, 0.3.357 and 0.3.358.
+D-911 and D-912 move to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-915 · 2026-11-14 · A goal with no reward, read aloud** (the
+owner's pick, recommended; fixes F-5) In the Quests tab, a screen reader
+reads a goal done with no reward as "Put out your lantern, done.", as
+the screen shows it (offered too: "done, no reward").
+
+**D-916 · 2026-11-14 · The pictures on the Make card** (the owner's
+picks, all recommended) D-907 to D-909's pictures go on the Make card,
+the workbench's, the mortar's and the bag's Make tab, first (offered
+too: the peddler's card; the stash chest), one card a step. All three,
+each where it fits, left out where it would reach the buttons, as on
+the bag card (offered too: the hits only). As if made and used now:
+hearts or oil now and after, the hits beside the weapon held (offered
+too: "After" only). D-913 and D-914 move to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-917 · 2026-11-14 · The pictures on the peddler's card** (the
+owner's picks, all recommended) D-916's pictures go on the peddler's
+card next, on both tabs, Sell and Buy (offered too: Buy only; Sell
+only), as if used now, as on the bag card. His price line always shows;
+the picture is left out where it and that line would reach the button
+(offered too: the price line moved up under the name). The stash chest's
+card is next. D-915 moves to `archive/DECISIONS-SURFACE.md`, word for
+word.
+
+**D-918 · 2026-11-14 · The next prompts, in CLAUDE.md** (the owner's
+request) `CLAUDE.md`'s PR section now says it too: after a merge, the
+next prompts each go in their own fenced code block (D-792), as the
+owner wants them every time. D-916 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-919 · 2026-11-14 · The pictures on the stash chest's card** (the
+owner's picks, all recommended) D-916's pictures go on the stash chest's
+card, as if used now, as on the bag card, for the chest's stacks and the
+bag's alike (offered too: the chest's only). Where it is short (a phone
+held sideways), the picture is left out where it or the "Tap to move"
+line would reach STORE or DECONSTRUCT (offered too: that line gives way
+first). Every card has its pictures now; the round map in the dark
+(Q-108) is next (offered too: flyers into trees, D-900). D-917 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-920 · 2026-11-14 · The round map in the dark** (the owner's picks
+from a mock-up, all recommended; answers Q-108) The round map fades with
+the light on the hero's own tile, the brightest of daylight, the lantern
+(its reach against a full tank's) and any other light reaching it: all of
+it at full light, down to 15% at none (offered too: never under 40%;
+three steps). At an ember, or with the lantern off, and no other light
+on the tile, a soft dark spot about 2 tiles round the hero hides its
+middle too (offered too: half the disc; all but the hero). The hero's
+dot always shows. Changes ease over half a second (offered too: at
+once). The full map opens clearly. The rim showing danger (Q-109) is
+next (offered too: flyers into trees, D-900). D-918 and D-919 move to
+`archive/DECISIONS-SURFACE.md`, word for word. Its spot round the hero
+superseded by D-931 (2026-11-15).
+
+**D-900 · 2026-11-14 · Flyers over low things** (the owner's picks, all
+four; the recommended was the first) Lampmoths, bats and the lure wisp
+fly over what stands low: what the hero built, bushes and fallen
+branches, rubble, plinths and braziers, not trees, rock or walls; and
+they may go into a tree and vanish there, chopping it driving them out.
+Two steps, flying over first; the trees' details proposed at theirs.
+
+**D-901 · 2026-11-14 · Flyers over low things: the build** (the owner's
+picks, all recommended; builds D-900) Only the tiles D-900 names are
+low; deposits, copper veins, a wild campfire, the lamppost and the
+miners' camp still stop a flyer (offered too: each of those). Walking
+into a flyer over a low thing strikes it, as over water (offered too:
+it can't be reached there). Each low tile, water too, is marked `low`
+in the registry (offered too: a list in the creature code). Only the
+in-game history tells of it (offered too: the Bestiary's words too).
+Claude's call: a flyer knocked by the Warden's Fist into a low thing is
+stopped as by a wall, as before.
+
+**D-921 · 2026-11-14 · The round map's rim shows danger** (the owner's
+picks from a mock-up, all recommended; answers Q-109) While any creature
+in the room is chasing the hero, near or far, the round map's rim turns
+the creatures' red, solid and thicker, and pulses slowly (steady with
+reduced motion). Else, while one is close to noticing them, the rim shows
+a broken ember ring, so the two differ in shape too, for colour-blind
+players (offered too: colour only; an arc toward the creature). Close to
+noticing: one that comes for the hero, awake, that would notice them
+where it stands or from a free tile one step nearer, by its own rules
+(light, near, Soft Step, the Shade Draught, its sight); ones that seek
+light, lure or only spit never count (offered too: within 4 tiles; red
+only for now). Always on (offered too: a setting). Flyers into trees
+(D-900) is next. D-920 moves to `archive/DECISIONS-SURFACE.md`, word
+for word.
+
+**D-899 · 2026-11-14 · The hero may cut a room** (the owner's pick; not
+the recommended: only while the stairs and doorways stay in reach;
+offered too: as now) A thing set down may cut a room in two, and a tree
+may grow back on its stump though it cuts the room; chopping (or
+digging, Q-106) is the way through. Its own step; that step marks what
+it changes in D-317 and D-322.
+
+**D-922 · 2026-11-14 · Flyers into trees** (the owner's picks; builds
+D-900) A hurt lampmoth or bat that flees, an inner tree beside it, goes
+into the tree instead of flying off; at dawn, a night one beside such a
+tree goes in instead of going (offered too: now and then, unnoticed; the
+lure wisp too). Only trees the hero can chop, never the woods' ring
+(offered too: any tree). The tree gives a small leaf shake now and then;
+the first chop drives the flyer out beside it, after the hero (offered
+too: no sign; out only when the tree falls). Claude's calls: one flyer a
+tree; out on the free tile nearest the hero, stirring a turn as one
+woken does; with none free it stays in until the tree falls; driven out
+by day it stays; an earlier night's go at nightfall; with reduced motion
+the crown leans a pixel, still. D-900, D-901 and D-921 move to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-924 · 2026-11-14 · Cutting a room** *Superseded in part by D-934 (2026-11-15): a felled tree's Wood lies as one stack on its stump.* (D-899's step, the owner's
+picks, all recommended; supersedes in part D-317 and D-322) Anything set
+down (bench, chest, bed, garden bed, shelf, mortar, torch, glow lamp,
+campfire, bedroll) may cut the room in two; Deconstruct takes it back,
+and a torch or lamp burns out. A tree grows back on its stump though it cuts the room. With no room in
+the bag, the fourth bump fells a tree all the same, its 3 Wood on the
+stump and the nearest open tiles, saying "You can't carry more wood."
+(offered too: only when it walls the hero in; as now). A deposit still
+never grows back across a room (D-313; offered too: it may). One step.
+D-899 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-925 · 2026-11-14 · Creatures through doorways** (the owner's picks;
+answers Q-107; supersedes in part D-132) A creature that chases (the
+rat, gloamling, both mimics, bone rat, oil tick, centipede, rim lurker;
+not the warden, which keeps to its vault) and is chasing, within 3
+steps of where the hero leaves by a doorway, edge, the cave mouth or
+stairs, follows: stairs are no longer a sure escape (offered too: chasers
+and light-seekers; rats only; right behind only; any chaser later;
+stairs stay an escape). It comes in as many turns after the hero as it
+was steps away (the owner's own answer), on the tile the hero came in
+by, or the nearest free tile to it, chasing. Should the hero leave first,
+it gives up: a coin toss puts it in the room it left or the one it was
+coming into, on a random free tile, not chasing (the owner's own answer).
+No warning; the round map's rim stays red while one is on its way.
+Claude's calls: it comes after the creatures' turn, so acts the turn
+after; steps count by walking, round walls; the scorpion and the mole
+don't follow, as they weren't named; a fall gives them all up. D-922
+moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-926 · 2026-11-14 · The shovel** (Q-106's first step, the owner's
+picks, all recommended) The Shovel is made on the workbench's BUILD tab,
+its last slot, from 3 Wood and 2 Stone, a turn; only 1 carried; held in
+the Tool slot, the Stone Pick's way. Look A: a wooden handle with a
+T-grip and a flat grey stone spade. Held, walking onto a stump digs it
+out instead, a turn, the hero staying put: plain grass for good ("for
+now", the owner's words; offered too: dug earth), and the tree waiting
+to grow back there never does. A standing tree is not dug (offered too:
+4 bumps, no stump). Offered too: the shovel alone. Claude's calls: the
+last slot, so the others keep their places; its lines; the `sow` sound
+for a dig. The sapling stays in Q-106; the owner's idea of digging up
+buried things is Q-108. D-924 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.
+
+**D-927 · 2026-11-14 · L3, the dark door** (the owner's picks; builds
+D-890; answers part of Q-105) A rune-wall nook: one a floor from depth 1,
+in one ordinary cave room below ground the seed picks, never the
+surface, the vault, the peddler's, home or a waystone's room (offered
+too: a second vault kind; both; about 1 floor in 2; from depth 2; below
+ground and the surface at night). A wall tile in the room's edge carries
+faint violet runes, seen across the room along a clear line while the
+lantern is off and not in daylight, lighting nothing, hidden while it
+burns (offered too: within 3 tiles; only next to it). Bumped lit, it
+says a line, Claude's draft the owner may change: "Faint marks, too pale
+to see by lantern light." Bumped dark, it sinks open for good, costing
+no oil; one bump solves it, so nothing resets (offered too: a carved
+frame shown when lit). Behind it, 1 tile set into the wall holds a
+vault's prize draw on a plinth, "there will be more options to choose
+from later" (the owner's words; offered too: a 3-tile pocket; a small
+room; 1 rare material; oil; lore pages). Built in 2 steps: the nook and
+its runes, seen only in the dark, with a mock-up of the look; then the
+dark bump opening it and the prize (offered too: 3 steps; 1). Its name,
+lines, look and which tile of the edge are the build step's. D-925
+and D-926 move to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-929 · 2026-11-15 · The rune wall opens** (L3 step 2, the owner's
+picks, all recommended; builds D-927, D-928) Bumped dark from the tile in
+front of its face, the rune wall becomes the room's plain floor, a 1-tile
+gap, and the tile behind it a plinth with a vault's prize draw (offered
+too: a framed rune doorway; the vault's open door). Its line: "The runes
+flare, the stone sinks away." (offered too: "The wall sinks open."; "The
+stone slides back into the dark."; first drafted with "and", too wide for
+the strip). No sound yet, as the vault door's (offered too: the dig's).
+The runes are gone once open (offered too: stay faintly). D-927's lit line
+said a sentence a bump, "Faint marks." then "Too pale to see by lantern
+light.", too wide whole (offered too: "Faint marks, too pale for lantern
+light."). Claude's calls: from the side it is a wall as any other; a
+turn, no oil; the plinth set as it opens, so a room seen before opens the
+same; each floor's prize its own draw. D-907 moves to
+`archive/DECISIONS-CARDS-2.md`, word for word.
+
+**D-799 · 2026-11-10 · The finds plan** (the owner's picks, all
+recommended, from a plan page: https://claude.ai/artifact/GnPo6RnybF7g6ogTdiET6y;
+narrows Q-061 and Q-093) Each find kept for crafts later gets one first
+use, with more uses free to come later: Crab Shell, the Shell Vest
+(D-801); Grub Skin, a Spitproof Draught; Bunny Fur, a Fur Bedroll for
+sleeping out; Bat Wing, an Echo Charm showing creatures in the dark
+near by; Lurker Claw, a Shade Draught, creatures noticing the hero only
+near; Rat Bone, a Bone Hook for the rod; Glow Gland, a Glow Lamp, a
+longer torch; Bat Fang, a Fang Charm, a heart back now and then from a
+beaten creature; Mole Claw, the Mole Claw Pick. With later steps: Oil
+Bladder, the lantern's first tank; Gloam Eye, its first glass, showing
+creatures in disguise; Stinger, a Stinger Spear poisoning creatures;
+Venom Sac, a Venom Oil for weapons. Kept for later too: Bunny Fur, a
+warm lining; Bat Wing, arrows' fletching; Stinger, arrowheads; Rat Bone,
+a Bone Club; claw weapons. They are built one a step, in that order,
+each one's numbers settled at its step (the plan's are drafts). The
+owner's wish for weapons (Q-094): a switch to show creatures' coming
+attacks and one to show the hero's. Others offered: two or three a PR;
+a waterskin, a Bat Wing torch, a Sting Salve, Bone Meal, a Tick Charm,
+an Eye Charm, a Wayglow, a Mole Charm, a long Ward.
+
+**D-940 · 2026-11-15 · The Lampeater's arena, standing empty** (D-939's
+step 1; the owner's picks and idea; [mock-ups](https://claude.ai/artifact/LAE4r9ZW5deNvqUc32rBui))
+On depth 8 the way ends in a hallway and, straight above it, the arena;
+nothing else joins either (offered too: the stairs room as the arena,
+one way in, its stairs seeping gloam or between watch flames; the
+stairs room as it is; a room past the end). The way is a room longer,
+up to 2 more where depth 8's stairs up sit near the grid's top, as the
+hallway is entered from below (Claude's call). The arena, one cell (offered
+too: a hall; a large room), is the seal hall: a cold brazier in each
+corner, 4 pillars round the middle (offered too: an open floor; the
+crossing). The owner's idea: at its top a sealed door, the stairs down 3
+tiles behind it in a ring of seal stones, the Lightkeepers' old seal;
+beating the Lampeater will open it, so it stands between the hero and
+depth 9 and Growth's second row. Until then the 4 braziers lit sink the
+door, as a vault's do (offered too: open; sealed now), cold again if left
+first (offered too: burning on). The hallway is the processional
+(offered too: the eaten road): a road 3 wide, seal stones down its
+middle, pillars along its sides, 2 cold braziers where it starts, bending
+once, an open stone door into the arena (offered too: a plain gap).
+Nothing else in either. The Pillar and the Seal stone, names Claude's
+draft. Old saves make every room from depth 8 down again. D-929 moves to
+`archive/DECISIONS-SURFACE.md` and D-937 to `archive/DECISIONS-RELICS.md`,
+word for word.
+
+**D-941 · 2026-11-15 · The Lampeater standing in its arena** (D-939's
+step 2; the owner's picks, all recommended but where it stands;
+[mock-ups](https://claude.ai/artifact/8HL2d5eZpf97Ki31Ukg4zn))
+Look A, the pool: a low mound of gloam on one tile, a ragged dripping
+edge, a dark mouth, pink eyes, in three new deep violets (offered too: B,
+the swallowed light, a hunched shape with a stolen flame inside; C, the
+reaching shade, two arms of gloam). Its eyes alone glow over the dark,
+in the lure wisp's halo turned violet. It waits pooled near the sealed
+door: on the tile below the door's own tile, as the door can only be
+reached from there (offered too: beside the door's tile; on it, slipping
+aside as the door sinks; in the middle), and blocks its tile. For now it
+never moves or bites, and every blow, sting, glob or slam sinks into it,
+hurting nothing, "Your blow sinks into the gloam." (offered too: no bump
+at all). Claude's calls: no hit flash, the swing's puff for a sound, no
+hearts shown yet, the Fist knocks it nowhere. Until it can be beaten the
+4 braziers still sink the door (offered too: sealed till then). Its
+Bestiary page is the Warden's kind: met when lit, the grey hints till
+beaten, how to fight it after 1 (offered too: a line of who it is from
+the start; not listed till beaten); its words are written at step 9, so
+for now they say only what it does. An arena made before gets it once.
+D-938 moves to `archive/DECISIONS-RELICS.md`, word for word.
+
+**D-943 · 2026-11-15 · The Lampeater moves through the dark** (D-939's
+step 3; the owner's picks, all recommended;
+[mock-ups](https://claude.ai/artifact/PRwWXsBaHUw6jGx24ZT84s))
+It moves a tile a turn only over dark tiles, never onto a lit one, the
+gloamling's way: it sees the hero along a clear line, lit or not, so with
+the lantern lit it comes to the light's edge and waits there (offered
+too: only while the lantern is off; always, anywhere in its arena). Light
+falling on it, it slides back into the dark beside it farthest from the
+hero (offered too: it stays still until the light leaves). Beside the
+hero in the dark it doesn't bite yet: its bite and its number come with
+step 4 (offered too: it bites for 1 now; for 2). Losing the hero, it
+drifts back through the dark to its place below the door (offered too:
+it stays where it lost them). Claude's calls: lit braziers cut off its
+dark as any light does; it never leaves its arena; its Bestiary line
+says "Moves only through the dark, never onto a lit tile."; the 4
+braziers still sink the door.
+
+**D-944 · 2026-11-15 · The Lampeater caught in light** (D-939's step 4;
+the owner's picks, all recommended;
+[mock-ups](https://claude.ai/artifact/LA82nxtXbNpgENs4DwW5VD))
+Light falling on it, the lantern's or a brazier's, it is caught: held
+where it stands for its next turn, then it slips back into the dark as
+before, so a catch gives 2 blows (offered too: no hold, 1 blow; two
+turns, 3 blows). Only while it is lit do blows hurt it; in the dark they
+still sink. It has 8 hearts, shown on its plate (offered too: 6; 10), and
+bites for 2, only in the dark beside the hero (offered too: 1; 3). Caught,
+it burns: its gloam paled, its eyes white-hot, a ring of flame creeping
+round it (offered too: smoking; eyes only). Claude's calls: lines "The
+Lampeater bites!" and "Caught in your light, it can't move!"; a blow that
+hurts it flashes and hits as any creature's; the gloamling's bite sound
+until step 12; a sting, glob or slam still sinks, the Fist knocks it
+nowhere; beaten, for now it is simply gone (step 9 brings the rest); the
+4 braziers still sink the door; its Bestiary lines say the new rules.
+
+**D-945 · 2026-11-15 · The Lampeater pinned** (D-939's step 5; the
+owner's picks, all recommended;
+[mock-ups](https://claude.ai/artifact/DqDaqWmYgD7JzVDMBzkDAR)) Caught
+with no dark tile beside it, it is pinned: held 2 more turns, then it
+bursts free across the light toward the nearest dark, a tile a turn, and
+can be pinned again once back in the dark (offered too: held as long as
+boxed in, as the code did, lantern off and all; held while the lantern
+is lit). It still backs out through the lantern's light, never another
+(offered too: no light at all, so nearly every catch pins). Pinned, it
+burns as when caught and says "Pinned in the light, it can't slip
+away!" once (offered too: the ring closing; with a dot a turn left); the
+draft "Pinned between the lights" was too wide for the strip (Claude's
+call). Claude's calls: its Bestiary line adds "With no dark beside it,
+it is pinned."; the 4 braziers still sink the door. D-942 moves to
+`archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-946 · 2026-11-15 · The Lampeater drinks from your light** (D-939's
+step 6; the owner's picks, all recommended;
+[mock-ups](https://claude.ai/artifact/Q1D6GPLiHo2Q5JCUefYT27)) Each
+turn it waits in the dark beside a tile your lantern lights, seeing you,
+lantern lit, moved or not, it drinks 1 turn's oil from it, so the
+lantern burns twice as fast; less oil, less reach, and it creeps in
+after the shrinking light (offered too: B, your light itself, 1 tile
+every 3 turns, back when it stops; C, 1 tile off while it drinks; 2
+turns' oil; the tick's 5%; only when you stand still; only within 3
+tiles). Shown by a thread of light from the edge into its mouth, the oil
+bar's flicker and the tick's sip, and "The Lampeater drinks your light."
+the first time. Claude's calls: only the lantern's light, never a
+brazier's; never while caught or pinned, or with the lantern off or
+empty; Endless oil takes none (D-626); its Bestiary line adds "At your
+light's edge, it drinks from it."; the 4 braziers still sink the door.
+D-940 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-947 · 2026-11-15 · The Lampeater snuffs your braziers** (D-939's
+step 7; the owner's picks, all recommended;
+[mock-ups](https://claude.ai/artifact/CJnP1mQfSUdKkLwpm9wDtZ)) The first
+time it is down to 4 of its 8 hearts (6 of 12 by D-950) it owes a snuff, and another each
+time it gets free from a catch or a pin begun after that (offered too:
+then every 10 turns; only once). Owing one, in the dark and not caught,
+it breathes from where it is on the lit brazier nearest it (offered too:
+the one nearest you; at random): the flame shudders 2 turns, the tile
+ringed red, a dot a turn left, violet breath from its mouth to it; then
+the brazier is cold, a curl of smoke rising (offered too: 2 turns and
+nothing stops it; no warning). Caught in light before then, the breath
+stops; still owed, it tries again once free, the catch owing one more.
+Lines "The Lampeater breathes on a brazier." and "The brazier gutters
+out." (offered too: one line; none). Claude's calls: with no brazier lit
+it waits, owing; a snuffed brazier is lit again as ever, 5 turns' oil
+(D-893); the lantern's gutter for a sound until step 12; its Bestiary
+line adds "At half its hearts, it snuffs your braziers."; a sunk door
+stays open. D-941 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-948 · 2026-11-16 · The boss test bench** (the owner's ask and picks,
+all recommended; [mock-ups](https://claude.ai/artifact/79t25efmNPsBj1M1F6SLhu))
+A way to start the Lampeater's whole fight again and again: a Boss tab in
+the dev sheet, its buttons starting the fight afresh, just inside the
+arena's door, the Lampeater whole and the braziers cold, or at half (4
+hearts, 3 braziers lit), a dev jump, no turn passed; a #lampeater link
+on the playtest opening straight into it, Middling, kept nowhere; and a
+bot, `tools/bossrun.js`, that plays it on many seeds and prints one line
+a fight, run at every Lampeater step (offered too: one of these alone).
+Three rough builds (offered too: Middling only; your own kit): Lean, 5
+hearts, Knife, 1 Oil Flask; Middling, 7 hearts (Steady Wick, 2 Heart),
+Spear, Rat Hide Vest, 3 flasks, 1 Mending Draught; Strong, 10 hearts
+(row 1 and 5 Heart), Warden's Fist, Shell Vest, 5 flasks, 2 Mending, 1
+Ward Draught; full oil each. The bench first, step 8 next (offered too:
+both together; step 8 first). Claude's calls: two rows of three buttons,
+From the start and At half, not a switch; the left-out brazier at half is
+the bottom right. D-943 and D-944 move to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-949 · 2026-11-16 · Gloamlings from snuffed braziers, picked** (D-939's
+step 8; the owner's picks, all recommended; built next, at its own step;
+[mock-ups](https://claude.ai/artifact/79t25efmNPsBj1M1F6SLhu)) One
+gloamling crawls out of each brazier the Lampeater snuffs (offered too:
+at most 2 alive; a cold brazier breeding every 8 turns), onto a dark tile
+beside it, the seeded dice picking, waiting in the bowl while none is dark
+(offered too: the tile nearest you; beside the Lampeater); a plain
+gloamling that drops nothing (offered too: its drops; a smaller 1-heart
+one); "A gloamling crawls out of the ashes." the first time (offered too:
+every time; none). Claude's calls, from the page: no Records, Feat or
+Bestiary count; it acts from the next turn; it never leaves the arena;
+the gloamling's own sounds; the Lampeater's Bestiary line adds "Gloamlings
+crawl from the braziers it snuffs."
+
+**D-950 · 2026-11-16 · The Lampeater on 12 hearts, for now** (the owner's
+pick, recommended; answers part of Q-111; changes D-939's step 3's 8
+hearts, D-947's half and D-948's At half) The Lampeater has 12 hearts,
+not 8; its bite stays 2, its pin 2 turns, its drink as it was (offered
+too: 16 hearts; 12 and a bite of 3; 8 until after step 9). The bot's
+200 fights: Lean won 32% (was 100%), Middling and Strong all, about 26
+turns (was 19), and it snuffs about once a fight (was almost never). To
+be tuned again once there are gloamlings or more before the boss, and so
+a stronger hero. Its own step, before step 8. Claude's calls: its half
+and the bench's At half follow its hearts, 6; D-945 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-952 · 2026-11-16 · The audit's bugs F-6 to F-8, the fixes** (the
+owner's picks, all recommended; fixes F-6, F-7, F-8) F-6: a catch begun
+on the turn the Lampeater is halved counts as begun after half (D-947),
+so getting free from it owes one more snuff (offered too: keep it as
+"the catch it was halved in"). F-7: the spear's blow on the one behind
+and the Warden's Fist's knock into another are marked `sank` too when
+they sink into the Lampeater, so it neither flashes nor counts as hit;
+the creature in front still flashes (offered too: no flash for any
+creature whose hearts didn't drop). F-8: a New journey, or a profile
+loaded, after the #lampeater link's fight saves again; the link's fight
+itself is still kept nowhere (D-948) (offered too: reload the page
+without the link on leaving the fight). The bot's fights are the same
+before and after.
+
+**D-953 · 2026-11-16 · The Lampeater beaten, and whole again** (D-939's
+step 9, its first part; the owner's picks, all recommended but the last)
+Step 9 is split: now the door and the fall; the way in sealed, the
+one-off Feat and the trophy each at its own step later (offered too: the
+door now and the fall next; all of step 9 at once). Only beating the
+Lampeater opens the arena's sealed door, which sinks open at once; the 4
+braziers lit no longer do, so the fight can't be skipped (changes D-940's
+"until then"; offered too: either one; beaten and all 4 lit). The
+gloamlings left crumble away as it goes, counting nothing (offered too:
+they stay and fight). Left unbeaten, by a fall or by walking out, it is
+whole again when the hero comes back: on its own tile, all 12 hearts, the
+braziers cold, the gloamlings gone (the owner's pick: the same as a fall;
+offered too: only a fall; the way in sealed now). The owner's ideas for
+the sealed way in are kept in Q-112. Claude's calls: the vault's line and
+`open` event for the door; a level gained on the same blow shows its own
+line in the door's place, as ever; its Bestiary words unchanged. D-948
+moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-954 · 2026-11-16 · The rest of step 9, in order; 0.4.0; chapters**
+(the owner's picks, all recommended but the last; answers part of Q-112)
+The rest of D-939's step 9 comes one step each: the one-off Feat first,
+then the sealed way in (Q-112), then the trophy (offered too: the sealed
+way in first; the way in, then Leap, the rewards later). The trophy waits
+for creature materials (Q-061) and comes as the first of all trophies, at
+the workbench, hung at home, as D-466 has it (offered too: the material
+now, the trophy later; straight from the fight). Version 0.4.0 comes when
+the way to depth 9 opens: the Lampeater's steps all done, through Leap,
+the escape, its sounds and lore and the Leap gaps (offered too: at the
+first step of biome 2; once the fight is done). The surface and depths 1
+to 8 are **chapter 1**, from the surface to its boss; D-635's four
+stretches of 8 floors are the four chapters, and the crypt, warrens and
+dungeon are each a biome, a look of their own (offered too: biome 1 as
+it was, its areas inside; the surface split off). Claude's calls: new
+text says chapter where old text said biome for a stretch ("chapter 1's
+boss"); old lines keep "biome 1", read as chapter 1, until the next
+audit offers to change them. D-949 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.
+
+**D-955 · 2026-11-16 · The Lampeater's one-off Feat** (the owner's
+picks, all recommended; builds D-467, D-695, D-939, D-954, part of
+Q-083) Beating the Lampeater once reaches a one-off Feat named
+Lampeater, its Bestiary name, paying 3 Glints, one look's price (offered
+too: Chapter 1; Lampeater beaten; 6 or 1 Glint). On the Feats tab it is
+a row of its own below the six, after a small gap: the name grey, no
+count, one mark on the right, gold once beaten; its name stays out of
+the counts' column, so nothing moves on the upright card (offered too: a
+row like the others, "0 of 1"; the same row under a heading "Once"). The
+row shows once the Lampeater is met, as the Bestiary (offered too:
+always; only once beaten). Claude's calls: it reads the Bestiary's
+beaten count, so a Lampeater beaten before this pays too, and the boss
+bench, a dev jump, never; the note says "Feat reached: Lampeater. +3
+Glints.", waiting behind the door's line and joining a tier reached on
+the same turn (D-719); the screen reader says "Lampeater, reached" or
+"not yet". The Feats now pay 39 Glints. Next, the sealed way in (Q-112).
+D-950 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-956 · 2026-11-16 · The Lampeater's way in sealed** (the owner's
+picks, all recommended, and the hallway's warning; answers part of
+Q-112; builds D-939, D-940, D-953) One step inside past the arena's way
+in, with the Lampeater there, a sealed door rises in the gap behind the
+hero, the same door as the one at the top (offered too: as soon as you
+enter; once the fight begins). Standing in the gap, the hero can still
+step back out. The line "The way behind you seals." (amber), and coming
+into the hallway from below while the Lampeater is unbeaten, "The seal
+hall: once in, no way back." (amber; Claude's draft, cut to fit the
+strip from "The seal hall lies ahead. Once inside, there is no way
+back."). Beaten, every sealed door sinks open, the way in too; fallen,
+the way in is open again with the Lampeater whole. The cutscene, then
+the hallway's quiet and the boss tune, each its own later step (offered
+too: a short pause now, or none; the quiet hallway now, or both now).
+Claude's calls: a `seal` event, no sound until the vault door's (D-895);
+the warning each time, not only the first. The boss bot's 100 fights
+are the same before and after. D-952 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-957 · 2026-11-16 · The Lampeater's cutscene** (the owner's picks,
+all recommended, with the owner's own ideas for skipping and the boss's
+name and health; answers part of Q-112; builds D-956) The first time on
+a journey the way in seals, a cutscene of about 3 s: the camera zooms
+in on the door as it rises out of the floor, glides up to the Lampeater,
+whose eyes flare as its body swells once and settles, then zooms back
+out to the hero (offered too: no camera move; the door only). Black
+bars slide in at the top and bottom, and the panel, map, lantern and
+arrow pad fade out till it ends (offered too: the controls fade only;
+nothing). No skip: taps, clicks and keys do nothing while it plays, so
+nothing is skipped or opened by accident (the owner's worry; offered
+too: hold to skip; a tap skipping it). Every later seal, the door rises
+only, about 1 s. The owner's idea: the boss's name and health shown on
+screen, as most games do: its own next step, a thin bar in its
+pink-violet emptying as it is hurt, "Lampeater" above it, bottom middle
+above the text line, from the cutscene's end through the fight, gone
+once it is beaten or the hero leaves or falls (offered too: 12 small
+hearts; a bar and a number; top middle; this step; in the cutscene
+only). Claude's calls: the zoom in is about 7 tiles across the screen's
+short side, and the camera may go past the room's edge while zoomed in,
+so each shot is in the middle; "The way behind you seals." waits till
+the cutscene ends; no sound, as D-956; with reduced motion the shots
+cut instead of gliding, the door is simply there and the eyes flare
+with no swell; `sealSeen` on the journey marks it seen. The fight is
+unchanged, so no boss-bot run. D-953 and D-954 move to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-958 · 2026-11-16 · The boss bench at the sealed door** (the
+owner's ask; changes D-948's start) The boss bench, from the dev sheet
+or the playtest's #lampeater link, puts the hero in the arena's way in,
+where walking in from the hallway puts them, so the first step up seals
+the door behind them; and it forgets the cutscene was seen, so it plays
+each time. Claude's calls: at half too; the boss bot starts there as
+well, so its fights match a real way in: over 400 fights Lean wins 34%
+(26% from one step further in), Middling 97% (the same), noted in Q-111.
+
+**D-959 · 2026-11-16 · The Lampeater's name and health bar** (the
+owner's picks, all recommended; builds D-957; part of Q-112) While the
+arena's way in is sealed, from the cutscene's end, the Lampeater's name
+and hearts show bottom middle, above the text line: "Lampeater" in bone
+white over a thin bar, on the same dark glass as the text line, the bar
+running from the eyes' pink to the haze's violet (offered too: pink and
+plain, no glass; pink with no glass and the pale loss). Hurt, the part
+lost turns pale, waits a moment, then drains away in about half a second
+(offered too: it drops at once; it drops with a white flash). A blow
+that sinks into it flickers the bar grey, still full (offered too:
+nothing). The bar stays put, above room for a two-row line, so it never
+jumps when a line comes and goes (offered too: dropping into the line's
+place when none shows). Claude's calls: 96 pixels long; faint while the
+hero stands under it, as the panel is (D-444); beaten, the last loss
+drains to empty and the bar fades; left or fallen, it goes at once; hidden
+under a card and in the cutscene; with reduced motion no pale piece, no
+fade, and the grey a steady moment. The fight is unchanged, so no
+boss-bot run. D-955 and D-956 move to `archive/DECISIONS-SURFACE.md`,
+word for word.
+
+**D-960 · 2026-11-16 · The hallway's quiet** (the owner's picks, all
+recommended, and the owner's ask for the bench; part of Q-112; builds
+D-956) While the Lampeater is unbeaten, no music plays in its hallway or
+its arena: the dungeon's theme fades out over 2 s, as at any change of
+place, as the hero steps into the hallway, and stays gone in the arena
+till the boss tune's step fills it (offered too: the hallway only; quiet
+even once beaten; a slow fade of about 6 s; a cut). Beaten, the dungeon's
+theme comes back in both; stepping back down out of the hallway brings it
+back too. The owner's ask: the boss bench, from the dev sheet or the
+playtest's #lampeater link, starts the hero in the room before the
+hallway, one tile below its way up into it, that room's creatures gone, so
+the whole way up plays: the warning, the quiet, the seal, the cutscene
+(offered too: that room as made; just inside the hallway). Both From the
+start and At half; the arena waits as the bench makes it. The boss bot
+still starts in the arena's way in, so its fights match D-958's (offered
+too: below, as the bench). The fight is unchanged, so no boss-bot run.
+D-957 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-961 · 2026-11-16 · The Lampeater's boss tune** (the owner's picks,
+all recommended; answers the last of Q-112; builds D-960) From a board of
+8 busy, dark tracks from the same bundle, measured from all 138 (the
+Troubadeck set and the five tunes already playing left out), track 1,
+"Ludum Dare 28 08" (2 min 17 s, G minor, steady and pressing) plays in
+the Lampeater's arena while its way in is sealed (offered too: Ludum Dare
+32 01, Ludum Dare 28 01 and five more). It starts at once, at full, with
+the door rising, under the cutscene (offered too: fading in over 1 s;
+after the cutscene). Beaten, it fades out over 2 s and the dungeon's
+theme comes back a second later, as at any change of place (offered too:
+4 s of quiet first; a cut). Its own line in Music's list, Lampeater,
+after Dungeon (offered too: under Dungeon's line; no line). Claude's
+calls: it starts from its beginning at every seal; as loud to the ear as
+the others (0.27); left by a fall, it fades out over 2 s as at any
+change of place; fetched ahead in the quiet hallway so it is ready at
+the seal. The fight is unchanged, so no boss-bot run. D-958 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-962 · 2026-11-16 · Leap, its first step** (the owner's picks, all
+recommended, and the owner's change to where it is kept; builds D-636,
+D-939, D-954) Beating the Lampeater gives Leap, said with its door: "The
+door sinks open. You learn Leap." From then the hero can leap 2 tiles in
+a straight line, landing on the second, one turn, like a step (offered
+too: only learnt, no use yet; a first pit with it; a turn and some oil;
+a turn, then 3 turns' rest). The tile between can be open floor, a
+creature or a low thing (water, rubble, the bench, a brazier), never a
+wall or a tall solid thing (offered too: floor and creatures only;
+anything but walls). A round Leap button on the lantern's arc, left of
+the quick slot, shown once Leap is learnt: a tap gets a leap ready,
+"Leap which way?", its arc turning amber, and the next way picked (a
+swipe, the arrow pad, a tap toward a way, the arrow keys) leaps; tapped
+again, or a tap on the hero, lets it go; J does the same (offered too: a
+tap on a tile 2 away, Shift + arrow; both). Leap is kept on the journey
+only, never the profile: a new journey, or a hardcore fall's fresh
+start, has to earn it again (the owner's change; Claude had offered it
+on the save, as the Feat). Claude's calls: blocked, it is free, "No room
+to land." or "Too tall to leap over."; landing takes what lies there and
+stairs, as a step; no leap across a doorway into the next room yet; a
+level reached on the same blow says "Level {n}. You learn Leap."; the
+hero rises 7 pixels at the middle over about a quarter of a second, a
+shadow left on the ground, and simply lands with reduced motion; no
+sound till its sounds' step; the dev sheet's Hero has a Leap switch.
+The fight is unchanged, so no boss-bot run. Next, the escape. D-959 and
+D-960 move to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-951 · 2026-11-16 · The seventeenth audit** (the owner's picks, all
+recommended) At 0.3.393, nothing visible changed. The in-game history's
+0.3.301 to 0.3.350 go from `history-0.3.js` to a new
+`src/core/history-0.3-6.js` (52 KB to 24 and 28; offered too: the place
+and people lines out of `lines.js`; a section out of `main.js`). The
+playbook's lines since the last audit, and the one 0.3.390's PR kept, go
+to a new `WORKFLOW-7.md`; the hero to a new `GLOSSARY-HERO.md`; the
+creature list to a new `CONTENT-CREATURES.md` (its test and
+`tools/make.js` follow it); D-946 and D-947 to
+`archive/DECISIONS-SURFACE.md` (offered too: D-948 and D-949 as well;
+none); all word for word. "Waiting on the owner" is on fewer lines. A
+bug hunt reads the code since 0.3.353: three findings, F-6 to F-8 in
+`BUGS.md`; which to fix, and when, is the owner's pick (the owner was
+away; the owner asked that the audit be merged once done). The next
+audit is at 0.3.433.
+
+**D-968 · 2026-11-17 · The first Leap gaps** (the owner's picks, all
+recommended; builds D-463, D-650, D-954, D-962, D-967) The first gaps go
+above depth 8, seen before Leap and reached once the Lampeater is beaten:
+the locked door shown before its key, the owner's reason; gaps below
+depth 8 come at a later step (offered too: both at once; below 8 only).
+From depth 5 to 8, one dead end a floor has its cache behind a line of
+Gap tiles, its finds in sight across it (offered too: a chest on a
+ledge; a short cut over a loop; from depth 7 or 1; about half the
+caches, or every one). Claude's calls: the line is a straight run of
+open floor, up to 4 tiles along a row or a column between walls, that
+leaves every find out of walking reach, every one reached by a leap and
+within 4 tiles, in sight; the nearest the finds wins; nothing stands on
+it; the floor's dead ends are tried in the seed's order, and where none
+fits the floor has none (about 4 floors in 10); never in a waystone's,
+the peddler's or the locket's room; rooms
+already kept in a save keep their shape, so no hero is shut behind a new
+gap; the Gap's look and its line, "Too wide to step across.", as at the
+arena (`leapgap.js`). Next, what lies across (Q-115). D-964 moves to
+`archive/DECISIONS-SUPERSEDED.md`, word for word.
+
+**D-967 · 2026-11-17 · No falling ground in the boss fight** (the
+owner's choice, then the rest recommended; supersedes D-963 to D-966) Offered: the hall's floor falling in behind the hero, a row a
+turn, never their row or the door's two tiles; the owner asked how a
+later trip would get back down past a fallen hall, then chose no falling
+ground at all, saved for another time (offered too: a narrow road left
+standing; the hall whole again later; it stops at the Gap). Beaten, the
+Lampeater's door sinks open and the seal stones stand, the gap round the
+stairs gone too: the hero walks through the door and over the stones
+onto the stairs, or leaps from the door (offered too: keep the Gap
+only). The last blow says "The door sinks open. You learn Leap." The
+work is kept in the code, unused (offered too: notes only): the Gap
+tile, `floorGives` in `beaten.js`, its crumble, shake and sound, and its
+Settings line; for a later falling floor such as T4, the collapse. Next,
+the first Leap gaps. Claude's calls: a journey saved with the Gap
+already there keeps it, leapt as before. D-951 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
 
 **D-969 · 2026-11-17 · What lies across a Leap gap, its first step**
 (the owner's picks, all recommended; answers part of Q-115; builds
