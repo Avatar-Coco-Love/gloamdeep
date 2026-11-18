@@ -20,7 +20,8 @@ CSS and JavaScript, with everything drawn in code; sounds come from files (D-773
   owner's wish, Claude builds its own recommended fix for each finding
   without asking, keeps to what the finding and the decisions already
   say (nothing new invented), and lists every pick in the PR and the
-  handoff, so the owner can change any before merging.
+  handoff, so the owner can change any before merging. What really
+  matters, such as a gameplay ruling, is still asked.
 - Never invent mechanics, story, names or numbers that are not in
   `docs/DECISIONS.md` or its archive files (`docs/archive/README.md`).
   If something is missing, add it to `docs/OPEN-QUESTIONS.md` and ask.

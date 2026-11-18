@@ -8,7 +8,7 @@ changed. The owner picks which become steps; each step works as before
 a recommendation, and builds only the owner's pick. "Suggests" is
 Claude's recommendation, not a decision. Since 0.3.422 (D-980), the
 owner's wish, Claude builds its recommended fix at each step without
-asking, and lists its picks in the PR. Numbered on from the first two
+asking, and lists its picks in the PR; gameplay rulings are still asked. Numbered on from the first two
 checks, never reused. How we work (reading less, each PR costing less)
 is in `HEALTH-CHECK-3-WAYS.md`; the working notes, with every dropped
 finding and why, in `archive/HEALTH-CHECK-3-NOTES.md`.

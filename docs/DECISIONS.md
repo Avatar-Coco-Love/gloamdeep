@@ -124,8 +124,9 @@ fix for each finding, keeps to what the finding and the decisions
 already say, invents nothing new, and lists every pick in the PR and the
 handoff, so the owner can change any before merging. Merging stays the
 owner's call, one step a conversation as before. `CLAUDE.md` says it
-too. The five rulings (H-71, H-75, H-78, H-79, H-81) are Claude's
-recommendations, listed the same way.
+too. Changed before the merge, the owner's words: not a rule never to
+ask; what really matters, such as the five gameplay rulings (H-71, H-75,
+H-78, H-79, H-81), is still asked, as multiple choice.
 
 **D-981 · 2026-11-18 · Reading less** (Claude's picks, hands-off, D-980;
 H-87 to H-93, the first fix suggested for each) Moved word for word:
