@@ -841,3 +841,47 @@ Looked at: slam, Fist, harder Warden, vault (layout, braziers, door, prize, save
 - Vault: 88 layouts (2 sizes, 4 openings, every gap spot) pass a flood check: both braziers reachable, the plinth unreachable while sealed and reachable once open. 3,512 vault floors over 300 seeds: all empty, all with a prize, never the rune wall's, the Leap gap's or a stairs room. Half-solved then saved and loaded keeps one lit; leaving cools it; solved keeps all lit and the door open. Prize taken twice gives nothing the second time; a full bag keeps it, free; one free slot takes both. Played in the browser (iPhone 13): ask card, both braziers, door sinks open, "A mole claw!", then "A bare stone plinth." No page errors.
 - Rune wall: 3,500 floors, every face has plain floor, the nook is walled, and the front tile is walkable from the room's start.
 - Slam: edge, doorway, wall, creature, person, water, bones, 1-heart death all as D-887 says. Follow list matches D-925 (warden, scorpion, mole do not follow). Roost, drive-out and felled-tree paths read as D-922 says.
+
+### As checked: area D
+#### Area D: tests and tools (checked)
+Looked at: all 290 test files timed, full runs, every tool run harmlessly, git status clean. Not covered: wording-only checks beyond 6 doc-reading files; sharecard.js not run.
+Timing note: other agents ran the suite at the same time, so all times are noisy; compare relative, not absolute.
+
+##### D-1 `npm test` prints 436 KB when a conversation runs it
+- Where: package.json:5 ("test": "node --test")
+- Against: CLAUDE.md "Test output: one line per test or check, never full logs"
+- What: Piped (as Claude sees it), node prints TAP, about five lines per test for 2050 tests: 436 KB. Only the last 8 lines (tests/pass/fail) matter. No doc says to tail it (PR-CHECKLIST, TECH, WORKFLOW only say "`npm test` checks it").
+- Seen: measured: `npm test > run.txt; wc -c` = 436,220 bytes (finder: 436,210 and 436,128); `--test-reporter=dot` works on node 22.23.5 (one dot per test).
+- Who: none (players) — context and dev time, every step that runs tests
+- Fixes: 1) `node --test --test-reporter=dot` in package.json (about 2 KB, full detail only for failures) 2) a `test:full` with TAP for debugging 3) say in docs/PR-CHECKLIST.md to pipe through `tail -15`
+- Checked: KEEP, re-ran the full suite piped and measured the size; tried the dot reporter.
+
+##### D-2 Three "standin" sweeps set how long `npm test` takes
+- Where: tests/standin.test.js:28, tests/standin-2.test.js:14, tests/standin-3.test.js:14
+- Against: D-660 "split in three to run side by side: `npm test` 59 s to 35 s" (the tenth audit)
+- What: Each sweeps seeds 1 to 300 over a band of depths (8-11, 12-15, 16-20) with layoutAt/placeFor and is the slowest file alone; together about a fifth of the summed per-file time. The full suite now takes 72-118 s wall time (noisy) against D-660's 35 s, so the gain from the split has been eaten as tests grew. All runs passed 2050/2050, no flakiness.
+- Seen: measured (noisy, other agents running): alone standin-3 16.5 s, standin 14.2 s, standin-2 12.4 s, region 8.1 s, stamper 7.5 s; full run 118 s wall (finder: 72, 93, 112 s).
+- Who: none (players) — dev time
+- Fixes: 1) a quick default (e.g. seeds 1-40, FULL=1 for all 300) and a full run before the PR handoff 2) cache layoutAt per seed/depth across the three sweeps 3) leave as is
+- Checked: REVISE, re-timed files alone and the full suite; added D-660's 35 s as the yardstick.
+
+##### D-3 perf.js's "light" reads 0.0 ms — same as I-1
+- Where: tools/perf.js:66-72; src/render/frame.js:338-349
+- Against: docs/TECH.md "Frame budget" (light 8 ms), D-430
+- What: perf.js plays only the daylit surface; frame.js sets `lightOn = ... sun < 1`, so by day drawLight never runs and the light budget check can never fire. The cause the finder left open is this. Keep under I-1.
+- Seen: read: frame.js:338; finder ran `node tools/perf.js` (light 0.0 ms)
+- Who: some (phones, dark floors) — dev time
+- Fixes: as I-1
+- Checked: REVISE, same as I-1; confirmed the daylight skip in frame.js:338.
+
+##### D-5 Copied test fixtures and positional makeState in 162 files
+- Where: tests/ (`const where = (s) => s.enemies.map(...)` in 15 files; `const start = () => makeState(room, FIRST_START, FIRST_LIGHTS, FIRST_ENEMIES)` in 7; `const carrying = ...` in 7; `const at` in many variants); src/core/state.js:47
+- Against: none (a risk)
+- What: The only shared helper is tests/caves.js (7 lines, 11 files). makeState takes 7 positional arguments and is called 282 times in 162 test files, so changing it means editing many files. tests/audit826.test.js and audit868.test.js are named after audits (audit868 tests history loading and the packer), so they are hard to find by topic.
+- Seen: measured: grep counts above
+- Who: none (players) — context and dev time
+- Fixes: 1) tests/fixtures.js with `where`, `start`, `carrying`, `at`; new tests (and tools/make.js templates) import it, old ones moved only when touched 2) only point TECH-2.md at the helper
+- Checked: REVISE, re-counted with grep; added the makeState call counts and what audit868 tests.
+
+#### Dropped
+- D-4 Four tools have no test; sharecard writes into the repo: weak. The packer at the heart of playtest/mappreview is tested (tests/audit868.test.js:24 `packScript`), every PR builds the playtest so a break shows in the same conversation, and writing share.png is sharecard's job (D-425, tested by tests/sharecard.test.js). Also it listed five tools, not four. I re-ran playtest, mappreview and soundboard to scratch: all fine, git status clean.
