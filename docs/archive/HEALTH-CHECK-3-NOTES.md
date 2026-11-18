@@ -756,3 +756,39 @@ Played: iPhone 13, seal, cutscene and bar as D-959 says; 0 page errors; no new f
 
 #### Dropped
 - none
+
+### As found: area H
+#### Area H: Playing on phone and PC
+Looked at: phone (iPhone 13, touch) from the title to depth 1 and 8; bag, Make tab, workbench, stash chest and peddler cards, draught cards, round map rim, dev tools. No page or console errors on phone or PC loads. Not covered: a full 15-minute journey, PC keyboard play, the boss bar and cutscene (walking into the Lampeater bench did not reach the arena), the boon button, a line's seconds.
+
+##### H-1 Text line sits on top of the draught's Now/After picture
+- Where: src/render/bag.js (card picture), the text line drawn over cards at about y 500 on a 390x664 phone
+- Against: D-916 "left out where it would reach the buttons" (nothing says it may sit under the text line)
+- What: On the Glow Draught and Mending Draught cards the text line ("A gold draught that glows.") is drawn across the "Now" picture, hiding its lower half and almost touching "After".
+- Seen: played: /tmp/claude-0/-home-user-gloamdeep/4949d8dd-d5fc-582b-8ac1-3b540fccd1d6/scratchpad/work/H/l4.png, /tmp/claude-0/-home-user-gloamdeep/4949d8dd-d5fc-582b-8ac1-3b540fccd1d6/scratchpad/work/H/l5.png (side by side in /tmp/claude-0/-home-user-gloamdeep/4949d8dd-d5fc-582b-8ac1-3b540fccd1d6/scratchpad/work/H/c5.png)
+- Who: most (every draught picked in the bag on a phone)
+- Fixes: 1) hide the text line while a bag/make card is open, or push it to the foot 2) shift the pictures up when the line shows
+
+##### H-2 Card buttons are under 44 px to tap, DROP only 34
+- Where: src/render/bag.js:62 (BUTTON h 13), :166 (drop pad 2), TAP_PAD 4; same pad in makecard.js:27, benchpanel.js:42-44, chestpanel.js:47-48
+- Against: src/render/screen.js:14 "a 44 px tap target (TECH.md)"
+- What: Buttons are 13 game px high plus 4 padding each side, at 2x scale on a phone: about 42 px (MAKE, STORE, TAKE, SELL) and about 34 px for DROP (pad 2). Measured: a tap at y=592 missed DROP, y=594 dropped, drawn top is 599.
+- Seen: measured: /tmp/claude-0/-home-user-gloamdeep/4949d8dd-d5fc-582b-8ac1-3b540fccd1d6/scratchpad/work/H/t20.js (taps at set heights)
+- Who: most on phone (DROP is destructive, so a missed or stray tap matters)
+- Fixes: 1) make the pad (BUTTON.h + 2*pad)*scale at least 44 and give DROP the same pad as the rest 2) draw buttons taller
+
+##### H-3 Make costs read "3 / 4 Wood" with no word or colour for need vs have
+- Where: src/render/benchpanel.js:77 (`${n} / ${have} name`, GREY)
+- Against: none (a risk)
+- What: The first number is what is needed, the second what you carry, but it reads like "3 of 4 collected". With 4 Wood in the bag the Workbench shows "3 / 4 Wood", and a missing cost looks the same as a met one (all grey).
+- Seen: played: /tmp/claude-0/-home-user-gloamdeep/4949d8dd-d5fc-582b-8ac1-3b540fccd1d6/scratchpad/work/H/o1.png, /tmp/claude-0/-home-user-gloamdeep/4949d8dd-d5fc-582b-8ac1-3b540fccd1d6/scratchpad/work/H/o2.png (Workbench 3 / 4 Wood, Campfire 2 / 4 Wood with 4 Wood carried)
+- Who: most new players
+- Fixes: 1) show "have / need" and colour a short cost red 2) keep the order, add "need" and "have" colouring
+
+##### H-4 A stale line repeats on cards
+- Where: the text line over bag, Make, chest and peddler cards
+- Against: none
+- What: The line keeps the last message while a card is open: "You go down the stairs." over the Make tab, "You take the knife." over the workbench card, the item's own description shown again under the card's (Stone, Wood), and a draught's text on an empty slot.
+- Seen: played: /tmp/claude-0/-home-user-gloamdeep/4949d8dd-d5fc-582b-8ac1-3b540fccd1d6/scratchpad/work/H/l3.png, /tmp/claude-0/-home-user-gloamdeep/4949d8dd-d5fc-582b-8ac1-3b540fccd1d6/scratchpad/work/H/l6.png, /tmp/claude-0/-home-user-gloamdeep/4949d8dd-d5fc-582b-8ac1-3b540fccd1d6/scratchpad/work/H/n2.png, /tmp/claude-0/-home-user-gloamdeep/4949d8dd-d5fc-582b-8ac1-3b540fccd1d6/scratchpad/work/H/u1.png
+- Who: most (looks like clutter and wrong information)
+- Fixes: 1) clear the line when a card opens or the chosen slot changes 2) show only messages made by the card's own actions
