@@ -13,13 +13,6 @@ else entirely.
 
 ---
 
-**Q-052 · Play data: kept on the device, or sent?** (near 1.0)
-Telemetry sends how people play (falls, depths, journey length) to a
-small service, with an opt-in switch in Settings and a privacy note.
-Options: keep it on the device, with a dev button to save it as a file
-for playtesters (Claude's pick for now); opt-in telemetry near release,
-built on each turn's events (D-267); or never.
-
 **Q-056 · A region's name and difficulty on entering** (with a second
 region, D-281) Whether the name shows on screen when you enter, with a
 difficulty rating, and how the rating looks (stars, skulls, words).
@@ -52,7 +45,8 @@ Needs rooms placed beside each other outside the map; its own step.
 Half as D-432 says barely sped the light up. With the last pass faster,
 the lights' own work is a bigger share: measure again, then build Half
 and Automatic as decided, make Half do more (softer shadows, pictures
-first), or drop them. The code that was built is easy to redo.
+first), or drop them. The code that was built is easy to redo. Measured
+again at the 0.3.433 audit, then the owner chooses (D-993).
 
 **Q-071 · Water and the garden** (raised 2026-10-31, D-499)
 The owner asks whether water matters to the garden. So far seeds just

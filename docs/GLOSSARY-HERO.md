@@ -14,7 +14,7 @@ as that page neared 8 KB.
 - **Lantern, oil:** the light the hero carries and what it burns.
 - **Flask:** oil to pour into the lantern, from the bag (D-247, D-249).
 - **Quick slot:** the round button left of the lantern that pours a flask (D-384).
-- **Leap:** chapter 1's found ability, from beating the Lampeater, kept on that journey only: 2 tiles in a line over floor, a creature or a low thing, a turn. The **Leap button**, left of the quick slot, or J, gets one ready (D-962).
+- **Leap:** chapter 1's found ability, learnt by stepping on **Leap's find**, which the Lampeater leaves where it falls, with a card, "A new ability" (D-992); kept on that journey only: 2 tiles in a line over floor, a creature or a low thing, a turn. The **Leap button**, left of the quick slot, or J, gets one ready (D-962).
 - **Bag:** what the hero carries, in stacks of up to 20, or 5 of flasks and potions; a kind can fill several slots (D-247, D-333, D-339). A Pouch makes it 9 slots, then a Big Bag 12, made at the workbench (D-545, D-547). **Store** sends its stacks to chests nearby (D-558); **Sort** lines it up by kind and joins half stacks, free (D-559).
 - **Drop:** the bag's button that sets the chosen stack down at the hero's feet, free, to take back by stepping on it; on a find, a swap (D-546).
 - **Finds:** oilcap to grow back, with fishing and wood, moved to

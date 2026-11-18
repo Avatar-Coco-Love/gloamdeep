@@ -32,9 +32,9 @@ import { mapCard } from './map.js';
 import { travelCard } from './travel.js';
 import { boonsCard } from './boons.js';
 import { strikeCard } from './strike.js';
-import { openingCard, aboutBoonsCard } from './opening.js';
+import { openingCard, aboutBoonsCard, abilityCard } from './opening.js';
 
-export const CARD_TABLE = { bag: bagCard, make: makeCard, place: placeCard, bench: benchCard, chest: chestCard, trade: tradeCard, bed: bedCard, sure: sureCard, drop: dropCard, easier: easierCard, sleepOut: sleepOutCard, title: titleCard, paused: pausedCard, settings: settingsCard, ways: waysCard, mode: modeCard, ended: endedCard, howto: howtoCard, history: historyCard, journal: journalCard, slots: slotsCard, name: nameCard, cloak: lookCard, seed: seedCard, map: mapCard, explore: mapCard, travel: travelCard, boons: boonsCard, strike: strikeCard, opening: openingCard, aboutBoons: aboutBoonsCard };
+export const CARD_TABLE = { bag: bagCard, make: makeCard, place: placeCard, bench: benchCard, chest: chestCard, trade: tradeCard, bed: bedCard, sure: sureCard, drop: dropCard, easier: easierCard, sleepOut: sleepOutCard, title: titleCard, paused: pausedCard, settings: settingsCard, ways: waysCard, mode: modeCard, ended: endedCard, howto: howtoCard, history: historyCard, journal: journalCard, slots: slotsCard, name: nameCard, cloak: lookCard, seed: seedCard, map: mapCard, explore: mapCard, travel: travelCard, boons: boonsCard, strike: strikeCard, opening: openingCard, aboutBoons: aboutBoonsCard, ability: abilityCard };
 
 // Every card made once, sharing `app`, `ui`, `show` and the helpers `c` from cardscreens.js and screens.js
 export const makeCards = (app, ui, show, c) => Object.fromEntries(Object.entries(CARD_TABLE).map(([id, make]) => [id, make(app, ui, show, c)]));

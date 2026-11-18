@@ -6,6 +6,11 @@
 // tools/release.js once a newer version is in (D-982); stage 0.2's are in history-0.2.js and its split
 // files.
 export const HISTORY_03 = [
+  { v: '0.3.431', date: '2026-11-18', title: 'Leap\'s find', lines: [
+    "Beaten, the Lampeater now leaves Leap's find glowing where it fell, and the door stays shut. Step on it and a card shows your new ability, Leap; close the card and the stone door sinks open.",
+    "A duskstar you pick near home no longer grows back on the waystone's ring.",
+    "Decisions: D-992, D-993. Questions closed: Q-052, Q-103. D-971 and D-972 moved to the archive, word for word.",
+  ] },
   { v: '0.3.430', date: '2026-11-18', title: 'The tank slot planned', lines: [
     "Nothing in the game changed: the lantern's tank slot is planned as the next new step, after the Lampeater's polish or more flowers.",
     "Decisions: D-991.",

@@ -318,4 +318,8 @@ export const ITEMS = {
   // § ember (D-896): 1 vault prize in 4, on the vault's plinth (vault.js); taken, it is 1 more ember
   // to spend in Growth (growth.js), never in the bag. Lying on a floor (the dev spawn), a step takes it.
   ember: { id: 'ember', kind: 'item', name: 'Ember', ember: true, says: 'emberTake', look: 'emberLook' },
+  // § Leap's find (D-971, D-992): the Lampeater's `sure` find, lying where it fell, drawn as the Leap
+  // button's icon. Stepped on, it is used up: Leap is learnt for the journey (`learns`), never in the
+  // bag, and the card opens (render/abilitycard.js); closed, the door sinks open (beaten.js, doorAfterLeap)
+  leapFind: { id: 'leapFind', kind: 'item', name: 'Leap', learns: 'leap', says: 'leapFound', look: 'leapFindLook' },
 };

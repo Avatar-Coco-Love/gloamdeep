@@ -58,20 +58,29 @@ export const quietHere = (state) => (inArena(state) ? state.enemies.some((e) => 
 export const bossTuneHere = (state) => !!bossFight(state);
 
 // § open again (D-956): (place, seed, room, enemies) → the room an arena keeps as the hero leaves
-// it, by a fall: with the Lampeater still in it, its way in open again; else the same
+// it, by a fall: its way in open again if sealed, with the Lampeater still in it or Leap's find still
+// lying (D-992); else the same
 export function openWayIn(place, seed, room, enemies) {
-  if (place !== arenaPlace(seed) || !enemies.some((e) => e.id === BOSS)) return room;
+  if (place !== arenaPlace(seed)) return room; // beaten but Leap's find not taken, the way in opens too, to come back for it (D-992)
   const gap = wayIn(seed);
   return tileAt(room, gap.x, gap.y).id === 'sealedDoor' ? withTile(room, gap.x, gap.y, get('floor')) : room;
 }
 
-// § the door: (state) → the state with the arena's sealed door sunk open, the gloamlings gone, and
-// Leap learnt for this journey, with one line for all (D-962), once the Lampeater is beaten this
-// action; the seal stones stand, no floor giving way in the fight (D-967); else the same state
+// § beaten (D-953, D-992): (state) → the state with each gloamling left crumbled away, once the
+// Lampeater is beaten this action; its `sure` find, Leap's, lies where it fell (enemies.js), and the
+// door stays sealed till that is taken and its card closed (doorAfterLeap); else the same state
 export function lampeaterBeaten(state) {
   if (!inArena(state) || state.enemies.some((e) => e.id === BOSS) || !state.events.some((e) => e.type === 'beat' && e.id === BOSS)) return state;
-  const opened = note({ ...state, room: swapped(state.room, 'sealedDoor', 'openDoor'), enemies: state.enemies.filter((e) => !e.ash), leap: true }, 'open', { id: 'openDoor' });
-  return say(opened, 'doorLeap');
+  return { ...state, enemies: state.enemies.filter((e) => !e.ash) };
+}
+
+// § the door after Leap (D-971, D-992): (state) → in the arena with the Lampeater beaten and Leap
+// learnt, every sealed door sunk open, with the vault's line and its `open` event; else the same.
+// Called as Leap's card closes (main.js), and at the start of a step, for a journey saved under the card.
+// The seal stones stand, no floor giving way in the fight (D-967)
+export function doorAfterLeap(state) {
+  if (!inArena(state) || !state.leap || state.enemies.some((e) => e.id === BOSS) || !state.room.map.some((r) => r.includes(get('sealedDoor').letter))) return state;
+  return say(note({ ...state, room: swapped(state.room, 'sealedDoor', 'openDoor') }, 'open', { id: 'openDoor' }), 'vaultOpens');
 }
 
 // § the floor gives way (Q-113, D-964): the old seal's stones round the stairs down fall away into a

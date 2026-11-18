@@ -31,6 +31,17 @@ test('round the home waystone it keeps off 1 tile, so it may grow back 2 from th
   assert.ok(xs.includes(7), 'some on the tile 2 from the stone');
 });
 
+// Q-103, D-993: a duskstar picked at 6, 6, a day ago, roams back, but never onto the ring either
+test('a picked duskstar grows back off the waystone and its ring, home or generated', () => {
+  for (const place of ['woods', undefined]) for (let seed = 1; seed <= 60; seed++) {
+    const s = { ...makeState(stoneRoom), hero: { x: 1, y: 11 }, place, seed, items: [], people: [], taken: [{ id: 'duskstar', x: 6, y: 6, at: 0 }], turn: DAY_TURNS };
+    const g = regrow(s, true).items.find((it) => it.id === 'duskstar');
+    assert.ok(g, `seed ${seed}`);
+    const d = place ? 2 : 3; // the plate's half and its ring: 1 at home, 2 in a generated room
+    assert.ok(Math.abs(g.x - 10) > d || Math.abs(g.y - 6) > d, `seed ${seed}: ${g.x},${g.y}`);
+  }
+});
+
 test('a drop with only water round it lies on the nearest open tile further out, not on the water', () => {
   const pond = makeRoom(box((y) => (y >= 4 && y <= 8 ? '...~~~~~.....' : '.'.repeat(13))));
   const s = { ...makeState(withTile(pond, 6, 6, get('bareBush'))), hero: { x: 1, y: 11 }, items: [], enemies: [], people: [] };

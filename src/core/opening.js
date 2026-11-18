@@ -14,3 +14,9 @@ export const ABOUT_BOONS = [
 ];
 export const ABOUT_BOONS_BUTTON = 'Go';
 export const aboutBoonsWords = () => `${ABOUT_BOONS.join(' ')} ${ABOUT_BOONS_BUTTON}: press Enter, or tap.`;
+
+// § the ability card (D-971, D-992): once, as Leap's find is stepped on, what was learnt, on the same
+// glass card: its heading, the Leap button's icon, its name and its use (the owner's pick); OK goes on
+export const ABILITY = { heading: 'A new ability', name: 'Leap', use: 'Jump 2 tiles in a line, over a creature, water or a gap. Tap the Leap button or press J.' };
+export const ABILITY_BUTTON = 'OK';
+export const abilityWords = () => `${ABILITY.heading}: ${ABILITY.name}. ${ABILITY.use} ${ABILITY_BUTTON}: press Enter, or tap.`;

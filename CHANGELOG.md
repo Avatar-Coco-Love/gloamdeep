@@ -24,6 +24,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.431 (2026-11-18)
+- Beaten, the Lampeater now leaves Leap's find glowing where it fell, and the door stays shut. Step on it and a card shows your new ability, Leap; close the card and the stone door sinks open.
+- A duskstar you pick near home no longer grows back on the waystone's ring.
+- Decisions: D-992, D-993. Questions closed: Q-052, Q-103. D-971 and D-972 moved to the archive, word for word.
+
 ## 0.3.430 (2026-11-18)
 - Nothing in the game changed: the lantern's tank slot is planned as the next new step, after the Lampeater's polish or more flowers.
 - Decisions: D-991.
@@ -32,12 +37,3 @@ Entry format:
 - Nothing in the game changed: the docs catch up with the Lampeater's fight, its 12 hearts, phases, calls, guards and wary, and the bench's half start on 6 hearts.
 - The docs no longer describe the falling floor round the Lampeater's stairs, taken out before it shipped; the Boss tab, the newest content page and which sound files to ship are written down.
 - Decisions: D-990. D-979, D-986 and D-987 moved to the archive, word for word.
-
-## 0.3.428 (2026-11-18)
-- A Lampeater blow that reaches a phase and burns your last oil no longer has it hang back while it breathes on a brazier; it hangs back afterwards, as it should.
-- A gloamling waiting in a snuffed brazier you light again now comes out, instead of waiting there for good and counting toward the six.
-- A Warden's slam that takes your last heart by a doorway no longer slides you into the next room: you fall where you were struck.
-- Behind a Leap gap there is now only the cache and the Archway: creatures and other finds that stood there move to the near side, or aren't made when there's no room.
-- After a dev jump, the dev stats line says "jumped: no goals or records".
-- Once you've learnt Leap, How to play shows it: the Leap button (or J), then a way.
-- Decisions: D-989. D-984 and D-985 moved to the archive, word for word.

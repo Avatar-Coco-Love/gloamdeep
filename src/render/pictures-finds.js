@@ -293,6 +293,10 @@ const EMBER = { mirror: false, rows: ['', '', '', '', '', '', '', '', '.....kkkk
   '...kfYyyYnnfk...', '...knnYywYnnk...', '...kfYnnyYynk...', '....kfnYnnfk....', '.....kkkkkk.....', ''] };
 
 
+// § Leap's find (D-971, D-992): the Leap button's icon (hud.js LEAP_ICON), its dots 2 × 2, in gold,
+// lying where the Lampeater fell
+const LEAP_FIND = { mirror: false, rows: ['', '', '', '', '', '.....yyyyyy.....', '.....yyyyyy.....', '...yy......yy...', '...yy......yy...', '...yy......yy...', '...yy......yy...', '................', '................', '...yy......yy...', '...yy......yy...', ''] };
+
 export {
   FLASK,
   HERB,
@@ -353,4 +357,5 @@ export {
   SHADE_DRAUGHT,
   SHADE_COLOURS,
   EMBER,
+  LEAP_FIND,
 };

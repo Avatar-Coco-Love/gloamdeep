@@ -4,6 +4,15 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.428 (2026-11-18)
+- A Lampeater blow that reaches a phase and burns your last oil no longer has it hang back while it breathes on a brazier; it hangs back afterwards, as it should.
+- A gloamling waiting in a snuffed brazier you light again now comes out, instead of waiting there for good and counting toward the six.
+- A Warden's slam that takes your last heart by a doorway no longer slides you into the next room: you fall where you were struck.
+- Behind a Leap gap there is now only the cache and the Archway: creatures and other finds that stood there move to the near side, or aren't made when there's no room.
+- After a dev jump, the dev stats line says "jumped: no goals or records".
+- Once you've learnt Leap, How to play shows it: the Leap button (or J), then a way.
+- Decisions: D-989. D-984 and D-985 moved to the archive, word for word.
+
 ## 0.3.427 (2026-11-18)
 - Since 0.3.424 the dark below ground was not being drawn: rooms showed fully lit, and the little marks for poison, draughts and the rest went missing. Both are back, and a new test checks every code file for names it forgets to bring in.
 - The Shovel no longer digs out a stump with Wood lying on it: you walk onto it instead, so the Wood isn't lost and the tree still grows back.
