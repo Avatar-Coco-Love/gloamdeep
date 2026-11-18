@@ -13,9 +13,9 @@ import { get } from './registry.js';
 import { openSide, stepTo } from './flank.js';
 import { broodCount } from './call.js';
 import { tileAt } from './room.js';
+import { same } from './tile.js';
 
 const steps = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
-const same = (a, b) => a.x === b.x && a.y === b.y;
 
 // § guard lead: (state, e) → the one e guards, or undefined
 export function guardLead(state, e) {

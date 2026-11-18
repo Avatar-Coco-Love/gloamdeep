@@ -10,10 +10,8 @@
 // a seed's room stays where it was. Plain data, no drawing.
 import { rng, pick } from './rng.js';
 import { HEARTCAP_ODDS } from './cave.js';
+import { same, dist, key } from './tile.js';
 
-const same = (a, b) => a.x === b.x && a.y === b.y;
-const dist = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
-const key = (t) => `${t.x},${t.y}`;
 const STEP = [[1, 0], [-1, 0], [0, 1], [0, -1]];
 const walk = (ch) => ch === '.' || ch === '<' || ch === '>';
 

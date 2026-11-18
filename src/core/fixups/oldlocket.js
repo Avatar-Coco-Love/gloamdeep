@@ -4,10 +4,10 @@
 // is, nothing of the hero's moves (D-716). Only while the locket is nowhere in the journey:
 // not in that room, the bag, a chest, a lost bag, on the floor anywhere or on the shelf.
 // Plain data, no drawing.
-import { locketRoom, LOCKET_DEPTH, placeFor } from './room.js';
-import { cellOf } from './region.js';
-import { withRelic } from './relic.js';
-import { get } from './registry.js';
+import { locketRoom, LOCKET_DEPTH, placeFor } from '../room.js';
+import { cellOf } from '../region.js';
+import { withRelic } from '../relic.js';
+import { get } from '../registry.js';
 
 // (state) → the state with the locket and its warden in the locket room, when it is held and the
 // locket is nowhere; otherwise as it was

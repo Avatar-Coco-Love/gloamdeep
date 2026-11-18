@@ -3,10 +3,10 @@
 // each whose tile is still open grass with nothing on it; a room seen, one with a duskstar already,
 // or the one stood in stays as it was. The copies a fall and the dev Reset read (`home.places`) get
 // theirs the same way.
-import { ROOMS, isMountain } from './hearthwood.js';
-import { beginPlace } from './room.js';
+import { ROOMS, isMountain } from '../hearthwood.js';
+import { beginPlace } from '../room.js';
+import { unseen } from './shared.js';
 
-const unseen = (p) => !p.seen || !Array.prototype.some.call(p.seen, Boolean);
 // The duskstars the seed lays in room `id`
 const starsOf = (seed, id) => beginPlace(id, seed).items.filter((it) => it.id === 'duskstar');
 // A place with each of `stars` among its items whose tile is free grass, when it has none yet

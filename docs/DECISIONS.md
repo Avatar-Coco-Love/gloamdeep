@@ -159,3 +159,23 @@ a new minor version's file and import, and refuses a `PROGRESS.md` over
 than a twentieth left) and the bytes read at the start; the doc test
 reads its caps from there (H-97). `PR-CHECKLIST.md` says how to redo the
 record-keeping files if `main` moved on (H-98).
+
+**D-983 · 2026-11-18 · Less code to read** (Claude's picks, hands-off,
+D-980; H-99 to H-102, the fix suggested for each) `lines.js`'s words split
+by topic into `lines-finds.js`, `lines-home.js`, `lines-deep.js` and
+`lines-draughts.js`, word for word, gathered into `LINES` as before; the
+title's screens and the cards over play move from `frame.js` to
+`render/cards.js`; `tests/codesize.test.js` lets no code file pass 20 KB
+but the 17 already over, a list that only shrinks, the history files
+aside (H-99). The 14 save fix-up files move to `src/core/fixups/`, their
+copied `unseen` in one `fixups/shared.js` (`strewn.js` uses it too)
+(H-100). `same`, `dist` and `key` live once in `src/core/tile.js`;
+`cave.js`'s number key is `cellKey` (H-101). No second boss is planned,
+so the boss field waits: `CONTENT-BOSSES.md` lists where the Lampeater's
+id is checked, for that step (H-102).
+
+**D-984 · 2026-11-18 · Lessons for the next game** (the owner's pick)
+The playbook (D-732) keeps growing as it does, each audit adding its
+lessons; a starter kit for a new project's Claude is made only when the
+next game starts.
+

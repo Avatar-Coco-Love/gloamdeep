@@ -9,9 +9,9 @@
 // never crosses the open side; with no way to any, it comes as ever. Else they act as ever. Plain data, no drawing.
 import { get } from './registry.js';
 import { DIRS } from './state.js';
+import { same, key } from './tile.js';
 
 const steps = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
-const same = (a, b) => a.x === b.x && a.y === b.y;
 const around = (t) => Object.values(DIRS).map(([dx, dy]) => ({ x: t.x + dx, y: t.y + dy }));
 
 // § lead: (enemies, e) → the one coming for the hero that e flanks for, or undefined
@@ -24,7 +24,7 @@ export const openSide = (hero, lead) => around(hero).reduce((b, t) => (steps(t, 
 // there is none within `FAR` steps; of the first tiles that start such a way, the first of up, down, left, right
 const FAR = 12;
 export function stepTo(state, e, to, shut, free) {
-  const key = (t) => `${t.x},${t.y}`, seen = new Set([key(e), key(shut)]);
+  const seen = new Set([key(e), key(shut)]);
   let ring = around(e).filter((t) => !same(t, shut) && free(state, e, t.x, t.y)).map((t) => ({ ...t, first: t }));
   ring.forEach((t) => seen.add(key(t)));
   for (let n = 0; ring.length && n < FAR; n++) {

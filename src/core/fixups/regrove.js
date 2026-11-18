@@ -4,12 +4,12 @@
 // again as the seed now makes it, thick, as before, or a glade; a room seen, the one stood in, or
 // one whose waystone is woken stays as it was. The copies a fall and the dev Reset read
 // (`home.places`) follow the rooms made again.
-import { ROUND_HOME } from './hearthwood.js';
-import { beginPlace } from './room.js';
-import { fresh } from './stairs.js';
+import { ROUND_HOME } from '../hearthwood.js';
+import { beginPlace } from '../room.js';
+import { fresh } from '../stairs.js';
+import { unseen } from './shared.js';
 
 const WOKEN = 'A'; // the woken plate's letter (tiles.js)
-const unseen = (p) => !p.seen || !Array.prototype.some.call(p.seen, Boolean);
 const remade = (s, id, p) => id !== s.place && p?.room && unseen(p) && !p.taken?.length && !p.room.map.some((line) => line.includes(WOKEN));
 
 // (state) → the state with its unseen woods round home grown as their kinds

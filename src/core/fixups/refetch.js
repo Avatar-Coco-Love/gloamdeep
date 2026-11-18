@@ -5,8 +5,8 @@
 // he is always in some room (trapped, waiting or at home); one in none stands in the
 // home waystone's room (homeward.js), not yet having greeted the hero, so he greets them
 // when they come near. Plain data, no drawing.
-import { goHome } from './homeward.js';
-import { peddlerRoom } from './room.js';
+import { goHome } from '../homeward.js';
+import { peddlerRoom } from '../room.js';
 
 // (state) → the state with a lost Peddler at home, or as it was
 export function refetch(s) {

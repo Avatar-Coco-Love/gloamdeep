@@ -3,10 +3,10 @@
 // when its tile is still open grass with nothing on it; a room seen, one with a herb already, or
 // the one stood in stays as it was. The copies a fall and the dev Reset read (`home.places`) get
 // theirs the same way.
-import { ROOMS, isMountain } from './hearthwood.js';
-import { beginPlace } from './room.js';
+import { ROOMS, isMountain } from '../hearthwood.js';
+import { beginPlace } from '../room.js';
+import { unseen } from './shared.js';
 
-const unseen = (p) => !p.seen || !Array.prototype.some.call(p.seen, Boolean);
 // The herb the seed lays in room `id`, or null
 const herbOf = (seed, id) => beginPlace(id, seed).items.find((it) => it.id === 'herb') || null;
 // A place with `herb` among its items, when its tile is free grass and it has no herb yet

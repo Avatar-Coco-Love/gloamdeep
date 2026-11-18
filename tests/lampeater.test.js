@@ -13,7 +13,7 @@ import { hitFoe } from '../src/core/enemies.js';
 import { layoutAt } from '../src/core/region.js';
 import { goToPlace } from '../src/core/stairs.js';
 import { ARENA_DEPTH, LAMPEATER_AT, startingBrood } from '../src/core/arena.js';
-import { withLampeater } from '../src/core/oldarena.js';
+import { withLampeater } from '../src/core/fixups/oldarena.js';
 import { UPGRADES, FORMAT } from '../src/core/save.js';
 import { pageOf, HINT, fightHint, meet } from '../src/core/bestiary.js';
 

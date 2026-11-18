@@ -8,9 +8,9 @@ import { steps } from './cache.js';
 import { get, asleepAtFirst } from './registry.js';
 import { note } from './events.js';
 import { say } from './lines.js';
+import { same } from './tile.js';
 
 export const RELIC_GUARD = 'warden'; // the old-city warden (D-692)
-const same = (a, b) => a.x === b.x && a.y === b.y;
 const AROUND = [[1, 0], [-1, 0], [0, 1], [0, -1]];
 
 // (seed, room, id) → the room with relic `id` and its guard, or the room as it was when

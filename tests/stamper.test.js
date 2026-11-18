@@ -88,7 +88,7 @@ test('stamper: deeper stones, 100 seeds on 5, 8, 12 and 16: one room each, one s
 
 // § old saves: the stone's room made again once, every other room kept (D-592)
 import { UPGRADES, upgradeState } from '../src/core/save.js';
-import { restone, restones } from '../src/core/refloor.js';
+import { restone, restones } from '../src/core/fixups/refloor.js';
 import { makeWorld } from '../src/core/turn.js';
 import { goToPlace, goToDepth } from '../src/core/stairs.js';
 

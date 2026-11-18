@@ -4,10 +4,9 @@
 // start, the rat at least 3 tiles from the start and every stairs, and a rat
 // that guards a flask within 2 tiles of it. Plain data, no drawing.
 import { rng, pick } from './rng.js';
+import { same, dist } from './tile.js';
 
 const ITEM_STEPS = 5, RAT_OFF = 3, GUARD = 2;
-const same = (a, b) => a.x === b.x && a.y === b.y;
-const dist = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
 
 // (place, seed) → { items, enemies } at new spots; place: { map, start, items, enemies, guard }
 export function scatter(place, seed) {

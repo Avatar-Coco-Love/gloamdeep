@@ -6,7 +6,7 @@ import { beginPlace } from '../src/core/room.js';
 import { generateWoods } from '../src/core/woods.js';
 import { makeWorld } from '../src/core/turn.js';
 import { fresh } from '../src/core/stairs.js';
-import { regrove } from '../src/core/regrove.js';
+import { regrove } from '../src/core/fixups/regrove.js';
 
 const SEEDS = Array.from({ length: 60 }, (_, i) => i + 1);
 const openOf = (map) => map.join('').split('').filter((c) => c === '.').length;

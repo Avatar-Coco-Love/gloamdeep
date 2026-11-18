@@ -2,7 +2,7 @@
 // moves once to the home waystone's room, keeping his greeting, not beaming in
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { resettle } from '../src/core/resettle.js';
+import { resettle } from '../src/core/fixups/resettle.js';
 import { upgradeState, FORMAT } from '../src/core/save.js';
 import { makeWorld } from '../src/core/turn.js';
 import { goToPlace } from '../src/core/stairs.js';

@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 import { layoutAt } from '../src/core/region.js';
 import { placeFor, makeRoom, PLACES, isGenerated, tileAt, stoneRoom, vaultAt } from '../src/core/room.js';
 import { upgradeState, UPGRADES } from '../src/core/save.js';
-import { restand } from '../src/core/refloor.js';
+import { restand } from '../src/core/fixups/refloor.js';
 import { leapGapAt } from '../src/core/room.js';
 import { makeWorld } from '../src/core/turn.js';
 import { goToDepth, goToPlace } from '../src/core/stairs.js';

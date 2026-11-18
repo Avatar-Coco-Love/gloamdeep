@@ -6,11 +6,11 @@
 // Plain data, no drawing.
 import { rng, int, pick } from './rng.js';
 import { toned } from './tones.js';
+import { same } from './tile.js';
 
 export const CACHE_COUNT = [2, 3];
 export const CACHE_FINDS = ['flask', 'herb', 'oilcap', 'heartcap'];
 const NEAR = 2; // how far from the far tile the finds may spread
-const same = (a, b) => a.x === b.x && a.y === b.y;
 
 // Steps from `from` to every floor tile, by "x,y"
 export function steps(map, from) {

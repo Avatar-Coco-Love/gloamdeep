@@ -2,7 +2,7 @@
 // made again at the new sizes, once, as it is brought up to date (D-580)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { refloor } from '../src/core/refloor.js';
+import { refloor } from '../src/core/fixups/refloor.js';
 import { upgradeState, UPGRADES } from '../src/core/save.js';
 import { makeWorld } from '../src/core/turn.js';
 import { goToPlace, goToDepth } from '../src/core/stairs.js';
