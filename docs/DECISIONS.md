@@ -136,28 +136,6 @@ it is wary, as with no cold brazier; the 2 nearest it guard, and with
 fewer than 6 they act as the rest; the bench after each step. D-967 and
 D-969 move to `archive/DECISIONS-SURFACE.md`, word for word.
 
-**D-974 · 2026-11-18 · The Lampeater's calls** (the owner's picks, all
-recommended, the look's three together; builds D-971 and D-972, their
-step 3) Struck and free again, it walks through the dark to a tile beside
-the nearest cold brazier and calls from there (offered too: from where it
-stands, as its breath does). The call shows as the cold bowl's ashes
-stirring with a faint violet glow, with its breath's dashed ring and turn
-countdown, its eyes turned a pixel toward the bowl, and "The Lampeater
-calls into the ashes." (Claude's draft) as it starts. Until the wary step,
-with 6 gloamlings alive or no cold brazier it can reach, it fights on as
-now (offered too: waiting where it stands); its half-hearts snuff and the
-snuff after each catch stay until the phases replace them (offered too:
-gone now). Claude's calls: a blow that hurts it marks it struck, and a
-call ended clears the mark, so one call each time it is struck and free;
-the nearest brazier by steps through the dark, the first of up, down,
-left, right on a tie; gloamlings waiting in a bowl count toward the 6; the
-one called crawls out as from a snuffed bowl (brood.js), the arena's own;
-its Bestiary words end "Struck, it goes to a cold brazier and calls one
-out." (Claude's draft) (`call.js`). The bench's bot now walks to it when it
-waits in its place. The bench, from 18%, 96% and 100%: Lean 12%, Middling
-79%, Strong 83% (Q-111). D-939 moves to `archive/DECISIONS-SURFACE.md`,
-word for word.
-
 **D-975 · 2026-11-18 · The third health check, run hands-off** (the
 owner's wish and picks) Once the Lampeater's fight is built (the calls,
 guards, wary and phases, each its own PR, the owner's pick; offered too:
@@ -193,3 +171,24 @@ and close up as it stops; with no way to a shoulder, it acts as ever
 The bench, from 12%, 79% and 83%: Lean 12%,
 Middling 80%, Strong 83%; 6 are rarely out at once yet (Q-111). D-973
 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-977 · 2026-11-18 · The Lampeater wary** (the owner's picks, all
+recommended, and dimmed eyes too; builds D-971 and D-972, their step 5)
+Struck and free again, with no cold brazier it can reach or 6 gloamlings
+alive (counting any waiting in a bowl), it is wary 3 turns instead of
+calling (offered too: only with no cold brazier); a call spoilt with no
+other cold one, too. Wary, it keeps to the dark tile just past the
+lantern's reach nearest it, following the hero and drinking at the edge;
+with the lantern off it keeps the same distance as if it were lit, so
+lighting it never catches it (offered too: only while lit; staying where
+it stands). Its line as it starts, its eyes at half their glow while wary,
+and its Bestiary words end "With none to call, it waits at your light's
+edge." (Claude's draft). After 3 turns the struck mark clears and it comes
+on as ever (offered too: wary again while nothing changes). The approved
+line, "The Lampeater draws back to the edge of your light.", is too wide
+for the strip; "The Lampeater draws back, wary." (Claude's) is in its place.
+Claude's calls: nearest by steps, up, down, left, right on a tie; its turns
+count down caught or not; it never calls while wary; with no way to such a
+tile it acts as ever (`wary.js`). The bench, from 12%, 80% and 83%: Lean
+7%, Middling 79%, Strong 85% (Q-111). D-974 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

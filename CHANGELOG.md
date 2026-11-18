@@ -24,6 +24,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.419 (2026-11-18)
+- The Lampeater wary: struck, with no cold brazier to call from or 6 gloamlings out, it draws back for 3 turns to just past your lantern's reach, still drinking at its edge. With the lantern off it keeps the same distance, so lighting it no longer catches it. Its eyes dim while it is wary; then it comes for you again.
+- The boss bench, from 12%, 80% and 83%: Lean wins 7%, Middling 79%, Strong 85%.
+- Decisions: D-977.
+
 ## 0.3.418 (2026-11-18)
 - The Lampeater's guards: once 6 gloamlings are alive, the 2 nearest it hold the tiles at its shoulders, leaving its way to you open. One beside you bites, then goes back to it; lit, they back off as ever.
 - The boss bench, from 12%, 79% and 83%: Lean wins 12%, Middling 80%, Strong 83%. Six are rarely out at once yet.
@@ -34,8 +39,3 @@ Entry format:
 - The boss bench, from 18%, 96% and 100%: Lean wins 12%, Middling 79%, Strong 83%.
 - The plan for a hands-off health check once its fight is built.
 - Decisions: D-974, D-975.
-
-## 0.3.416 (2026-11-18)
-- The Lampeater's gloamlings flank you: while it comes for you, they take the free tiles beside you in the dark, spreading out, and leave the side toward it open. One standing on that side bites, then steps out of its way.
-- The boss bench, from 52% and 100%: Lean wins 18%, Middling 96%, Strong 100%.
-- Decisions: D-973.

@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-18, 0.3.416, Gloamlings flank you.** While the Lampeater
+  comes for you, its gloamlings take the tiles beside you, leaving its side open. D-973.
+  Playtest: https://claude.ai/artifact/4f6JFT9jz95ZYEzkRJknTM
 - **2026-11-18, 0.3.415, Nothing goes missing.** A test that every
   decision, changelog and log entry is still kept.
 - **2026-11-17, 0.3.414, The Lampeater's steps planned.** Its calls,

@@ -6,6 +6,11 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.419', date: '2026-11-18', title: 'The Lampeater wary', lines: [
+    "The Lampeater wary: struck, with no cold brazier to call from or 6 gloamlings out, it draws back for 3 turns to just past your lantern's reach, still drinking at its edge. With the lantern off it keeps the same distance, so lighting it no longer catches it. Its eyes dim while it is wary; then it comes for you again.",
+    "The boss bench, from 12%, 80% and 83%: Lean wins 7%, Middling 79%, Strong 85%.",
+    "Decisions: D-977.",
+  ] },
   { v: '0.3.418', date: '2026-11-18', title: 'The Lampeater\'s guards', lines: [
     "The Lampeater's guards: once 6 gloamlings are alive, the 2 nearest it hold the tiles at its shoulders, leaving its way to you open. One beside you bites, then goes back to it; lit, they back off as ever.",
     "The boss bench, from 12%, 79% and 83%: Lean wins 12%, Middling 80%, Strong 83%. Six are rarely out at once yet.",

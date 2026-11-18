@@ -66,13 +66,14 @@ test('never from a lit brazier', () => {
   assert.equal(lamp(s).call, undefined);
 });
 
-test('with 6 gloamlings alive it fights on as ever', () => {
+test('with 6 gloamlings alive it does not call, but is wary (D-977)', () => {
   const six = Array.from({ length: 6 }, (_, i) => ({ id: 'gloamling', x: 7 + i, y: 11, met: true }));
-  const s = wait(at([eater({ x: 3, y: 2 }), ...six]));
+  const s = wait(at([eater({ x: 3, y: 2 }), ...six], { oil: 1 }));
   assert.equal(lamp(s).call, undefined);
+  assert.equal(lamp(s).wary, 2, '3, one spent as the turn ends');
   assert.equal(get('lampeater').calls.most, 6);
 });
 
 test('its Bestiary words tell of the call', () => {
-  assert.match(get('lampeater').acts, /Struck, it goes to a cold brazier and calls one out\.$/);
+  assert.match(get('lampeater').acts, /Struck, it goes to a cold brazier and calls one out\./);
 });

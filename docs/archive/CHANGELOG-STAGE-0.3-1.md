@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.416 (2026-11-18)
+- The Lampeater's gloamlings flank you: while it comes for you, they take the free tiles beside you in the dark, spreading out, and leave the side toward it open. One standing on that side bites, then steps out of its way.
+- The boss bench, from 52% and 100%: Lean wins 18%, Middling 96%, Strong 100%.
+- Decisions: D-973.
+
 ## 0.3.415 (2026-11-18)
 - Nothing changes in the game: a new test makes sure nothing kept in the notes goes missing. Every decision, every version's changelog entry and every log entry must still be found, in its page or that page's archive.
 - It was added after 0.3.414's first try emptied the archive of surface decisions by a slip in a script, which every other test let through; the owner spotted it.

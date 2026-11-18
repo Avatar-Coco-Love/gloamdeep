@@ -354,6 +354,7 @@ const HALO = { reach: 9, inner: 'rgb(54,61,110)', outer: 'rgb(35,41,86)', dy: 5 
 const HALOS = { spitGrub: { reach: 8, inner: 'rgb(109,134,73)', outer: 'rgb(67,106,47)', dy: 11 }, lampeater: { reach: 9, inner: 'rgb(66,52,104)', outer: 'rgb(42,33,74)', dy: 7 } };
 // § glowing eyes (D-941): one that `eyesGlow` is drawn under the light as any creature is, and only its
 // eyes over the dark, after it: its pink eye pixels alone, where its sprite stands
+const WARY_EYES = 0.5; // wary, its eyes at half their glow (D-977)
 const GLOW_EYES = { lampeater: spriteCanvas({ ...LAMPEATER, rows: LAMPEATER.rows.map((row) => row.replace(/[^p]/g, '.')) }) };
 // § burning (D-944, look A): one that `burns`, caught in light, drawn over the light: its gloam paled to
 // the unusual things' violets, its eyes white-hot, and a ring of flame round it, its dashes creeping
@@ -427,7 +428,7 @@ export function drawGlows(c, enemies, t, still, hits = [], at = (e) => e, burnin
     if (e.breath && !flash && !burning(e)) drawThread(c, e, p, t, still, e.breath, BREATH, true); // breathing on a brazier (D-947)
     if (flared && up > 0) { drawFlare(c, e, p, up, flared.swell); continue; } // the cutscene's flare (D-957)
     if (BURNING[e.id] && burning(e)) { if (!flash) drawBurning(c, e, p, t, still); } // caught in light (D-944)
-    else if (GLOW_EYES[e.id]) { const look = e.call ? { x: Math.sign(e.call.x - e.x), y: Math.sign(e.call.y - e.y) } : { x: 0, y: 0 }; if (!flash) c.drawImage(GLOW_EYES[e.id], Math.round(p.x * 16) + look.x, Math.round(p.y * 16) - 2 + 15 - lowest(SPRITES[e.id]) + look.y); } // only its eyes (D-941), turned a pixel toward the bowl it calls from (D-974)
+    else if (GLOW_EYES[e.id]) { const look = e.call ? { x: Math.sign(e.call.x - e.x), y: Math.sign(e.call.y - e.y) } : { x: 0, y: 0 }; if (!flash) { c.save(); if (e.wary) c.globalAlpha = WARY_EYES; c.drawImage(GLOW_EYES[e.id], Math.round(p.x * 16) + look.x, Math.round(p.y * 16) - 2 + 15 - lowest(SPRITES[e.id]) + look.y); c.restore(); } } // only its eyes (D-941), turned a pixel toward the bowl it calls from (D-974), dimmed while wary (D-977)
     else drawEnemy(c, e, p, t, still, flash, null);
   }
   glowing = false;
