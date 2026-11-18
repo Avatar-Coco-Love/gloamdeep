@@ -35,6 +35,7 @@ All four done in 0.3.426 (D-986, D-987).
   picks: a gentler surface mole; none in the start room on day 1; as is.
 
 ## 2. Some players notice
+All four done in 0.3.427 (D-988).
 - **H-72 The Shovel digs out a stump with felled Wood on it:** the Wood
   stays, the tree never grows back (`turn.js:96`, `shovel.js:15`;
   D-926, D-934). Only with a full bag as it fell. Ran. Suggests: dig

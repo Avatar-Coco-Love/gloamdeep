@@ -13,12 +13,12 @@ import { drawKindle, drawRing } from './kindle.js';
 import { drawChips, drawSpark } from './stuck.js';
 import { drawCrumble } from './crumble.js';
 import { running, sameKey, holdsRoom } from './hold.js';
-import { drawBrackets, drawFlames } from './torches.js';
+import { drawBrackets, torchLights, drawFlames } from './torches.js';
 import { drawMotes } from './motes.js';
 import { draftTo, stayingMotes } from '../core/draft.js';
 import { drawStatus } from './hud.js';
 import { shareLeft } from '../core/lasting.js';
-import { drawMarks, marksSize, markAt, MARK, MARK_GAP } from './marks.js';
+import { drawMarks, marksSize, markAt, MARK, MARK_GAP, POISON_MARK, STIFF_MARK, WARM_MARK, GLOW_MARK, SLOW_MARK, MEND_MARK, WARD_MARK, SPIT_MARK, SHADE_MARK } from './marks.js';
 import { drawGoalLine, goalSize, onGoal } from './goalline.js';
 import { goalLine } from '../core/goals.js';
 import { lineTop, createLineClock } from './textline.js';
@@ -41,11 +41,13 @@ import { jabAt } from './jab.js';
 import { drawMark, drawDots, drawAlert, drawGain } from './walk.js';
 import { drawFloat, drawBite } from './float.js';
 import { drawDoors } from './doors.js';
-import { LANTERN_AT } from '../core/light.js';
+import { LANTERN, LANTERN_AT } from '../core/light.js';
 import { flasksIn } from '../core/bag.js';
 import { maxHealth, DIRS, creatureList } from '../core/turn.js';
 import { drawFires, drawCalls } from './campfire.js';
 import { depthOf } from '../core/room.js';
+import { glowsIn } from '../core/stairs.js';
+import { KIND_LOOKS } from './boons.js';
 import { shownLine } from '../core/lines.js';
 import { levelOf } from '../core/xp.js';
 import { daylight, darkNow } from '../core/daytime.js';
@@ -364,7 +366,8 @@ export function createFrame(app, ui) {
     const line = fall?.from || cut ? null : lineClock(shownLine(state), state.line, t); // the fall's line once the hero wakes, the cutscene's once it ends (D-957); gone after its turns or its seconds (B-009)
     if (cut?.bars) drawBars(cut.bars); // the cutscene's black bars, the line over them (D-957)
     if (!CARDS.has(app.screen) && !cut) bossBar.draw(hc, fall || travel ? null : bossFight(state), state.events, t, still(), covers(barBox()) ? UNDER_ALPHA : 1); // the Lampeater's name and hearts, from the cutscene's end, faint over the hero (D-957, D-959)
-    if (!CARDS.has(app.screen)) textLine.draw(hc, line, t, still()); // over a card instead, below
+    const [heroX, heroY, heroSize] = onLayer(sx - cam.x, sy - cam.y, TILE);
+    if (!CARDS.has(app.screen)) textLine.draw(hc, line, t, still(), { x: heroX, y: heroY, size: heroSize }); // over a card instead, below; above the hero, not over it (H-75)
     if (line !== app.spokenLine) { app.spokenLine = line; if (line) spoken.textContent = line.text; }
     lanternButton.show(state.lit); quickSlot.show(flasksIn(state.bag), state.float); sleepButton.show(app.screen === 'play' && !fall && sleepsOut(app.state)); boonButton.show(app.screen === 'play' && !fall && !!app.boonHere && offersBoons(app.state)); leapButton.show(app.screen === 'play' && !fall && !!app.state.leap, !!app.leapReady); // Leap learnt on this journey (D-962) // the rune on the home plate after arriving (B-007) // the moon outside at night (D-758) // WAIT or PULL while a line is out (D-612)
     if (!CLEAR_OVER.has(app.screen)) veilAround();

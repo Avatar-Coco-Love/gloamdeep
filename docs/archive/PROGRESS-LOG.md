@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-18, 0.3.424, Less code to read.** Hands-off (D-980), nothing
+  in the game changed: lines.js and frame.js split, a code size test,
+  a fixups folder, one tile.js (H-99 to H-102). D-983, D-984.
 - **2026-11-18, 0.3.423, Each PR costs less.** Hands-off (D-980), nothing
   in the game changed: a test keeps every decision and the archive, and
   release.js splits the history by itself (H-94 to H-98). D-982.

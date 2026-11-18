@@ -441,7 +441,7 @@ test('Music in the dungeon (D-841): "Patreon Challenge 04" on every floor from 8
   assert.deepEqual(settingsMenu({ muted: ['dungeon'] }, false, null, null, 'sound', 'music').map((l) => l.text), ['Music: 50%', 'Surface: On', 'Crypt: On', 'Rock caves: On', 'Warrens: On', 'Dungeon: Off', 'Lampeater: On', 'Version history']);
 });
 
-test('Nothing is fetched with Sound Off; once On, the sounds, and only the place\'s theme (H-03)', async () => {
+test('Nothing is fetched with Sound Off; once On, each sound file once, and only the place\'s theme (H-03, H-74)', async () => {
   const { createSound, FILES, MUSIC } = await import('../src/render/sound.js');
   const got = [], heard = {}, node = () => ({ connect: (n) => n ?? node(), gain: { value: 1 }, delayTime: {}, frequency: {} });
   const fake = { window: globalThis.window, fetch: globalThis.fetch, addEventListener: globalThis.addEventListener };
@@ -457,7 +457,7 @@ test('Nothing is fetched with Sound Off; once On, the sounds, and only the place
     assert.equal(got.length, 0);
     on = true;
     s.music('crypt');
-    const files = Object.values(FILES).reduce((n, { files = [] }) => n + files.length, 0);
+    const files = new Set(Object.values(FILES).flatMap(({ files = [] }) => files)).size; // a file shared by voices, fetched and decoded once (H-74)
     assert.equal(got.length, files + 1);
     assert.ok(got.at(-1).endsWith(encodeURI(MUSIC.crypt.file)));
     heard.pointerdown();

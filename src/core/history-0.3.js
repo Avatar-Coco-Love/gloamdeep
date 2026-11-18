@@ -6,6 +6,14 @@
 // tools/release.js once a newer version is in (D-982); stage 0.2's are in history-0.2.js and its split
 // files.
 export const HISTORY_03 = [
+  { v: '0.3.427', date: '2026-11-18', title: 'The dark again', lines: [
+    "Since 0.3.424 the dark below ground was not being drawn: rooms showed fully lit, and the little marks for poison, draughts and the rest went missing. Both are back, and a new test checks every code file for names it forgets to bring in.",
+    "The Shovel no longer digs out a stump with Wood lying on it: you walk onto it instead, so the Wood isn't lost and the tree still grows back.",
+    "A line along the bottom of the screen that would cover your hero now sits just above them instead.",
+    "Turning Sound On uses much less memory: each sound file is loaded once, not once for every sound that shares it.",
+    "tools/perf.js now also times a dark room and the Lampeater's arena: walking in the dark is over the frame budget, 17 ms a frame on a slow phone (H-73).",
+    "Decisions: D-988.",
+  ] },
   { v: '0.3.426', date: '2026-11-18', title: 'Taps, lines and the first mole', lines: [
     "Card buttons are easier to tap on a phone: MAKE, STORE, TAKE, SELL, DRINK, DROP and the rest now take a tap a little above or below them, 44 px tall as they should be. On a small card, DROP sits a touch higher.",
     "Choosing a draught (or a heartcap or oilcap) in the bag no longer hides its \"Now\" picture under its look line.",

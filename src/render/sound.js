@@ -280,7 +280,8 @@ export function createSound(isOn, loudness = () => 1, muted = () => false) { // 
   // once Sound is On (H-03): at that tap, or the frame Sound turns On
   for (const voice of Object.keys(FILES)) buffers[voice] = [];
   let fetched = false;
-  const decode = (path) => fetch(PACKS + path).then((r) => r.arrayBuffer()).then((b) => ac.decodeAudioData(b));
+  const decoded = {}; // each file's one decoding, shared by every voice that plays it (H-74)
+  const decode = (path) => (decoded[path] ??= fetch(PACKS + path).then((r) => r.arrayBuffer()).then((b) => ac.decodeAudioData(b)));
   function fetchAll() {
     if (fetched || !ac || !isOn()) return;
     fetched = true;

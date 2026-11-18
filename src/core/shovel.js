@@ -10,8 +10,11 @@ import { note } from './events.js';
 import { passTurn } from './state.js';
 import { endTurn } from './endturn.js';
 
-// Whether walking onto x, y digs a stump out: the shovel held and a stump there
-export const digsStump = (state, x, y) => state.tool === 'shovel' && tileAt(state.room, x, y).id === 'stump';
+// Whether walking onto x, y digs a stump out: the shovel held and a bare stump there; one
+// with a find on it, such as its felled Wood left by a full bag, is walked onto, so the
+// find is never lost under grass (H-72)
+export const digsStump = (state, x, y) => state.tool === 'shovel' && tileAt(state.room, x, y).id === 'stump'
+  && !(state.items || []).some((it) => it.x === x && it.y === y);
 
 export function digStump(state, x, y) {
   const room = withTile(state.room, x, y, get('floor'));
