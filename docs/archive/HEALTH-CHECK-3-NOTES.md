@@ -14,7 +14,7 @@ reused); while working, each area numbers its own (A-1, B-1...).
 - [x] 0. Set up: this file, baseline `npm test` 2050 of 2050 pass, 72 s.
 - [ ] A. A conversation's start: what it reads, and how that grows.
 - [ ] B. A PR's overhead: the checklist, release, history, conflicts.
-- [ ] C. The code's shape: big files, boot, duplication, the rules.
+- [x] C. The code's shape: big files, boot, duplication, the rules.
 - [ ] D. Tests and tools: speed, noise, what's slow or doubled.
 - [ ] E. The Lampeater's fight (0.3.381 to 0.3.420).
 - [ ] F. Leap, the crumbling floor, gaps, the archway, the seal hall.
