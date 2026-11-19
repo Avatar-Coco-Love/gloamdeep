@@ -1,0 +1,74 @@
+# Recommendations: areas 1 to 4
+
+- 1.01 · Keep · step 27 is next; drafts let you pick the tank
+- 1.02 · Keep · small, and shows what is still out there to find
+- 1.03 · Keep · the pacing bot backs every tuning choice after it
+- 1.04 · Keep · keeps oil a worry, not a wall; the bot checks it
+- 1.05 · Keep · tunes the Lampeater against a set target; holds the knob from 3.03
+- 1.06 · Keep · a small count that keeps Growth feeling steady
+- 1.07 · Keep · feeds how far can I get; word it for Gentle and Normal only
+- 1.08 · Keep · one beat sheet saves planning each chapter afresh
+- 1.09 · Keep · set all four rungs once, build one a chapter
+- 1.10 · Drop · clashes with D-799; Gloam Eye glass (4.01) already covers it
+- 1.11 · Keep · small table so each chapter's top bites and its bottom feels earned
+- 1.12 · Keep · guards pillar 1, so oil still matters in chapter 4
+- 1.13 · Maybe · sensible for phone play, but new; needs your OK
+- 1.14 · Keep · the only real check of the 12 to 20 hour aim
+- 1.15 · Keep · the strongest of the three tester ideas; fold 6.15 and 7.14 in
+- 1.16 · Maybe · the best of the three no-bottom ideas; after launch
+- 1.17 · Drop · clashes with D-462; the Growth tree is decided
+- 1.18 · Maybe · fits the wish list, but must not undercut the lantern
+- 2.01 · Drop · already decided in D-969; build it from there
+- 2.02 · Keep · small, and keeps Leap in use before chapter 2
+- 2.03 · Keep · the last of the first four puzzles; one fixed layout first
+- 2.04 · Keep · a story beat on the way down; after depth 9 opens
+- 2.05 · Keep · one rule sheet each chapter can reuse
+- 2.06 · Keep · gives the mines variety; one kind built first
+- 2.07 · Keep · the better mines rule-bender; it bends the lantern itself
+- 2.08 · Maybe · good, but firedamp first; one rule-bender a chapter
+- 2.09 · Keep · the caverns' one rule-bender, bending pillar 1 well
+- 2.10 · Keep · the ruins' rule-bender; large, but it ties in Swim
+- 2.11 · Maybe · a fine road to the First Light, but large beside the water level
+- 2.12 · Keep · pays curiosity off on trips back up
+- 2.13 · Keep · small, and your own wish
+- 2.14 · Maybe · a whole new system; better after all four chapters (8.09)
+- 2.15 · Keep · catches rooms that cannot be reached before players do
+- 2.16 · Maybe · lovely, but clashes with D-459; needs your ruling
+- 2.17 · Maybe · answers Q-089 and Q-114, but the Gap tile is Leap's now
+- 2.18 · Drop · repeat of 1.16
+- 3.01 · Keep · the last planned chapter 1 kind; small and decided
+- 3.02 · Keep · an unseen tidy-up every later boss needs
+- 3.03 · Drop · repeat of 1.05; pick the knob as part of that card
+- 3.04 · Drop · already decided in D-939
+- 3.05 · Keep · finishes the Lampeater; the stronger of the two trophy cards
+- 3.06 · Keep · the stronger Lampeater story card; D-993 approved the three places
+- 3.07 · Keep · small, and makes the next three bosses cheaper
+- 3.08 · Keep · follows D-643's ten kinds; you pick from Q-076
+- 3.09 · Keep · your own idea, sized as one step
+- 3.10 · Keep · the mines boss, giving Heave as D-636 says
+- 3.11 · Keep · Flare as answer and reward fits D-636; details wait on Q-083
+- 3.12 · Keep · gives Swim as D-636 says; large but needed for chapter 4
+- 3.13 · Maybe · one of three first specials; 5.09 is the stronger pick
+- 3.14 · Maybe · overlaps 5.09, which ties the wanderer to the story
+- 3.15 · Maybe · a nice build-up to each boss, but new; needs your OK
+- 3.16 · Keep · no Bestiary page left half done at 1.0
+- 3.17 · Maybe · touches the story; worth a look once the bosses stand
+- 3.18 · Maybe · fun, but waits on portals themselves
+- 4.01 · Keep · D-799's first glass; all three slots in chapter 1
+- 4.02 · Keep · one recipe that finally uses the Stinger
+- 4.03 · Keep · a small first taste of Venom
+- 4.04 · Keep · the Gloamberry's waiting recipe; numbers asked at its step
+- 4.05 · Keep · small, and a second plant for the garden bed
+- 4.06 · Drop · repeat of 3.05, which holds the trophy
+- 4.07 · Keep · smithing's station, needed for each chapter's new metal
+- 4.08 · Maybe · decided in D-455, but later; campfire cooking carries it till then
+- 4.09 · Keep · a found bench fits curiosity pays off
+- 4.10 · Keep · the last of the four stations, found in the ruins
+- 4.11 · Maybe · its own station by D-771, but Q-093 is still open
+- 4.12 · Keep · rare recipes found below reward exploring
+- 4.13 · Keep · makes each chapter's plants matter at home
+- 4.14 · Keep · saves walking station to station on a phone; needs your OK
+- 4.15 · Keep · a small push toward crafting; after the spark is built
+- 4.16 · Maybe · warm and fits pillar 1, but new; needs your OK
+- 4.17 · Drop · clashes with D-455; home pieces stay on the surface
+- 4.18 · Maybe · fits pillar 1, but may add a second oil chore
