@@ -92,3 +92,20 @@ token). The aim is 120k or less, which leaves room for surprises.
 - **If a conversation still runs long,** Claude stops at the next clean
   point, commits, and hands off. The next conversation picks up from
   `PROGRESS.md`'s Next up.
+
+## The run's files (0.3.435)
+In `docs/planning/`: `BRIEF.md` (the groundwork), `1-CORE-LOOP.md` to
+`8-CRITICS.md` (141 ideas), `CHECK-1.md` and `CHECK-2.md` (the
+cross-check), `SYNTHESIS.md` (roadmap, choices by area, flags). The
+board's script reads these lines, nothing else:
+- An idea: `- **N.NN Short name** · [wild · ]builds on D-xxx, Q-xxx · text`
+  (or `new: needs the owner's OK` for the tag), under `## Now`,
+  `## Next`, `## Toward publishing` or `## Someday`.
+- A check: `- N.NN · S|M|L · ok` or its verdicts (`clash D-xxx: …`,
+  `already D-xxx`, `bad ref D-xxx`, `word: …`, `repeat of N.NN`), joined
+  by `; `. Lines after `Notes:` are the checkers' notes, not checks.
+
+The brief found loose ends for a later step: "biome" in this file and
+`VISION.md` where D-954 says "chapter"; creature counts that differ
+(D-607, D-634, D-643); `DESIGN.md` still says sounds are made in code
+(files since D-773); portals decided (D-019, D-032) with no step planned.

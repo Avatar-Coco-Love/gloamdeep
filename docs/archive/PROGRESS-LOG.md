@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-19, 0.3.432, Leap's card sound.** The Lampeater's step 8,
+  its last: as Leap's card opens, the flame rises, a whoosh of fire and
+  four bells rising over a low held bell, the owner's pick of 3 mixes;
+  under Places in Settings. D-994. Playtest:
+  https://claude.ai/artifact/AANKoJU9TwFFpRwJUuuGdc
 - **2026-11-18, 0.3.431, Leap's find.** The Lampeater's step 7: beaten,
   it leaves Leap's find; stepped on, a card, "A new ability"; closed, the
   door sinks open. A boss's big rewards are never lost. Also four open

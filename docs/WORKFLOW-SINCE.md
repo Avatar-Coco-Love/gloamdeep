@@ -11,3 +11,6 @@ line here (D-741). Each audit moves the lines into the right sections.
 - Before a big multi-agent job, a short conversation settles its method
   first (frame, areas, models, how the owner reviews) and writes it down,
   so the run starts fresh with room to work (D-996).
+- A strict one-line format for the agents' files let a grep prove every
+  idea had its check, with no file read whole; the run cost Claude
+  little context (0.3.435, D-996).
