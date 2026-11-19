@@ -16,6 +16,7 @@ smallest file that answers the question.
 | `docs/BUGS.md` | bugs the owner noticed (B-001…), their ideas with them (D-852) | when Next up names one |
 | `docs/HEALTH-CHECK-3.md` | the third health check's findings (H-68…, D-975); how we work in `-3-WAYS`; the first two's, all done, in `archive/HEALTH-CHECK-DONE.md` | when Next up names one |
 | `docs/OPEN-QUESTIONS.md` | undecided questions (Q-001…); outside places in `OPEN-QUESTIONS-2.md`; lore, special creatures and the health check's loose ends in `-3` | when a step touches one |
+| `docs/PLANNING.md` | how the big planning run works: the frame, steps, eight areas (D-996) | the planning run and its review |
 | `docs/RESEARCH.md` | the owner's wish list; ideas kept in `RESEARCH-2.md`; games and talks in `RESEARCH-GAMES.md`; travel and boons in `RESEARCH-TRAVEL.md`; research pages and their suggestions in `RESEARCH-PAGES.md`; the systems looking ahead in `RESEARCH-SYSTEMS.md` | when proposing a feature |
 | `docs/PUZZLES.md` | every puzzle and pressure idea kept, by family (L, P, C, G, K, T, W; D-889); more in `-2` and `-3` | before proposing a puzzle |
 | `docs/DESIGN.md`, `VISION.md` | the design brief; the pitch, inspirations, pillars | before proposing a feature |

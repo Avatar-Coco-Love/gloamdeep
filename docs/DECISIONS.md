@@ -95,3 +95,16 @@ walk takes the first way with 4 open tiles, as it was chopping a tree
 (offered too: a digging scene as well; as is). A bug hunt over the code
 since 0.3.394, and the measure: F-9 and F-10 in `BUGS.md`; which to fix,
 and when, is the owner's pick. The next audit is at 0.3.473.
+
+**D-996 · 2026-11-19 · The big planning run** (the owner's idea and
+picks, all recommended) Before building more, Claude and a team of
+agents plan the game's future, as the third health check found its
+faults; the method is in `PLANNING.md`. Up to 1.0, in three horizons:
+Now, Next, Toward publishing (offered too: the next stage only; launch
+and beyond). Grounded ideas plus a marked wild tier (offered too:
+strictly grounded; blue sky). Reviewed on an interactive planning board,
+Keep, Maybe or Drop a card (offered too: chat rounds; a written
+roadmap). Every area in one run, then the review an area a sitting
+(offered too: an area at a time). Eight areas, Claude's list the owner
+liked. Run in a fresh conversation; nothing it proposes is decided until
+picked. The Lampeater's polish waits until after it.
