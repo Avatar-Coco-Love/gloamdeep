@@ -24,6 +24,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.432 (2026-11-19)
+- When the card for a new ability opens, the flame rises: a whoosh of fire and bells climbing over a low held bell, under Places in Settings.
+- Decisions: D-994.
+
 ## 0.3.431 (2026-11-18)
 - Beaten, the Lampeater now leaves Leap's find glowing where it fell, and the door stays shut. Step on it and a card shows your new ability, Leap; close the card and the stone door sinks open.
 - A duskstar you pick near home no longer grows back on the waystone's ring.
@@ -32,8 +36,3 @@ Entry format:
 ## 0.3.430 (2026-11-18)
 - Nothing in the game changed: the lantern's tank slot is planned as the next new step, after the Lampeater's polish or more flowers.
 - Decisions: D-991.
-
-## 0.3.429 (2026-11-18)
-- Nothing in the game changed: the docs catch up with the Lampeater's fight, its 12 hearts, phases, calls, guards and wary, and the bench's half start on 6 hearts.
-- The docs no longer describe the falling floor round the Lampeater's stairs, taken out before it shipped; the Boss tab, the newest content page and which sound files to ship are written down.
-- Decisions: D-990. D-979, D-986 and D-987 moved to the archive, word for word.

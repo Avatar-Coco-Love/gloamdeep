@@ -149,6 +149,8 @@ const SOUNDS = [
   { label: 'The floor gives way (D-966)', play: 'later(0, () => sound.giveWay())', boss: true },
   { label: 'Two steps, then the floor gives way', play: 'later(0, () => sound.stoneStep()); later(250, () => sound.stoneStep()); later(500, () => sound.giveWay())', boss: true },
   { label: 'The last blow, beaten, then the floor gives way', play: "later(0, () => { sound.hit('stone'); sound.beaten(true); }); later(900, () => sound.stoneStep()); later(1150, () => sound.giveWay())", boss: true },
+  { label: "Leap's card opens: the flame rises, with the page (D-994)", play: 'later(0, () => { sound.card(true); sound.learn(); })', boss: true },
+  { label: "A step onto Leap's find, then its card", play: 'later(0, () => sound.stoneStep()); later(250, () => { sound.card(true); sound.learn(); })', boss: true },
   // Sounds all around (D-836): a cave's drips, each a little left or right
   { label: 'A drip in the rock caves', play: 'later(0, () => sound.drip())' },
   { label: 'Steps in the rock caves, then a drip', play: 'for (let i = 0; i < 4; i++) later(i * 250, () => sound.stoneStep()); later(1300, () => sound.drip())' },

@@ -147,3 +147,17 @@ and near 1.0 also sent if the player opts in, with a privacy note
 (answers Q-052, the owner's own answer). Half and Automatic light are
 measured again at the next audit, then the owner chooses (Q-069;
 offered too: drop them; make Half do more).
+
+**D-994 · 2026-11-19 · Leap's card's sound** (the owner's picks, all
+recommended, from a [board of 3 mixes](https://claude.ai/artifact/As9JukRhEKXvG3nBsGcDrf);
+builds D-971 and D-992, their step 8) As a new ability's card opens, the
+flame rises: a whoosh of fire, four bells rising, a low bell held under
+them (offered too: five glass notes rising over a soft hum; one deep bell
+with a breath). The page still turns with it (offered too: the sound
+alone). It follows Finds' loudness (offered too: Fighting; Menus).
+Claude's calls: `learn` in `render/sound.js`, `Fire-030` from 0.1 s, 1 s,
+fading 0.5 s, at 0.2; the waystone's bell at 1, 1.26, 1.5 and 2, from
+0.25 s, 0.2 s apart, at 0.16 to 0.13; `impactBell_heavy_001` from 0.25 s,
+2.6 s, fading 1.6 s, muffled above 1500 Hz, at 0.2. Finds' list is full on
+the smallest card, so it is heard under Places' line, as the drips (D-836).
+Next, the owner's Lampeater polish is asked.

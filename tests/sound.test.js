@@ -465,3 +465,21 @@ test('Nothing is fetched with Sound Off; once On, each sound file once, and only
     assert.equal(got.length, files + 1);
   } finally { Object.assign(globalThis, fake); }
 });
+
+test("Leap's card (D-994): the flame rises with the page as it opens, in Finds, under Places' line", async () => {
+  const { FILES, kindOf, VOICES } = await import('../src/render/sound.js');
+  const { GROUPS, isMuted } = await import('../src/core/settings.js');
+  const { createHearing } = await import('../src/hearing.js');
+  assert.ok(VOICES.includes('learn') && FILES.learn.files[0].endsWith('Fire-030.ogg'));
+  assert.deepEqual(FILES.learn.with.map(([v]) => v), ['learn1', 'learn2', 'learn3', 'learn4', 'learnLow']);
+  for (const v of ['learn', 'learn1', 'learn2', 'learn3', 'learn4', 'learnLow']) assert.equal(kindOf(v), 'finds');
+  assert.ok(GROUPS.places.includes('learn') && isMuted({ muted: ['places'] }, 'learn')); // Finds' list is full on the smallest card
+  const heard = [], sound = new Proxy({}, { get: (o, v) => (...a) => heard.push([v, ...a]) }), app = { screen: 'play' };
+  const hearing = createHearing(app, sound, {});
+  app.screen = 'ability';
+  hearing.turnPage();
+  assert.deepEqual(heard, [['card', true], ['learn']]);
+  app.screen = 'play';
+  hearing.turnPage();
+  assert.deepEqual(heard.at(-1), ['card', false]); // closed: the page alone
+});
