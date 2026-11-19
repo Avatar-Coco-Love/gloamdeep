@@ -4,14 +4,14 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.433 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.434 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The owner's Lampeater polish (`OPEN-QUESTIONS-3.md`, D-992, D-994): ask
-for their ideas on its cutscenes, phases and the rest, and whether F-10
-(older saves' arenas, `BUGS.md`) comes first. Then step 26 (more
-flowers) or step 27, the tank slot (D-991).
+The big planning run (`PLANNING.md`, D-996): groundwork brief, the eight
+areas' agents, the cross-check, the synthesis, then the owner's planning
+board. After it, the Lampeater's polish (`OPEN-QUESTIONS-3.md`, D-992,
+D-994) and whether F-10 (`BUGS.md`) comes first.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -44,6 +44,9 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-19, 0.3.434, Planning the planning.** Nothing in the game
+  changed: how the big planning run will work, the owner's picks, in
+  `PLANNING.md`; the run itself is next, in a fresh conversation. D-996.
 - **2026-11-19, 0.3.433, The eighteenth audit.** Nothing visible
   changed: Half and Automatic light dropped, as Full is fast enough now;
   sound's file list split off sound.js; five decisions and the playbook's
@@ -54,9 +57,3 @@ list in `RESEARCH.md`.
   four bells rising over a low held bell, the owner's pick of 3 mixes;
   under Places in Settings. D-994. Playtest:
   https://claude.ai/artifact/AANKoJU9TwFFpRwJUuuGdc
-- **2026-11-18, 0.3.431, Leap's find.** The Lampeater's step 7: beaten,
-  it leaves Leap's find; stepped on, a card, "A new ability"; closed, the
-  door sinks open. A boss's big rewards are never lost. Also four open
-  questions settled: duskstars off the ring, special creatures' plan,
-  play data, Half light. D-992, D-993. Playtest:
-  https://claude.ai/artifact/4fC9VuVj9y4KxTpGj3pgHN

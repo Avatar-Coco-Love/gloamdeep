@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-18, 0.3.431, Leap's find.** The Lampeater's step 7: beaten,
+  it leaves Leap's find; stepped on, a card, "A new ability"; closed, the
+  door sinks open. A boss's big rewards are never lost. Also four open
+  questions settled: duskstars off the ring, special creatures' plan,
+  play data, Half light. D-992, D-993. Playtest:
+  https://claude.ai/artifact/4fC9VuVj9y4KxTpGj3pgHN
 - **2026-11-18, 0.3.430, The tank slot planned.** Nothing in the game
   changed: after a look at the game's RPG parts, the owner picked the
   lantern's tank slot as step 27, after the current Next up. D-991.

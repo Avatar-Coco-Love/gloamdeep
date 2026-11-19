@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.431 (2026-11-18)
+- Beaten, the Lampeater now leaves Leap's find glowing where it fell, and the door stays shut. Step on it and a card shows your new ability, Leap; close the card and the stone door sinks open.
+- A duskstar you pick near home no longer grows back on the waystone's ring.
+- Decisions: D-992, D-993. Questions closed: Q-052, Q-103. D-971 and D-972 moved to the archive, word for word.
+
 ## 0.3.430 (2026-11-18)
 - Nothing in the game changed: the lantern's tank slot is planned as the next new step, after the Lampeater's polish or more flowers.
 - Decisions: D-991.

@@ -8,5 +8,6 @@ When a step teaches something about working together, its PR adds one
 line here (D-741). Each audit moves the lines into the right sections.
 
 
-None yet: the eighteenth audit moved the last lines to
-`archive/WORKFLOW-8.md` (D-995).
+- Before a big multi-agent job, a short conversation settles its method
+  first (frame, areas, models, how the owner reviews) and writes it down,
+  so the run starts fresh with room to work (D-996).
