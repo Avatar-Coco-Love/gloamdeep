@@ -4,14 +4,14 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.432 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.433 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
 The owner's Lampeater polish (`OPEN-QUESTIONS-3.md`, D-992, D-994): ask
-for their ideas on its cutscenes, phases and the rest. After, the
-0.3.433 audit, then step 26 (more flowers) or step 27, the tank slot
-(D-991).
+for their ideas on its cutscenes, phases and the rest, and whether F-10
+(older saves' arenas, `BUGS.md`) comes first. Then step 26 (more
+flowers) or step 27, the tank slot (D-991).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -22,6 +22,7 @@ for their ideas on its cutscenes, phases and the rest. After, the
 - How hard the Lampeater should be (Q-111): 12 hearts for now (D-950);
   easier with the phases (D-978), Lean 35%, Middling 84%, Strong 94%,
   the catch's snuffs gone; again after each step (D-972).
+- Which of the audit's bugs to fix, and when: F-9 and F-10 (`BUGS.md`, D-995).
 - Any time: a sound for the vault door and the rune wall opening (D-895,
   D-929); sound on an older iPhone, when one is to hand (H-22, D-868).
 - Every other open question, each at its own time or step: `OPEN-QUESTIONS*.md`
@@ -37,13 +38,17 @@ The rest of the scope, proposed (D-482; may change):
 - [ ] 27 The lantern's tank slot (D-991), after the Lampeater's polish
   or step 26; its part, recipe and numbers the owner's picks
 
-**Next audit: 0.3.433** (D-518, D-951); it measures Half and Automatic
-light again (Q-069, D-993).
+**Next audit: 0.3.473** (D-518, D-995).
 
 Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-19, 0.3.433, The eighteenth audit.** Nothing visible
+  changed: Half and Automatic light dropped, as Full is fast enough now;
+  sound's file list split off sound.js; five decisions and the playbook's
+  lines archived; perf.js's surface walk clear of trees. A bug hunt:
+  F-9 and F-10, the owner's pick. D-995.
 - **2026-11-19, 0.3.432, Leap's card sound.** The Lampeater's step 8,
   its last: as Leap's card opens, the flame rises, a whoosh of fire and
   four bells rising over a low held bell, the owner's pick of 3 mixes;
@@ -55,6 +60,3 @@ list in `RESEARCH.md`.
   questions settled: duskstars off the ring, special creatures' plan,
   play data, Half light. D-992, D-993. Playtest:
   https://claude.ai/artifact/4fC9VuVj9y4KxTpGj3pgHN
-- **2026-11-18, 0.3.430, The tank slot planned.** Nothing in the game
-  changed: after a look at the game's RPG parts, the owner picked the
-  lantern's tank slot as step 27, after the current Next up. D-991.

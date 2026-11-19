@@ -71,7 +71,7 @@ themselves. Each kind also touches:
   line ids, `acts` and `fights` for its Bestiary page, D-631, D-632); its lines in `src/core/lines-creatures.js`; its picture in
   `src/render/pictures-creatures.js` (D-617, D-782; `tools/make.js` starts both in `lines.js` and `pictures.js`), its sprite in `src/render/sprites.js`, added to `SPRITES` and to `FLASHES` (the hit
   flash), and to `COLOURS` with a registry `colours` count if it has colour sets (D-373); where it lives in `src/core/room.js` (its `POOL` entry, like `{ id: 'lampmoth', from: 2 }`; a mimic through `mimicRooms`) or
-  `src/core/cave.js`; a sound, if its own, in `src/render/sound.js` (and
+  `src/core/cave.js`; a sound, if its own, in `src/render/sound.js` and its files in `sound-files-2.js` (D-995; and
   the sound board, and its line in `docs/SOUNDS.md`, D-773). Only a new way touches `src/core/behaviours.js` and
   `src/core/creatureturn.js`, and a new way is its own step.
 - **A find:** its entry in `src/core/items.js` (stack `max`, `regrow`,

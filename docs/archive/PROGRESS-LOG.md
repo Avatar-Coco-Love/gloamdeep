@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-18, 0.3.430, The tank slot planned.** Nothing in the game
+  changed: after a look at the game's RPG parts, the owner picked the
+  lantern's tank slot as step 27, after the current Next up. D-991.
 - **2026-11-18, 0.3.429, The docs catch up.** Hands-off (D-980), nothing
   in the game changed: the Lampeater's later steps and 12 hearts written
   in, the falling floor's leftovers gone, the Boss tab, CONTENT-5 and the

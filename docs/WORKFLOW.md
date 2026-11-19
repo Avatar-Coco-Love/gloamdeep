@@ -7,13 +7,13 @@ taught us about working together (D-518). The rules in force are in
 `CLAUDE.md` and `PR-CHECKLIST.md`. This page explains them.
 `WORKFLOW-2.md` has how the game grew, our tools, what bugs taught us,
 the design habits (D-741) and starting a new project; `archive/WORKFLOW-3.md`
-to `-7` what each audit added (D-782, D-826, D-868, D-910, D-951; archived at
+to `-8` what each audit added (D-782, D-826, D-868, D-910, D-951, D-995; archived at
 0.3.422, D-981); `WORKFLOW-SINCE.md` the lines since the last audit.
 
 ## The project so far
 
-Started 2026-10-17. By 2026-11-16: version 0.3.393, about 667 pull
-requests, 951 decisions, 111 questions asked, 17 audits. One owner, who
+Started 2026-10-17. By 2026-11-19: version 0.3.433, about 707 pull
+requests, 995 decisions, 116 questions asked, 18 audits. One owner, who
 decides; Claude proposes and builds. Plain HTML, CSS and JavaScript,
 phone first, nothing outside the code (D-003).
 
@@ -97,7 +97,8 @@ Each audit's lessons, from the twelfth on, are in `WORKFLOW-3.md` (D-782),
 the fourteenth's in `WORKFLOW-4.md` (D-826), the fifteenth's in
 `WORKFLOW-5.md` (D-868), the sixteenth's in `WORKFLOW-6.md` (D-910), and
 the seventeenth's in `WORKFLOW-7.md` (D-951), all in `docs/archive/` since
-0.3.422 (D-981), grep only; later audits add their lessons there too.
+0.3.422 (D-981), grep only; later audits add their lessons there too: the
+eighteenth's in `WORKFLOW-8.md` (D-995).
 
 ## Since the last audit
 

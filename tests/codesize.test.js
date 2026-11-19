@@ -12,7 +12,7 @@ const OVER = [ // already over 20 KB at 0.3.424; take a file off once it is spli
   'src/core/items.js', 'src/core/room.js', 'src/core/tiles.js', 'src/core/turn.js',
   'src/input/screens.js', 'src/main.js', 'src/render/bag.js', 'src/render/cloak.js',
   'src/render/frame.js', 'src/render/pictures-finds.js', 'src/render/pictures.js',
-  'src/render/sound.js', 'src/render/sprites.js',
+  'src/render/sprites.js',
 ];
 const code = readdirSync('src', { recursive: true }).filter((f) => f.endsWith('.js') && !/(^|\/)history-/.test(f)).map((f) => `src/${f}`);
 

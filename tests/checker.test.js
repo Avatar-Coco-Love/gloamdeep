@@ -72,7 +72,7 @@ test('every creature sound is in sound.js', () => {
   for (const e of byKind('enemy')) {
     for (const f of ['sound', 'sips']) if (e[f] !== undefined && !VOICES.has(e[f])) gaps.push(`${who(e)}: ${f} '${e[f]}'`);
   }
-  report(gaps, 'Add these sounds to src/render/sound.js (and the sound board)');
+  report(gaps, 'Add these sounds to src/render/sound.js, their files to sound-files-2.js (and the sound board)');
 });
 
 test('every creature, find and person has a sprite', () => {

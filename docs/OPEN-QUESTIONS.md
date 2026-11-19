@@ -41,13 +41,6 @@ there or something in it shines (a torch, a glow). Still open: how near
 it must be, how it looks unvisited, and whether it shows on the surface.
 Needs rooms placed beside each other outside the map; its own step.
 
-**Q-069 · Half and Automatic, now?** (raised 2026-10-29, D-436)
-Half as D-432 says barely sped the light up. With the last pass faster,
-the lights' own work is a bigger share: measure again, then build Half
-and Automatic as decided, make Half do more (softer shadows, pictures
-first), or drop them. The code that was built is easy to redo. Measured
-again at the 0.3.433 audit, then the owner chooses (D-993).
-
 **Q-071 · Water and the garden** (raised 2026-10-31, D-499)
 The owner asks whether water matters to the garden. So far seeds just
 grow over turns (D-452, D-567). It could: a pool at home, wet

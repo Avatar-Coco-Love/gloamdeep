@@ -8,7 +8,7 @@ the first (D-774), the lantern's click the second (D-775), the steps
 below the third (D-776), the fight's hit and beaten the fourth (D-777), the menus the fifth (D-819), the bag's the sixth (D-820), digging and chests the seventh (D-825), home's the eighth (D-828), the lantern and the light the ninth, the first from the elemental pack (D-830), the fight's rest the tenth (D-831), the creatures' bites the eleventh, all under one line, Bites (D-832), and the rest the twelfth, Claude's picks by the owner's go-ahead (D-833). Music began on the surface (D-837), its own pack and kind, in `SOUNDS-3.md`, now `SOUNDS-4.md` (0.3.422). Settings' Loudness turns every sound up or down together (D-822), and each of four kinds has its own share of it: Steps (Moving, and the lantern and the light), Fighting (and Creatures), Finds (the bag and home, digging and chests, and Places) and Menus (D-823); a fifth, Music, 50% until picked (D-837). Each heard sound can be turned On or Off on its own, in a list opened from its kind's line (D-824).
 
 **How a line reads.** *Name*: the sound's name in the code, where it
-has one (`src/render/sound.js`). *When*: the moment it plays. *Feel*:
+has one (`src/render/sound.js`; its files in `sound-files.js` and `-2`, D-995). *When*: the moment it plays. *Feel*:
 what it should sound like, a first guess for the owner to change.
 *File*: the file picked, its pack and licence, or `—` while none is.
 A sound goes in only after the owner hears it on the sound board

@@ -66,8 +66,15 @@ async function intoArena(page) { // the playtest's link straight into the boss b
   await page.waitForTimeout(8000); // past the cutscene, which holds the keys
 }
 const SIDEWAYS = ['ArrowRight', 'ArrowLeft']; // the keys walked: 4 steps one way, 4 back
+// On the surface, the first way with 4 open tiles from the hero, so the walk times walking, not a tree
+// chopped or stone dug (0.3.433, D-995: a bump repaints the room, F-9)
+const OPEN = [['ArrowRight', 'ArrowLeft', 1, 0], ['ArrowLeft', 'ArrowRight', -1, 0], ['ArrowUp', 'ArrowDown', 0, -1], ['ArrowDown', 'ArrowUp', 0, 1]];
+const openWay = (page) => page.evaluate((ways) => {
+  const s = globalThis.gloamdeep.state();
+  return ways.find(([, , dx, dy]) => [1, 2, 3, 4].every((n) => s.room.map[s.hero.y + dy * n]?.[s.hero.x + dx * n] === '.'));
+}, OPEN);
 const SCENES = [
-  ['surface', (page) => intoPlay(page), SIDEWAYS],
+  ['surface', (page) => intoPlay(page), openWay],
   [`dark, depth ${DARK_DEPTH}`, async (page) => { await intoPlay(page); await goDown(page); }, SIDEWAYS],
   ['arena', intoArena, ['ArrowDown', 'ArrowUp']], // it starts in the narrow way in
 ];
@@ -78,12 +85,14 @@ for (const [scene, into, ways] of SCENES) {
   const game = await openGame({ seed: SEED, scale: 3 }), { page } = game; // the serving and the browser: tools/drive.js (H-107)
   try {
     await into(page);
+    const keys = typeof ways === 'function' ? await ways(page) : ways;
+    if (!keys) throw new Error(`${scene}: no way with 4 open tiles from the hero`);
     const cdp = await page.context().newCDPSession(page);
     await cdp.send('Emulation.setCPUThrottlingRate', { rate: SLOW });
     await cdp.send('Profiler.enable');
     await cdp.send('Profiler.setSamplingInterval', { interval: 200 });
     for (const [label, walking] of [['standing', false], ['walking ', true]]) {
-      const r = await measure(page, cdp, walking, ways);
+      const r = await measure(page, cdp, walking, keys);
       const over = [r.busy > BUDGET.frame && 'frame', r.light > BUDGET.light && 'light'].filter(Boolean).map((w) => ` · ${w} over budget`).join('');
       console.log(`${scene.padEnd(14)} ${label}  fps ${r.fps.toFixed(0).padStart(2)} · frame ${ms(r.busy)} ms · light ${ms(r.light)} ms${over}`);
     }

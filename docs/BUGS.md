@@ -37,6 +37,40 @@ show for one turn on coming back into the arena; a fall on the turn it
 gets free loses the snuff it owed; the Boss tab replaces a real
 journey's gear for good (a dev jump, D-948, maybe as meant).
 
+## Found by the eighteenth audit (D-995)
+
+F-9 found while measuring the light again, F-10 by the bug hunt over
+the code from 0.3.394 to 0.3.432, both checked with small scripts.
+Which to fix, and when, is the owner's pick; each fix is still the
+owner's pick at its step. The fixes offered are Claude's and the hunt's,
+the first one recommended.
+
+- **F-9 · A bump on the surface stalls the screen.** Each chop or dig
+  bump, and anything else that changes the room (the first turn's
+  `day` too), repaints the whole woods room and its border
+  (`frame.js:195-205`, `drawRoom`, `drawBeyond`): about 0.1 s on
+  Claude's machine, 0.4 s on the simulated slow phone. It is why
+  perf.js's surface walk read 57 ms (H-73): it was chopping a tree.
+  Fixes: repaint only the tiles that changed, and their neighbours; or
+  keep the grass and rock painted once and draw the changed tiles over.
+- **F-10 · Older saves' arenas are never brought up to date.** The save
+  format stayed at 37 (`save.js:33`), so an arena kept in an older save
+  keeps its old shape: from 0.3.394, with all 4 braziers lit, the door
+  is open and the Lampeater alive, so the hero walks down past the fight
+  and never gets Leap; from 0.3.395 to 0.3.403, a Lampeater beaten
+  before Leap was given leaves no find, so that journey can never learn
+  Leap; before 0.3.413, the fight starts with no gloamlings until the
+  hero leaves by a fall. Fixes: an upgrade step to format 38 lays Leap's
+  find where it fell, or seals the door, cools the braziers and gives
+  the brood, as `wholeAgain` does; or the same three checks each time
+  the hero comes into the arena.
+
+Seen but not confirmed: a beating blow that also brings a level shows
+"Level N." in place of "The Lampeater fades. Something glows."
+(`endturn.js:54`; the test allows it, maybe as meant); poison taking the
+last heart on the step that picks up the find may open the card over
+the fall; a save made during the cutscene never plays it again.
+
 ## Found at the third health check's steps
 
 **B-013 · 2026-11-18 · DECONSTRUCT under the bag's slots, on the smallest view**
