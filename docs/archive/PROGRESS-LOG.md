@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-18, 0.3.429, The docs catch up.** Hands-off (D-980), nothing
+  in the game changed: the Lampeater's later steps and 12 hearts written
+  in, the falling floor's leftovers gone, the Boss tab, CONTENT-5 and the
+  sound files to ship (H-84 to H-86). D-990.
 - **2026-11-18, 0.3.428, Corners and last hearts.** Hands-off (D-980)
   but three rulings, the owner's: a slam's last heart falls where struck;
   only the cache behind a Leap gap (asked again: 47%, not 14%); Leap in

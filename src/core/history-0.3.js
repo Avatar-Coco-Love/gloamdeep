@@ -6,6 +6,10 @@
 // tools/release.js once a newer version is in (D-982); stage 0.2's are in history-0.2.js and its split
 // files.
 export const HISTORY_03 = [
+  { v: '0.3.432', date: '2026-11-19', title: 'Leap\'s card sound', lines: [
+    "When the card for a new ability opens, the flame rises: a whoosh of fire and bells climbing over a low held bell, under Places in Settings.",
+    "Decisions: D-994.",
+  ] },
   { v: '0.3.431', date: '2026-11-18', title: 'Leap\'s find', lines: [
     "Beaten, the Lampeater now leaves Leap's find glowing where it fell, and the door stays shut. Step on it and a card shows your new ability, Leap; close the card and the stone door sinks open.",
     "A duskstar you pick near home no longer grows back on the waystone's ring.",

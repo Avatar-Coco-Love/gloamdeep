@@ -85,6 +85,7 @@ export function createHearing(app, sound, spoken) {
     cards = turn.trail; cardShown = app.screen;
     if (turn.open && app.screen === 'chest') { sound.chest(true); setTimeout(() => sound.card(true), CREAK_MS); return; }
     sound.card(turn.open);
+    if (turn.open && app.screen === 'ability') sound.learn(); // a new ability's card: the flame rises, with the page (D-994)
     if (!turn.open && was === 'chest') sound.chest(false);
   }
   const CREAK_MS = 300; // the page turns as the creak ends

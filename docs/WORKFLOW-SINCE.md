@@ -28,3 +28,4 @@ line here (D-741). Each audit moves the lines into the right sections.
 - Measure a finding's numbers again before asking its ruling: H-79's 14% was 47% when the fix was built, so the owner was asked again with the right count before it was finished (0.3.428).
 - A docs step is checked against the code, not only the decisions: each number in H-84's rows came from the registry and the bench's own code (0.3.429).
 - A plan's unbuilt steps hide behind a vague Next up: "the Lampeater's polish" still had steps 7 and 8 of D-972 to build, found by reading the code, not the docs; asking which came first kept the owner's ideas for after (0.3.431).
+- Check a list's room before adding a line: Settings' Finds list was full on the smallest card, so the new card's sound went under Places, as the drips did; the text-fit test caught it (0.3.432).
