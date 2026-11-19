@@ -113,13 +113,17 @@ The brief found loose ends for a later step: "biome" in this file and
 ## The board (0.3.436)
 A private Artifact: https://claude.ai/artifact/7UaaJUk8SSVVXVuFtjxBQw.
 `node tools/board.js <scratchpad>/board.html` builds it from the lines
-above (counts and problems, one line each; `tests/board.test.js` checks
-every idea has its check), then republish to the same link. Claude's
-picks, the owner's to change: tap a pick again to clear it; an optional
-note a card; filters by area, To pick, Keep, Maybe, Drop, Wild and
+above and `RECS-1.md`, `RECS-2.md` (counts and problems, one line each;
+`tests/board.test.js` checks every idea has its check and recommendation),
+then republish to the same link. Each card shows Claude's recommendation,
+`- N.NN · Keep|Maybe|Drop · reason` in `RECS-*.md`, one agent's pass, its
+button marked with a dot (the owner's picks, 0.3.436), and an always-open
+box for the owner's own answer beside the pick (the owner's pick). Claude's
+picks, the owner's to change: tap a pick again to clear it; filters by area, To pick, Keep, Maybe, Drop, Wild and
 Flagged (the check's verdicts); "repeat of" jumps to that card.
 - **Reading picks back** (the reviews): `ArtifactData` `query` on that
   link, collection `picks`, `where` `area` `==` `"1"`. One document a
-  picked card, id `c1-01` for idea 1.01: `{id, area, pick, note, at}`;
+  picked card, id `c1-01` for idea 1.01: `{id, area, pick, note, at}` (`note`
+  is the owner's own answer);
   `pick` is `keep`, `maybe`, `drop` or null (cleared). Unpicked cards
   have no document.

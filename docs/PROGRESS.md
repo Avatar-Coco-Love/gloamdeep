@@ -48,7 +48,7 @@ list in `RESEARCH.md`.
 ## Log (last 3)
 - **2026-11-19, 0.3.436, The planning board.** Nothing in the game
   changed: `tools/board.js` turns the 141 ideas into cards on a private
-  board, picks saved for Claude (`PLANNING.md`). D-996.
+  board with Claude's recommendations and the owner's answers (`PLANNING.md`). D-997.
 - **2026-11-19, 0.3.435, The big planning run.** Nothing in the game
   changed: a brief, eight areas' 141 ideas, a cross-check and a proposed
   roadmap, in `docs/planning/`; the board is next. D-996.

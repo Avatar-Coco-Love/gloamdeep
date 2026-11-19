@@ -57,13 +57,18 @@ main .wrap { padding-block: 14px 48px; display: grid; gap: 12px; }
 .verdicts li { padding-left: 10px; border-left: 3px solid var(--info); color: var(--fg); overflow-wrap: anywhere; }
 .verdicts li.warn { border-color: var(--warn); }
 .verdicts button { font: inherit; color: var(--lamp); background: none; border: 0; padding: 0; text-decoration: underline; cursor: pointer; }
-.picks { display: grid; grid-template-columns: repeat(3, 1fr) auto; gap: 6px; }
+.rec { margin: 0; font-size: .92rem; padding: 8px 10px; border-radius: 8px; background: var(--bg); border: 1px solid var(--line); overflow-wrap: anywhere; }
+.rec b { font-weight: 700; }
+.rec b[data-v="keep"] { color: var(--keep); } .rec b[data-v="maybe"] { color: var(--maybe); } .rec b[data-v="drop"] { color: var(--drop); }
+.picks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.pick { position: relative; }
+.pick.recd::after { content: ""; position: absolute; top: 5px; right: 6px; width: 7px; height: 7px; border-radius: 50%; background: var(--lamp); }
+.answer { display: grid; gap: 4px; font-size: .82rem; color: var(--dim); }
 .pick { font: 700 .95rem/1 var(--body); padding: 12px 4px; border-radius: 8px; border: 1px solid var(--line); background: transparent; color: var(--fg); cursor: pointer; }
 .pick[data-v="keep"][aria-pressed="true"] { background: var(--keep); border-color: var(--keep); color: var(--bg); }
 .pick[data-v="maybe"][aria-pressed="true"] { background: var(--maybe); border-color: var(--maybe); color: var(--bg); }
 .pick[data-v="drop"][aria-pressed="true"] { background: var(--drop); border-color: var(--drop); color: var(--bg); }
-.notebtn { font: 500 .85rem/1 var(--body); padding: 0 10px; border-radius: 8px; border: 1px dashed var(--line); background: none; color: var(--dim); cursor: pointer; }
-textarea { font: 1rem/1.4 var(--body); width: 100%; box-sizing: border-box; min-height: 4.5em; padding: 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); }
+textarea { font: 1rem/1.4 var(--body); width: 100%; box-sizing: border-box; min-height: 3em; resize: vertical; padding: 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); }
 .saved { font-size: .78rem; color: var(--dim); min-height: 1em; }
 .saved.err { color: var(--warn); }
 .empty { color: var(--dim); text-align: center; padding: 30px 0; }
@@ -73,7 +78,7 @@ button:focus-visible, textarea:focus-visible { outline: 2px solid var(--lamp); o
 
 <header><div class="wrap">
   <h1>Gloamdeep <span>Planning Board</span></h1>
-  <p class="lede">The big planning run's ideas, one card each. Nothing here is decided until you pick it. Mark each card Keep, Maybe or Drop; a note is optional. Claude reads the picks back an area or two a sitting.</p>
+  <p class="lede">The big planning run's ideas, one card each. Nothing here is decided until you pick it. Mark each card Keep, Maybe or Drop, and write your own answer beside it if you like. Claude’s recommendation is on each card, its button marked with a dot. Claude reads the picks back an area or two a sitting.</p>
 </div></header>
 
 <div class="bar"><div class="wrap">
@@ -123,16 +128,23 @@ function build() {
       }
       card.append(ul);
     }
+    if (c.rec) {
+      const r = $('p', 'rec'), b = $('b', '', 'Claude: ' + c.rec.pick[0].toUpperCase() + c.rec.pick.slice(1)); b.dataset.v = c.rec.pick;
+      r.append(b, ', ' + c.rec.why); card.append(r);
+    }
     const picks = $('div', 'picks');
-    for (const [v, label] of PICKS) { const b = $('button', 'pick', label); b.type = 'button'; b.dataset.v = v; b.setAttribute('aria-pressed', 'false'); b.onclick = () => choose(c.id, v); picks.append(b); }
-    const nb = $('button', 'notebtn', 'Note'); nb.type = 'button'; picks.append(nb);
-    const ta = $('textarea'); ta.id = 'note-' + docId(c.id); ta.hidden = true; ta.placeholder = 'A note for Claude (optional)'; ta.setAttribute('aria-label', 'Note on ' + c.id);
-    nb.onclick = () => { ta.hidden = !ta.hidden; if (!ta.hidden) ta.focus(); };
+    for (const [v, label] of PICKS) {
+      const b = $('button', 'pick' + (c.rec && c.rec.pick === v ? ' recd' : ''), label); b.type = 'button'; b.dataset.v = v; b.setAttribute('aria-pressed', 'false');
+      if (c.rec && c.rec.pick === v) b.title = 'Claude recommends ' + label;
+      b.onclick = () => choose(c.id, v); picks.append(b);
+    }
+    const answer = $('label', 'answer', 'Your answer (optional)'); const ta = $('textarea'); ta.id = 'note-' + docId(c.id); ta.rows = 2;
+    ta.placeholder = 'Your own take, a change, or a question for Claude'; answer.htmlFor = ta.id;
     ta.addEventListener('change', () => { const p = cur(c.id); p.note = ta.value.trim(); save(c.id); });
     const saved = $('div', 'saved');
-    card.append(picks, ta, saved);
+    card.append(picks, answer, ta, saved);
     list.append(card);
-    els[c.id] = { card, ta, nb, saved, buttons: picks.querySelectorAll('.pick') };
+    els[c.id] = { card, ta, saved, buttons: picks.querySelectorAll('.pick') };
   }
   const empty = $('p', 'empty', 'No cards here. Try another filter.'); empty.id = 'empty'; list.append(empty);
 }
@@ -142,8 +154,7 @@ function paint(id) {
   const p = state.picks[id] || { pick: null, note: '' }, e = els[id];
   e.card.dataset.pick = p.pick || '';
   e.buttons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.v === p.pick)));
-  if (document.activeElement !== e.ta) { e.ta.value = p.note || ''; if (p.note) e.ta.hidden = false; }
-  e.nb.textContent = p.note ? 'Note ✓' : 'Note';
+  if (document.activeElement !== e.ta) e.ta.value = p.note || '';
 }
 
 // § filters and tally
