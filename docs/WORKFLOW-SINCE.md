@@ -14,3 +14,6 @@ line here (D-741). Each audit moves the lines into the right sections.
 - A strict one-line format for the agents' files let a grep prove every
   idea had its check, with no file read whole; the run cost Claude
   little context (0.3.435, D-996).
+- The same format let a script build the board's 141 cards with no idea
+  read; one probe write proved the saved picks before the handoff
+  (0.3.436, D-996).

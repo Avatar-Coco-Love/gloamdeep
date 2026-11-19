@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-19, 0.3.433, The eighteenth audit.** Nothing visible
+  changed: Half and Automatic light dropped, as Full is fast enough now;
+  sound's file list split off sound.js; five decisions and the playbook's
+  lines archived; perf.js's surface walk clear of trees. A bug hunt:
+  F-9 and F-10, the owner's pick. D-995.
 - **2026-11-19, 0.3.432, Leap's card sound.** The Lampeater's step 8,
   its last: as Leap's card opens, the flame rises, a whoosh of fire and
   four bells rising over a low held bell, the owner's pick of 3 mixes;

@@ -109,3 +109,21 @@ The brief found loose ends for a later step: "biome" in this file and
 `VISION.md` where D-954 says "chapter"; creature counts that differ
 (D-607, D-634, D-643); `DESIGN.md` still says sounds are made in code
 (files since D-773); portals decided (D-019, D-032) with no step planned.
+
+## The board (0.3.436)
+A private Artifact: https://claude.ai/artifact/7UaaJUk8SSVVXVuFtjxBQw.
+`node tools/board.js <scratchpad>/board.html` builds it from the lines
+above and `RECS-1.md`, `RECS-2.md` (counts and problems, one line each;
+`tests/board.test.js` checks every idea has its check and recommendation),
+then republish to the same link. Each card shows Claude's recommendation,
+`- N.NN · Keep|Maybe|Drop · reason` in `RECS-*.md`, one agent's pass, its
+button marked with a dot (the owner's picks, 0.3.436), and an always-open
+box for the owner's own answer beside the pick (the owner's pick). Claude's
+picks, the owner's to change: tap a pick again to clear it; filters by area, To pick, Keep, Maybe, Drop, Wild and
+Flagged (the check's verdicts); "repeat of" jumps to that card.
+- **Reading picks back** (the reviews): `ArtifactData` `query` on that
+  link, collection `picks`, `where` `area` `==` `"1"`. One document a
+  picked card, id `c1-01` for idea 1.01: `{id, area, pick, note, at}` (`note`
+  is the owner's own answer);
+  `pick` is `keep`, `maybe`, `drop` or null (cleared). Unpicked cards
+  have no document.

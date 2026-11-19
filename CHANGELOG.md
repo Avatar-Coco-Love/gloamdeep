@@ -24,6 +24,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.436 (2026-11-19)
+- The planning board. Nothing in the game changes. The big planning run's 141 ideas are now cards on a private page that works on a phone: each one marked Keep, Maybe or Drop, with an optional note, and the picks saved for Claude to read back an area or two a sitting. Each card also shows Claude's recommendation, its button marked with a dot, and a box for the owner's own answer stays open beside the pick. A script builds the cards from the planning files' idea, check and recommendation lines.
+- Decisions: D-997.
+
 ## 0.3.435 (2026-11-19)
 - The big planning run. Nothing in the game changes. A team of agents wrote a brief of where the game stands, then 141 ideas for its future up to 1.0 in eight areas, checked each against the decisions, and drew a proposed roadmap; nothing is decided until the owner picks it on the planning board, next.
 - Decisions: none (the run follows D-996).
@@ -31,8 +35,3 @@ Entry format:
 ## 0.3.434 (2026-11-19)
 - Planning the planning. Nothing in the game changes. How the big planning run for the game's future will work, up to 1.0: a team of agents brainstorms eight areas, then the owner picks ideas on a planning board.
 - Decisions: D-996.
-
-## 0.3.433 (2026-11-19)
-- The eighteenth audit. Nothing in the game changes. The light was measured again: it is fast enough, so the Half and Automatic light choices are dropped, and Settings keeps no Light line.
-- Docs and tools: the list of sound files moves to its own two files, word for word; five finished decisions and the playbook's newest lessons move to the archive; the speed check's walk on the surface keeps clear of trees. Two bugs found, listed in the docs for the owner to pick: a stall on each chop or dig on the surface, and older saves' boss arenas not brought up to date. The next audit is at 0.3.473.
-- Decisions: D-995. Questions closed: Q-069. D-977, D-978 and D-988 to D-990 moved to the archive, word for word.

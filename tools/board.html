@@ -1,0 +1,249 @@
+<title>Gloamdeep Planning Board</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;700&family=Alegreya+SC:wght@500;700&display=swap">
+<style>
+/* Layout: one column of idea cards under a sticky filter bar; built by tools/board.js (D-996). */
+:root {
+  --bg: #12151b; --surface: #1b2029; --line: #2c3340; --fg: #e9e4da; --dim: #a39d92;
+  --lamp: #f0a845; --lamp-ink: #1a1306;
+  --keep: #7fbf8a; --maybe: #e2b75a; --drop: #d4826e; --warn: #e6866a; --info: #8fb0d8;
+  --body: "Alegreya Sans", "Segoe UI", system-ui, sans-serif;
+  --display: "Alegreya SC", Georgia, serif;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) {
+  --bg: #eceef2; --surface: #ffffff; --line: #d3d7df; --fg: #1d2129; --dim: #5e6370;
+  --lamp: #a5620a; --lamp-ink: #ffffff;
+  --keep: #2f7a3e; --maybe: #8a6410; --drop: #a8432d; --warn: #a8432d; --info: #2d5d93; color-scheme: light } }
+:root[data-theme="light"] {
+  --bg: #eceef2; --surface: #ffffff; --line: #d3d7df; --fg: #1d2129; --dim: #5e6370;
+  --lamp: #a5620a; --lamp-ink: #ffffff;
+  --keep: #2f7a3e; --maybe: #8a6410; --drop: #a8432d; --warn: #a8432d; --info: #2d5d93; color-scheme: light }
+body { background: var(--bg); color: var(--fg); font: 17px/1.45 var(--body); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.wrap { max-width: 44rem; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header { padding-block: 20px 4px; }
+h1 { font: 700 1.6rem/1.15 var(--display); margin: 0; letter-spacing: .02em; text-wrap: balance; }
+h1 span { color: var(--lamp); }
+.lede { color: var(--dim); margin: 6px 0 0; max-width: 60ch; }
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); }
+.bar .wrap { padding-block: 10px; display: grid; gap: 8px; }
+.tally { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: .9rem; color: var(--dim); font-variant-numeric: tabular-nums; }
+.tally b { color: var(--fg); font-weight: 700; }
+.meter { height: 4px; border-radius: 2px; background: var(--line); display: flex; overflow: hidden; }
+.meter i { display: block; height: 100%; }
+.row { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+.row::-webkit-scrollbar { display: none; }
+.chip { flex: none; font: 500 .88rem/1 var(--body); color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 8px 12px; cursor: pointer; font-variant-numeric: tabular-nums; }
+.chip[aria-pressed="true"] { background: var(--lamp); border-color: var(--lamp); color: var(--lamp-ink); }
+.chip small { opacity: .75; margin-left: 4px; }
+.note-bar { font-size: .88rem; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--warn); color: var(--warn); }
+main .wrap { padding-block: 14px 48px; display: grid; gap: 12px; }
+.group { font: 700 .8rem/1 var(--body); text-transform: uppercase; letter-spacing: .1em; color: var(--dim); margin-top: 10px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px; display: grid; gap: 8px; min-width: 0; scroll-margin-top: 140px; }
+.card[data-pick="keep"] { border-color: var(--keep); }
+.card[data-pick="maybe"] { border-color: var(--maybe); }
+.card[data-pick="drop"] { opacity: .62; }
+.card.flash { outline: 2px solid var(--lamp); }
+.head { display: flex; gap: 8px; align-items: baseline; }
+.id { font: 700 .85rem/1 var(--display); color: var(--lamp); font-variant-numeric: tabular-nums; flex: none; }
+.name { font: 700 1.08rem/1.25 var(--body); margin: 0; text-wrap: balance; }
+.text { margin: 0; overflow-wrap: anywhere; }
+.meta { display: flex; flex-wrap: wrap; gap: 4px 6px; font-size: .78rem; }
+.tag { border: 1px solid var(--line); border-radius: 4px; padding: 2px 6px; color: var(--dim); overflow-wrap: anywhere; }
+.tag.wild { border-color: var(--lamp); color: var(--lamp); font-weight: 700; }
+.tag.new { color: var(--fg); }
+.verdicts { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: .88rem; }
+.verdicts li { padding-left: 10px; border-left: 3px solid var(--info); color: var(--fg); overflow-wrap: anywhere; }
+.verdicts li.warn { border-color: var(--warn); }
+.verdicts button { font: inherit; color: var(--lamp); background: none; border: 0; padding: 0; text-decoration: underline; cursor: pointer; }
+.rec { margin: 0; font-size: .92rem; padding: 8px 10px; border-radius: 8px; background: var(--bg); border: 1px solid var(--line); overflow-wrap: anywhere; }
+.rec b { font-weight: 700; }
+.rec b[data-v="keep"] { color: var(--keep); } .rec b[data-v="maybe"] { color: var(--maybe); } .rec b[data-v="drop"] { color: var(--drop); }
+.picks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.pick { position: relative; }
+.pick.recd::after { content: ""; position: absolute; top: 5px; right: 6px; width: 7px; height: 7px; border-radius: 50%; background: var(--lamp); }
+.answer { display: grid; gap: 4px; font-size: .82rem; color: var(--dim); }
+.pick { font: 700 .95rem/1 var(--body); padding: 12px 4px; border-radius: 8px; border: 1px solid var(--line); background: transparent; color: var(--fg); cursor: pointer; }
+.pick[data-v="keep"][aria-pressed="true"] { background: var(--keep); border-color: var(--keep); color: var(--bg); }
+.pick[data-v="maybe"][aria-pressed="true"] { background: var(--maybe); border-color: var(--maybe); color: var(--bg); }
+.pick[data-v="drop"][aria-pressed="true"] { background: var(--drop); border-color: var(--drop); color: var(--bg); }
+textarea { font: 1rem/1.4 var(--body); width: 100%; box-sizing: border-box; min-height: 3em; resize: vertical; padding: 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); }
+.saved { font-size: .78rem; color: var(--dim); min-height: 1em; }
+.saved.err { color: var(--warn); }
+.empty { color: var(--dim); text-align: center; padding: 30px 0; }
+button:focus-visible, textarea:focus-visible { outline: 2px solid var(--lamp); outline-offset: 2px; }
+@media (prefers-reduced-motion: no-preference) { .card { transition: border-color .2s, opacity .2s; } }
+</style>
+
+<header><div class="wrap">
+  <h1>Gloamdeep <span>Planning Board</span></h1>
+  <p class="lede">The big planning run's ideas, one card each. Nothing here is decided until you pick it. Mark each card Keep, Maybe or Drop, and write your own answer beside it if you like. Claude’s recommendation is on each card, its button marked with a dot. Claude reads the picks back an area or two a sitting.</p>
+</div></header>
+
+<div class="bar"><div class="wrap">
+  <div class="tally" id="tally"></div>
+  <div class="meter" id="meter" aria-hidden="true"></div>
+  <div class="row" id="areas" role="group" aria-label="Area"></div>
+  <div class="row" id="filters" role="group" aria-label="Which cards"></div>
+  <div class="note-bar" id="status" hidden></div>
+</div></div>
+
+<main><div class="wrap" id="list"></div></main>
+
+<script>
+const DATA = /*CARDS*/null;
+const HZ = { now: 'Now (finish stage 0.3)', next: 'Next (biomes 2 to 4)', publish: 'Toward publishing', someday: 'Someday' };
+const PICKS = [['keep', 'Keep'], ['maybe', 'Maybe'], ['drop', 'Drop']];
+const FILTERS = [['all', 'All'], ['open', 'To pick'], ['keep', 'Keep'], ['maybe', 'Maybe'], ['drop', 'Drop'], ['wild', 'Wild'], ['flag', 'Flagged']];
+const state = { picks: {}, area: '1', filter: 'all', db: null, live: false };
+const els = {};
+const docId = (id) => 'c' + id.replace('.', '-');
+const $ = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+
+// § remembered filters (this viewer only)
+try { const s = JSON.parse(localStorage.getItem('board-view') || '{}'); if (s.area) state.area = s.area; if (s.filter) state.filter = s.filter; } catch (e) {}
+function remember() { try { localStorage.setItem('board-view', JSON.stringify({ area: state.area, filter: state.filter })); } catch (e) {} }
+
+// § cards: built once; picks update them in place so a note being typed keeps its focus
+function build() {
+  const list = document.getElementById('list');
+  let last = null;
+  for (const c of DATA.cards) {
+    if (c.area + c.horizon !== last) { last = c.area + c.horizon; const g = $('h2', 'group', c.area + ' ' + DATA.areas[c.area] + ' \u00b7 ' + (HZ[c.horizon] || 'No horizon')); g.dataset.group = last; list.append(g); }
+    const card = $('article', 'card'); card.id = docId(c.id);
+    const head = $('div', 'head'); head.append($('span', 'id', c.id), $('h3', 'name', c.name));
+    const meta = $('div', 'meta');
+    if (c.wild) meta.append($('span', 'tag wild', 'Wild'));
+    meta.append($('span', 'tag' + (c.tag.startsWith('new') ? ' new' : ''), c.tag), $('span', 'tag', { S: 'Small', M: 'Medium', L: 'Large' }[c.size] || 'Unsized'));
+    card.append(head, $('p', 'text', c.text), meta);
+    if (c.verdicts.length) {
+      const ul = $('ul', 'verdicts');
+      for (const v of c.verdicts) {
+        const li = $('li', /^(clash|bad)/.test(v) ? 'warn' : '');
+        const m = v.match(/^repeat of (\d\.\d\d)(.*)$/);
+        if (m) { const b = $('button', '', m[1]); b.type = 'button'; b.onclick = () => jump(m[1]); li.append('Repeat of ', b, m[2]); }
+        else li.textContent = 'Check: ' + v;
+        ul.append(li);
+      }
+      card.append(ul);
+    }
+    if (c.rec) {
+      const r = $('p', 'rec'), b = $('b', '', 'Claude: ' + c.rec.pick[0].toUpperCase() + c.rec.pick.slice(1)); b.dataset.v = c.rec.pick;
+      r.append(b, ', ' + c.rec.why); card.append(r);
+    }
+    const picks = $('div', 'picks');
+    for (const [v, label] of PICKS) {
+      const b = $('button', 'pick' + (c.rec && c.rec.pick === v ? ' recd' : ''), label); b.type = 'button'; b.dataset.v = v; b.setAttribute('aria-pressed', 'false');
+      if (c.rec && c.rec.pick === v) b.title = 'Claude recommends ' + label;
+      b.onclick = () => choose(c.id, v); picks.append(b);
+    }
+    const answer = $('label', 'answer', 'Your answer (optional)'); const ta = $('textarea'); ta.id = 'note-' + docId(c.id); ta.rows = 2;
+    ta.placeholder = 'Your own take, a change, or a question for Claude'; answer.htmlFor = ta.id;
+    ta.addEventListener('change', () => { const p = cur(c.id); p.note = ta.value.trim(); save(c.id); });
+    const saved = $('div', 'saved');
+    card.append(picks, answer, ta, saved);
+    list.append(card);
+    els[c.id] = { card, ta, saved, buttons: picks.querySelectorAll('.pick') };
+  }
+  const empty = $('p', 'empty', 'No cards here. Try another filter.'); empty.id = 'empty'; list.append(empty);
+}
+const cur = (id) => (state.picks[id] = state.picks[id] || { pick: null, note: '' });
+
+function paint(id) {
+  const p = state.picks[id] || { pick: null, note: '' }, e = els[id];
+  e.card.dataset.pick = p.pick || '';
+  e.buttons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.v === p.pick)));
+  if (document.activeElement !== e.ta) e.ta.value = p.note || '';
+}
+
+// § filters and tally
+function chips() {
+  const areas = document.getElementById('areas'), filters = document.getElementById('filters');
+  areas.replaceChildren(); filters.replaceChildren();
+  const opts = [['all', 'All areas', DATA.cards]].concat(Object.entries(DATA.areas).map(([a, n]) => [a, a + ' ' + n, DATA.cards.filter((c) => c.area === a)]));
+  for (const [v, label, cs] of opts) {
+    const b = $('button', 'chip', label); b.type = 'button'; b.setAttribute('aria-pressed', String(state.area === v));
+    b.append($('small', '', cs.filter((c) => state.picks[c.id]?.pick).length + '/' + cs.length));
+    b.onclick = () => { state.area = v; remember(); chips(); apply(); window.scrollTo({ top: 0 }); };
+    areas.append(b);
+  }
+  for (const [v, label] of FILTERS) {
+    const b = $('button', 'chip', label); b.type = 'button'; b.setAttribute('aria-pressed', String(state.filter === v));
+    b.onclick = () => { state.filter = v; remember(); chips(); apply(); };
+    filters.append(b);
+  }
+  tally();
+}
+function tally() {
+  const n = { keep: 0, maybe: 0, drop: 0 }; let done = 0;
+  for (const c of DATA.cards) { const p = state.picks[c.id]?.pick; if (p) { n[p]++; done++; } }
+  const t = document.getElementById('tally'), total = DATA.cards.length;
+  t.replaceChildren();
+  const part = (b, s) => { const sp = $('span'); sp.append($('b', '', String(b)), ' ' + s); t.append(sp); };
+  part(done + ' of ' + total, 'picked'); part(n.keep, 'keep'); part(n.maybe, 'maybe'); part(n.drop, 'drop');
+  const m = document.getElementById('meter'); m.replaceChildren();
+  for (const k of ['keep', 'maybe', 'drop']) { const i = $('i'); i.style.width = (100 * n[k] / total) + '%'; i.style.background = 'var(--' + k + ')'; m.append(i); }
+}
+function shows(c) {
+  if (state.area !== 'all' && c.area !== state.area) return false;
+  const p = state.picks[c.id]?.pick;
+  switch (state.filter) {
+    case 'open': return !p; case 'wild': return c.wild; case 'flag': return c.verdicts.length > 0;
+    case 'keep': case 'maybe': case 'drop': return p === state.filter; default: return true;
+  }
+}
+function apply() {
+  const seen = new Set(); let any = false;
+  for (const c of DATA.cards) { const on = shows(c); els[c.id].card.hidden = !on; if (on) { seen.add(c.area + c.horizon); any = true; } }
+  document.querySelectorAll('.group').forEach((g) => { g.hidden = !seen.has(g.dataset.group); });
+  document.getElementById('empty').hidden = any;
+}
+function jump(id) {
+  const c = DATA.cards.find((x) => x.id === id); if (!c) return;
+  if (!shows(c)) { state.area = c.area; state.filter = 'all'; remember(); chips(); apply(); }
+  const card = els[id].card; card.scrollIntoView({ block: 'start' });
+  card.classList.add('flash'); setTimeout(() => card.classList.remove('flash'), 1600);
+}
+
+// § picks: tap to pick, tap again to clear; saved to the artifact's db, one write at a time a card
+function choose(id, v) { const p = cur(id); p.pick = p.pick === v ? null : v; paint(id); chips(); save(id); }
+const writing = {}, again = {};
+async function save(id) {
+  const e = els[id];
+  if (!state.db) { e.saved.textContent = 'Not saved: this view cannot reach the board’s store.'; e.saved.className = 'saved err'; return; }
+  if (writing[id]) { again[id] = true; return; }
+  writing[id] = true; e.saved.textContent = 'Saving…'; e.saved.className = 'saved';
+  const p = cur(id);
+  try {
+    await state.db.collection('picks').doc(docId(id)).set({ id, area: id[0], pick: p.pick, note: p.note || '', at: new Date().toISOString() });
+    e.saved.textContent = 'Saved';
+  } catch (err) {
+    e.saved.textContent = 'Not saved (' + (err && err.code || 'error') + '). Tap again to retry.'; e.saved.className = 'saved err';
+  }
+  writing[id] = false;
+  if (again[id]) { again[id] = false; save(id); }
+}
+
+function status(text) { const s = document.getElementById('status'); s.textContent = text || ''; s.hidden = !text; }
+
+// § start: the cards render at once; the store's picks light up when it answers
+build(); chips(); apply();
+for (const c of DATA.cards) paint(c.id);
+(async () => {
+  const db = window.claude && window.claude.use ? await window.claude.use('db') : null;
+  if (!db) { status('Picks can’t be saved in this view. Open the board on claude.ai while signed in.'); return; }
+  state.db = db;
+  const timer = setTimeout(() => status('The saved picks can’t be reached yet. Picks you make now may not save.'), 10000);
+  db.collection('picks').onSnapshot((snap) => {
+    if (!snap.metadata.fromCache) { clearTimeout(timer); status(''); }
+    for (const d of snap.docs) {
+      const b = d.data(), id = b && b.id;
+      if (!id || !els[id] || writing[id]) continue;
+      state.picks[id] = { pick: b.pick || null, note: b.note || '' };
+      paint(id);
+    }
+    chips();
+  }, (err) => { clearTimeout(timer); status('The saved picks stopped updating (' + (err && err.code || 'error') + '). Reload to see the latest.'); });
+})();
+</script>

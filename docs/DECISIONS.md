@@ -111,3 +111,13 @@ picked. The Lampeater's polish waits until after it. Each conversation stays
 well under 200k tokens (the owner's ask): the run split across
 conversations, agents writing to files and reporting back short, Claude
 reading briefs, not sources (`PLANNING.md`).
+
+**D-997 · 2026-11-19 · The board's recommendations** (the owner's picks, all
+recommended; builds D-996) Each planning board card shows Claude's
+recommendation, Keep, Maybe or Drop with a short reason, from one agent's
+pass over the areas, checks and synthesis (`docs/planning/RECS-*.md`;
+offered too: from the synthesis only; Claude reading each area). It shows
+as a line on the card and a dot on that button, the pick left to the owner
+(offered too: a pre-filled pick; the line only). The owner's own answer is a
+box always open beside the pick, saved with it (offered too: a clearer
+button; a fourth choice, Other).

@@ -4,20 +4,22 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.435 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.436 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The planning board (`PLANNING.md`, conversation 2, D-996): a script turns
-`docs/planning/`'s idea and check lines into cards, then a private
-Artifact. Then the reviews, an area or two a sitting. After it, the
-Lampeater's polish (D-992, D-994) and whether F-10 (`BUGS.md`) comes first.
+The reviews (`PLANNING.md`, conversation 3, D-996): the owner picks on
+the board, then Claude reads back only an area or two's picks and talks
+them through. After them, the roadmap; then the Lampeater's polish (D-992,
+D-994) and whether F-10 (`BUGS.md`) comes first.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
   (a conversation can't delete branches; its saves are tests now).
 - The names Pillar and Seal stone, Claude's drafts (D-940); Gap, kept (D-963);
   the archway's line, Claude's draft (D-970); the call's and wary's lines and Bestiary words, Claude's drafts (D-974, D-977); the phases' Bestiary words, Claude's draft (D-978); the Leap rows and the jump's words, Claude's drafts (D-989).
+- Keep, Maybe or Drop on the planning board's cards (`PLANNING.md`), any
+  time before the reviews; and the board's own picks, Claude's (0.3.436).
 - The Lampeater's beaten line and its find's look, Claude's drafts (D-992).
 - How hard the Lampeater should be (Q-111): 12 hearts for now (D-950);
   easier with the phases (D-978), Lean 35%, Middling 84%, Strong 94%,
@@ -44,14 +46,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-19, 0.3.436, The planning board.** Nothing in the game
+  changed: `tools/board.js` turns the 141 ideas into cards on a private
+  board with Claude's recommendations and the owner's answers (`PLANNING.md`). D-997.
 - **2026-11-19, 0.3.435, The big planning run.** Nothing in the game
   changed: a brief, eight areas' 141 ideas, a cross-check and a proposed
   roadmap, in `docs/planning/`; the board is next. D-996.
 - **2026-11-19, 0.3.434, Planning the planning.** Nothing in the game
   changed: how the big planning run will work, the owner's picks, in
   `PLANNING.md`; the run itself is next, in a fresh conversation. D-996.
-- **2026-11-19, 0.3.433, The eighteenth audit.** Nothing visible
-  changed: Half and Automatic light dropped, as Full is fast enough now;
-  sound's file list split off sound.js; five decisions and the playbook's
-  lines archived; perf.js's surface walk clear of trees. A bug hunt:
-  F-9 and F-10, the owner's pick. D-995.

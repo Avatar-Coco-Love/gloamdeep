@@ -1,0 +1,74 @@
+# Recommendations: areas 5 to 8
+
+- 5.01 · Keep · the first story step, and small
+- 5.02 · Keep · the main story thread, about a page a floor
+- 5.03 · Keep · small, and a strong first story beat
+- 5.04 · Keep · must come first; 4.15, 6.09 and 8.04 need the spark
+- 5.05 · Drop · repeat of 3.06
+- 5.06 · Keep · fixes a real gap between LORE and the woods start
+- 5.07 · Keep · gives a reason to go down; pair it with 8.12
+- 5.08 · Keep · gives the mines their own story
+- 5.09 · Keep · the best first special; ties a wanderer to the story
+- 5.10 · Keep · cheap story for the deeper biomes, beside the relics
+- 5.11 · Keep · small, and a strong moment late on
+- 5.12 · Keep · a small question asked at the right time
+- 5.13 · Maybe · on the wish list and named in D-470; large, plan with a village
+- 5.14 · Keep · the last boss; the story needs it
+- 5.15 · Keep · the ending, needed for 1.0
+- 5.16 · Keep · small, and helps players back after a break
+- 5.17 · Drop · repeat of 1.16
+- 5.18 · Maybe · a fine later Story, but large; after 1.0
+- 6.01 · Maybe · let the phone playtest (6.04) show which goals are needed
+- 6.02 · Maybe · good, but wait for the playtest to show the need
+- 6.03 · Drop · already done; D-978 drafted its Bestiary words
+- 6.04 · Keep · one real phone playtest beats guessing; holds 8.05's idea
+- 6.05 · Keep · fixes a real early wall; a gentler mole recommended
+- 6.06 · Keep · a small fix the first hour needs
+- 6.07 · Keep · a small check that catches overlapping buttons
+- 6.08 · Keep · carries the teaching habit through every chapter
+- 6.09 · Maybe · helpful, but new, and needs the spark built first
+- 6.10 · Keep · the stronger of the two big-words cards
+- 6.11 · Keep · a cheap check that helps many players
+- 6.12 · Keep · a store must; fold 7.07 in
+- 6.13 · Keep · 299 files before the title is a real first-hour cost
+- 6.14 · Keep · trims the first minute; its ref should be D-735
+- 6.15 · Drop · repeat of 1.15
+- 6.16 · Maybe · good for comfort, but after launch
+- 6.17 · Maybe · large; doubles as a trailer, but after launch
+- 7.01 · Keep · a store must, small, and keeps journeys safe
+- 7.02 · Keep · pairs with 7.01; a store must
+- 7.03 · Maybe · the store needs a manifest, but icon files clash with D-375
+- 7.04 · Keep · one quiet call that guards a phone's journey
+- 7.05 · Keep · a store must; plays with no signal
+- 7.06 · Keep · Play needs it, and it is small
+- 7.07 · Drop · repeat of 6.12
+- 7.08 · Keep · small, keeps each new biome inside the speed budget
+- 7.09 · Keep · keeps the app small; a store must
+- 7.10 · Keep · a small test for a known store need
+- 7.11 · Keep · a store must; fix the ref to D-993
+- 7.12 · Keep · fits the no-outside-art rule, like the share card
+- 7.13 · Drop · repeat of 6.10
+- 7.14 · Drop · repeat of 1.15
+- 7.15 · Keep · one short list keeps 1.0 in reach
+- 7.16 · Keep · must be settled before launch; your call
+- 7.17 · Maybe · good for Steam later, not needed for Play
+- 7.18 · Maybe · only if Play goes well
+- 8.01 · Keep · a clear order to reach 0.4.0
+- 8.02 · Keep · merges the doubles so the board stays short
+- 8.03 · Keep · pillar 1 must be felt in the first minute; ref is D-735
+- 8.04 · Maybe · a fair worry, but clashes with D-020; Gentle and Normal only
+- 8.05 · Drop · repeat of 6.04
+- 8.06 · Keep · an honest scope check at 0.4.0
+- 8.07 · Keep · one rule-bender a chapter keeps scope in hand
+- 8.08 · Drop · clashes with D-643 and D-634
+- 8.09 · Keep · portals wait until the four chapters stand
+- 8.10 · Drop · clashes with D-771 and D-455
+- 8.11 · Keep · music for chapters 2 on; chapter 1 has it already (D-837)
+- 8.12 · Keep · short phone visits need a goal waiting
+- 8.13 · Keep · orders the store list by what blocks Play
+- 8.14 · Keep · chapter 1 is the store's real first ten minutes
+- 8.15 · Maybe · clashes with D-634; only if 8.06's count says so
+- 8.16 · Maybe · early phone players would help, but new; needs your OK
+
+Notes:
+6.04 kept over 8.05, and 1.15 over 6.15 and 7.14, as the stronger of each pair.
