@@ -6,6 +6,10 @@
 // tools/release.js once a newer version is in (D-982); stage 0.2's are in history-0.2.js and its split
 // files.
 export const HISTORY_03 = [
+  { v: '0.3.436', date: '2026-11-19', title: 'The planning board', lines: [
+    "The planning board. Nothing in the game changes. The big planning run's 141 ideas are now cards on a private page that works on a phone: each one marked Keep, Maybe or Drop, with an optional note, and the picks saved for Claude to read back an area or two a sitting. A script builds the cards from the planning files' idea and check lines.",
+    "Decisions: none (the board follows D-996).",
+  ] },
   { v: '0.3.435', date: '2026-11-19', title: 'The big planning run', lines: [
     "The big planning run. Nothing in the game changes. A team of agents wrote a brief of where the game stands, then 141 ideas for its future up to 1.0 in eight areas, checked each against the decisions, and drew a proposed roadmap; nothing is decided until the owner picks it on the planning board, next.",
     "Decisions: none (the run follows D-996).",

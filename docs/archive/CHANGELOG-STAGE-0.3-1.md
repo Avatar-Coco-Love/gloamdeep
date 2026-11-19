@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.433 (2026-11-19)
+- The eighteenth audit. Nothing in the game changes. The light was measured again: it is fast enough, so the Half and Automatic light choices are dropped, and Settings keeps no Light line.
+- Docs and tools: the list of sound files moves to its own two files, word for word; five finished decisions and the playbook's newest lessons move to the archive; the speed check's walk on the surface keeps clear of trees. Two bugs found, listed in the docs for the owner to pick: a stall on each chop or dig on the surface, and older saves' boss arenas not brought up to date. The next audit is at 0.3.473.
+- Decisions: D-995. Questions closed: Q-069. D-977, D-978 and D-988 to D-990 moved to the archive, word for word.
+
 ## 0.3.432 (2026-11-19)
 - When the card for a new ability opens, the flame rises: a whoosh of fire and bells climbing over a low held bell, under Places in Settings.
 - Decisions: D-994.
