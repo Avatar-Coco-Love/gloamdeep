@@ -61,3 +61,34 @@ check's size.
 - Use the game's words (`GLOSSARY*.md`); keep to the pillars
   (`VISION.md`) and the hard rules (`CLAUDE.md`, `TECH.md`).
 - Short: one or two lines an idea, the owner reads in plain words.
+
+## Keeping each conversation small (the owner's ask)
+Each conversation must stay well under 200k tokens (about 4 bytes a
+token). The aim is 120k or less, which leaves room for surprises.
+- **The run is split** into conversations, each its own PR, and each
+  merged before the next one starts:
+  1. **The run:** the groundwork brief, the eight areas, the cross-check
+     and the synthesis. Their files go in `docs/planning/`.
+  2. **The board:** built by a script from those files, then published.
+  3. **The reviews:** one or two areas a sitting, reading only that
+     area's picks from the board.
+  4. **The roadmap:** the kept ideas go into the roadmap doc and the
+     decisions.
+- **Claude reads briefs, not sources.** An agent writes the groundwork
+  brief (`docs/planning/BRIEF.md`). Claude reads only that brief, never
+  the planning docs behind it.
+- **Agents write to files and report back short.** Each area's ideas go
+  in their own file in `docs/planning/`, under 8 KB (`npm test` checks
+  this). An agent's reply to Claude is at most 150 words: what it wrote,
+  how many ideas, anything odd. The cross-check and synthesis agents do
+  the same.
+- **Claude never reads an area file whole** during the run. It checks
+  sizes, greps, and reads a line range only when something needs a look.
+  It reads the synthesis draft once, and that draft is under 8 KB.
+- **The board comes from data, not reading.** A script turns the area
+  files into the board's cards, so building the board needs no reading
+  of the ideas.
+- **Tests stay quiet:** dots only, as `npm test` prints now.
+- **If a conversation still runs long,** Claude stops at the next clean
+  point, commits, and hands off. The next conversation picks up from
+  `PROGRESS.md`'s Next up.

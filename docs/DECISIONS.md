@@ -107,4 +107,7 @@ Keep, Maybe or Drop a card (offered too: chat rounds; a written
 roadmap). Every area in one run, then the review an area a sitting
 (offered too: an area at a time). Eight areas, Claude's list the owner
 liked. Run in a fresh conversation; nothing it proposes is decided until
-picked. The Lampeater's polish waits until after it.
+picked. The Lampeater's polish waits until after it. Each conversation stays
+well under 200k tokens (the owner's ask): the run split across
+conversations, agents writing to files and reporting back short, Claude
+reading briefs, not sources (`PLANNING.md`).
