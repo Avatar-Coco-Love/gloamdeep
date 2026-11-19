@@ -38,11 +38,13 @@ second instead of 26 to 30 (pictures:
 https://claude.ai/artifact/GbP79PqaMwajfoF8gy4Nvz). The owner's Galaxy S26
 Ultra runs today's light at about 120, with one brief dip to 60, likely the
 phone's own screen switching down.
+*Superseded by D-995 (2026-11-19): Half and Automatic dropped, measured again.*
 
 **D-433 · 2026-10-29 · Automatic: watch, switch down once** (the owner's
 pick, A, recommended; answers part of Q-068) Automatic watches the fps in
 play; under 50 for 3 seconds, the light goes to half and stays half until
 the game is opened again. It never switches back while playing.
+*Superseded by D-995 (2026-11-19): Half and Automatic dropped, measured again.*
 
 **D-434 · 2026-10-29 · The camera on whole pixels, first** (the owner's
 picks, both recommended) A room screen an odd number of game pixels tall
@@ -56,6 +58,7 @@ same look) comes later.
 **D-435 · 2026-10-29 · The light choices' names** (the owner's pick;
 answers Q-068) Settings names the light's choices Full, Half and
 Automatic (D-432, D-433).
+*Superseded by D-995 (2026-11-19): Half and Automatic dropped, measured again.*
 
 **D-436 · 2026-10-29 · Half on hold; the last pass first** (the owner's
 picks, all recommended) Half, built as D-432 says, looked the same as Full
@@ -73,3 +76,4 @@ unbuilt, until the light is measured again (Q-069).
 picks, both recommended) The Light line goes after Motion in Settings,
 and Automatic is the choice before any pick (D-433, D-435); until
 Automatic is built, Full.
+*Superseded by D-995 (2026-11-19): Half and Automatic dropped, measured again.*

@@ -187,6 +187,8 @@ writeFileSync(out, `<!doctype html>
 <div id="sounds"></div>
 <script>
 ${plain(read('src/core/rng.js'))}
+${plain(read('src/render/sound-files.js'))}
+${plain(read('src/render/sound-files-2.js'))}
 ${plain(read('src/render/sound.js'))}
 const sound = createSound(() => true);
 const START_MS = 120; // the sound maker's first start takes a moment

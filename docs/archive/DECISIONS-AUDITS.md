@@ -805,3 +805,50 @@ chosen find's look line is not drawn over its "Now" picture, a draught's
 or its hearts' or oil's (H-69). "Leap which way?" goes once the leap is
 taken or let go (H-70). D-981 to D-983 move to
 `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-988 · 2026-11-18 · The game's findings some players notice**
+(Claude's picks, hands-off, D-980, but H-75's ruling, the owner's, recommended;
+H-72 to H-75) The Shovel digs only a bare stump: one with a find on it,
+such as Wood a full bag left, is walked onto, so the tree still grows
+back (H-72). `tools/perf.js` times three scenes, the surface, a dark
+room on depth 3 with the lantern lit and the Lampeater's arena, and
+prints any error the page logs (H-73). Each sound file is fetched and
+decoded once, shared by every sound that plays it (H-74). A text line
+that would cover the hero stands 2 px above the hero's tile until it
+doesn't (H-75; offered too: the hero on top; as is). Found doing H-73:
+0.3.424's split left 13 names out of `frame.js`'s imports, so since then
+no darkness was drawn in play and the effect marks went missing; the
+imports are back, and `tests/imports.test.js` checks every file uses
+only names it imports or makes.
+
+**D-989 · 2026-11-18 · The game's findings few players notice**
+(Claude's picks, hands-off, D-980, but H-78's, H-79's and H-81's rulings,
+the owner's, recommended; H-76 to H-81) What the Lampeater owes at a phase
+is known before the creatures move, so a phase blow that burns the last
+oil never starts it wary (H-76). A gloamling waiting in a bowl lit again
+comes out onto a free tile beside it, lit or not (H-77). A slam that
+takes the last heart slides nowhere: the hero falls where struck (H-78;
+offered too: past the door). Behind a Leap gap only the cache and the
+Archway: every other creature and find moves to the nearest bare floor
+on the near side, not within 2 tiles of the way in, a flask's rat
+nearest its flask, a pack moved left its lead alone; with no space left
+it is not made (H-79; the owner's pick, asked again once the check's 14%
+measured 47%: 440 of 927 gap rooms had a creature behind; offered too:
+leaving them out; as is). The stats line says "jumped: no goals or
+records" after a dev jump, and DEV-TOOLS.md says what a jump stops
+(H-80). Once Leap is learnt, How to play's Touch and Mouse pages say
+"The Leap button, then a way", Keyboard "J, then a way" (H-81; offered
+too: always; not yet). D-984 and D-985 move to
+`archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-990 · 2026-11-18 · The docs step** (Claude's picks, hands-off, D-980;
+H-84 to H-86) CONTENT-BOSSES gives the Lampeater 12 hearts and, below
+its row, its later steps in short: the phases' snuffs, the brood, calls,
+guards and wary; GLOSSARY-2 has their words, GLOSSARY-CREATURES points
+there. DEV-TOOLS says the bench's At half starts on 6 hearts, its first
+phase done, and lists the Boss tab (H-84, H-86). GLOSSARY-2's Gap, the
+`giveWay` sound's row and Q-114's line no longer have the falling floor
+D-967 took out (H-85). TECH-2 sends newer tiles and places to
+CONTENT-5; STORE.md's Needed row: ship only the 117 sound files the game
+plays, 9.9 MB of 23 MB (H-86). D-979, D-986 and D-987 move to
+`archive/DECISIONS-AUDITS.md`, word for word.

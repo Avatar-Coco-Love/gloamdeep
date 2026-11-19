@@ -24,6 +24,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.433 (2026-11-19)
+- The eighteenth audit. Nothing in the game changes. The light was measured again: it is fast enough, so the Half and Automatic light choices are dropped, and Settings keeps no Light line.
+- Docs and tools: the list of sound files moves to its own two files, word for word; five finished decisions and the playbook's newest lessons move to the archive; the speed check's walk on the surface keeps clear of trees. Two bugs found, listed in the docs for the owner to pick: a stall on each chop or dig on the surface, and older saves' boss arenas not brought up to date. The next audit is at 0.3.473.
+- Decisions: D-995. Questions closed: Q-069. D-977, D-978 and D-988 to D-990 moved to the archive, word for word.
+
 ## 0.3.432 (2026-11-19)
 - When the card for a new ability opens, the flame rises: a whoosh of fire and bells climbing over a low held bell, under Places in Settings.
 - Decisions: D-994.
@@ -32,7 +37,3 @@ Entry format:
 - Beaten, the Lampeater now leaves Leap's find glowing where it fell, and the door stays shut. Step on it and a card shows your new ability, Leap; close the card and the stone door sinks open.
 - A duskstar you pick near home no longer grows back on the waystone's ring.
 - Decisions: D-992, D-993. Questions closed: Q-052, Q-103. D-971 and D-972 moved to the archive, word for word.
-
-## 0.3.430 (2026-11-18)
-- Nothing in the game changed: the lantern's tank slot is planned as the next new step, after the Lampeater's polish or more flowers.
-- Decisions: D-991.
