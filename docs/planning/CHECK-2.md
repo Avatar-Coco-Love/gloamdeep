@@ -1,0 +1,76 @@
+# Cross-check 2: areas 5 to 8
+- 5.01 · S · ok
+- 5.02 · M · ok
+- 5.03 · S · ok
+- 5.04 · M · ok
+- 5.05 · M · repeat of 3.06
+- 5.06 · S · ok
+- 5.07 · S · ok
+- 5.08 · M · ok
+- 5.09 · M · ok
+- 5.10 · M · ok
+- 5.11 · S · ok
+- 5.12 · S · ok
+- 5.13 · L · already D-470: the cult is named there as an example
+- 5.14 · L · ok
+- 5.15 · M · ok
+- 5.16 · S · ok
+- 5.17 · L · repeat of 1.16
+- 5.18 · L · ok
+- 6.01 · S · ok
+- 6.02 · S · ok
+- 6.03 · S · already D-978: the Lampeater's Bestiary words are drafted
+- 6.04 · S · ok
+- 6.05 · S · ok
+- 6.06 · S · ok
+- 6.07 · S · ok
+- 6.08 · M · ok
+- 6.09 · S · ok
+- 6.10 · M · ok
+- 6.11 · M · ok
+- 6.12 · M · ok
+- 6.13 · M · ok
+- 6.14 · S · bad ref D-628: D-735 replaced the start words
+- 6.15 · S · repeat of 1.15
+- 6.16 · M · ok
+- 6.17 · L · ok
+- 7.01 · S · ok
+- 7.02 · S · ok
+- 7.03 · M · clash D-375: icons are drawn in code, no image files
+- 7.04 · S · ok
+- 7.05 · M · ok
+- 7.06 · S · ok
+- 7.07 · S · repeat of 6.12
+- 7.08 · S · ok
+- 7.09 · S · ok
+- 7.10 · S · ok
+- 7.11 · S · bad ref D-992: opt-in play notes are D-993
+- 7.12 · M · ok
+- 7.13 · M · repeat of 6.10
+- 7.14 · S · bad ref D-992: play notes are D-993; repeat of 1.15
+- 7.15 · S · ok
+- 7.16 · S · ok
+- 7.17 · M · ok
+- 7.18 · L · ok
+- 8.01 · S · ok
+- 8.02 · S · ok
+- 8.03 · S · bad ref D-628: D-735 replaced the start words
+- 8.04 · S · clash D-020: carried finds stay where you fell, not "all kept"
+- 8.05 · S · repeat of 6.04
+- 8.06 · S · bad ref D-518: that is the audit rule, not version counts
+- 8.07 · M · ok
+- 8.08 · M · clash D-643: about 10 kinds a chapter; D-634: ~8 wanderers
+- 8.09 · L · ok
+- 8.10 · M · clash D-771: alchemy is its own station; D-455 kitchen fire
+- 8.11 · S · already D-837: music plays in chapter 1; only chapters 2+ new
+- 8.12 · S · ok
+- 8.13 · S · ok
+- 8.14 · S · ok
+- 8.15 · L · clash D-634: the First Light waits after all four chapters
+- 8.16 · S · ok
+Notes:
+- 5.09 and 3.14 overlap: 5.09 is the lore-bound wanderer, 3.14 the generic first one.
+- 6.12 also holds the Android back button (7.06) and 7.07; the 8.02 merges mostly stand.
+- 8.04: Hardcore falls do reset (D-628 note), so the spark line must be Gentle/Normal only.
+- 4.15, 5.04, 6.09 all lean on the guide, which is not built yet (no code); 5.04 comes first.
+- 8.03: goals "Light your lantern" and "Put out your lantern" already exist (goals.js).

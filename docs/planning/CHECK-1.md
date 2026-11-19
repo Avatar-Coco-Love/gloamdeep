@@ -1,0 +1,79 @@
+# Cross-check 1: areas 1 to 4
+- 1.01 · S · ok
+- 1.02 · S · ok
+- 1.03 · M · ok
+- 1.04 · S · ok
+- 1.05 · S · ok
+- 1.06 · S · ok
+- 1.07 · M · ok
+- 1.08 · S · ok
+- 1.09 · S · ok
+- 1.10 · M · clash D-799: Gloam Eye is the first glass, chapter 1; repeat of 4.01
+- 1.11 · S · ok
+- 1.12 · M · ok
+- 1.13 · S · ok
+- 1.14 · M · ok
+- 1.15 · S · ok
+- 1.16 · L · ok
+- 1.17 · L · clash D-462: the Growth tree is decided
+- 1.18 · M · ok
+- 2.01 · S · already D-969: its steps and order are decided
+- 2.02 · S · ok
+- 2.03 · M · ok
+- 2.04 · M · ok
+- 2.05 · M · ok
+- 2.06 · M · ok
+- 2.07 · M · ok
+- 2.08 · M · ok
+- 2.09 · M · ok
+- 2.10 · L · ok
+- 2.11 · L · ok
+- 2.12 · M · ok
+- 2.13 · S · ok
+- 2.14 · L · ok
+- 2.15 · M · ok
+- 2.16 · M · clash D-459: torches burn a while only; needs the owner
+- 2.17 · L · word: Gap tile is Leap's now (D-968), not unused
+- 2.18 · L · repeat of 1.16
+- 3.01 · S · ok
+- 3.02 · S · ok
+- 3.03 · S · repeat of 1.05
+- 3.04 · S · already D-939: lure wisps show where it lurks
+- 3.05 · S · ok
+- 3.06 · M · ok
+- 3.07 · S · ok
+- 3.08 · L · ok
+- 3.09 · S · ok
+- 3.10 · L · ok
+- 3.11 · L · ok
+- 3.12 · L · ok
+- 3.13 · M · ok
+- 3.14 · M · ok
+- 3.15 · M · ok
+- 3.16 · M · ok
+- 3.17 · M · ok
+- 3.18 · L · ok
+- 4.01 · S · ok
+- 4.02 · S · ok
+- 4.03 · S · ok
+- 4.04 · M · ok
+- 4.05 · S · ok
+- 4.06 · S · repeat of 3.05
+- 4.07 · M · ok
+- 4.08 · M · ok
+- 4.09 · M · ok
+- 4.10 · M · ok
+- 4.11 · M · ok
+- 4.12 · M · ok
+- 4.13 · M · ok
+- 4.14 · S · ok
+- 4.15 · S · ok
+- 4.16 · M · ok
+- 4.17 · M · clash D-455: stations and home pieces only on surface
+- 4.18 · M · ok
+Notes:
+- 1.07: in Hardcore a fall costs the one life (D-334), so "costs no progress" holds only in Gentle and Normal.
+- 1.15 is also repeated by 6.15 and 7.14 (testers); 3.03 differs from 1.05 only in Lean vs Middling heroes.
+- 3.08 says about 10 kinds a chapter (D-643); 8.08 argues for fewer, so the synthesis should pick one.
+- 2.14 (portal in chapter 1) disagrees with 8.09 (portals after all four chapters); 2.18 also matches 5.17.
+- 1.07 cites D-658, which only keeps the review's ideas (RESEARCH-2); fine, but nothing is decided there.

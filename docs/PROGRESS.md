@@ -4,14 +4,14 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.434 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.435 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The big planning run (`PLANNING.md`, D-996): groundwork brief, the eight
-areas' agents, the cross-check, the synthesis, then the owner's planning
-board. After it, the Lampeater's polish (`OPEN-QUESTIONS-3.md`, D-992,
-D-994) and whether F-10 (`BUGS.md`) comes first.
+The planning board (`PLANNING.md`, conversation 2, D-996): a script turns
+`docs/planning/`'s idea and check lines into cards, then a private
+Artifact. Then the reviews, an area or two a sitting. After it, the
+Lampeater's polish (D-992, D-994) and whether F-10 (`BUGS.md`) comes first.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -44,6 +44,9 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-19, 0.3.435, The big planning run.** Nothing in the game
+  changed: a brief, eight areas' 141 ideas, a cross-check and a proposed
+  roadmap, in `docs/planning/`; the board is next. D-996.
 - **2026-11-19, 0.3.434, Planning the planning.** Nothing in the game
   changed: how the big planning run will work, the owner's picks, in
   `PLANNING.md`; the run itself is next, in a fresh conversation. D-996.
@@ -52,8 +55,3 @@ list in `RESEARCH.md`.
   sound's file list split off sound.js; five decisions and the playbook's
   lines archived; perf.js's surface walk clear of trees. A bug hunt:
   F-9 and F-10, the owner's pick. D-995.
-- **2026-11-19, 0.3.432, Leap's card sound.** The Lampeater's step 8,
-  its last: as Leap's card opens, the flame rises, a whoosh of fire and
-  four bells rising over a low held bell, the owner's pick of 3 mixes;
-  under Places in Settings. D-994. Playtest:
-  https://claude.ai/artifact/AANKoJU9TwFFpRwJUuuGdc
