@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-20, 0.3.442, The lantern's slots, shown.** A LANTERN row in
+  the bag: Wick, Tank and Glass, beside the gear sideways, under it
+  upright. D-1006. Playtest: https://claude.ai/artifact/17ApC7dUEjT8xCYDREBysP
 - **2026-11-20, 0.3.441, The Bladder Tank.** The lantern's first tank, 2 Oil
   Bladder and 2 Copper Ore: 75 turns, the extra in reserve, the oil bar 13
   segments. D-1005. Playtest: https://claude.ai/artifact/XA79YE2CZwWuT51CWcJfZi

@@ -789,7 +789,7 @@ picks, all recommended) Every finding, H-68 to H-107, becomes a step
 H-79, H-81) are asked at their steps. D-975 moves to
 `archive/DECISIONS-AUDITS.md`, word for word.
 
-**D-986 · 2026-11-18 · No mole on the first day's start room** (the
+**D-986 · 2026-11-18 · No mole on the first day's start room** Superseded by D-1009 (2026-11-20). (the
 owner's pick, recommended; H-71's ruling; changes D-781's Claude's call)
 On a journey's first day no mole comes out in its start room, so a new
 hero is not met by one on the first turn. The bunny still comes, other

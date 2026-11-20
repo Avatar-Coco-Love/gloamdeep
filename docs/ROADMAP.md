@@ -21,7 +21,7 @@ first-hour goals (6.04). A gentler first mole, not none (6.05).
 2. 1.01 The first tank, drafted (S): step 27 (D-991); built, the Bladder
    Tank, 0.3.441 (D-1005)
 3. 1.05 The hero at the Lampeater's door (S), then tune the boss
-4. 6.05 Gentler first mole (S); 6.06 Text line never covers the hero (S)
+4. 6.05 Gentler first mole (S), built, 0.3.445 (D-1009); 6.06 Text line never covers the hero (S)
 5. 3.05 The Lampeater's material and trophy (S)
 6. 3.02 A boss field in the registry (S)
 7. 1.03 A chapter 1 pacing bot (M), with 1.04 An oil budget a floor (S)

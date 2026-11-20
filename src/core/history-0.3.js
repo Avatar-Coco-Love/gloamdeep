@@ -6,6 +6,11 @@
 // tools/release.js once a newer version is in (D-982); stage 0.2's are in history-0.2.js and its split
 // files.
 export const HISTORY_03 = [
+  { v: '0.3.445', date: '2026-11-20', title: 'A gentler first mole', lines: [
+    "A gentler first mole: every mole that comes out by day in the woods round home has 2 hearts now, not 4. Two lantern swings or one knife blow beat it, so a new hero who strikes as it comes up takes one bite, not three. From depth 5 down the mole is as tough as ever.",
+    "The start room has its mole on a journey's first day again, the gentle one. Its name tag counts 2 hearts, and its Bestiary page says so.",
+    "Decisions: D-1009 (supersedes D-986).",
+  ] },
   { v: '0.3.444', date: '2026-11-20', title: 'Herbs and mushrooms rooted', lines: [
     "Herbs and mushrooms are rooted now, as the flowers are: the healing herb, the oilcap and the heartcap stand on their own tile, still, their foot in a tuft of earth, no longer lifted and bobbing over a shadow. A herb has a grass blade either side; a mushroom stands in earth alone.",
     "A herb mimic asleep and a snapcap shut stand rooted too, just like the finds they copy. Other finds still bob.",

@@ -33,6 +33,8 @@ All four done in 0.3.426 (D-986, D-987).
   at once: 4 hits, 3 bites, 50 seeds of 50. Its numbers were set for
   depth 5 (D-541); D-781 brought it to the first room. Ran. The owner
   picks: a gentler surface mole; none in the start room on day 1; as is.
+  Ruled: none on day 1 (D-986), then a gentler woods mole, back on day 1
+  (0.3.445, D-1009).
 
 ## 2. Some players notice
 All four done in 0.3.427 (D-988).
