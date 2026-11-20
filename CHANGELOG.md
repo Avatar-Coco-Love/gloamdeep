@@ -24,6 +24,16 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.440 (2026-11-20)
+- In the Lampeater's fight, its name and health bar sit top middle, away
+  from the hero and the text line; on an upright phone, just below your
+  hearts and pause.
+- The round map steps aside while the arena is sealed, and the creature
+  list leaves out the Lampeater, since the bar shows it. Its gloamlings are
+  still listed. Both come back once the fight ends.
+- The bar goes faint while the Lampeater or the hero is under it.
+- Decisions: D-1004.
+
 ## 0.3.439 (2026-11-20)
 - A bug fixed (F-9): chopping a tree or digging out a stump on the surface
   no longer stalls the screen. Only the tiles that changed are painted
@@ -43,11 +53,3 @@ Entry format:
   while the Lampeater lives, its gloamlings and wisps given, or, beaten
   long ago with Leap never learnt, Leap's find laid on its tile.
 - Decisions: D-1001, D-1002.
-
-## 0.3.437 (2026-11-20)
-- Nothing in the game changed: the planning board's picks are read back
-  and written up. The 97 kept ideas make the roadmap to 1.0,
-  `docs/ROADMAP.md`, by Now, Next and Toward publishing, in build order.
-- The 29 maybes and 15 drops go to `docs/RESEARCH-PLANNING.md`, each with
-  why and when to look again; the owner's two new ideas to `RESEARCH-2.md`.
-- Decisions: D-998, D-999, D-1000.

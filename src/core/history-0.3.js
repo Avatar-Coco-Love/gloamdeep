@@ -6,6 +6,12 @@
 // tools/release.js once a newer version is in (D-982); stage 0.2's are in history-0.2.js and its split
 // files.
 export const HISTORY_03 = [
+  { v: '0.3.440', date: '2026-11-20', title: 'The Lampeater\'s bar on top', lines: [
+    "In the Lampeater's fight, its name and health bar sit top middle, away from the hero and the text line; on an upright phone, just below your hearts and pause.",
+    "The round map steps aside while the arena is sealed, and the creature list leaves out the Lampeater, since the bar shows it. Its gloamlings are still listed. Both come back once the fight ends.",
+    "The bar goes faint while the Lampeater or the hero is under it.",
+    "Decisions: D-1004.",
+  ] },
   { v: '0.3.439', date: '2026-11-20', title: 'A chop without a stall', lines: [
     "A bug fixed (F-9): chopping a tree or digging out a stump on the surface no longer stalls the screen. Only the tiles that changed are painted again, not the whole woods and its border; the picture is the same. On a slow phone a chop's pause goes from almost a second to a blink.",
     "The Lampeater's phases stay as they are. Its polish waits while the owner playtests, for new ideas.",

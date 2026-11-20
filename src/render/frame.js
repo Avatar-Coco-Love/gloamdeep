@@ -313,7 +313,9 @@ export function createFrame(app, ui) {
     }
     // § panel: the hearts, oil, depth and level on glass over the room's top left (D-378),
     // the creature list under it (D-357); both fade while the hero or a creature beside them is under them (D-380)
-    const n = list ? list.length : 0; // the panel's size is last frame's, near enough
+    const fight = fall || travel ? null : bossFight(state); // the Lampeater's fight, its arena sealed (D-959)
+    const plaques = fight && list ? list.filter((a) => a.e.id !== fight.id) : list; // in it, the bar shows the Lampeater, not the list (D-1004)
+    const n = plaques ? plaques.length : 0; // the panel's size is last frame's, near enough
     const [ex, ey] = edgeIn(); // as far in as the round buttons (D-512)
     const end = lineTop() - 2; // the creature list stops above the text line (D-381), upright raised (D-505)
     const held = boonOf(state), marks = held ? [{ ...KIND_LOOKS[held.sort], id: held.id }] : []; // the boon held, its card's picture (D-604)
@@ -334,7 +336,7 @@ export function createFrame(app, ui) {
     const under = { w: Math.max(panel.w, mk.w, gl.w, n ? PLAQUE_W : 0), h: listY - ey + (shownN + more) * (PLAQUE_H + 2) };
     const hx = s.hero.x, hy = s.hero.y;
     const spots = [[sx, sy], ...s.enemies.filter((e) => Math.max(Math.abs(e.x - hx), Math.abs(e.y - hy)) <= 1).map((e) => { const p = foeAt(e); return [Math.round(p.x * TILE), Math.round(p.y * TILE)]; })];
-    const covers = (a) => spots.some(([px, py]) => { // on the screen layer, where the panel and the corner pieces are (D-444)
+    const covers = (a, at = spots) => at.some(([px, py]) => { // on the screen layer, where the panel and the corner pieces are (D-444)
       const [x, y, size] = onLayer(px - cam.x, py - cam.y, TILE);
       return x < a.x + a.w && x + size > a.x && y < a.y + a.h && y + size > a.y;
     });
@@ -347,6 +349,7 @@ export function createFrame(app, ui) {
     const high = [mapButton, pauseButton, dev.wrench];
     roundAlpha = app.screen === 'play' ? fade(roundAlpha, aim(high.some((b) => covers(b.area())))) : 1;
     mapButton.show(s, dev.revealedMap(), t, still(), roundAlpha);
+    mapButton.away(!!fight); // steps aside in the fight, its one room no news; pause and the wrench stay put (D-1004)
     pauseButton.fade(roundAlpha); dev.wrench.fade(roundAlpha);
     // § round lantern: bottom right, with the bag and the quick slot on its arc, one piece fading the same way (D-442)
     const low = [lanternButton, bagButton, quickSlot, sleepButton, boonButton, leapButton];
@@ -364,16 +367,20 @@ export function createFrame(app, ui) {
     drawGoalLine(hc, goal, ex, goalY, panel.alpha, goalW);
     goalRow = goal && { line: goal, x: ex, y: goalY, w: goalW }; // for taps (D-706)
     row = null;
-    if (list) {
+    if (plaques) {
       const isFramed = (e) => foeAt(e) === app.framed;
-      row = { list, x: ex, y: listY, across: false, end }; // where the list sits, in the screen layer's pixels (D-444)
+      row = { list: plaques, x: ex, y: listY, across: false, end }; // where the list sits, in the screen layer's pixels (D-444)
       hc.save(); hc.globalAlpha = panel.alpha;
-      drawCreatureList(hc, list, row.x, row.y, row.across, row.end, isFramed);
+      drawCreatureList(hc, plaques, row.x, row.y, row.across, row.end, isFramed);
       hc.restore();
     }
     const line = fall?.from || cut ? null : lineClock(shownLine(state), state.line, t); // the fall's line once the hero wakes, the cutscene's once it ends (D-957); gone after its turns or its seconds (B-009)
     if (cut?.bars) drawBars(cut.bars); // the cutscene's black bars, the line over them (D-957)
-    if (!CARDS.has(app.screen) && !cut) bossBar.draw(hc, fall || travel ? null : bossFight(state), state.events, t, still(), covers(barBox()) ? UNDER_ALPHA : 1); // the Lampeater's name and hearts, from the cutscene's end, faint over the hero (D-957, D-959)
+    if (!CARDS.has(app.screen) && !cut) {
+      const bar = barBox(ey, [{ x: ex, y: ey, w: Math.max(panel.w, mk.w, gl.w), h: listY - ey }, pauseButton.area(), dev.wrench.area()]); // top middle, below the panel and buttons it would meet (D-1004)
+      const boss = fight && s.enemies.find((e) => e.id === fight.id), bossAt = boss ? [[Math.round(foeAt(boss).x * TILE), Math.round(foeAt(boss).y * TILE)]] : [];
+      bossBar.draw(hc, fight, state.events, t, still(), covers(bar) || covers(bar, bossAt) ? UNDER_ALPHA : 1, bar); // the Lampeater's name and hearts, from the cutscene's end, faint over the hero (D-957, D-959) or the Lampeater (D-1004)
+    }
     const [heroX, heroY, heroSize] = onLayer(sx - cam.x, sy - cam.y, TILE);
     if (!CARDS.has(app.screen)) textLine.draw(hc, line, t, still(), { x: heroX, y: heroY, size: heroSize }); // over a card instead, below; above the hero, not over it (H-75)
     if (line !== app.spokenLine) { app.spokenLine = line; if (line) spoken.textContent = line.text; }

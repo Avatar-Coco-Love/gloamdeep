@@ -2432,7 +2432,7 @@ each time. Claude's calls: at half too; the boss bot starts there as
 well, so its fights match a real way in: over 400 fights Lean wins 34%
 (26% from one step further in), Middling 97% (the same), noted in Q-111.
 
-**D-959 · 2026-11-16 · The Lampeater's name and health bar** (the
+**D-959 · 2026-11-16 · The Lampeater's name and health bar** *Superseded in part by D-1004 (2026-11-20): it sits top middle.* (the
 owner's picks, all recommended; builds D-957; part of Q-112) While the
 arena's way in is sealed, from the cutscene's end, the Lampeater's name
 and hearts show bottom middle, above the text line: "Lampeater" in bone
@@ -2795,6 +2795,31 @@ fading 0.5 s, at 0.2; the waystone's bell at 1, 1.26, 1.5 and 2, from
 2.6 s, fading 1.6 s, muffled above 1500 Hz, at 0.2. Finds' list is full on
 the smallest card, so it is heard under Places' line, as the drips (D-836).
 Next, the owner's Lampeater polish is asked.
+
+**D-991 · 2026-11-18 · The tank slot next** (the owner's picks, both
+recommended; builds D-459) Of the RPG upgrades talked over, the lantern's
+tank slot is planned first (offered too: the glass slot; the forge). It
+comes as build step 27, after the Lampeater's polish or step 26 (offered
+too: right away; after the 0.3.433 audit). Its part, recipe and numbers
+are the owner's picks at its step.
+
+**D-992 · 2026-11-18 · Leap's find and its card** (the owner's picks, all
+recommended; builds D-971 and D-972, their step 7; answers Q-083's note)
+Beaten, the Lampeater leaves Leap's find on its tile, always (its `sure`
+find), drawn as the Leap button's icon in gold; the door stays sealed.
+Stepped on, it is used up, Leap learnt; a card opens: "A new ability",
+the icon, "Leap", "Jump 2 tiles in a line, over a creature, water or a
+gap. Tap the Leap button or press J." and OK (offered too: shorter; a
+story line). Closed, the door sinks open, "The stone door sinks open."
+For every boss, its big rewards (found ability, Feat, relic) are never
+lost, whatever lands the last blow (offered too: stings and globs can't
+hurt it; the rule as it was). Your ideas for its cutscenes, phases and
+more are asked after step 8, the sound (offered too: now; no more).
+Claude's calls: the lines "The Lampeater fades. Something glows." and its
+look "A mark glows where it fell." (drafts); fallen before taking it, the
+find stays and the way in opens to come back; a journey saved under the
+card opens the door on the next step. D-971 and D-972 move to
+`archive/DECISIONS-SURFACE.md`, word for word.
 
 ## Its old row in the archive index (moved here at 0.3.423, D-982)
 

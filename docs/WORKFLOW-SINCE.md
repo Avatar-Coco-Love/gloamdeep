@@ -27,3 +27,6 @@ line here (D-741). Each audit moves the lines into the right sections.
   was three quarters of it) and comparing every patched tile to a full
   repaint, pixel by pixel, made a speed fix safe to call "the same
   picture" (0.3.439).
+- Mock-ups made from the real game, with the code nudged as the page loads
+  (Playwright's page.route), showed each placement on a phone both ways
+  and on PC in minutes, without touching the branch (0.3.440).
