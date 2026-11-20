@@ -27,8 +27,9 @@ neared 8 KB.
   heart, giving no light; in about half the rooms from depth 1 down; for
   crafts later; picked, it comes back a day later elsewhere in its room
   (D-1007).
-- **Rooted:** a flower stands on its own tile, still, its stem in a tuft
-  of earth; other finds lie lifted and bob (D-1007).
+- **Rooted:** a flower, a herb or a mushroom stands on its own tile,
+  still, its stem in a tuft of earth; other finds lie lifted and bob
+  (D-1007, D-1008).
 - **Healing Potion:** a red bottle made from 3 heartcaps; Drink, in the
   bag, heals 4 hearts (D-309).
 - **Mortar and Pestle:** a grey stone bowl on a wooden stump, made in

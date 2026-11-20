@@ -39,11 +39,12 @@ test('depth 1 may hold one; the surface none; the same seed the same glowcup', (
   for (const seed of seeds(10)) assert.deepEqual(cupsIn(placeFor(layoutAt(seed, 3).cells[0].id, seed)), cupsIn(placeFor(layoutAt(seed, 3).cells[0].id, seed)));
 });
 
-test('a glowcup goes in the bag, for crafts later; both flowers are rooted, nothing else is', () => {
+test('a glowcup goes in the bag, for crafts later; the flowers, the herb and the mushrooms are rooted, other finds bob', () => {
   const g = get('glowcup');
   assert.deepEqual([g.bag, g.max, g.regrow, g.roam, g.rooted, g.heal, g.eats, g.light], [true, 20, 300, true, true, undefined, undefined, undefined]);
   assert.equal(get('duskstar').rooted, true);
-  for (const id of ['herb', 'oilcap', 'heartcap', 'flask']) assert.equal(get(id).rooted, undefined, `${id} still bobs`);
+  for (const id of ['herb', 'oilcap', 'heartcap']) assert.equal(get(id).rooted, true, `${id} is rooted (D-1008)`);
+  for (const id of ['flask', 'stone', 'ratTail']) assert.equal(get(id).rooted, undefined, `${id} still bobs`);
 });
 
 test('picked, a glowcup comes back a day later on another floor tile of its room', () => {

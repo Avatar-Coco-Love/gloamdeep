@@ -2878,3 +2878,23 @@ Lampeater, its gloamlings still listed (offered too: the "DEPTH 8" line).
 Claude's calls: pause and the wrench stay put; the map's M key still opens
 the full map; the bar goes faint over the Lampeater as over the hero.
 D-991 and D-992 move to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-1005 · 2026-11-20 · The Bladder Tank** (the owner's picks, all
+recommended; step 27, the roadmap's Now step 2; builds D-459, D-641, D-991
+and D-940's plan, the Oil Bladder the first tank) The lantern's first tank,
+the Bladder Tank, holds a quarter more oil: 1.25 tanks, 75 turns, not 60
+(offered too: half more; a fifth more). Past a plain tank's worth the oil is
+reserve, the light reaching no further (offered too: brighter when full).
+The oil bar runs on to 13 segments, each still a tenth of a plain tank
+(offered too: the same 10, each worth more). Made at the workbench's GEAR
+tab from 2 Oil Bladder and 2 Copper Ore (offered too: 1 Bladder, 3 Copper
+Ore and 1 Wood; 3 Bladders and 1 Tick Shell); the name, the owner's pick
+(offered too: Tick Tank; Oilskin Tank). Claude's calls: Fit in the bag,
+free, as the wick; GEAR's last slot, every other slot kept; its lines
+"You make a bladder tank.", "You fit the bladder tank.", "Need 2 Oil
+Bladder, 2 Copper Ore." and its look (drafts); the Oil Bladder's look
+"An oil bladder. Two make a tank." (draft); its picture, a bound amber
+sac with a copper cap (draft); flasks pour by themselves once none would
+spill, so sooner; waking from a fall, the bigger tank full; the dev
+slider and Refill reach its top; the boss bench's builds fit no tank.
+D-1001 and D-1002 move to `archive/DECISIONS-SURFACE.md`, word for word.

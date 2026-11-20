@@ -24,6 +24,15 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.444 (2026-11-20)
+- Herbs and mushrooms are rooted now, as the flowers are: the healing herb,
+  the oilcap and the heartcap stand on their own tile, still, their foot in
+  a tuft of earth with a grass blade either side, no longer lifted and
+  bobbing over a shadow.
+- A herb mimic asleep and a snapcap shut stand rooted too, just like the
+  finds they copy. Other finds still bob.
+- Decisions: D-1008.
+
 ## 0.3.443 (2026-11-20)
 - New: the Glowcup, the second flower, a deep teal cup round a pale green
   heart on a stem with two long leaves. One grows in about half the rooms
@@ -47,18 +56,3 @@ Entry format:
   its slot, its numbers and its Look line, as for a gear slot. A part still
   goes in with Fit, swapping the one there; nothing comes off.
 - Decisions: D-1006.
-
-## 0.3.441 (2026-11-20)
-- New: the Bladder Tank, the lantern's first tank. Make it at the
-  workbench's GEAR tab, its last slot, from 2 Oil Bladder and 2 Copper Ore,
-  then choose it in the bag and press Fit: it goes in the lantern, and no
-  turn passes.
-- With it fitted the lantern holds a quarter more oil: a full tank lasts 75
-  turns instead of 60, on top of the wick, charms and the rest. The oil past
-  a plain tank's worth is kept in reserve: the light reaches no further.
-- The oil bar runs on to 13 segments, each still a tenth of a plain tank,
-  so a flask fills as many as before. Flasks poured by themselves pour a
-  little sooner, once none would spill, and you wake from a fall with the
-  bigger tank full.
-- The Oil Bladder now says what it is for: "An oil bladder. Two make a tank."
-- Decisions: D-1005.

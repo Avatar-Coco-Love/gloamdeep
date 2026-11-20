@@ -8,7 +8,7 @@ globalThis.document ??= { createElement: () => ({ getContext: () => any }), addE
 const { drawItems, spriteOf, PILE_MS } = await import('../src/render/sprites.js');
 const { watchText } = await import('../src/render/font.js');
 
-const pile = [{ id: 'wood', n: 5, x: 3, y: 2 }, { id: 'ratTail', n: 3, x: 3, y: 2 }, { id: 'herb', n: 4, x: 3, y: 2 }];
+const pile = [{ id: 'wood', n: 5, x: 3, y: 2 }, { id: 'ratTail', n: 3, x: 3, y: 2 }, { id: 'stone', n: 4, x: 3, y: 2 }]; // finds that bob; a rooted one adds its tuft (D-1008)
 // What one frame draws: the sprites, and the words
 function frame(items, t, still) {
   const drawn = [], words = [];

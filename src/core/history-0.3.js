@@ -6,6 +6,11 @@
 // tools/release.js once a newer version is in (D-982); stage 0.2's are in history-0.2.js and its split
 // files.
 export const HISTORY_03 = [
+  { v: '0.3.444', date: '2026-11-20', title: 'Herbs and mushrooms rooted', lines: [
+    "Herbs and mushrooms are rooted now, as the flowers are: the healing herb, the oilcap and the heartcap stand on their own tile, still, their foot in a tuft of earth with a grass blade either side, no longer lifted and bobbing over a shadow.",
+    "A herb mimic asleep and a snapcap shut stand rooted too, just like the finds they copy. Other finds still bob.",
+    "Decisions: D-1008.",
+  ] },
   { v: '0.3.443', date: '2026-11-20', title: 'The Glowcup, and rooted flowers', lines: [
     "New: the Glowcup, the second flower, a deep teal cup round a pale green heart on a stem with two long leaves. One grows in about half the rooms of every floor from depth 1 down, never in a vault, the arena or its hallway, and never behind a Gap. It only looks bright: it gives no light.",
     "Walk onto one to put it in the bag, in stacks of 20, for crafts later. Picked, it comes back a day later on another floor tile of the room, as the duskstar does. Each has its own slight shade and faces its own way.",

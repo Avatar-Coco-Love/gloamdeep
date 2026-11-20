@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.443 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.444 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -23,7 +23,7 @@ next content before it is the owner's pick: `ROADMAP.md`'s Now, step 4
 - The Lampeater's beaten line and its find's look, Claude's drafts (D-992).
 - The Bladder Tank's lines, picture and slot, Claude's drafts (D-1005).
 - The empty glass's pane picture and the lantern row's labels and arrows, Claude's (D-1006).
-- The Glowcup's lines and its tuft of earth, Claude's drafts (D-1007).
+- The Glowcup's lines and its tuft of earth, Claude's drafts (D-1007); the herbs' and mushrooms' open tuft, Claude's (D-1008).
 - How hard the Lampeater should be (Q-111): 12 hearts for now (D-950);
   with its 2 wisps (D-1002) Lean 21%, Middling 72%, Strong 97% (35%,
   84%, 94% before); again after each step (D-972).
@@ -48,6 +48,9 @@ later are in `RESEARCH-2.md` (D-699) and `RESEARCH-PLANNING.md`, and the
 owner's wish list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-20, 0.3.444, Herbs and mushrooms rooted.** The healing herb,
+  the oilcap and the heartcap stand in a tuft of earth, as the flowers do,
+  no longer floating. D-1008. Playtest: https://claude.ai/artifact/Nz475K7cbw3Ce8xQRHfLwq
 - **2026-11-20, 0.3.443, The Glowcup, and rooted flowers.** The second
   flower, in about half the rooms from depth 1 down; flowers stand on their
   tiles, no longer floating. D-1007. Playtest: https://claude.ai/artifact/WpZ863f1WVT3nD9v38mZ9F,
@@ -55,6 +58,3 @@ owner's wish list in `RESEARCH.md`.
 - **2026-11-20, 0.3.442, The lantern's slots, shown.** A LANTERN row in
   the bag: Wick, Tank and Glass, beside the gear sideways, under it
   upright. D-1006. Playtest: https://claude.ai/artifact/17ApC7dUEjT8xCYDREBysP
-- **2026-11-20, 0.3.441, The Bladder Tank.** The lantern's first tank, 2 Oil
-  Bladder and 2 Copper Ore: 75 turns, the extra in reserve, the oil bar 13
-  segments. D-1005. Playtest: https://claude.ai/artifact/XA79YE2CZwWuT51CWcJfZi
