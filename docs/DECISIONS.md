@@ -63,20 +63,6 @@ and near 1.0 also sent if the player opts in, with a privacy note
 measured again at the next audit, then the owner chooses (Q-069;
 offered too: drop them; make Half do more).
 
-**D-994 · 2026-11-19 · Leap's card's sound** (the owner's picks, all
-recommended, from a [board of 3 mixes](https://claude.ai/artifact/As9JukRhEKXvG3nBsGcDrf);
-builds D-971 and D-992, their step 8) As a new ability's card opens, the
-flame rises: a whoosh of fire, four bells rising, a low bell held under
-them (offered too: five glass notes rising over a soft hum; one deep bell
-with a breath). The page still turns with it (offered too: the sound
-alone). It follows Finds' loudness (offered too: Fighting; Menus).
-Claude's calls: `learn` in `render/sound.js`, `Fire-030` from 0.1 s, 1 s,
-fading 0.5 s, at 0.2; the waystone's bell at 1, 1.26, 1.5 and 2, from
-0.25 s, 0.2 s apart, at 0.16 to 0.13; `impactBell_heavy_001` from 0.25 s,
-2.6 s, fading 1.6 s, muffled above 1500 Hz, at 0.2. Finds' list is full on
-the smallest card, so it is heard under Places' line, as the drips (D-836).
-Next, the owner's Lampeater polish is asked.
-
 **D-995 · 2026-11-19 · The eighteenth audit** (the owner's picks, all
 recommended) At 0.3.433, nothing visible changed. Half and Automatic
 light are dropped, no Light line in Settings (answers Q-069; supersedes
@@ -180,3 +166,17 @@ following the hero out, fading when it is beaten, back whole after a fall
 or a doorway (offered too: Wisp Glass as anywhere). The bench, 100 fights
 each: Lean 21% (35% before), Middling 72% (84%), Strong 97% (94%). Its
 phases and its cutscenes come next, the owner's ideas asked then.
+
+**D-1003 · 2026-11-20 · F-9 fixed; the Lampeater's polish waits for playtesting**
+(the owner's picks; answers D-995's "which to fix" for F-9) A chop or dig in
+the woods repaints only the changed tiles and their neighbours, from the grass
+kept under the trees, the border kept: the same picture to the pixel (offered
+too: the border kept only; the ground painted once). By water, the cave mouth,
+rock or the room's edge, or in any other look, the whole repaint as before.
+A chop's longest frame on the simulated slow phone, 848 ms to 64 ms. The
+Lampeater's phases stay as D-978 has them (offered too: the cutscenes first).
+The owner's words: "continue polishing the boss later. I'd like to get some
+playtesting in, so it can inspire new ideas and changes to the current
+build"; the boss's name and health may need room, other UI hidden for a
+while (`OPEN-QUESTIONS-3.md`, its polish). D-994 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

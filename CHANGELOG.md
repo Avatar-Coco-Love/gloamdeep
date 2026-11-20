@@ -24,6 +24,15 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.439 (2026-11-20)
+- A bug fixed (F-9): chopping a tree or digging out a stump on the surface
+  no longer stalls the screen. Only the tiles that changed are painted
+  again, not the whole woods and its border; the picture is the same. On
+  a slow phone a chop's pause goes from almost a second to a blink.
+- The Lampeater's phases stay as they are. Its polish waits while the
+  owner playtests, for new ideas.
+- Decisions: D-1003.
+
 ## 0.3.438 (2026-11-20)
 - Two lure wisps now drift in the Lampeater's arena, either side of it at
   the start. As you come near, each drifts toward the Lampeater, showing
@@ -42,7 +51,3 @@ Entry format:
 - The 29 maybes and 15 drops go to `docs/RESEARCH-PLANNING.md`, each with
   why and when to look again; the owner's two new ideas to `RESEARCH-2.md`.
 - Decisions: D-998, D-999, D-1000.
-
-## 0.3.436 (2026-11-19)
-- The planning board. Nothing in the game changes. The big planning run's 141 ideas are now cards on a private page that works on a phone: each one marked Keep, Maybe or Drop, with an optional note, and the picks saved for Claude to read back an area or two a sitting. Each card also shows Claude's recommendation, its button marked with a dot, and a box for the owner's own answer stays open beside the pick. A script builds the cards from the planning files' idea, check and recommendation lines.
-- Decisions: D-997.

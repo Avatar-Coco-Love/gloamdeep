@@ -23,3 +23,7 @@ line here (D-741). Each audit moves the lines into the right sections.
 - Running the bench before and after a fight change, with the fresh
   numbers matching the recorded ones first, made the wisps' cost to the
   fight a fact to report, not a guess (0.3.438).
+- Timing each half of a slow repaint before offering fixes (the border
+  was three quarters of it) and comparing every patched tile to a full
+  repaint, pixel by pixel, made a speed fix safe to call "the same
+  picture" (0.3.439).

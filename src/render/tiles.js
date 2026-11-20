@@ -216,16 +216,21 @@ function drawCamp(c, room, x, y, sprite) {
   c.drawImage(sprite, x * T, y * T - 2);
 }
 // `mouth`: the cave mouth's look, the seed's (mouthOf, D-744); the small arch when not given
+// Returns, in the woods, the grass and rock under the trees, for patchRoom (F-9)
 export function drawRoom(c, room, mouth = 'arch') {
   const woods = room.look === 'woods';
-  if (woods) drawWoods(c, room, mouth);
+  const ground = woods ? drawWoods(c, room, mouth) : undefined;
   const rock = room.look === 'rock' || room.look === 'earth'; // D-164, D-165
   if (rock) drawRock(c, room);
   for (let y = 0; y < room.rows; y++) for (let x = 0; x < room.cols; x++) {
     const id = tileAt(room, x, y).id;
     if (woods ? !WOODS.includes(id) : !rock || id !== 'floor' && id !== 'wall') DRAW[id](c, room, x, y);
   }
+  return ground;
 }
+
+// A tile drawn over the woods' own picture, as drawRoom does: for patchRoom (repaint.js, F-9)
+export function drawOver(c, room, x, y) { const id = tileAt(room, x, y).id; if (!WOODS.includes(id)) DRAW[id](c, room, x, y); }
 
 // § beyond: past a small room's edge its rock, brick or trees go on, `mx`
 // tiles left and right and `my` up and down, a passage straight out from each
