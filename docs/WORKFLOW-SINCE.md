@@ -32,3 +32,6 @@ line here (D-741). Each audit moves the lines into the right sections.
   and on PC in minutes, without touching the branch (0.3.440).
 - "Content before the Lampeater" could mean several steps; four choices
   from the roadmap, each a line, let the owner pick in one tap (0.3.442).
+- A bug the owner only suspected ("if the surface flower floats") was checked
+  first in a real screenshot, then shown beside its fix in the same mock-up
+  as the new content, so one round of picks settled both (0.3.443).

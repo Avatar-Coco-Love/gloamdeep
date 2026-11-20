@@ -110,6 +110,7 @@ flowers as well, which can be used in potion making.", "I think it would
 depend on the type of plant and the place." and "there are going to be
 more than one kind, and there needs to be variations in the way they
 are drawn." Picked, a flower goes in the bag for crafts later (D-762).
-The first is the Duskstar, in the woods rooms (D-763). The other kinds,
+The first is the Duskstar, in the woods rooms (D-763); the second the
+Glowcup, on the dark floors (D-1007). The other kinds,
 their names and looks, where each grows and which potions they make are
 open, each at its own step.

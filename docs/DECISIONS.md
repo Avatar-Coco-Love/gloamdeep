@@ -117,18 +117,6 @@ chapter 1 is done; 8.15 and 8.16 at 0.4.0, with 8.06's count. The
 privacy page says nothing is sent; play notes only if decided later
 (7.11, D-993). Music is new from chapter 2 only (8.11, D-837 to D-841).
 
-**D-1004 · 2026-11-20 · The Lampeater's bar on top; the map steps aside**
-(the owner's picks, both recommended, from a [page of mock-ups](https://claude.ai/artifact/T3BiumYcqZNzLUkhcngifF);
-answers the owner's note in the polish, `OPEN-QUESTIONS-3.md`; supersedes
-D-959's place) While the arena is sealed, the Lampeater's name and bar sit
-top middle, on an upright phone just below the panel and pause (offered too:
-under the hero's own hearts; bottom middle as before). The round map steps
-aside, its one room no news, and the creature list leaves out the
-Lampeater, its gloamlings still listed (offered too: the "DEPTH 8" line).
-Claude's calls: pause and the wrench stay put; the map's M key still opens
-the full map; the bar goes faint over the Lampeater as over the hero.
-D-991 and D-992 move to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-1005 · 2026-11-20 · The Bladder Tank** (the owner's picks, all
 recommended; step 27, the roadmap's Now step 2; builds D-459, D-641, D-991
 and D-940's plan, the Oil Bladder the first tank) The lantern's first tank,
@@ -166,3 +154,21 @@ trim (draft); sideways "GEAR" stays when both labels fit, else only
 "LANTERN"; the arrows reach the row, sideways along the gear row's line,
 upright a row between; the parts' Look lines kept as they are.
 D-1003 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-1007 · 2026-11-20 · The Glowcup, and rooted flowers** (the owner's
+picks, all recommended, from a [mock-up](https://claude.ai/artifact/T15W9fCHJBLpK6kx15BcNx);
+step 26, part of Q-092; the owner's words: "Flowers are rooted to the
+Earth.") The second flower is look B of three, the **Glowcup**: a deep
+teal cup round a pale green heart, two long leaves; it only looks bright,
+giving no light (offered too: a pale bell; a stone rose). One grows in
+about half the rooms of every floor from depth 1 down, the heartcap's odds
+(offered too: every room; 1 in 4). Walked onto, it goes in the bag for
+crafts later; picked, it comes back a day later on another floor tile of
+its room, as the duskstar. Flowers are rooted: on their own tile, still,
+the stem in a tuft of earth, a grass blade either side, with no shadow
+(offered too: herbs, or every growing thing, rooted as well). Claude's
+calls: never in a vault, the arena, its hallway or beyond a Gap, nor on a
+waystone's ring; stacks of 20; its own shade and way it faces, as the
+duskstar; its lines ("You pick a glowcup." and two more); one tuft on grass
+and cave floor alike; an older save's rooms never entered get theirs.
+D-1004 moves to `archive/DECISIONS-SURFACE.md`, word for word.

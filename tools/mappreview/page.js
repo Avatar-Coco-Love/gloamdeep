@@ -22,7 +22,7 @@ const seed = () => seeds[seeds.length - 1];
 const shown = () => ({ way: $('way').checked, creatures: $('creatures').checked, finds: $('finds').checked, labels: $('labels').checked, shapes: $('shapes').checked });
 
 // § finds and their dot colours; creatures are all one colour
-const FIND = { flask: '#f39a3b', herb: '#6fc06a', duskstar: '#c8b4f4', oilcap: '#e0c060', stone: '#9aa6b4', heartcap: '#e0607a', locket: '#a58ce0' }; // the locket, a relic, in the unusual things' violet (D-691); a loose stone, grey (D-761)
+const FIND = { flask: '#f39a3b', herb: '#6fc06a', duskstar: '#c8b4f4', glowcup: '#58c8b4', oilcap: '#e0c060', stone: '#9aa6b4', heartcap: '#e0607a', locket: '#a58ce0' }; // the locket, a relic, in the unusual things' violet (D-691); a loose stone, grey (D-761); a glowcup, teal (D-1007)
 const cached = (it) => it.once && it.id !== 'locket'; // a cache's finds; the locket is left once too
 const VAULT = { brazier: '#f39a3b', sealedDoor: '#a58ce0' }; // a vault's braziers and sealed door (D-892)
 const GAP = '#c8b4f4'; // a Leap gap's edge (D-968)
@@ -79,7 +79,7 @@ function numbers({ rooms, info }) {
   const parts = [];
   parts.push(`${rooms.length} rooms`);
   if (info) parts.push(`the way ${info.wayLength} rooms`, `${rooms.length - info.wayLength} side rooms`, `${info.halls} halls`, `${info.large} large rooms`, `${info.deadEnds} dead ends`, `${info.loops} loops`);
-  parts.push(`${rooms.reduce((n, r) => n + r.enemies.length, 0)} creatures`, `${count((id) => id === 'flask')} flasks`, `${count((id) => id === 'herb')} herbs`, ...(count((id) => id === 'duskstar') ? [`${count((id) => id === 'duskstar')} duskstars`] : []),
+  parts.push(`${rooms.reduce((n, r) => n + r.enemies.length, 0)} creatures`, `${count((id) => id === 'flask')} flasks`, `${count((id) => id === 'herb')} herbs`, ...(count((id) => id === 'duskstar') ? [`${count((id) => id === 'duskstar')} duskstars`] : []), ...(count((id) => id === 'glowcup') ? [`${count((id) => id === 'glowcup')} glowcups`] : []),
     `${count((id) => id === 'heartcap')} heartcaps`, `${rooms.reduce((n, r) => n + r.items.filter(cached).length, 0)} cache finds`, ...(count((id) => id === 'locket') ? ['the locket'] : []), ...[rooms.filter((r) => r.tiles.gap).length].map((n) => `${n} Leap gap${n === 1 ? '' : 's'}`), `${rooms.filter((r) => r.tiles.water).length} pools`, `${tiles('deposit') + tiles('vein')} deposits`, ...(info && vaultAt(seed(), depth) ? ['a vault'] : []));
   return parts;
 }

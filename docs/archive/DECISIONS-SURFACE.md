@@ -2866,3 +2866,15 @@ playtesting in, so it can inspire new ideas and changes to the current
 build"; the boss's name and health may need room, other UI hidden for a
 while (`OPEN-QUESTIONS-3.md`, its polish). D-994 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-1004 · 2026-11-20 · The Lampeater's bar on top; the map steps aside**
+(the owner's picks, both recommended, from a [page of mock-ups](https://claude.ai/artifact/T3BiumYcqZNzLUkhcngifF);
+answers the owner's note in the polish, `OPEN-QUESTIONS-3.md`; supersedes
+D-959's place) While the arena is sealed, the Lampeater's name and bar sit
+top middle, on an upright phone just below the panel and pause (offered too:
+under the hero's own hearts; bottom middle as before). The round map steps
+aside, its one room no news, and the creature list leaves out the
+Lampeater, its gloamlings still listed (offered too: the "DEPTH 8" line).
+Claude's calls: pause and the wrench stay put; the map's M key still opens
+the full map; the bar goes faint over the Lampeater as over the hero.
+D-991 and D-992 move to `archive/DECISIONS-SURFACE.md`, word for word.
