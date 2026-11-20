@@ -157,9 +157,13 @@ D-1004 moves to `archive/DECISIONS-SURFACE.md`, word for word.
 words: "Let's root the herbs and mushrooms too, so they stand on the ground
 like the flowers."; one of D-1007's offers) The healing herb, the oilcap
 and the heartcap are rooted as the flowers are: on their own tile, still,
-their foot on the tile's bottom row in a tuft of earth, a grass blade
-either side, with no shadow. Claude's calls: their tuft is open in the
-middle, so their own foot shows (the flowers' keeps its stem); a herb
+their foot on the tile's bottom row in a tuft of earth, with no shadow:
+a herb's with a grass blade either side, a mushroom's earth alone, outside
+too (changed after the playtest, the owner's pick: "Underground, the
+mushroom doesn't need any grass on the side"; offered too: no blades
+underground only, for mushrooms or for everything). Claude's calls: their
+tuft is open in the middle, so their own foot shows (the flowers' keeps
+its stem); a herb
 mimic asleep and a snapcap shut stand rooted too, as the finds they copy,
 lifted over a shadow again once they show themselves; other finds still
 bob. D-1005 moves to `archive/DECISIONS-SURFACE.md`, word for word.

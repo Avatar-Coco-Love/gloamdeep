@@ -7,7 +7,7 @@
 // files.
 export const HISTORY_03 = [
   { v: '0.3.444', date: '2026-11-20', title: 'Herbs and mushrooms rooted', lines: [
-    "Herbs and mushrooms are rooted now, as the flowers are: the healing herb, the oilcap and the heartcap stand on their own tile, still, their foot in a tuft of earth with a grass blade either side, no longer lifted and bobbing over a shadow.",
+    "Herbs and mushrooms are rooted now, as the flowers are: the healing herb, the oilcap and the heartcap stand on their own tile, still, their foot in a tuft of earth, no longer lifted and bobbing over a shadow. A herb has a grass blade either side; a mushroom stands in earth alone.",
     "A herb mimic asleep and a snapcap shut stand rooted too, just like the finds they copy. Other finds still bob.",
     "Decisions: D-1008.",
   ] },

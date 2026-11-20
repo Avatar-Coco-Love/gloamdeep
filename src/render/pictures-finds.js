@@ -32,6 +32,9 @@ const TUFT = { mirror: false, rows: [
 // the same tuft open in the middle, for a herb or a mushroom, its own foot standing in the earth
 const TUFT_OPEN = { mirror: false, rows: [
   '', '', '', '', '', '', '', '', '', '', '', '', '', '..k.........k...', '.kgk.......kgk..', '..kFff....ffFk..'] };
+// the open tuft's earth alone, no grass blades, for a mushroom (D-1008)
+const TUFT_EARTH = { mirror: false, rows: [
+  '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '..kFff....ffFk..'] };
 
 // § oilcap: an amber mushroom cap, light spots and a dark rim on one side,
 // on a short pale stem (D-296). `toned`: the cap's letters, shifted per mushroom (D-305).
@@ -330,6 +333,7 @@ export {
   GLOWCUP,
   TUFT,
   TUFT_OPEN,
+  TUFT_EARTH,
   OILCAP,
   HEARTCAP,
   DEPOSIT,

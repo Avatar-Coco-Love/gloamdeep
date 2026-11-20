@@ -35,7 +35,7 @@ import {
   SEAL_STONE,
 } from './pictures.js';
 import {
-  FLASK, HERB, DUSKSTAR, GLOWCUP, TUFT, TUFT_OPEN, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN, COPPER_ORE, PICK, MOLE_CLAW_PICK, SHOVEL, ROD,
+  FLASK, HERB, DUSKSTAR, GLOWCUP, TUFT, TUFT_OPEN, TUFT_EARTH, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN, COPPER_ORE, PICK, MOLE_CLAW_PICK, SHOVEL, ROD,
   ROD_HOOKED, BONE_HOOK, POND_MINNOW, BLIND_CAVEFISH, COPPER_WICK, BLADDER_TANK, GLASS_PANE, RAT_VEST, SHELL_VEST, RAT_TAIL,
   MOTH_DUST, STINGER, MIMIC_GLASS, GLOAM_WISP, VENOM_SAC, MIMIC_HEART, GLOAM_EYE, GLOAMBERRY,
   GLOAMBERRY_SEED, POTION, KNIFE, SPEAR, BAG_TORCH, WISP_CHARM, HEART_CHARM, WISP_GLASS, CENTIPEDE_LEG,
@@ -282,9 +282,9 @@ export function drawItems(c, items, t, still) {
 }
 // A `rooted` kind, a flower, a herb or a mushroom, stands on its tile, still, its foot on the tile's
 // bottom row in a tuft of earth, with no shadow (D-1007, D-1008); a herb's and a mushroom's tuft is
-// open in the middle, so their own foot shows
-const ROOTS = spriteCanvas(TUFT), ROOTS_OPEN = spriteCanvas(TUFT_OPEN);
-const OPEN_ROOTS = new Set(['herb', 'oilcap', 'heartcap']);
+// open in the middle, so their own foot shows, and a mushroom's is earth alone, with no grass blades
+const ROOTS = spriteCanvas(TUFT);
+const OPEN_ROOTS = { herb: spriteCanvas(TUFT_OPEN), oilcap: spriteCanvas(TUFT_EARTH), heartcap: spriteCanvas(TUFT_EARTH) };
 function drawItem(c, it, t, still) {
   const x = it.x * 16, y = it.y * 16, rooted = get(it.id)?.rooted, sprite = spriteOf(it);
   const bob = still || rooted ? 0 : Math.floor(t / 700 + it.y) % 2;
@@ -292,7 +292,7 @@ function drawItem(c, it, t, still) {
   if (it.flip) { c.save(); c.translate(x * 2 + 16, 0); c.scale(-1, 1); } // facing the other way (D-763)
   c.drawImage(sprite, x, rooted ? y + 15 - lowest(sprite) : y - 2 - bob);
   if (it.flip) c.restore();
-  if (rooted) c.drawImage(OPEN_ROOTS.has(it.id) ? ROOTS_OPEN : ROOTS, x, y);
+  if (rooted) c.drawImage(OPEN_ROOTS[it.id] ?? ROOTS, x, y);
   if (it.n > 1) heapCount(c, it.n, x, y);
 }
 // A stack's count in its tile's bottom right corner, on dark, as a bag slot shows it (D-934)

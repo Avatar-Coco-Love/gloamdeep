@@ -58,3 +58,9 @@ test('picked, a glowcup comes back a day later on another floor tile of its room
   assert.notDeepEqual([g.x, g.y], [f.x, f.y], 'somewhere else');
   assert.deepEqual([g.tone, g.flip], [f.tone, f.flip], 'the same flower');
 });
+
+test("a mushroom's tuft is earth alone, a herb's and a flower's have grass blades (D-1008)", async () => {
+  const { TUFT, TUFT_OPEN, TUFT_EARTH } = await import('../src/render/pictures-finds.js');
+  const blades = (t) => t.rows.join('').includes('g');
+  assert.deepEqual([blades(TUFT), blades(TUFT_OPEN), blades(TUFT_EARTH)], [true, true, false]);
+});
