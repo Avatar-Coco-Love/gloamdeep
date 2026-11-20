@@ -4,22 +4,21 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.436 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.437 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The reviews (`PLANNING.md`, conversation 3, D-996): the owner picks on
-the board, then Claude reads back only an area or two's picks and talks
-them through. After them, the roadmap; then the Lampeater's polish (D-992,
-D-994) and whether F-10 (`BUGS.md`) comes first.
+The Lampeater's polish (D-992, D-994) with its lure wisps (3.04, D-1000),
+step 1 of `ROADMAP.md`'s Now; first ask whether F-10 (`BUGS.md`) comes
+first. Read `ROADMAP.md`'s Now, not the planning files.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
   (a conversation can't delete branches; its saves are tests now).
 - The names Pillar and Seal stone, Claude's drafts (D-940); Gap, kept (D-963);
   the archway's line, Claude's draft (D-970); the call's and wary's lines and Bestiary words, Claude's drafts (D-974, D-977); the phases' Bestiary words, Claude's draft (D-978); the Leap rows and the jump's words, Claude's drafts (D-989).
-- Keep, Maybe or Drop on the planning board's cards (`PLANNING.md`), any
-  time before the reviews; and the board's own picks, Claude's (0.3.436).
+- The roadmap's build order, Claude's from 8.01 and the synthesis
+  (`ROADMAP.md`, 0.3.437); the board's own picks, Claude's (0.3.436).
 - The Lampeater's beaten line and its find's look, Claude's drafts (D-992).
 - How hard the Lampeater should be (Q-111): 12 hearts for now (D-950);
   easier with the phases (D-978), Lean 35%, Middling 84%, Strong 94%,
@@ -42,16 +41,17 @@ The rest of the scope, proposed (D-482; may change):
 
 **Next audit: 0.3.473** (D-518, D-995).
 
-Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
-list in `RESEARCH.md`.
+The road past these steps, to 1.0, is `ROADMAP.md` (D-998). Ideas for
+later are in `RESEARCH-2.md` (D-699) and `RESEARCH-PLANNING.md`, and the
+owner's wish list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-20, 0.3.437, The roadmap.** Nothing in the game changed: the
+  board's 97 kept ideas make `ROADMAP.md`, the 44 others
+  `RESEARCH-PLANNING.md`. D-998 to D-1000.
 - **2026-11-19, 0.3.436, The planning board.** Nothing in the game
   changed: `tools/board.js` turns the 141 ideas into cards on a private
   board with Claude's recommendations and the owner's answers (`PLANNING.md`). D-997.
 - **2026-11-19, 0.3.435, The big planning run.** Nothing in the game
   changed: a brief, eight areas' 141 ideas, a cross-check and a proposed
   roadmap, in `docs/planning/`; the board is next. D-996.
-- **2026-11-19, 0.3.434, Planning the planning.** Nothing in the game
-  changed: how the big planning run will work, the owner's picks, in
-  `PLANNING.md`; the run itself is next, in a fresh conversation. D-996.

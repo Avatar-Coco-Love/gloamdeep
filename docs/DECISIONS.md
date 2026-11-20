@@ -121,3 +121,37 @@ as a line on the card and a dot on that button, the pick left to the owner
 (offered too: a pre-filled pick; the line only). The owner's own answer is a
 box always open beside the pick, saved with it (offered too: a clearer
 button; a fourth choice, Other).
+
+**D-998 · 2026-11-20 · The roadmap to 1.0** (the owner's picks, all
+recommended; builds D-996) The planning board's 141 cards are picked: 97
+Keep, 29 Maybe, 15 Drop. The kept ideas make the roadmap, `ROADMAP.md`, by
+Now, Next and Toward publishing, in build order, one line an idea with its
+full text left in `planning/` (offered too: Now as PROGRESS's build steps;
+a file per horizon). The maybes and drops go to `RESEARCH-PLANNING.md`
+with why and when to look again; the owner's two new ideas (the lantern's
+mods and kinds of light; talking with the spark) to `RESEARCH-2.md`
+(offered too: all in `RESEARCH-2.md`; maybes in the roadmap). A few
+decisions, not one an idea (offered too: one; one an area). `planning/`
+and the board stay as the record (offered too: archive `planning/`). A
+kept idea's names, numbers and story are still drafts, picked at its step.
+
+**D-999 · 2026-11-20 · The choices the picks settle** (the owner's picks on
+the board; builds D-998) Firedamp is the mines' rule-bender, one a chapter
+to start (2.07, 8.07); minecarts wait. Portals come after all four
+chapters (8.09, D-019, D-032). About 10 creature kinds a chapter, as D-643
+(3.08; 8.08 dropped). All four stations, as D-455 and D-771 (8.10
+dropped). The Gloam Eye stays chapter 1's glass, as D-799 (1.10
+dropped). One phone playtest of the first hour comes first and decides
+the teaching goals 6.01 and 6.02 (6.04). The first mole gets gentler, not
+gone on day 1 (6.05). Chapter 1 is finished in 8.01's order, the
+Lampeater's polish first.
+
+**D-1000 · 2026-11-20 · The owner's notes on the board** (the owner's own
+answers; builds D-998) The lure wisps (3.04, D-939) are built as part of
+the Lampeater's polish (D-992). The first fall's words (8.04) match D-020:
+levels, unlocks and lore kept, the pack waits where you fell; Gentle and
+Normal only; the words a draft. 7.06 and 7.07 fold into 6.12; 7.14 and
+6.15 into 1.15; 8.05 into 6.04. Paid or free (7.16) is decided once
+chapter 1 is done; 8.15 and 8.16 at 0.4.0, with 8.06's count. The
+privacy page says nothing is sent; play notes only if decided later
+(7.11, D-993). Music is new from chapter 2 only (8.11, D-837 to D-841).

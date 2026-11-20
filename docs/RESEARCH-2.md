@@ -11,6 +11,11 @@ word for word at 0.3.72, the ninth audit (D-617), as that page neared 8 KB.
   flashlight and an electric lamp. Their light stays at full reach however
   low the charge, unlike oil (D-014). Batteries are crafted and charged at a
   charging station that must be joined to some power.
+- **The lantern's future mods and kinds of light** (the owner, 2026-11-20,
+  on the planning board's 1.12): more mods to the lamp over the game, and
+  new light tech, such as a flashlight, directional light or coloured light.
+- **Talking with the spark** (the owner, 2026-11-20, on 5.04): dialogue
+  with different options, and new buttons for the companion.
 - **Light-shy creatures**: some fear or are hurt by light, so the lantern
   is a tool in a fight (Golden Krone Hotel).
 - **Creature materials** (the owner, 2026-10-26, D-372): beaten creatures

@@ -6,6 +6,11 @@
 // tools/release.js once a newer version is in (D-982); stage 0.2's are in history-0.2.js and its split
 // files.
 export const HISTORY_03 = [
+  { v: '0.3.437', date: '2026-11-20', title: 'The roadmap', lines: [
+    "Nothing in the game changed: the planning board's picks are read back and written up. The 97 kept ideas make the roadmap to 1.0, docs/ROADMAP.md, by Now, Next and Toward publishing, in build order.",
+    "The 29 maybes and 15 drops go to docs/RESEARCH-PLANNING.md, each with why and when to look again; the owner's two new ideas to RESEARCH-2.md.",
+    "Decisions: D-998, D-999, D-1000.",
+  ] },
   { v: '0.3.436', date: '2026-11-19', title: 'The planning board', lines: [
     "The planning board. Nothing in the game changes. The big planning run's 141 ideas are now cards on a private page that works on a phone: each one marked Keep, Maybe or Drop, with an optional note, and the picks saved for Claude to read back an area or two a sitting. Each card also shows Claude's recommendation, its button marked with a dot, and a box for the owner's own answer stays open beside the pick. A script builds the cards from the planning files' idea, check and recommendation lines.",
     "Decisions: D-997.",

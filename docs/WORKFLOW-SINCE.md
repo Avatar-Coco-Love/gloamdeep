@@ -17,3 +17,6 @@ line here (D-741). Each audit moves the lines into the right sections.
 - The same format let a script build the board's 141 cards with no idea
   read; one probe write proved the saved picks before the handoff
   (0.3.436, D-996).
+- Reading the board's 141 picks into files and joining them by script to
+  the idea names and recommendations gave a one-line-a-card readback; a
+  grep then checked every pick landed in the roadmap or research (0.3.437).
