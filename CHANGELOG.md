@@ -24,6 +24,17 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.442 (2026-11-20)
+- New: the lantern's three slots, Wick, Tank and Glass, show in the bag,
+  a LANTERN row beside the gear row on a phone held sideways, under it on
+  one held upright, the bag's slots a row lower there. A fitted part shows
+  in its slot; an empty one shows its kind faintly, the glass a plain pane,
+  as no glass is found yet.
+- Tap a lantern slot, or reach it with the arrows, to see the part's name,
+  its slot, its numbers and its Look line, as for a gear slot. A part still
+  goes in with Fit, swapping the one there; nothing comes off.
+- Decisions: D-1006.
+
 ## 0.3.441 (2026-11-20)
 - New: the Bladder Tank, the lantern's first tank. Make it at the
   workbench's GEAR tab, its last slot, from 2 Oil Bladder and 2 Copper Ore,
@@ -48,12 +59,3 @@ Entry format:
   still listed. Both come back once the fight ends.
 - The bar goes faint while the Lampeater or the hero is under it.
 - Decisions: D-1004.
-
-## 0.3.439 (2026-11-20)
-- A bug fixed (F-9): chopping a tree or digging out a stump on the surface
-  no longer stalls the screen. Only the tiles that changed are painted
-  again, not the whole woods and its border; the picture is the same. On
-  a slow phone a chop's pause goes from almost a second to a blink.
-- The Lampeater's phases stay as they are. Its polish waits while the
-  owner playtests, for new ideas.
-- Decisions: D-1003.

@@ -9,17 +9,18 @@ import { bagMakes, makeFor, knownOf } from '../core/bagmake.js';
 import { NONE_YET } from '../render/makecard.js';
 import { setSides, DIRS, noSleepOut } from '../core/turn.js';
 import { get } from '../core/registry.js';
-import { gearChosen, BAG_STORE, BAG_SORT } from '../render/bag.js';
+import { view } from '../render/screen.js';
+import { gearChosen, isTall, BAG_STORE, BAG_SORT } from '../render/bag.js';
 import { CHEST_BAG, CHEST_TAKE, CHEST_STORE, stashAt, chestsNear, nearStacks } from '../core/chest.js';
 // sellWords: a slot's words with its price, kept apart from the bag's own slotWords below (D-570)
 import { tradeWords, slotWords as sellWords, priceOf, wares, wareWords, buyWords } from '../core/trade.js';
-import { gearWords, GEAR, gearRow, canTakeOff } from '../core/gear.js';
+import { gearWords, lanternWords, GEAR, KIT, kitRow, canTakeOff } from '../core/gear.js';
 
 export function createCardScreens(app, ui, show, menuOf) {
   const { spoken } = ui;
   // § bag (D-247): opens on the first slot; no turn passes until a flask is poured
   const slotWords = (i) => { const s = app.state.bag[i]; return s ? `${get(s.id).name}, ${s.n}` : 'Empty'; };
-  const bagWords = () => `Bag. ${gearWords(app.state)}. ${app.state.bag.length ? app.state.bag.map((s, i) => slotWords(i)).join('. ') : 'Empty'}. The arrows choose, Up from the top row reaches the gear, Up again ${canStore() ? 'Store, for the chests nearby, Left of it Sort' : 'Sort'}, Enter pours, eats, drinks, holds, fits, wears or takes off, or opens the Make tab on what a find makes, as C does, E eats a fish, Tab opens the Make tab, I or Esc closes.`;
+  const bagWords = () => `Bag. ${gearWords(app.state)}. ${lanternWords(app.state)}. ${app.state.bag.length ? app.state.bag.map((s, i) => slotWords(i)).join('. ') : 'Empty'}. The arrows choose, Up from the top row reaches the gear and the lantern, Up again ${canStore() ? 'Store, for the chests nearby, Left of it Sort' : 'Sort'}, Enter pours, eats, drinks, holds, fits, wears or takes off, or opens the Make tab on what a find makes, as C does, E eats a fish, Tab opens the Make tab, I or Esc closes.`;
   function toggleBag() {
     if (app.screen === 'bag' || app.screen === 'make' || app.screen === 'place') show('play');
     else if (app.screen === 'play') { app.queued = null; show('bag'); }
@@ -27,7 +28,7 @@ export function createCardScreens(app, ui, show, menuOf) {
   function pickSlot(i) { app.chosen = i; spoken.textContent = slotWords(i); ui.lookAt(i); } // choosing says an item's look line (D-297)
   // § gear choice: gear slot g chosen is app.chosen -1 - g; its words and Look line, and Take
   // off, the Weapon's or the Tool's piece back in the bag, free, the slot kept chosen (D-554)
-  const gearSlotWords = (g) => { const id = gearRow(app.state)[g]; return `${GEAR[g].name}: ${id ? get(id).name : 'empty'}${canTakeOff(app.state, g) ? '. Enter takes it off' : ''}`; };
+  const gearSlotWords = (g) => { const id = kitRow(app.state)[g]; return `${KIT[g].name}: ${id ? get(id).name : 'empty'}${canTakeOff(app.state, g) ? '. Enter takes it off' : ''}`; };
   function pickGear(g) { app.chosen = -1 - g; spoken.textContent = gearSlotWords(g); ui.lookGear(g); }
   function takeOffChosen() {
     const g = gearChosen(app.chosen);
@@ -36,7 +37,8 @@ export function createCardScreens(app, ui, show, menuOf) {
     spoken.textContent = gearSlotWords(g);
   }
   // The arrows on the bag: Up from its top row onto the gear row, Left and Right along it,
-  // Down back to the bag's top row (D-554)
+  // Down back to the bag's top row (D-554). The lantern's three (D-1006): sideways the gear row's
+  // right end, along it; upright a row between, Up and Down passing through it, Left and Right in it
   // Up from the gear row reaches the bag's STORE when it shows, else its SORT; Left and Right
   // go between them; Down from either the gear row's right end, under them (D-558, D-559)
   const canStore = () => chestsNear(app.state).length > 0;
@@ -44,17 +46,21 @@ export function createCardScreens(app, ui, show, menuOf) {
   function storeNear() { ui.storeNear(); spoken.textContent = 'Store, in the chests nearby'; }
   function pickSort() { app.chosen = BAG_SORT; spoken.textContent = 'Sort the bag'; }
   function sortBag() { ui.sortBag(); spoken.textContent = `Sorted. ${app.state.bag.map((s, i) => slotWords(i)).join('. ') || 'Empty'}`; }
+  const L = GEAR.length, LAST = KIT.length - 1; // the lantern's first slot, and the last of all
   function moveBag(dir) {
-    const g = gearChosen(app.chosen), c = cols();
-    if (app.chosen === BAG_STORE) { if (dir === 'down') pickGear(GEAR.length - 1); else if (dir === 'left') pickSort(); return; }
-    if (app.chosen === BAG_SORT) { if (dir === 'down') pickGear(GEAR.length - 1); else if (dir === 'right' && canStore()) pickStore(); return; }
+    const g = gearChosen(app.chosen), c = cols(), tall = isTall(view.w, view.h), lamp = g >= L;
+    if (app.chosen === BAG_STORE) { if (dir === 'down') pickGear(tall ? L - 1 : LAST); else if (dir === 'left') pickSort(); return; }
+    if (app.chosen === BAG_SORT) { if (dir === 'down') pickGear(tall ? L - 1 : LAST); else if (dir === 'right' && canStore()) pickStore(); return; }
     if (g >= 0) {
-      if (dir === 'down') pickSlot(Math.min(g, c - 1, bagSize(app.state) - 1));
+      const at = tall && lamp ? g - L : g; // upright, a lantern slot's column
+      if (dir === 'down' && tall && !lamp) pickGear(L + Math.min(g, LAST - L));
+      else if (dir === 'down') pickSlot(Math.min(at, c - 1, bagSize(app.state) - 1));
+      else if (dir === 'up' && tall && lamp) pickGear(at);
       else if (dir === 'up') { if (canStore()) pickStore(); else pickSort(); }
-      else pickGear(Math.min(GEAR.length - 1, Math.max(0, g + (dir === 'left' ? -1 : 1))));
+      else { const lo = tall && lamp ? L : 0, hi = tall && !lamp ? L - 1 : LAST; pickGear(Math.min(hi, Math.max(lo, g + (dir === 'left' ? -1 : 1)))); }
       return;
     }
-    if (dir === 'up' && app.chosen < c) { pickGear(Math.min(app.chosen, GEAR.length - 1)); return; }
+    if (dir === 'up' && app.chosen < c) { pickGear(tall ? L + Math.min(app.chosen, LAST - L) : Math.min(app.chosen, L - 1)); return; }
     pickSlot(Math.min(bagSize(app.state) - 1, Math.max(0, app.chosen + { left: -1, right: 1, up: -c, down: c }[dir])));
   }
   // Enter, Space or the button: pours a flask, makes one from oilcaps (D-299),

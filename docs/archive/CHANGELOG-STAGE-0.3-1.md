@@ -4,6 +4,15 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.439 (2026-11-20)
+- A bug fixed (F-9): chopping a tree or digging out a stump on the surface
+  no longer stalls the screen. Only the tiles that changed are painted
+  again, not the whole woods and its border; the picture is the same. On
+  a slow phone a chop's pause goes from almost a second to a blink.
+- The Lampeater's phases stay as they are. Its polish waits while the
+  owner playtests, for new ideas.
+- Decisions: D-1003.
+
 ## 0.3.438 (2026-11-20)
 - Two lure wisps now drift in the Lampeater's arena, either side of it at
   the start. As you come near, each drifts toward the Lampeater, showing

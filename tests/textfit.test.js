@@ -179,3 +179,12 @@ test('a gear slot chosen, its piece\'s numbers and Look line fit the bag card (D
   });
   none(bad);
 });
+
+test('a lantern slot chosen, its part\'s numbers and Look line fit the bag card (D-1006)', () => {
+  const bad = [], spriteOf = () => any, { GEAR, KIT, LANTERN } = G;
+  for (const [vw, vh] of SIZES) for (const size of [6, 9, 12]) for (const e of Object.values(ITEMS).filter((p) => p.part && !p.part.on)) {
+    const g = GEAR.length + LANTERN.findIndex((l) => l.part === e.part.slot), kit = KIT.map((_, i) => (i === g ? e.id : null));
+    bad.push(...fits(`${vw}×${vh} lantern ${size} ${e.id}`, B.cardAt(vw, vh, B.bagShape(size).detail), () => B.drawBag(any, vw, vh, [], -1 - g, spriteOf, kit, false, {}, size)));
+  }
+  none(bad);
+});

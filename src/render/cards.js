@@ -30,7 +30,7 @@ import { drawSettingsCard } from './settingscard.js';
 import { drawWays, TRAVEL_TITLE } from './ways.js';
 import { drawBoons } from './boons.js';
 import { stashAt, chestsNear, nearStacks } from '../core/chest.js';
-import { gearRow } from '../core/gear.js';
+import { kitRow } from '../core/gear.js';
 import { drawStrikeCard } from './strikecard.js';
 import { needleAt, zoneWidth } from '../core/fishing.js';
 import { isFitted } from '../core/parts.js';
@@ -128,7 +128,7 @@ export function createCards(app, ui) {
       else if (app.screen === 'map') drawMap(hc, view.w, view.h, app.view, t, still(), screens.turns()); // a card on the room (D-395)
       else if (app.screen === 'bag') {
         const entry = get(state.bag[app.chosen]?.id), refill = refills(state, entry), sips = draughtTurns(state, entry);
-        drawBag(hc, view.w, view.h, state.bag, app.chosen, kitOf(state), gearRow(state), state.health >= maxHealth(state), state.told, bagSize(state), chestsNear(state).length > 0, t, still(), state.poisoned > 0, makesOf(state, app.chosen), canSleepOut(state), refill, sips); // hearts or oil, or a draught's turns, now and after (D-908, D-909) // a card on the room (D-385), its STORE with a chest in reach (D-558)
+        drawBag(hc, view.w, view.h, state.bag, app.chosen, kitOf(state), kitRow(state), state.health >= maxHealth(state), state.told, bagSize(state), chestsNear(state).length > 0, t, still(), state.poisoned > 0, makesOf(state, app.chosen), canSleepOut(state), refill, sips); // hearts or oil, or a draught's turns, now and after (D-908, D-909) // a card on the room (D-385), its STORE with a chest in reach (D-558)
         if (!hidesPicture(entry, state.line, refill, sips)) textLine.draw(hc, line, t, still()); // over the card, so a line said in the bag shows ("Only on the surface."); not the chosen find's look line over its "Now" picture (H-69)
       }
       else if (app.screen === 'make') {

@@ -40,7 +40,8 @@ first-hour goals (6.04). A gentler first mole, not none (6.05).
     3.06 Its story in three places (M); 5.03 Maren's empty grave (S);
     5.02 Maren's pages for chapter 1 (M); 8.04 The first fall says
     nothing is lost (S, after 5.04; D-1000)
-12. Small helps: 1.02 The lantern's three slots, shown (S); 1.06 Always
+12. Small helps: 1.02 The lantern's three slots, shown (S), built,
+    0.3.442 (D-1006); 1.06 Always
     an ember's worth to buy (S); 1.07 The fall card (M); 6.07
     Smallest-view check for cards (S)
 13. Saves early: 7.01 Save export to a code (S), 7.02 Save import from a
