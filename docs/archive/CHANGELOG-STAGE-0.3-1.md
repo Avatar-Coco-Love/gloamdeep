@@ -4,6 +4,14 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.437 (2026-11-20)
+- Nothing in the game changed: the planning board's picks are read back
+  and written up. The 97 kept ideas make the roadmap to 1.0,
+  `docs/ROADMAP.md`, by Now, Next and Toward publishing, in build order.
+- The 29 maybes and 15 drops go to `docs/RESEARCH-PLANNING.md`, each with
+  why and when to look again; the owner's two new ideas to `RESEARCH-2.md`.
+- Decisions: D-998, D-999, D-1000.
+
 ## 0.3.436 (2026-11-19)
 - The planning board. Nothing in the game changes. The big planning run's 141 ideas are now cards on a private page that works on a phone: each one marked Keep, Maybe or Drop, with an optional note, and the picks saved for Claude to read back an area or two a sitting. Each card also shows Claude's recommendation, its button marked with a dot, and a box for the owner's own answer stays open beside the pick. A script builds the cards from the planning files' idea, check and recommendation lines.
 - Decisions: D-997.

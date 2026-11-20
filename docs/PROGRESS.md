@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.439 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.440 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
 The owner playtests the build; their ideas and changes from it come first
 (D-1003). Then `ROADMAP.md`'s Now, step 2, the tank; the Lampeater's polish
-(its cutscenes, room for its health and name, `OPEN-QUESTIONS-3.md`) later.
+(its cutscenes, `OPEN-QUESTIONS-3.md`) later.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -45,6 +45,9 @@ later are in `RESEARCH-2.md` (D-699) and `RESEARCH-PLANNING.md`, and the
 owner's wish list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-20, 0.3.440, The Lampeater's bar on top.** Its name and
+  bar move top middle; the round map and its row in the creature list
+  step aside in the fight. D-1004. Playtest: https://claude.ai/artifact/Kn2MEbzd7AK9kbqZpBdrGh
 - **2026-11-20, 0.3.439, A chop without a stall.** F-9 fixed: a chop or
   dig repaints only its tiles (848 ms to 64 ms on the slow phone). The
   Lampeater's phases kept; its polish waits for playtesting. D-1003.
@@ -53,6 +56,3 @@ owner's wish list in `RESEARCH.md`.
   arenas brought up to date (save format 38). Two lure wisps in the
   arena, drifting toward the Lampeater. D-1001, D-1002. Playtest:
   https://claude.ai/artifact/T4QtAL4GUrDZE2pR4GiQva
-- **2026-11-20, 0.3.437, The roadmap.** Nothing in the game changed: the
-  board's 97 kept ideas make `ROADMAP.md`, the 44 others
-  `RESEARCH-PLANNING.md`. D-998 to D-1000.

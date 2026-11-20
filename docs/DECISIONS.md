@@ -24,31 +24,6 @@ too. Changed before the merge, the owner's words: not a rule never to
 ask; what really matters, such as the five gameplay rulings (H-71, H-75,
 H-78, H-79, H-81), is still asked, as multiple choice.
 
-**D-991 · 2026-11-18 · The tank slot next** (the owner's picks, both
-recommended; builds D-459) Of the RPG upgrades talked over, the lantern's
-tank slot is planned first (offered too: the glass slot; the forge). It
-comes as build step 27, after the Lampeater's polish or step 26 (offered
-too: right away; after the 0.3.433 audit). Its part, recipe and numbers
-are the owner's picks at its step.
-
-**D-992 · 2026-11-18 · Leap's find and its card** (the owner's picks, all
-recommended; builds D-971 and D-972, their step 7; answers Q-083's note)
-Beaten, the Lampeater leaves Leap's find on its tile, always (its `sure`
-find), drawn as the Leap button's icon in gold; the door stays sealed.
-Stepped on, it is used up, Leap learnt; a card opens: "A new ability",
-the icon, "Leap", "Jump 2 tiles in a line, over a creature, water or a
-gap. Tap the Leap button or press J." and OK (offered too: shorter; a
-story line). Closed, the door sinks open, "The stone door sinks open."
-For every boss, its big rewards (found ability, Feat, relic) are never
-lost, whatever lands the last blow (offered too: stings and globs can't
-hurt it; the rule as it was). Your ideas for its cutscenes, phases and
-more are asked after step 8, the sound (offered too: now; no more).
-Claude's calls: the lines "The Lampeater fades. Something glows." and its
-look "A mark glows where it fell." (drafts); fallen before taking it, the
-find stays and the way in opens to come back; a journey saved under the
-card opens the door on the next step. D-971 and D-972 move to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-993 · 2026-11-18 · Four open questions settled** (the owner's picks)
 A picked duskstar never grows back on a waystone's ring, as boulders
 (answers Q-103; offered too: leave it). Claude's plan for special
@@ -180,3 +155,15 @@ playtesting in, so it can inspire new ideas and changes to the current
 build"; the boss's name and health may need room, other UI hidden for a
 while (`OPEN-QUESTIONS-3.md`, its polish). D-994 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-1004 · 2026-11-20 · The Lampeater's bar on top; the map steps aside**
+(the owner's picks, both recommended, from a [page of mock-ups](https://claude.ai/artifact/T3BiumYcqZNzLUkhcngifF);
+answers the owner's note in the polish, `OPEN-QUESTIONS-3.md`; supersedes
+D-959's place) While the arena is sealed, the Lampeater's name and bar sit
+top middle, on an upright phone just below the panel and pause (offered too:
+under the hero's own hearts; bottom middle as before). The round map steps
+aside, its one room no news, and the creature list leaves out the
+Lampeater, its gloamlings still listed (offered too: the "DEPTH 8" line).
+Claude's calls: pause and the wrench stay put; the map's M key still opens
+the full map; the bar goes faint over the Lampeater as over the hero.
+D-991 and D-992 move to `archive/DECISIONS-SURFACE.md`, word for word.

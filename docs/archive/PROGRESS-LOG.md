@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-20, 0.3.437, The roadmap.** Nothing in the game changed: the
+  board's 97 kept ideas make `ROADMAP.md`, the 44 others
+  `RESEARCH-PLANNING.md`. D-998 to D-1000.
 - **2026-11-19, 0.3.436, The planning board.** Nothing in the game
   changed: `tools/board.js` turns the 141 ideas into cards on a private
   board with Claude's recommendations and the owner's answers (`PLANNING.md`). D-997.

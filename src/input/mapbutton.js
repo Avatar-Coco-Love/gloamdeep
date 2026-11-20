@@ -2,7 +2,7 @@
 // top right corner (D-383), the hero in its middle. A tap or click opens the
 // full map (D-205), whose card has its own cross (D-395; the button was that
 // cross before). Thin layer: a tap or click only calls onMap(); hide(on)
-// takes it away, show(state, reveal, t,
+// takes it away, away(on) hides it in the boss fight, show(state, reveal, t,
 // still, alpha) draws the floor and fades the button (frame.js), and area()
 // is where it sits, in the screen layer's pixels. In the dark it fades with the
 // light on the hero's tile, evenly, easing over half a second (D-920, D-931). Its rim
@@ -38,6 +38,7 @@ export function createMapButton(canvas, { onMap }) {
   onWipe(() => { planFor = null; }); // drawn again on the next frame (D-588)
   return {
     hide(on) { button.style.display = on ? 'none' : ''; },
+    away(on) { button.style.visibility = on ? 'hidden' : ''; }, // stepped aside, in the Lampeater's fight: not seen, tapped or focused (D-1004)
     show(state, reveal, t, still, alpha) {
       if (state !== planFor || reveal !== revealed) {
         planFor = state; revealed = reveal; plan = floorPlan(state, reveal);
