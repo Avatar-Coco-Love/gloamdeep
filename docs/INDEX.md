@@ -18,7 +18,8 @@ smallest file that answers the question.
 | `docs/OPEN-QUESTIONS.md` | undecided questions (Q-001…); outside places in `OPEN-QUESTIONS-2.md`; lore, special creatures and the health check's loose ends in `-3` | when a step touches one |
 | `docs/PLANNING.md` | how the big planning run works: the frame, steps, eight areas (D-996) | the planning run and its review |
 | `docs/planning/` | the run's files (0.3.435): `BRIEF.md`, the eight areas' ideas `1-…` to `8-…`, `CHECK-1`, `-2`, `SYNTHESIS.md`; formats in `PLANNING.md` | the board and the reviews; never read whole |
-| `docs/RESEARCH.md` | the owner's wish list; ideas kept in `RESEARCH-2.md`; games and talks in `RESEARCH-GAMES.md`; travel and boons in `RESEARCH-TRAVEL.md`; research pages and their suggestions in `RESEARCH-PAGES.md`; the systems looking ahead in `RESEARCH-SYSTEMS.md` | when proposing a feature |
+| `docs/ROADMAP.md` | the roadmap to 1.0: the board's 97 kept ideas by Now, Next, Toward publishing, in build order, and the choices they settle (D-998, D-999) | choosing the next step |
+| `docs/RESEARCH.md` | the owner's wish list; ideas kept in `RESEARCH-2.md`; games and talks in `RESEARCH-GAMES.md`; travel and boons in `RESEARCH-TRAVEL.md`; research pages and their suggestions in `RESEARCH-PAGES.md`; the planning board's maybes and drops in `RESEARCH-PLANNING.md`; the systems looking ahead in `RESEARCH-SYSTEMS.md` | when proposing a feature |
 | `docs/PUZZLES.md` | every puzzle and pressure idea kept, by family (L, P, C, G, K, T, W; D-889); more in `-2` and `-3` | before proposing a puzzle |
 | `docs/DESIGN.md`, `VISION.md` | the design brief; the pitch, inspirations, pillars | before proposing a feature |
 | `docs/WORLD.md` | regions, ways between rooms (D-170); the map and the starting region in `-2` | world, region or map steps |

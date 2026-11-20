@@ -1,5 +1,9 @@
 # The big planning run: how it works
 
+**Done (0.3.437):** the roadmap is `ROADMAP.md` (D-998 to D-1000); the
+maybes and drops are in `RESEARCH-PLANNING.md`. This file, `planning/` and
+the board stay as the record.
+
 The owner's idea of 2026-11-19 (D-996): plan the game's future, near and
 far, with a team of agents, the way the third health check found its
 faults, before building more. The method below is settled; the ideas it

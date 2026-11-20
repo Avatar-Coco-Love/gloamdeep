@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-19, 0.3.434, Planning the planning.** Nothing in the game
+  changed: how the big planning run will work, the owner's picks, in
+  `PLANNING.md`; the run itself is next, in a fresh conversation. D-996.
 - **2026-11-19, 0.3.433, The eighteenth audit.** Nothing visible
   changed: Half and Automatic light dropped, as Full is fast enough now;
   sound's file list split off sound.js; five decisions and the playbook's
