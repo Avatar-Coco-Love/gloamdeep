@@ -22,6 +22,9 @@ export const FIND_LINES = {
   duskstarTake: { texts: ['You pick a duskstar.', 'A violet flower. You keep it.', 'You pick the little star of petals.'], warn: false }, // the first flower (D-763)
   duskstarLook: { texts: ['A duskstar, good for making things.', 'Violet petals, a yellow heart.', 'A small flower from the woods.'], warn: false },
   duskstarFull: { text: "You can't carry more duskstars.", warn: false },
+  glowcupTake: { texts: ['You pick a glowcup.', 'A teal flower. You keep it.', 'You pick the little cup of petals.'], warn: false }, // the second flower (D-1007)
+  glowcupLook: { texts: ['A glowcup, for crafting later.', 'A teal cup, a pale green heart.', 'A small flower from the dark floors.'], warn: false },
+  glowcupFull: { text: "You can't carry more glowcups.", warn: false },
   stoneLook: { texts: ['A plain stone, good for making things.', 'It is heavy and grey.', 'Cold and rough in your hand.'], warn: false },
   veinHard: { texts: ['Too hard to break by hand.', 'It glints with copper. It needs a pick.', 'Your knuckles ache. A pick would do it.'], warn: false }, // no pick in the Tool slot, free (D-480, D-552)
   veinChip: { text: 'Your pick bites the rock.', warn: false }, // the first bump (D-480)

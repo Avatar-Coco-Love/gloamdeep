@@ -6,6 +6,12 @@
 // tools/release.js once a newer version is in (D-982); stage 0.2's are in history-0.2.js and its split
 // files.
 export const HISTORY_03 = [
+  { v: '0.3.443', date: '2026-11-20', title: 'The Glowcup, and rooted flowers', lines: [
+    "New: the Glowcup, the second flower, a deep teal cup round a pale green heart on a stem with two long leaves. One grows in about half the rooms of every floor from depth 1 down, never in a vault, the arena or its hallway, and never behind a Gap. It only looks bright: it gives no light.",
+    "Walk onto one to put it in the bag, in stacks of 20, for crafts later. Picked, it comes back a day later on another floor tile of the room, as the duskstar does. Each has its own slight shade and faces its own way.",
+    "Flowers are rooted now: the duskstar and the glowcup stand on their own tile, still, their stem in a tuft of earth with a grass blade either side, no longer lifted and bobbing over a shadow. Other finds still bob.",
+    "Decisions: D-1007.",
+  ] },
   { v: '0.3.442', date: '2026-11-20', title: 'The lantern\'s slots, shown', lines: [
     "New: the lantern's three slots, Wick, Tank and Glass, show in the bag, a LANTERN row beside the gear row on a phone held sideways, under it on one held upright, the bag's slots a row lower there. A fitted part shows in its slot; an empty one shows its kind faintly, the glass a plain pane, as no glass is found yet.",
     "Tap a lantern slot, or reach it with the arrows, to see the part's name, its slot, its numbers and its Look line, as for a gear slot. A part still goes in with Fit, swapping the one there; nothing comes off.",

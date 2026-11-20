@@ -19,6 +19,17 @@ const DUSKSTAR = { mirror: false, toned: 'Pj', rows: [
   '', '', '.......kk.......', '......kPPk......', '.kkk..kPjk..kkk.', 'kPPPkkkPjkkkPPPk', '.kPjPkyyyykPjPk.', '..kkjkyYYykjkk..',
   '....kkyyyykk....', '...kPjkkkkjPk...', '..kPjk.kGk.kjPk.', '..kkk..kGk..kkk.', '...kgk.kGk......', '....kgkkGk......', '.....kkGGk......', '......kkkk......'] };
 
+// § glowcup: a deep teal cup of petals round a pale green heart, on a stem with two long leaves (look B
+// of the flower mock-up, D-1007). It only looks bright. `toned`: the petals' letters, shifted per flower.
+const GLOWCUP = { mirror: false, toned: 'cB', rows: [
+  '', '', '...kk.....kk....', '..kcBk.kk.kBck..', '..kcCBkCck.BCck.', '..kcCJJJJJJCck..', '..kBcJVVVVJcBk..', '...kBcVVVVcBk...',
+  '...kBBccccBBk...', '....kkBBBBkk....', '......kGGk......', '..kk..kGGk...kk.', '.kgGk.kGGk..kGgk', '..kgGkkGGk.kGgk.', '...kgGkGGkkGgk..', '....kkkkkkkkk...'] };
+
+// § tuft: the earth a rooted flower stands in, drawn over its stem's foot on its tile, a grass blade
+// either side (D-1007); the same on grass and on a cave's floor
+const TUFT = { mirror: false, rows: [
+  '', '', '', '', '', '', '', '', '', '', '', '', '', '..k.........k...', '.kgk.......kgk..', '..kFffkGGkffFk..'] };
+
 // § oilcap: an amber mushroom cap, light spots and a dark rim on one side,
 // on a short pale stem (D-296). `toned`: the cap's letters, shifted per mushroom (D-305).
 const OILCAP = { mirror: false, toned: 'oO', rows: [
@@ -313,6 +324,8 @@ export {
   FLASK,
   HERB,
   DUSKSTAR,
+  GLOWCUP,
+  TUFT,
   OILCAP,
   HEARTCAP,
   DEPOSIT,

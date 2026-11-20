@@ -57,7 +57,12 @@ export const ITEMS = {
   // The first flower (D-763, Q-092): a violet duskstar, 2 in each woods room (duskstar.js), each in
   // its own tone and facing its own way. Walking onto it puts it in the bag, for the Glow and Shade Draughts. Picked,
   // it `roam`s: a day later it grows again on another free grass tile of the room (regrow.js, D-530).
-  duskstar: { id: 'duskstar', kind: 'item', name: 'Duskstar', bag: true, max: 20, says: 'duskstarTake', look: 'duskstarLook', full: 'duskstarFull', tone: FLOWER_TONE, regrow: DAY_TURNS, roam: true },
+  duskstar: { id: 'duskstar', kind: 'item', name: 'Duskstar', bag: true, max: 20, says: 'duskstarTake', look: 'duskstarLook', full: 'duskstarFull', tone: FLOWER_TONE, regrow: DAY_TURNS, roam: true, rooted: true },
+  // The second flower (D-1007, Q-092): a teal glowcup, in about half the rooms of every floor from depth 1
+  // down (glowcup.js), each in its own tone and facing its own way. It only looks bright; it gives no light.
+  // Walking onto it puts it in the bag, for crafts later. Picked, it `roam`s as the duskstar does.
+  // A flower is `rooted`: drawn standing on its tile, still, its stem in a tuft of earth (D-1007).
+  glowcup: { id: 'glowcup', kind: 'item', name: 'Glowcup', bag: true, max: 20, says: 'glowcupTake', look: 'glowcupLook', full: 'glowcupFull', tone: FLOWER_TONE, regrow: DAY_TURNS, roam: true, rooted: true },
   // The first creature material (D-453, D-454): a beaten rat leaves one where it fell,
   // about 1 time in 2 (turn.js). Into the bag in stacks of 20 with its lines in turn
   // (D-333); with every stack full it stays, with its `full` line. It never grows back.

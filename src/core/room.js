@@ -22,6 +22,7 @@ import { withWoodscap } from './woodscap.js';
 import { withLooseStones } from './loosestone.js';
 import { withWoodsHerb } from './woodsherb.js';
 import { withDuskstars } from './duskstar.js';
+import { withGlowcup } from './glowcup.js';
 import { around } from './landmarks.js';
 import { seedFor, rng } from './rng.js';
 import { scatter } from './scatter.js';
@@ -30,7 +31,7 @@ import { cellOf, downPlaceIn, seedAt, layoutAt, beyondOf, sizeAt } from './regio
 import { mouthOf, mouthSides, withGap } from './mouth.js';
 import { ROOMS as HEARTH, HOME_ID, sidesOfWoods, woodsSeed, pathsOf, cutPaths, isMountain, kindOf } from './hearthwood.js';
 import { mountainOf } from './mountain.js';
-import { spotIn, unpad } from './stamper.js';
+import { spotIn, unpad, ringOf } from './stamper.js';
 
 // § first room: the shape of style study 1's room (study lines 96–110), with
 // its water as floor, and the study's stairs down at 1,1 (D-130). The gap in
@@ -317,7 +318,10 @@ export function leapGapAt(seed, depth) {
 }
 function madeFor(id, seed, probe = false) {
   if (PLACES[id]?.make) return { ...PLACES[id], ...PLACES[id].make(seedFor(seed, PLACES[id].depth), seed) };
-  if (PLACES[id]) return { ...PLACES[id], ...scatter(PLACES[id], seedAt(seed, PLACES[id].depth) + (PLACES[id].slot || 0)), map: withGap(id, PLACES[id].map, seed) };
+  if (PLACES[id]) {
+    const made = { ...PLACES[id], ...scatter(PLACES[id], seedAt(seed, PLACES[id].depth) + (PLACES[id].slot || 0)), map: withGap(id, PLACES[id].map, seed) };
+    return made.depth >= 1 ? withGlowcup(seedAt(seed, made.depth) + (made.slot || 0), made) : made; // depth 1's crypt room its glowcup too (D-1007)
+  }
   const depth = depthOf(id), { shape, look, deposits = 0 } = kindAt(depth), cell = cellOf(seed, id, depth);
   if (isBeyond(id)) return { ...beyondRoom(depth, wayIn(madeFor(roomBefore(id), seed).map)), depth, look }; // the room beyond a Leap gap, off the grid, empty (D-970)
   if (cell?.arena) return { ...arenaRoom(cell), depth, look }; // the Lampeater's arena, standing empty (D-940)
@@ -340,7 +344,9 @@ function madeFor(id, seed, probe = false) {
   const packed = relic && withPack(cell.seed, relic, depth); // from depth 3, 1 room in 3, the flask's rat in a pack of 3, placed after the rest (D-727)
   const cleared = packed && lined !== cached ? clearBehind(packed, cached.items.slice(guanoed.items.length)) : packed; // only the cache behind the Gap (H-79, D-989)
   const room = cleared && landmark ? { ...cleared, map: unpad(cleared.map, landmark.mark, landmark.at) } : cleared; // its pad floor again (D-620)
-  return { ...(room || PLACES[DEEPER]), people: room?.people || [], depth, look };
+  const flowered = room && withGlowcup(cell.seed, room, landmark ? around(landmark.mark, landmark.at.x, landmark.at.y, ringOf(landmark.mark)) : []); // the dark floors' flower, in about half the rooms, placed last (D-1007)
+  const cupped = flowered && lined !== cached ? clearBehind(flowered, cached.items.slice(guanoed.items.length)) : flowered; // never behind a Gap: moved to the near side (D-989)
+  return { ...(cupped || PLACES[DEEPER]), people: cupped?.people || [], depth, look };
 }
 
 // The room beyond each edge of a hand-made place with openings, by direction (D-197),

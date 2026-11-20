@@ -4,6 +4,16 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.440 (2026-11-20)
+- In the Lampeater's fight, its name and health bar sit top middle, away
+  from the hero and the text line; on an upright phone, just below your
+  hearts and pause.
+- The round map steps aside while the arena is sealed, and the creature
+  list leaves out the Lampeater, since the bar shows it. Its gloamlings are
+  still listed. Both come back once the fight ends.
+- The bar goes faint while the Lampeater or the hero is under it.
+- Decisions: D-1004.
+
 ## 0.3.439 (2026-11-20)
 - A bug fixed (F-9): chopping a tree or digging out a stump on the surface
   no longer stalls the screen. Only the tiles that changed are painted

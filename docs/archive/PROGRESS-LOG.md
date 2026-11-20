@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-20, 0.3.440, The Lampeater's bar on top.** Its name and
+  bar move top middle; the round map and its row in the creature list
+  step aside in the fight. D-1004. Playtest: https://claude.ai/artifact/Kn2MEbzd7AK9kbqZpBdrGh
 - **2026-11-20, 0.3.439, A chop without a stall.** F-9 fixed: a chop or
   dig repaints only its tiles (848 ms to 64 ms on the slow phone). The
   Lampeater's phases kept; its polish waits for playtesting. D-1003.

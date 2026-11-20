@@ -24,6 +24,19 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.443 (2026-11-20)
+- New: the Glowcup, the second flower, a deep teal cup round a pale green
+  heart on a stem with two long leaves. One grows in about half the rooms
+  of every floor from depth 1 down, never in a vault, the arena or its
+  hallway, and never behind a Gap. It only looks bright: it gives no light.
+- Walk onto one to put it in the bag, in stacks of 20, for crafts later.
+  Picked, it comes back a day later on another floor tile of the room, as
+  the duskstar does. Each has its own slight shade and faces its own way.
+- Flowers are rooted now: the duskstar and the glowcup stand on their own
+  tile, still, their stem in a tuft of earth with a grass blade either
+  side, no longer lifted and bobbing over a shadow. Other finds still bob.
+- Decisions: D-1007.
+
 ## 0.3.442 (2026-11-20)
 - New: the lantern's three slots, Wick, Tank and Glass, show in the bag,
   a LANTERN row beside the gear row on a phone held sideways, under it on
@@ -49,13 +62,3 @@ Entry format:
   bigger tank full.
 - The Oil Bladder now says what it is for: "An oil bladder. Two make a tank."
 - Decisions: D-1005.
-
-## 0.3.440 (2026-11-20)
-- In the Lampeater's fight, its name and health bar sit top middle, away
-  from the hero and the text line; on an upright phone, just below your
-  hearts and pause.
-- The round map steps aside while the arena is sealed, and the creature
-  list leaves out the Lampeater, since the bar shows it. Its gloamlings are
-  still listed. Both come back once the fight ends.
-- The bar goes faint while the Lampeater or the hero is under it.
-- Decisions: D-1004.
