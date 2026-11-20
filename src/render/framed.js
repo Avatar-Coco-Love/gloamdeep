@@ -5,7 +5,7 @@
 import { drawText, textWidth } from './font.js';
 import { drawMoves } from './moves.js';
 import { roomView as view } from './screen.js';
-import { get } from '../core/registry.js';
+import { get, fullHealth } from '../core/registry.js';
 
 const AMBER = '#ffc65c', DARK = '#0e0c16', EDGE = '#2a2636', WORDS = '#c9c2d6';
 const CORNER = 4, BOX = 18; // each corner's arm, and the square they mark: the tile and a pixel round it
@@ -44,6 +44,6 @@ export function drawFramed(c, { e, move }, p, cam, t, still) {
   const x = Math.round(p.x * 16), y = Math.round(p.y * 16) - 2; // sprites sit 2 up
   drawCorners(c, x - 1, y - 1);
   if (move) drawMoves(c, [move], () => p, t, still);
-  const def = get(e.id), max = def.health ?? 0, top = y - 3 - TAG_H;
+  const def = get(e.id), max = fullHealth(e) ?? 0, top = y - 3 - TAG_H;
   drawTag(c, def.name, e.health ?? max, max, x + 8, top >= cam.y ? top : y + BOX + 1, cam.x + 1, cam.x + view.w - 1);
 }

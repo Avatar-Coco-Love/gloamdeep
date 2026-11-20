@@ -249,12 +249,15 @@ test('a rim lurker comes out by night in each mountain room, beside the rock, th
   for (const id of [HOME_ID, ...ROUND_HOME]) assert.ok(!nightfall(at(id, 220)).enemies.some((e) => e.id === 'rimLurker'), id);
 });
 
-test('no mole in a journey\'s start room on its first day; the bunny comes, the mole the next day (H-71)', async () => {
+test('the day mole is gentler, 2 hearts, and meets a new journey in its start room on the first day (H-71, D-1009)', async () => {
   const { newJourney } = await import('../src/core/state.js');
+  const { fullHealth } = await import('../src/core/registry.js');
   for (const seed of [1, 4127, 99]) {
     const s = newJourney(seed), day1 = nightfall({ ...s, turn: 1 });
-    assert.equal(moles(day1).length, 0, `seed ${seed}`);
-    assert.equal(bunnies(day1).length, 1, `seed ${seed}: the bunny still`);
-    assert.equal(moles(nightfall({ ...day1, turn: 300 })).length, 1, `seed ${seed}: day 2`);
+    assert.equal(moles(day1).length, 1, `seed ${seed}: a mole on day 1`);
+    assert.equal(bunnies(day1).length, 1, `seed ${seed}: the bunny too`);
+    assert.equal(moles(day1)[0].health, 2, `seed ${seed}: 2 hearts`);
+    assert.equal(fullHealth(moles(day1)[0]), 2, `seed ${seed}: its tag shows 2 of 2`);
   }
+  assert.equal(fullHealth({ id: 'mole' }), 4, 'below, the mole keeps its 4');
 });

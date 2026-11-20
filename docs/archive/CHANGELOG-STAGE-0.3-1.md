@@ -4,6 +4,17 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.442 (2026-11-20)
+- New: the lantern's three slots, Wick, Tank and Glass, show in the bag,
+  a LANTERN row beside the gear row on a phone held sideways, under it on
+  one held upright, the bag's slots a row lower there. A fitted part shows
+  in its slot; an empty one shows its kind faintly, the glass a plain pane,
+  as no glass is found yet.
+- Tap a lantern slot, or reach it with the arrows, to see the part's name,
+  its slot, its numbers and its Look line, as for a gear slot. A part still
+  goes in with Fit, swapping the one there; nothing comes off.
+- Decisions: D-1006.
+
 ## 0.3.441 (2026-11-20)
 - New: the Bladder Tank, the lantern's first tank. Make it at the
   workbench's GEAR tab, its last slot, from 2 Oil Bladder and 2 Copper Ore,

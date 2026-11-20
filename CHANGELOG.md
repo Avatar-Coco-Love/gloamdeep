@@ -24,6 +24,15 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.445 (2026-11-20)
+- A gentler first mole: every mole that comes out by day in the woods
+  round home has 2 hearts now, not 4. Two lantern swings or one knife
+  blow beat it, so a new hero who strikes as it comes up takes one bite,
+  not three. From depth 5 down the mole is as tough as ever.
+- The start room has its mole on a journey's first day again, the gentle
+  one. Its name tag counts 2 hearts, and its Bestiary page says so.
+- Decisions: D-1009 (supersedes D-986).
+
 ## 0.3.444 (2026-11-20)
 - Herbs and mushrooms are rooted now, as the flowers are: the healing herb,
   the oilcap and the heartcap stand on their own tile, still, their foot in
@@ -45,14 +54,3 @@ Entry format:
   tile, still, their stem in a tuft of earth with a grass blade either
   side, no longer lifted and bobbing over a shadow. Other finds still bob.
 - Decisions: D-1007.
-
-## 0.3.442 (2026-11-20)
-- New: the lantern's three slots, Wick, Tank and Glass, show in the bag,
-  a LANTERN row beside the gear row on a phone held sideways, under it on
-  one held upright, the bag's slots a row lower there. A fitted part shows
-  in its slot; an empty one shows its kind faintly, the glass a plain pane,
-  as no glass is found yet.
-- Tap a lantern slot, or reach it with the arrows, to see the part's name,
-  its slot, its numbers and its Look line, as for a gear slot. A part still
-  goes in with Fit, swapping the one there; nothing comes off.
-- Decisions: D-1006.

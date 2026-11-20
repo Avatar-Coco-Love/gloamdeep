@@ -39,4 +39,6 @@ export const get = (id) => BY_ID.get(id);
 export const byLetter = (ch) => BY_LETTER.get(ch);
 export const byKind = (kind) => ALL.filter((e) => e.kind === kind);
 // A creature that starts asleep: one in disguise (D-368), or one that `sleeps` as itself (D-692)
+// (creature) → its full hearts: a day creature's own `dayHealth` when it has one, the gentler woods mole (D-1009)
+export const fullHealth = (e) => (e.day && get(e.id)?.dayHealth) || get(e.id)?.health;
 export const asleepAtFirst = (entry) => !!(entry?.looksLike || entry?.sleeps);
