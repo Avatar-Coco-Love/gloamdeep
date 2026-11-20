@@ -101,7 +101,7 @@ export const CREATURE_LINES = {
   tickShellLook: { texts: ['A tick shell, good for making things.', 'Thin, dark and a little oily.', 'It smells faintly of the lantern.'], warn: false },
   tickShellFull: { text: "You can't carry more tick shells.", warn: false },
   oilBladderTake: { texts: ['You pick up an oil bladder.', 'The sac the tick kept its oil in.', 'The oil bladder goes in your bag.'], warn: false }, // (D-606)
-  oilBladderLook: { texts: ['An oil bladder, for crafting later.', 'Amber oil sloshes inside.', 'It is warm, and full.'], warn: false },
+  oilBladderLook: { texts: ['An oil bladder. Two make a tank.', 'Amber oil sloshes inside.', 'It is warm, and full.'], warn: false },
   oilBladderFull: { text: "You can't carry more oil bladders.", warn: false },
   wispGlassTake: { texts: ['You pick up the wisp glass.', 'A sliver of cold blue glass.', 'The wisp glass goes in your bag.'], warn: false }, // (D-649)
   wispGlassLook: { texts: ['Wisp glass, good for making things.', 'It holds a faint blue glimmer.', 'Cold to the touch, still.'], warn: false },

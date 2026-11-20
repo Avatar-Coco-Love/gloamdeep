@@ -46,6 +46,7 @@ import { drawDoors } from './doors.js';
 import { LANTERN, LANTERN_AT } from '../core/light.js';
 import { flasksIn } from '../core/bag.js';
 import { maxHealth, DIRS, creatureList } from '../core/turn.js';
+import { tankOf } from '../core/parts.js';
 import { drawFires, drawCalls } from './campfire.js';
 import { depthOf } from '../core/room.js';
 import { glowsIn } from '../core/stairs.js';
@@ -361,7 +362,7 @@ export function createFrame(app, ui) {
     arrowPad.show(padOn, padAlpha);
     const greenHeart = app.poisonHurt && t < app.poisonHurt.until && (still() || Math.floor((app.poisonHurt.until - t) / POISON_BLINK_MS) % 2 === 0) ? app.poisonHurt.heart : -1; // the heart poison takes flashes green (D-654)
     const sipped = !!app.drunk && t < app.drunk.until && (still() || Math.floor((app.drunk.until - t) / DRINK_BLINK_MS) % 2 === 0); // the oil bar flickers as a creature drinks, steady with reduced motion (D-606)
-    Object.assign(panel, drawStatus(hc, { oil: s.oil, health: s.health, max: maxHealth(state), depth: depthOf(s.place), level: levelOf(s.xp ?? state.xp), sipped, greenHeart }, ex, ey, panel.alpha)); // the fall's picture keeps no xp, and a fall keeps it all (D-245)
+    Object.assign(panel, drawStatus(hc, { oil: s.oil, health: s.health, max: maxHealth(state), depth: depthOf(s.place), level: levelOf(s.xp ?? state.xp), sipped, greenHeart, tank: tankOf(state) }, ex, ey, panel.alpha)); // the fall's picture keeps no xp, and a fall keeps it all (D-245)
     drawMarks(hc, marks, ex, markY, panel.alpha, markRoom);
     markRow = { ids: marks.map((m) => m.id), marks, x: ex, y: markY, room: markRoom }; // for taps and the mouse (D-604)
     drawGoalLine(hc, goal, ex, goalY, panel.alpha, goalW);

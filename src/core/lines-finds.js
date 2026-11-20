@@ -75,6 +75,11 @@ export const FIND_LINES = {
   wickShort: { text: 'You need 3 Copper Ore and 1 Wood.', warn: false }, // too few, free
   copperWickLook: { texts: ['A copper wick. Fit it to burn less oil.', 'A wick in a copper collar.', 'It will make each flask last longer.'], warn: false },
   wickFit: { text: 'You fit the copper wick.', warn: false }, // Fit in the bag, free (D-483)
+  tankMake: { text: 'You make a bladder tank.', warn: false }, // its line on the bench panel, a turn (D-1005)
+  bladderTankFull: { text: 'You already have a bladder tank.', warn: false }, // carried or fitted, free
+  tankShort: { text: 'Need 2 Oil Bladder, 2 Copper Ore.', warn: false }, // too few, free
+  bladderTankLook: { texts: ['A bladder tank. Fit it to hold more oil.', 'Two oil bladders, bound in copper.', 'It holds a quarter more oil.'], warn: false },
+  tankFit: { text: 'You fit the bladder tank.', warn: false }, // Fit in the bag, free (D-1005)
   vestMake: { text: 'You make a rat hide vest.', warn: false }, // its line on the bench panel, a turn (D-484)
   ratVestFull: { text: 'You already have a rat hide vest.', warn: false }, // carried or worn, free
   vestShort: { text: 'You need 4 Rat Tail and 1 Wood.', warn: false }, // too few, free

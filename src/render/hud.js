@@ -6,7 +6,7 @@ import { SPRITES } from './sprites.js';
 import { drawGlass } from './glass.js';
 import { AWAKE } from './waystone.js';
 import { drawHearts, HEART, ROW_HEARTS } from './hearts.js';
-import { PAD, SEG_W, SEG_GAP as GAP, SEGS, panelW } from './panelsize.js';
+import { PAD, SEG_W, SEG_GAP as GAP, SEGS, panelW, segsOf } from './panelsize.js';
 
 // § panel: hearts with the level at the right, the oil bar under them, then
 // the depth, as in the D-378 mock-up; the boon held is a mark under it (D-604). Drawn in game pixels: a see-through
@@ -15,17 +15,18 @@ import { PAD, SEG_W, SEG_GAP as GAP, SEGS, panelW } from './panelsize.js';
 // `greenHeart`: the heart poison just took, flashing green (D-654), or -1.
 // Gives the panel's { w, h }, for the creature list under it (D-357).
 const LINE = 7, GAP_Y = 3;
-export function drawStatus(c, { oil, health, max, depth, level, sipped = false, greenHeart = -1 }, x, y, alpha = 1) {
+// `tank`: how many plain tanks the lantern holds, its bar a segment a tenth of one (D-1005).
+export function drawStatus(c, { oil, health, max, depth, level, sipped = false, greenHeart = -1, tank = 1 }, x, y, alpha = 1) {
   const lv = `LV ${level}`, where = depth === 0 ? 'SURFACE' : `DEPTH ${depth}`; // SURFACE until places have names (D-209)
   const shown = Math.max(max, health); // a gold heart past the most (D-488)
-  const top = Math.max(heartsH(shown), LINE), w = panelW(shown, lv, where);
+  const top = Math.max(heartsH(shown), LINE), segs = segsOf(tank), w = panelW(shown, lv, where, segs);
   const h = 2 * PAD + top + GAP_Y + SEG_H + GAP_Y + LINE;
   c.save();
   c.globalAlpha = alpha;
   drawGlass(c, x, y, w, h);
   drawHearts(c, health, max, x + PAD, y + PAD + (top > LINE ? 0 : 1), greenHeart);
   drawText(c, lv, x + w - PAD - textWidth(lv), y + PAD, '#9790a4'); // the study's --muted
-  drawOilBar(c, oil, x + PAD, y + PAD + top + GAP_Y, sipped);
+  drawOilBar(c, oil, x + PAD, y + PAD + top + GAP_Y, sipped, segs);
   drawText(c, where, x + PAD, y + PAD + top + GAP_Y + SEG_H + GAP_Y, '#9790a4');
   c.restore();
   return { w, h };
@@ -35,8 +36,8 @@ export function drawStatus(c, { oil, health, max, depth, level, sipped = false, 
 // segment is lit while the oil is above its share, as in the study. `sipped`: a creature
 // just drank some, and the lit segments show pale for a beat (D-606).
 const SEG_H = 4; // SEG_W, GAP, SEGS and BAR_W are in panelsize.js
-function drawOilBar(c, oil, bx, by, sipped = false) {
-  for (let i = 0; i < SEGS; i++) {
+function drawOilBar(c, oil, bx, by, sipped = false, segs = SEGS) {
+  for (let i = 0; i < segs; i++) {
     const x = bx + i * (SEG_W + GAP);
     if (oil > i / SEGS + 0.001) {
       c.fillStyle = sipped ? '#efe6cc' : '#ffc65c'; c.fillRect(x, by, SEG_W, SEG_H - 1); // --amber, pale as it is drunk

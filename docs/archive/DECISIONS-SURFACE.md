@@ -2821,6 +2821,31 @@ find stays and the way in opens to come back; a journey saved under the
 card opens the door on the next step. D-971 and D-972 move to
 `archive/DECISIONS-SURFACE.md`, word for word.
 
+**D-1001 · 2026-11-20 · F-10 fixed: older saves' arenas brought up to date**
+(the owner's picks, all recommended; answers part of D-995's "which to
+fix") F-10 is fixed first, then the roadmap's Now. An upgrade step to
+save format 38 runs once as an older save loads (offered too: the same
+checks each time the hero comes into the arena): an arena with the
+Lampeater alive gets its door sealed again, its braziers cold and its
+gloamlings back, as `wholeAgain` does; one beaten with no find left, Leap
+not learnt, gets Leap's find on the Lampeater's own tile (offered too: the
+tile before the stairs). With the hero inside, the door is sealed, the
+braziers cooled and the missing gloamlings given, on tiles with no one on
+them; the Lampeater keeps its hearts (offered too: wait till the next
+visit). F-9 still waits.
+
+**D-1002 · 2026-11-20 · The arena's lure wisps** (the owner's picks, all
+recommended; builds D-939, D-1000; roadmap Now step 1, 3.04) Two of
+today's lure wisps (offered too: one; two that can't be put out) stand on
+the tiles either side of the Lampeater's (offered too: by the lower
+pillars). Each moves as any lure wisp, but heads for the Lampeater only,
+never a gloamling (offered too: as today, the nearest creature; following
+it every turn). They are the arena's own, as its gloamlings: no glass, never
+following the hero out, fading when it is beaten, back whole after a fall
+or a doorway (offered too: Wisp Glass as anywhere). The bench, 100 fights
+each: Lean 21% (35% before), Middling 72% (84%), Strong 97% (94%). Its
+phases and its cutscenes come next, the owner's ideas asked then.
+
 ## Its old row in the archive index (moved here at 0.3.423, D-982)
 
 Hand-edited in most PRs, so cut short in `README.md` (H-95); grep finds every

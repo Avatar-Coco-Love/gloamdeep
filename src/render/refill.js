@@ -5,18 +5,19 @@
 // side by side won't fit the card.
 import { drawText, textWidth } from './font.js';
 import { drawHearts, HEART, HEART_W, ROW_HEARTS } from './hearts.js';
-import { SEG_W, SEG_GAP, SEGS } from './panelsize.js';
+import { SEG_W, SEG_GAP, SEGS, segsOf } from './panelsize.js';
 
 const GREY = '#9790a4', Z = 2, GAP = 4, LABEL_GAP = 6, ROW_GAP = 4, PIECE_GAP = 4; // GAP: between pieces, at 1x
 const LABELS = ['Now', 'After'];
 const labelW = () => Math.max(...LABELS.map(textWidth)) + LABEL_GAP;
 const lit = (oil, i) => oil > i / SEGS + 0.001; // as the HUD's oil bar lights a segment
-const lostSegs = (r) => { let n = 0; while (lit(r.after + r.lost, SEGS + n)) n++; return n; };
+const segs = (r) => segsOf(r.max); // a bigger tank's bar runs on (D-1005)
+const lostSegs = (r) => { let n = 0; while (lit(r.after + r.lost, segs(r) + n)) n++; return n; };
 const shown = (r) => Math.max(r.max, r.now, r.after); // the hearts drawn, rows of 5 as on the HUD
 const lostFrom = (r) => (shown(r) - 1) % ROW_HEARTS + 1; // the faint ones run on along the last row
 // a piece's size at 1x
 function pieceW(r) {
-  if (r.kind === 'oil') return (SEGS + lostSegs(r)) * (SEG_W + SEG_GAP) - SEG_GAP;
+  if (r.kind === 'oil') return (segs(r) + lostSegs(r)) * (SEG_W + SEG_GAP) - SEG_GAP;
   return Math.max(Math.min(shown(r), ROW_HEARTS), lostFrom(r) + r.lost) * (HEART_W + 1) - 1;
 }
 function pieceH(r) { return r.kind === 'oil' ? 4 : Math.ceil(shown(r) / ROW_HEARTS) * (HEART.length + 1) - 1; }
@@ -44,9 +45,9 @@ function piece(c, r, after) {
     return;
   }
   const oil = after ? r.after : r.now, extra = after ? lostSegs(r) : 0;
-  for (let i = 0; i < SEGS + extra; i++) {
+  for (let i = 0; i < segs(r) + extra; i++) {
     const x = i * (SEG_W + SEG_GAP);
-    if (i >= SEGS) { c.fillStyle = 'rgba(255,198,92,.28)'; c.fillRect(x, 0, SEG_W, 4); continue; }
+    if (i >= segs(r)) { c.fillStyle = 'rgba(255,198,92,.28)'; c.fillRect(x, 0, SEG_W, 4); continue; }
     if (!lit(oil, i)) { c.fillStyle = '#2a2636'; c.fillRect(x, 0, SEG_W, 4); continue; }
     const fresh = after && !lit(r.now, i); // added by this one, pale
     c.fillStyle = fresh ? '#efe6cc' : '#ffc65c'; c.fillRect(x, 0, SEG_W, 3);

@@ -19,6 +19,10 @@ export function burnOf(state) {
   return (burns.length ? Math.min(...burns) : OIL.burn) * burnByWorn(state) * steadyBurn(state);
 }
 
+// § tank: how many plain tanks of oil the lantern holds: a fitted tank's `holds`, else 1 (D-1005).
+// Oil is counted in plain tanks everywhere, so a turn burns the same; the bigger tank just holds more.
+export const tankOf = (state) => get(fitted(state).tank)?.part?.holds ?? 1;
+
 // How much wider the strike meter's zone is: each fitted part's `wide` (the Bone Hook, D-807)
 export const zoneByParts = (state) => Object.values(fitted(state)).reduce((w, id) => w * (get(id)?.part?.wide ?? 1), 1);
 
