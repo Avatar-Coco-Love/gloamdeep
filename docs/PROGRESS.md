@@ -4,13 +4,14 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.441 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.442 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
 The owner playtests the build; their ideas and changes from it come first
-(D-1003). Then the Lampeater's polish, `ROADMAP.md`'s Now, step 1 (its
-cutscenes, `OPEN-QUESTIONS-3.md`), as the owner asked; then step 3.
+(D-1003). The Lampeater's polish waits, as the owner asked (D-1006); the
+next content before it is the owner's pick: `ROADMAP.md`'s Now, step 4
+(6.05 a gentler first mole) or step 12's other small helps.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -21,6 +22,7 @@ cutscenes, `OPEN-QUESTIONS-3.md`), as the owner asked; then step 3.
   (`ROADMAP.md`, 0.3.437); the board's own picks, Claude's (0.3.436).
 - The Lampeater's beaten line and its find's look, Claude's drafts (D-992).
 - The Bladder Tank's lines, picture and slot, Claude's drafts (D-1005).
+- The empty glass's pane picture and the lantern row's labels and arrows, Claude's (D-1006).
 - How hard the Lampeater should be (Q-111): 12 hearts for now (D-950);
   with its 2 wisps (D-1002) Lean 21%, Middling 72%, Strong 97% (35%,
   84%, 94% before); again after each step (D-972).
@@ -45,13 +47,12 @@ later are in `RESEARCH-2.md` (D-699) and `RESEARCH-PLANNING.md`, and the
 owner's wish list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-20, 0.3.442, The lantern's slots, shown.** A LANTERN row in
+  the bag: Wick, Tank and Glass, beside the gear sideways, under it
+  upright. D-1006. Playtest: https://claude.ai/artifact/17ApC7dUEjT8xCYDREBysP
 - **2026-11-20, 0.3.441, The Bladder Tank.** The lantern's first tank, 2 Oil
   Bladder and 2 Copper Ore: 75 turns, the extra in reserve, the oil bar 13
   segments. D-1005. Playtest: https://claude.ai/artifact/XA79YE2CZwWuT51CWcJfZi
 - **2026-11-20, 0.3.440, The Lampeater's bar on top.** Its name and
   bar move top middle; the round map and its row in the creature list
   step aside in the fight. D-1004. Playtest: https://claude.ai/artifact/Kn2MEbzd7AK9kbqZpBdrGh
-- **2026-11-20, 0.3.439, A chop without a stall.** F-9 fixed: a chop or
-  dig repaints only its tiles (848 ms to 64 ms on the slow phone). The
-  Lampeater's phases kept; its polish waits for playtesting. D-1003.
-  Playtest: https://claude.ai/artifact/QsNSmUnt8FMCH2RDVNQwpP

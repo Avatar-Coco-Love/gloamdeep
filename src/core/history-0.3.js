@@ -6,6 +6,11 @@
 // tools/release.js once a newer version is in (D-982); stage 0.2's are in history-0.2.js and its split
 // files.
 export const HISTORY_03 = [
+  { v: '0.3.442', date: '2026-11-20', title: 'The lantern\'s slots, shown', lines: [
+    "New: the lantern's three slots, Wick, Tank and Glass, show in the bag, a LANTERN row beside the gear row on a phone held sideways, under it on one held upright, the bag's slots a row lower there. A fitted part shows in its slot; an empty one shows its kind faintly, the glass a plain pane, as no glass is found yet.",
+    "Tap a lantern slot, or reach it with the arrows, to see the part's name, its slot, its numbers and its Look line, as for a gear slot. A part still goes in with Fit, swapping the one there; nothing comes off.",
+    "Decisions: D-1006.",
+  ] },
   { v: '0.3.441', date: '2026-11-20', title: 'The Bladder Tank', lines: [
     "New: the Bladder Tank, the lantern's first tank. Make it at the workbench's GEAR tab, its last slot, from 2 Oil Bladder and 2 Copper Ore, then choose it in the bag and press Fit: it goes in the lantern, and no turn passes.",
     "With it fitted the lantern holds a quarter more oil: a full tank lasts 75 turns instead of 60, on top of the wick, charms and the rest. The oil past a plain tank's worth is kept in reserve: the light reaches no further.",

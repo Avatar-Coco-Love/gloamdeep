@@ -30,3 +30,5 @@ line here (D-741). Each audit moves the lines into the right sections.
 - Mock-ups made from the real game, with the code nudged as the page loads
   (Playwright's page.route), showed each placement on a phone both ways
   and on PC in minutes, without touching the branch (0.3.440).
+- "Content before the Lampeater" could mean several steps; four choices
+  from the roadmap, each a line, let the owner pick in one tap (0.3.442).

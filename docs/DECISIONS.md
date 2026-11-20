@@ -117,20 +117,6 @@ chapter 1 is done; 8.15 and 8.16 at 0.4.0, with 8.06's count. The
 privacy page says nothing is sent; play notes only if decided later
 (7.11, D-993). Music is new from chapter 2 only (8.11, D-837 to D-841).
 
-**D-1003 · 2026-11-20 · F-9 fixed; the Lampeater's polish waits for playtesting**
-(the owner's picks; answers D-995's "which to fix" for F-9) A chop or dig in
-the woods repaints only the changed tiles and their neighbours, from the grass
-kept under the trees, the border kept: the same picture to the pixel (offered
-too: the border kept only; the ground painted once). By water, the cave mouth,
-rock or the room's edge, or in any other look, the whole repaint as before.
-A chop's longest frame on the simulated slow phone, 848 ms to 64 ms. The
-Lampeater's phases stay as D-978 has them (offered too: the cutscenes first).
-The owner's words: "continue polishing the boss later. I'd like to get some
-playtesting in, so it can inspire new ideas and changes to the current
-build"; the boss's name and health may need room, other UI hidden for a
-while (`OPEN-QUESTIONS-3.md`, its polish). D-994 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-1004 · 2026-11-20 · The Lampeater's bar on top; the map steps aside**
 (the owner's picks, both recommended, from a [page of mock-ups](https://claude.ai/artifact/T3BiumYcqZNzLUkhcngifF);
 answers the owner's note in the polish, `OPEN-QUESTIONS-3.md`; supersedes
@@ -162,3 +148,21 @@ sac with a copper cap (draft); flasks pour by themselves once none would
 spill, so sooner; waking from a fall, the bigger tank full; the dev
 slider and Refill reach its top; the boss bench's builds fit no tank.
 D-1001 and D-1002 move to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-1006 · 2026-11-20 · The lantern's slots, shown** (the owner's picks,
+both recommended, from mock-ups; the roadmap's 1.02, picked as the next
+content before the Lampeater, its polish saved for later; builds D-459,
+D-483) The lantern's three slots, Wick, Tank and Glass, show as a LANTERN
+row in the bag: beside the gear row sideways, under it upright, the bag's
+slots a row lower there (offered too: a LANTERN tab of its own; the slots
+only in a part's own words). An empty slot shows its kind faintly, as the
+gear row's; the empty Glass a plain pane outline (offered too: the Gloam
+Eye, faint; an empty frame). Offered as the next step too: a second
+flower; a gentler first mole; a new creature for depths 1 to 7. Claude's
+calls: a lantern slot chosen shows its part's name, slot, numbers and Look
+line, as a gear slot's; nothing comes off, Fit still swaps a part; the
+pane's picture, a pane of glass between a cap and base of the lantern's
+trim (draft); sideways "GEAR" stays when both labels fit, else only
+"LANTERN"; the arrows reach the row, sideways along the gear row's line,
+upright a row between; the parts' Look lines kept as they are.
+D-1003 moves to `archive/DECISIONS-SURFACE.md`, word for word.

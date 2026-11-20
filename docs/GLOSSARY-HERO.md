@@ -25,6 +25,7 @@ as that page neared 8 KB.
   tab, lists what is made in the bag, each once its finds have been
   held; a find's MAKE opens it on its recipe (D-787, D-788).
 - **Gear, held:** what the hero holds in hand, first the knife (D-252), then the spear, which hits through to the creature behind (D-479). **Hold**, in the bag, swaps a weapon into the hand, or a tool into the Tool slot (D-552). **Take off**, on the Weapon or Tool slot chosen in the gear row, puts it back in the bag, free (D-554).
+- **Lantern row:** the lantern's three slots in the bag, **Wick**, **Tank** and **Glass**, after the gear row: beside it sideways, under it upright. A fitted part shows in its slot, an empty one its kind faintly; Fit puts a part in (D-483, D-1006).
 - **Gear slots:** the row of five across the bag's top: Weapon, Tool, Armour, Charm, Charm (D-552). A tool works only from the **Tool slot**: the Stone Pick breaks copper there.
 - **Armour, charm, lantern part:** gear worn or fitted: one armour piece
   and two charms worn, parts in the lantern's slots (D-458, D-459); the

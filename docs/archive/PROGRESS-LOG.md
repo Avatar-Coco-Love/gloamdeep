@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-20, 0.3.439, A chop without a stall.** F-9 fixed: a chop or
+  dig repaints only its tiles (848 ms to 64 ms on the slow phone). The
+  Lampeater's phases kept; its polish waits for playtesting. D-1003.
+  Playtest: https://claude.ai/artifact/QsNSmUnt8FMCH2RDVNQwpP
 - **2026-11-20, 0.3.438, The lure wisps.** F-10 fixed: older saves'
   arenas brought up to date (save format 38). Two lure wisps in the
   arena, drifting toward the Lampeater. D-1001, D-1002. Playtest:

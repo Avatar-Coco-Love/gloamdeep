@@ -111,6 +111,12 @@ const BLADDER_TANK = { mirror: false, rows: [
   '', '', '', '......kkkk......', '.....kaAAAk.....', '......kNNk......', '....kkoooOkk....', '...koywoooOOk...',
   '..koyyoooooOOk..', '..kNNNNNNNNNNk..', '..kooooooooOOk..', '..koooooooOOOk..', '...kOooooOOOk...', '....kOOOOOOk....', '.....kkkkkk.....', ''] };
 
+// § glass pane: the lantern's empty Glass slot, drawn faintly there (1.02, D-1006): a pane of
+// glass in a cap and base of the lantern's trim, a streak of light across it (draft)
+const GLASS_PANE = { mirror: false, rows: [
+  '', '', '.....kkkkkk.....', '....ktTTTTtk....', '....kkkkkkkk....', '....kwCCCcBk....', '....kCwCCcBk....', '....kCCwCcBk....',
+  '....kCCCCcBk....', '....kCCCCcBk....', '....kCCCCcBk....', '....kCCCCcBk....', '....kkkkkkkk....', '....ktTTTTtk....', '.....kkkkkk.....', ''] };
+
 // § rat hide vest: a sleeveless brown vest, grey fur at the shoulders, laced up the
 // front in the rat tail's pink (D-484)
 const RAT_VEST = { mirror: false, rows: [
@@ -323,6 +329,7 @@ export {
   BLIND_CAVEFISH,
   COPPER_WICK,
   BLADDER_TANK,
+  GLASS_PANE,
   RAT_VEST,
   SHELL_VEST,
   RAT_TAIL,

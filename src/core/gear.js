@@ -23,8 +23,24 @@ export function gearRow(state) {
   return [state.held ?? null, state.tool ?? null, worn.armour?.[0] ?? null, charms[0] ?? null, charms[1] ?? null];
 }
 
-// The row in words, for the bag's spoken line: "Gear: Spear, Stone Pick, empty, ..."
-export const gearWords = (state) => `Gear: ${gearRow(state).map((id) => (id ? get(id).name : 'empty')).join(', ')}`;
+// § lantern row (1.02, D-1006): the lantern's three part slots, a row of their own on the bag's
+// card, after the gear: Wick, Tank and Glass, each the part fitted in that slot of `state.parts`
+// (parts.js, D-459, D-483), its kind drawn faintly while empty. Fit, in the bag, still fits one.
+export const LANTERN = [
+  { name: 'Wick', ghost: 'copperWick', part: 'wick' },
+  { name: 'Tank', ghost: 'bladderTank', part: 'tank' },
+  { name: 'Glass', ghost: 'glassPane', part: 'glass' },
+];
+export const lanternRow = (state) => LANTERN.map((l) => state.parts?.[l.part] ?? null);
+// Every slot the bag's card shows above its own, gear then lantern: slot g is KIT[g]; the
+// lantern's have no `key`, so none comes off (a part is swapped by Fit, D-483)
+export const KIT = [...GEAR, ...LANTERN];
+export const kitRow = (state) => [...gearRow(state), ...lanternRow(state)];
+
+// The rows in words, for the bag's spoken line: "Gear: Spear, Stone Pick, empty, ..."
+const named = (ids) => ids.map((id) => (id ? get(id).name : 'empty')).join(', ');
+export const gearWords = (state) => `Gear: ${named(gearRow(state))}`;
+export const lanternWords = (state) => `Lantern: ${named(lanternRow(state))}`;
 
 // A save from before the Tool slot: an empty one, or the Stone Pick from the bag in it, so it
 // still breaks copper (D-552)
@@ -53,8 +69,8 @@ export function takeOff(state, g) {
   if (!bag) return say(state, 'bagFull');
   return say({ ...state, bag, [key]: null }, get(id).away);
 }
-// Choosing gear slot g says its piece's Look line, as choosing a bag slot does (D-297), free
+// Choosing gear slot g, or a lantern slot, says its piece's Look line, as choosing a bag slot does (D-297), free
 export function lookGear(state, g) {
-  const id = gearRow(state)[g], look = id && get(id).look;
+  const id = kitRow(state)[g], look = id && get(id).look;
   return look ? say(state, look) : state;
 }

@@ -3,7 +3,8 @@
 // box over the room's foot, D-247). Its tabs, BAG in ember and MAKE (D-787), at its top left and a round
 // cross at its top right that closes it. Across its top, the gear row (D-552): Weapon,
 // Tool, Armour and two Charms, an empty one showing its kind faintly, "GEAR" after it
-// when there is room. Under it, on the left, the six slots in a 3 × 2
+// when there is room; the lantern's row of three, Wick, Tank and Glass, beside it, or under
+// it upright (1.02, D-1006). Under them, on the left, the six slots in a 3 × 2
 // grid, each an item's sprite with its count when more than one, the chosen
 // slot framed in gold. On the right, the chosen item's name, how many are
 // carried and its Look line (D-297), from under the gear row, and in the bottom right corner Pour for
@@ -18,7 +19,7 @@ import { drawGlass, GLASS, GLASS_EDGE as EDGE } from './glass.js';
 import { BAG_SLOTS, bagCols } from '../core/bag.js';
 import { get } from '../core/registry.js';
 import { LINES } from '../core/lines.js';
-import { GEAR } from '../core/gear.js';
+import { GEAR, LANTERN, KIT } from '../core/gear.js';
 import { view } from './screen.js';
 import { drawMarker } from './menu.js';
 import { drawBagTabs } from './bagtabs.js';
@@ -46,6 +47,14 @@ export const DETAIL_X = SPLIT_X + 9;
 // left, or in the middle when that leaves less than PAD on its right (upright, D-552)
 const GEAR_LABEL = 'GEAR', GEAR_W = GEAR.length * (26 + SLOT_GAP) - SLOT_GAP; // 26: SMALL, set below
 export const gearLeft = (w) => Math.min(PAD, Math.floor((w - GEAR_W) / 2));
+// § lantern row (1.02, D-1006): the lantern's three part slots, SMALL, "LANTERN" after them when
+// there is room. Sideways on the gear row's line, after "GEAR" when both labels fit, else just after
+// the row, "GEAR" left out; upright a row of its own under the gear row, the bag's slots a row lower
+const LANTERN_LABEL = 'LANTERN', LANTERN_W = LANTERN.length * (26 + SLOT_GAP) - SLOT_GAP, ROW_GAP_X = 10;
+const KIT_ROW = 26 + SLOT_GAP; // upright, the lantern row's drop under the gear row, and the bag's slots'
+const gearLabelled = (w) => gearLeft(w) + GEAR_W + 8 + textWidth(GEAR_LABEL) + ROW_GAP_X + LANTERN_W + 8 + textWidth(LANTERN_LABEL) <= w - PAD;
+export const lanternLeft = (w, tall) => (tall ? gearLeft(w) : gearLeft(w) + GEAR_W + (gearLabelled(w) ? 8 + textWidth(GEAR_LABEL) : 0) + ROW_GAP_X);
+export const bagTop = (vw, vh) => GRID_Y + (isTall(vw, vh) ? KIT_ROW : 0); // the bag's slots' top on its card
 // § shape: a bag of `size` slots on a card (D-548): 6 a 3 × 2 grid of SLOT slots; 9 a 3 × 3
 // and 12 a 4 × 3 of SMALL ones, so three rows fit a sideways screen. Its grid's columns,
 // slot, width and height, and the line beside it (split), the words' left (detail) and,
@@ -128,10 +137,14 @@ export function cardAt(vw, vh, left = DETAIL_X) {
 // `cols` wide (the stash chest's 4 × 3, D-387), its slots `size` wide (a bigger bag's, D-548)
 export const slotAt = (card, i, top = GRID_Y, cols = COLS, left = PAD, size = SLOT) => ({ x: card.x + left + (i % cols) * (size + SLOT_GAP), y: card.y + top + Math.floor(i / cols) * (size + SLOT_GAP) });
 // § gear slot's place: slot g of the gear row's top left (D-552), and the one at x, y, or -1
-export const gearSlotAt = (card, g) => ({ x: card.x + gearLeft(card.w) + g * (SMALL + SLOT_GAP), y: card.y + HELD_Y });
-export function gearAt(card, x, y) {
-  for (let g = 0; g < GEAR.length; g++) {
-    const s = gearSlotAt(card, g), half = SLOT_GAP / 2;
+// Slots from GEAR.length on are the lantern row's (D-1006); `tall`, upright, its row under the gear row
+export function gearSlotAt(card, g, tall = false) {
+  if (g < GEAR.length) return { x: card.x + gearLeft(card.w) + g * (SMALL + SLOT_GAP), y: card.y + HELD_Y };
+  return { x: card.x + lanternLeft(card.w, tall) + (g - GEAR.length) * (SMALL + SLOT_GAP), y: card.y + HELD_Y + (tall ? KIT_ROW : 0) };
+}
+export function gearAt(card, x, y, tall = false) {
+  for (let g = 0; g < KIT.length; g++) {
+    const s = gearSlotAt(card, g, tall), half = SLOT_GAP / 2;
     if (x >= s.x - half && x < s.x + SMALL + half && y >= s.y - half && y < s.y + SMALL + half) return g;
   }
   return -1;
@@ -162,9 +175,9 @@ export function bagAt(x, y, vw, vh, two = false, wide = false, filled = false, s
   if (store && onButton(st, STORE_W, x, y, 3, 2)) return 'store';
   const so = sortAt(card, store);
   if (onButton(so, SORT_W, x, y, TAP_PAD, store ? 3 : 2)) return 'sort';
-  const i = gridAt(card, x, y, GRID_Y, shape.cols, size, PAD, shape.slot);
+  const tall = isTall(vw, vh), i = gridAt(card, x, y, bagTop(vw, vh), shape.cols, size, PAD, shape.slot);
   if (i >= 0) return { slot: i };
-  const g = gearAt(card, x, y);
+  const g = gearAt(card, x, y, tall);
   if (g >= 0) return { gear: g };
   const foot = y >= button.y - BUTTON_PAD && y < button.y + BUTTON.h + BUTTON_PAD;
   if (off) return foot && x >= button.x + BUTTON.w - OFF_W - TAP_PAD && x < button.x + BUTTON.w + TAP_PAD ? 'act' : null;
@@ -261,8 +274,8 @@ export function drawCard(c, vw, vh, title, split = SPLIT_X, crossed = true, spli
 // oil (D-908, D-909); the text line is not drawn over the card then, as the picture says it
 export const hidesPicture = (entry, line, refill = [], sips = null) => !!entry?.look && line?.id === entry.look && (!!sips || refill.length > 0);
 export function drawBag(c, vw, vh, bag, chosen, spriteOf, gear = [], full = false, told = {}, size = BAG_SLOTS, store = false, t = 0, still = true, poisoned = false, makes = null, sleepy = false, refill = [], sips = null) {
-  const shape = bagShape(size);
-  const card = { ...drawCard(c, vw, vh, '', shape.split, true, shape.tallSplit, GRID_Y - 4), drop: cardAt(vw, vh, shape.detail).drop }, { x, y, w } = card;
+  const shape = bagShape(size), top = bagTop(vw, vh), tall = isTall(vw, vh), tallSplit = shape.tallSplit + top - GRID_Y;
+  const card = { ...drawCard(c, vw, vh, '', shape.split, true, tallSplit, GRID_Y - 4), drop: cardAt(vw, vh, shape.detail).drop }, { x, y, w } = card;
   drawBagTabs(c, card, 'bag'); // BAG and MAKE in the title row (D-787)
   if (store) {
     const st = storeAt(card);
@@ -272,9 +285,9 @@ export function drawBag(c, vw, vh, bag, chosen, spriteOf, gear = [], full = fals
   const so = sortAt(card, store);
   drawButton(c, so.x, so.y, SORT, false, SORT_W);
   if (chosen === BAG_SORT) drawMarker(c, so.x - 7, so.y + 4, t, still); // nor for bag[BAG_SORT]
-  drawGear(c, card, gear, spriteOf, gearChosen(chosen));
-  for (let i = 0; i < size; i++) { const s = slotAt(card, i, GRID_Y, shape.cols, PAD, shape.slot); drawSlot(c, s.x, s.y, bag[i], i === chosen, spriteOf, shape.slot); }
-  const { dx, dy } = detailAt(card, vw, vh, shape.detail, GRID_Y, shape.tallSplit), dw = x + w - PAD - dx; // upright, under the slots, the card's width (D-505)
+  drawGear(c, card, gear, spriteOf, gearChosen(chosen), tall);
+  for (let i = 0; i < size; i++) { const s = slotAt(card, i, top, shape.cols, PAD, shape.slot); drawSlot(c, s.x, s.y, bag[i], i === chosen, spriteOf, shape.slot); }
+  const { dx, dy } = detailAt(card, vw, vh, shape.detail, GRID_Y, tallSplit), dw = x + w - PAD - dx; // upright, under the slots, the card's width (D-505)
   const g = gearChosen(chosen);
   if (g >= 0) { drawGearWords(c, card, g, gear[g], dx, dy, dw, told, gear[0] ?? null, spriteOf); return; }
   const entry = bag[chosen] && get(bag[chosen].id);
@@ -327,24 +340,25 @@ function drawGearWords(c, card, g, id, dx, dy, dw, told, held = null, spriteOf =
   if (!id) return;
   const entry = get(id);
   drawText(c, entry.name, dx, dy, CORE);
-  drawText(c, GEAR[g].name, dx, dy + LINE_H, GREY);
+  drawText(c, KIT[g].name, dx, dy + LINE_H, GREY);
   drawWords(c, entry, dx, dy, dw, told, card.button.y - 2, held, spriteOf);
-  if (GEAR[g].key) drawButton(c, card.button.x + BUTTON.w - OFF_W, card.button.y, OFF, false, OFF_W);
+  if (KIT[g].key) drawButton(c, card.button.x + BUTTON.w - OFF_W, card.button.y, OFF, false, OFF_W);
 }
 
-// § gear: the row of five across the card's top; an empty slot shows its GEAR ghost faintly;
-// `picked`, the one chosen, framed in gold (D-554)
-function drawGear(c, { x, y, w }, gear, spriteOf, picked = -1) {
-  const left = x + gearLeft(w);
-  GEAR.forEach((slot, i) => {
-    const sx = left + i * (SMALL + SLOT_GAP), id = gear[i];
-    drawSlot(c, sx, y + HELD_Y, id && { id, n: 1 }, i === picked, spriteOf, SMALL);
+// § gear: the row of five across the card's top, then the lantern's three (D-1006); an empty
+// slot shows its ghost faintly; `picked`, the one chosen, framed in gold (D-554)
+function drawGear(c, card, gear, spriteOf, picked = -1, tall = false) {
+  const { x, w } = card;
+  KIT.forEach((slot, i) => {
+    const { x: sx, y: sy } = gearSlotAt(card, i, tall), id = gear[i];
+    drawSlot(c, sx, sy, id && { id, n: 1 }, i === picked, spriteOf, SMALL);
     if (id) return;
     const at = Math.floor((SMALL - 16) / 2);
-    c.globalAlpha = 0.2; c.drawImage(spriteOf({ id: slot.ghost, n: 1 }), sx + at, y + HELD_Y + at); c.globalAlpha = 1;
+    c.globalAlpha = 0.2; c.drawImage(spriteOf({ id: slot.ghost, n: 1 }), sx + at, sy + at); c.globalAlpha = 1;
   });
-  const lx = left + GEAR_W + 8;
-  if (lx + textWidth(GEAR_LABEL) <= x + w - PAD - 20) drawText(c, GEAR_LABEL, lx, y + HELD_Y + 9, GREY);
+  const gx = gearSlotAt(card, 0).x + GEAR_W + 8, ly = gearSlotAt(card, GEAR.length, tall).y + 9, lx = x + lanternLeft(w, tall) + LANTERN_W + 8;
+  if ((tall || gearLabelled(w)) && gx + textWidth(GEAR_LABEL) <= x + w - PAD - 20) drawText(c, GEAR_LABEL, gx, card.y + HELD_Y + 9, GREY);
+  if (lx + textWidth(LANTERN_LABEL) <= x + w - PAD) drawText(c, LANTERN_LABEL, lx, ly, GREY);
 }
 
 // h and size: a taller button and bigger letters (the name pad's keys, D-420)
