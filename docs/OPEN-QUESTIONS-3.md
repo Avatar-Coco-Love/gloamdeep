@@ -85,13 +85,14 @@ Middling 97% (the same), Strong all. With its 4 gloamlings at the start
 (0.3.413, D-971), over 100: Lean 52% (37% before), Middling all (95%). Its calls
 (0.3.417, D-974): Lean 12%, Middling 79%, Strong 83%. Its guards (0.3.418,
 D-976): Lean 12%, Middling 80%, Strong 83%. Wary (0.3.419, D-977): Lean 7%,
-Middling 79%, Strong 85%.
+Middling 79%, Strong 85%. Its 2 lure wisps (0.3.438, D-1002): Lean 21% (35%
+before), Middling 72% (84%), Strong 97% (94%).
 
 **The owner's Lampeater polish** (raised 2026-11-16, at 0.3.405) Once its
 steps are done, the owner has ideas for its phases, how the cutscenes
 work, and gloamlings at the start of the fight, among others; to be asked
 for then. Asked at 0.3.413 (D-971): the gloamlings at the start, its new
-ways and Leap as a find, in 6 steps; 8 with the flanking and the guards (D-972); step 7, the find and card, is D-992; the cutscenes and the rest asked after step 8, the sound (D-992). Step 8, the sound, is D-994; the rest is asked next.
+ways and Leap as a find, in 6 steps; 8 with the flanking and the guards (D-972); step 7, the find and card, is D-992; the cutscenes and the rest asked after step 8, the sound (D-992). Step 8, the sound, is D-994; the lure wisps are D-1002 (0.3.438); its phases and the cutscenes are the owner's picks to come next, their ideas asked then.
 
 **Q-114 · Where falling ground goes** (raised 2026-11-17, D-967) The
 boss fight has no falling ground; the owner saved it for another time.

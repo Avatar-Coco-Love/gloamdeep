@@ -344,7 +344,7 @@ function luring(state, e) {
   return t.moves === 'lure' && steps(e, state.hero) <= t.near;
 }
 function lureStep(state, e) {
-  const others = traits(get(e.id)).alone ? [] : state.enemies.filter((o) => o.x !== e.x || o.y !== e.y); // one that is shy heads for no one (D-784)
+  const others = traits(get(e.id)).alone ? [] : state.enemies.filter((o) => (o.x !== e.x || o.y !== e.y) && (!e.lure || o.id === e.lure)); // one that is shy heads for no one (D-784); an arena's wisp for the Lampeater only (D-1002)
   const goal = others.reduce((best, o) => (!best || steps(o, e) < steps(best, e) ? o : best), null);
   const away = Object.values(DIRS).map(([dx, dy]) => ({ x: e.x + dx, y: e.y + dy }))
     .filter((t) => steps(t, state.hero) > steps(e, state.hero) && free(state, e, t.x, t.y));
