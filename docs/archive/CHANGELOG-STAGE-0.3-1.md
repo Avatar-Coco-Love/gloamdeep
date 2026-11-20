@@ -4,6 +4,21 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.441 (2026-11-20)
+- New: the Bladder Tank, the lantern's first tank. Make it at the
+  workbench's GEAR tab, its last slot, from 2 Oil Bladder and 2 Copper Ore,
+  then choose it in the bag and press Fit: it goes in the lantern, and no
+  turn passes.
+- With it fitted the lantern holds a quarter more oil: a full tank lasts 75
+  turns instead of 60, on top of the wick, charms and the rest. The oil past
+  a plain tank's worth is kept in reserve: the light reaches no further.
+- The oil bar runs on to 13 segments, each still a tenth of a plain tank,
+  so a flask fills as many as before. Flasks poured by themselves pour a
+  little sooner, once none would spill, and you wake from a fall with the
+  bigger tank full.
+- The Oil Bladder now says what it is for: "An oil bladder. Two make a tank."
+- Decisions: D-1005.
+
 ## 0.3.440 (2026-11-20)
 - In the Lampeater's fight, its name and health bar sit top middle, away
   from the hero and the text line; on an upright phone, just below your

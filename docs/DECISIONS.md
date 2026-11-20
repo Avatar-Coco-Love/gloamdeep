@@ -117,26 +117,6 @@ chapter 1 is done; 8.15 and 8.16 at 0.4.0, with 8.06's count. The
 privacy page says nothing is sent; play notes only if decided later
 (7.11, D-993). Music is new from chapter 2 only (8.11, D-837 to D-841).
 
-**D-1005 · 2026-11-20 · The Bladder Tank** (the owner's picks, all
-recommended; step 27, the roadmap's Now step 2; builds D-459, D-641, D-991
-and D-940's plan, the Oil Bladder the first tank) The lantern's first tank,
-the Bladder Tank, holds a quarter more oil: 1.25 tanks, 75 turns, not 60
-(offered too: half more; a fifth more). Past a plain tank's worth the oil is
-reserve, the light reaching no further (offered too: brighter when full).
-The oil bar runs on to 13 segments, each still a tenth of a plain tank
-(offered too: the same 10, each worth more). Made at the workbench's GEAR
-tab from 2 Oil Bladder and 2 Copper Ore (offered too: 1 Bladder, 3 Copper
-Ore and 1 Wood; 3 Bladders and 1 Tick Shell); the name, the owner's pick
-(offered too: Tick Tank; Oilskin Tank). Claude's calls: Fit in the bag,
-free, as the wick; GEAR's last slot, every other slot kept; its lines
-"You make a bladder tank.", "You fit the bladder tank.", "Need 2 Oil
-Bladder, 2 Copper Ore." and its look (drafts); the Oil Bladder's look
-"An oil bladder. Two make a tank." (draft); its picture, a bound amber
-sac with a copper cap (draft); flasks pour by themselves once none would
-spill, so sooner; waking from a fall, the bigger tank full; the dev
-slider and Refill reach its top; the boss bench's builds fit no tank.
-D-1001 and D-1002 move to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-1006 · 2026-11-20 · The lantern's slots, shown** (the owner's picks,
 both recommended, from mock-ups; the roadmap's 1.02, picked as the next
 content before the Lampeater, its polish saved for later; builds D-459,
@@ -172,3 +152,18 @@ waystone's ring; stacks of 20; its own shade and way it faces, as the
 duskstar; its lines ("You pick a glowcup." and two more); one tuft on grass
 and cave floor alike; an older save's rooms never entered get theirs.
 D-1004 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-1008 · 2026-11-20 · Herbs and mushrooms rooted** (the owner's
+words: "Let's root the herbs and mushrooms too, so they stand on the ground
+like the flowers."; one of D-1007's offers) The healing herb, the oilcap
+and the heartcap are rooted as the flowers are: on their own tile, still,
+their foot on the tile's bottom row in a tuft of earth, with no shadow:
+a herb's with a grass blade either side, a mushroom's earth alone, outside
+too (changed after the playtest, the owner's pick: "Underground, the
+mushroom doesn't need any grass on the side"; offered too: no blades
+underground only, for mushrooms or for everything). Claude's calls: their
+tuft is open in the middle, so their own foot shows (the flowers' keeps
+its stem); a herb
+mimic asleep and a snapcap shut stand rooted too, as the finds they copy,
+lifted over a shadow again once they show themselves; other finds still
+bob. D-1005 moves to `archive/DECISIONS-SURFACE.md`, word for word.

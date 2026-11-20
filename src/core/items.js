@@ -31,20 +31,20 @@ export const ITEMS = {
   // Walking onto a herb hurt eats it on the spot (`eatHurt`); at full health it goes
   // into the bag, 5 a stack, and Eat there heals the same (D-511, supersedes D-156). One grows
   // in each woods room outside too, the same herb (woodsherb.js, D-762).
-  herb: { id: 'herb', kind: 'item', name: 'Healing Herb', heal: 2, eats: 'herbEat', eatHurt: true, bag: true, max: 5, regrow: DAY_TURNS },
+  herb: { id: 'herb', kind: 'item', name: 'Healing Herb', heal: 2, eats: 'herbEat', eatHurt: true, bag: true, max: 5, regrow: DAY_TURNS, rooted: true },
   // The first resource (D-296): an amber mushroom, one in every generated room.
   // Walking onto it puts it in the bag with one of its `says` lines, in turn;
   // choosing its slot in the bag says one of its `look` lines (D-297). Make,
   // in the bag, turns `of` of them into one `into`, with its `says` line (D-299).
   // Each one a room lays out shifts its cap's colour by up to `tone`: degrees of
   // hue and points of lightness, either way (tones.js, D-305).
-  oilcap: { id: 'oilcap', kind: 'item', name: 'Oilcap', bag: true, max: 20, says: 'oilcapTake', look: 'oilcapLook', full: 'oilcapFull', tone: MUSHROOM_TONE, regrow: DAY_TURNS,
+  oilcap: { id: 'oilcap', kind: 'item', name: 'Oilcap', bag: true, max: 20, says: 'oilcapTake', look: 'oilcapLook', full: 'oilcapFull', tone: MUSHROOM_TONE, regrow: DAY_TURNS, rooted: true,
     craft: { into: 'flask', of: 3, says: 'flaskMake' } },
   // A bright red mushroom in about half the rooms (D-303), into the bag the
   // oilcap's way, with its own lines and its own tones. Eat, in the bag, heals
   // `heal` hearts with its `eats` line, never above full (D-308). Make turns
   // 3 into a healing potion (D-309).
-  heartcap: { id: 'heartcap', kind: 'item', name: 'Heartcap', bag: true, max: 20, says: 'heartcapTake', look: 'heartcapLook', full: 'heartcapFull', tone: MUSHROOM_TONE, regrow: DAY_TURNS,
+  heartcap: { id: 'heartcap', kind: 'item', name: 'Heartcap', bag: true, max: 20, says: 'heartcapTake', look: 'heartcapLook', full: 'heartcapFull', tone: MUSHROOM_TONE, regrow: DAY_TURNS, rooted: true,
     heal: 1, eats: 'heartcapEat', craft: { into: 'potion', of: 3, says: 'potionMake' } },
   // Made from heartcaps, never found (D-309). Drunk from the bag the heartcap's
   // way, its button saying `verb`, it heals 4 hearts, never above full.

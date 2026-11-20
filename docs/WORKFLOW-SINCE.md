@@ -35,3 +35,6 @@ line here (D-741). Each audit moves the lines into the right sections.
 - A bug the owner only suspected ("if the surface flower floats") was checked
   first in a real screenshot, then shown beside its fix in the same mock-up
   as the new content, so one round of picks settled both (0.3.443).
+- Listing the options not picked in a decision ("offered too: herbs rooted
+  as well") let the owner come back for one later in a single line, with
+  nothing left to ask (0.3.444).
