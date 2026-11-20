@@ -20,3 +20,6 @@ line here (D-741). Each audit moves the lines into the right sections.
 - Reading the board's 141 picks into files and joining them by script to
   the idea names and recommendations gave a one-line-a-card readback; a
   grep then checked every pick landed in the roadmap or research (0.3.437).
+- Running the bench before and after a fight change, with the fresh
+  numbers matching the recorded ones first, made the wisps' cost to the
+  fight a fact to report, not a guess (0.3.438).

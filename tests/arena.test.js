@@ -37,12 +37,12 @@ test('on depth 8 only: the arena straight above the hallway, at the way\'s end, 
   }
 });
 
-test('the arena: the seal hall, the Lampeater and a gloamling beside each brazier in it (D-971), the stairs down behind its sealed door in the old seal', () => {
+test('the arena: the seal hall, the Lampeater, a gloamling beside each brazier and a wisp either side of it (D-971, D-1002), the stairs down behind its sealed door in the old seal', () => {
   for (const seed of SEEDS.slice(0, 20)) {
     const { arena } = ends(seed), p = placeFor(arena.id, seed), at = arena.doors[0].at;
     assert.deepEqual([p.map[0].length, p.map.length], [13, 15]);
     assert.equal(p.map[14][at], '.'); assert.deepEqual(p.start, { x: at, y: 13 });
-    assert.deepEqual([p.enemies, p.items, p.people, p.lights], [[{ id: 'lampeater', x: 6, y: 6 }, ...[{ id: 'gloamling', x: 1, y: 5, met: true, ash: { x: 2, y: 5, turn: -1 } }, { id: 'gloamling', x: 11, y: 5, met: true, ash: { x: 10, y: 5, turn: -1 } }, { id: 'gloamling', x: 1, y: 11, met: true, ash: { x: 2, y: 11, turn: -1 } }, { id: 'gloamling', x: 11, y: 11, met: true, ash: { x: 10, y: 11, turn: -1 } }]], [], [], []], `seed ${seed}`); // D-941, D-971
+    assert.deepEqual([p.enemies, p.items, p.people, p.lights], [[{ id: 'lampeater', x: 6, y: 6 }, ...[{ id: 'gloamling', x: 1, y: 5, met: true, ash: { x: 2, y: 5, turn: -1 } }, { id: 'gloamling', x: 11, y: 5, met: true, ash: { x: 10, y: 5, turn: -1 } }, { id: 'gloamling', x: 1, y: 11, met: true, ash: { x: 2, y: 11, turn: -1 } }, { id: 'gloamling', x: 11, y: 11, met: true, ash: { x: 10, y: 11, turn: -1 } }], ...[5, 7].map((x) => ({ id: 'lureWisp', x, y: 6, met: true, lure: 'lampeater', ash: { x, y: 6, turn: -1 } }))], [], [], []], `seed ${seed}`); // D-941, D-971, D-1002
     assert.deepEqual([count(p.map, 'brazier'), count(p.map, 'pillar'), count(p.map, 'sealedDoor'), count(p.map, 'sealStone'), count(p.map, 'stairsDown')], [4, 4, 1, 8, 1]);
     assert.equal(p.map[2][6], '>'); assert.equal(p.map[4][6], get('sealedDoor').letter);
     assert.equal(p.look, 'dungeon');

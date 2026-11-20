@@ -155,3 +155,28 @@ Normal only; the words a draft. 7.06 and 7.07 fold into 6.12; 7.14 and
 chapter 1 is done; 8.15 and 8.16 at 0.4.0, with 8.06's count. The
 privacy page says nothing is sent; play notes only if decided later
 (7.11, D-993). Music is new from chapter 2 only (8.11, D-837 to D-841).
+
+**D-1001 · 2026-11-20 · F-10 fixed: older saves' arenas brought up to date**
+(the owner's picks, all recommended; answers part of D-995's "which to
+fix") F-10 is fixed first, then the roadmap's Now. An upgrade step to
+save format 38 runs once as an older save loads (offered too: the same
+checks each time the hero comes into the arena): an arena with the
+Lampeater alive gets its door sealed again, its braziers cold and its
+gloamlings back, as `wholeAgain` does; one beaten with no find left, Leap
+not learnt, gets Leap's find on the Lampeater's own tile (offered too: the
+tile before the stairs). With the hero inside, the door is sealed, the
+braziers cooled and the missing gloamlings given, on tiles with no one on
+them; the Lampeater keeps its hearts (offered too: wait till the next
+visit). F-9 still waits.
+
+**D-1002 · 2026-11-20 · The arena's lure wisps** (the owner's picks, all
+recommended; builds D-939, D-1000; roadmap Now step 1, 3.04) Two of
+today's lure wisps (offered too: one; two that can't be put out) stand on
+the tiles either side of the Lampeater's (offered too: by the lower
+pillars). Each moves as any lure wisp, but heads for the Lampeater only,
+never a gloamling (offered too: as today, the nearest creature; following
+it every turn). They are the arena's own, as its gloamlings: no glass, never
+following the hero out, fading when it is beaten, back whole after a fall
+or a doorway (offered too: Wisp Glass as anywhere). The bench, 100 fights
+each: Lean 21% (35% before), Middling 72% (84%), Strong 97% (94%). Its
+phases and its cutscenes come next, the owner's ideas asked then.

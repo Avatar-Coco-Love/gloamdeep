@@ -43,7 +43,8 @@ F-9 found while measuring the light again, F-10 by the bug hunt over
 the code from 0.3.394 to 0.3.432, both checked with small scripts.
 Which to fix, and when, is the owner's pick; each fix is still the
 owner's pick at its step. The fixes offered are Claude's and the hunt's,
-the first one recommended.
+the first one recommended. F-10 is fixed in 0.3.438 (D-1001) and kept in
+`archive/BUGS-FIXED.md`.
 
 - **F-9 · A bump on the surface stalls the screen.** Each chop or dig
   bump, and anything else that changes the room (the first turn's
@@ -53,17 +54,6 @@ the first one recommended.
   perf.js's surface walk read 57 ms (H-73): it was chopping a tree.
   Fixes: repaint only the tiles that changed, and their neighbours; or
   keep the grass and rock painted once and draw the changed tiles over.
-- **F-10 · Older saves' arenas are never brought up to date.** The save
-  format stayed at 37 (`save.js:33`), so an arena kept in an older save
-  keeps its old shape: from 0.3.394, with all 4 braziers lit, the door
-  is open and the Lampeater alive, so the hero walks down past the fight
-  and never gets Leap; from 0.3.395 to 0.3.403, a Lampeater beaten
-  before Leap was given leaves no find, so that journey can never learn
-  Leap; before 0.3.413, the fight starts with no gloamlings until the
-  hero leaves by a fall. Fixes: an upgrade step to format 38 lays Leap's
-  find where it fell, or seals the door, cools the braziers and gives
-  the brood, as `wholeAgain` does; or the same three checks each time
-  the hero comes into the arena.
 
 Seen but not confirmed: a beating blow that also brings a level shows
 "Level N." in place of "The Lampeater fades. Something glows."

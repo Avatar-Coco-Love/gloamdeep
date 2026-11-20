@@ -12,6 +12,7 @@ import { withSmallStones } from './smallstone.js';
 import { withOldLocket } from './fixups/oldlocket.js';
 import { withOldFist } from './fixups/oldfist.js';
 import { withLampeater } from './fixups/oldarena.js';
+import { withArenaToday } from './fixups/arenatoday.js';
 import { rehome } from './fixups/rehome.js';
 import { renew } from './fixups/renew.js';
 import { regrove } from './fixups/regrove.js';
@@ -30,7 +31,7 @@ import { setAside } from './aside.js';
 // § upgrades: an older save is brought up to today's shape, one numbered step at a
 // time (D-266), instead of dropped. When the state's shape changes, raise FORMAT and
 // add the step from the old number to the new one; never edit a step once merged.
-export const FORMAT = 37;
+export const FORMAT = 38;
 export const UPGRADES = {
   1: (s) => withBag(withXp(s)), // 1 → 2: experience (D-245), the bag and the held item (D-247, D-252)
   2: (s) => ({ ...s, events: [] }), // 2 → 3: the turn's events, none yet (D-267)
@@ -68,6 +69,7 @@ export const UPGRADES = {
   34: withOldFist, // 34 → 35: the warden beaten already, its Fist laid where it first stood, once (D-888)
   35: rearena, // 35 → 36: every generated room from depth 8 down made again, depth 8 with its arena (D-940)
   36: withLampeater, // 36 → 37: an arena made before the Lampeater came gets it, once (D-941)
+  37: withArenaToday, // 37 → 38: an arena kept in an older shape brought up to today's, once (F-10, D-1001)
 };
 // The finds known for the bag's Make tab: each kind in the bag and in every stash chest, once
 function withKnown(s) {

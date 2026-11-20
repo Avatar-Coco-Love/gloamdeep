@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.437 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.438 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The Lampeater's polish (D-992, D-994) with its lure wisps (3.04, D-1000),
-step 1 of `ROADMAP.md`'s Now; first ask whether F-10 (`BUGS.md`) comes
-first. Read `ROADMAP.md`'s Now, not the planning files.
+The Lampeater's polish goes on (D-1002): its phases, then its cutscenes,
+the owner's ideas asked first (`OPEN-QUESTIONS-3.md`, its polish). Then
+`ROADMAP.md`'s Now, step 2.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -21,9 +21,9 @@ first. Read `ROADMAP.md`'s Now, not the planning files.
   (`ROADMAP.md`, 0.3.437); the board's own picks, Claude's (0.3.436).
 - The Lampeater's beaten line and its find's look, Claude's drafts (D-992).
 - How hard the Lampeater should be (Q-111): 12 hearts for now (D-950);
-  easier with the phases (D-978), Lean 35%, Middling 84%, Strong 94%,
-  the catch's snuffs gone; again after each step (D-972).
-- Which of the audit's bugs to fix, and when: F-9 and F-10 (`BUGS.md`, D-995).
+  with its 2 wisps (D-1002) Lean 21%, Middling 72%, Strong 97% (35%,
+  84%, 94% before); again after each step (D-972).
+- When to fix the audit's F-9 (`BUGS.md`, D-995); F-10 is fixed (D-1001).
 - Any time: a sound for the vault door and the rune wall opening (D-895,
   D-929); sound on an older iPhone, when one is to hand (H-22, D-868).
 - Every other open question, each at its own time or step: `OPEN-QUESTIONS*.md`
@@ -46,12 +46,13 @@ later are in `RESEARCH-2.md` (D-699) and `RESEARCH-PLANNING.md`, and the
 owner's wish list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-20, 0.3.438, The lure wisps.** F-10 fixed: older saves'
+  arenas brought up to date (save format 38). Two lure wisps in the
+  arena, drifting toward the Lampeater. D-1001, D-1002. Playtest:
+  https://claude.ai/artifact/T4QtAL4GUrDZE2pR4GiQva
 - **2026-11-20, 0.3.437, The roadmap.** Nothing in the game changed: the
   board's 97 kept ideas make `ROADMAP.md`, the 44 others
   `RESEARCH-PLANNING.md`. D-998 to D-1000.
 - **2026-11-19, 0.3.436, The planning board.** Nothing in the game
   changed: `tools/board.js` turns the 141 ideas into cards on a private
   board with Claude's recommendations and the owner's answers (`PLANNING.md`). D-997.
-- **2026-11-19, 0.3.435, The big planning run.** Nothing in the game
-  changed: a brief, eight areas' 141 ideas, a cross-check and a proposed
-  roadmap, in `docs/planning/`; the board is next. D-996.

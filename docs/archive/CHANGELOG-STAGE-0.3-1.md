@@ -4,6 +4,10 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.435 (2026-11-19)
+- The big planning run. Nothing in the game changes. A team of agents wrote a brief of where the game stands, then 141 ideas for its future up to 1.0 in eight areas, checked each against the decisions, and drew a proposed roadmap; nothing is decided until the owner picks it on the planning board, next.
+- Decisions: none (the run follows D-996).
+
 ## 0.3.434 (2026-11-19)
 - Planning the planning. Nothing in the game changes. How the big planning run for the game's future will work, up to 1.0: a team of agents brainstorms eight areas, then the owner picks ideas on a planning board.
 - Decisions: D-996.

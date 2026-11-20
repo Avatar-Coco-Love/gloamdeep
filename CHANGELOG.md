@@ -24,6 +24,17 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.438 (2026-11-20)
+- Two lure wisps now drift in the Lampeater's arena, either side of it at
+  the start. As you come near, each drifts toward the Lampeater, showing
+  where it lurks in the dark. They are the arena's own, as its gloamlings
+  are: no Wisp Glass, and they fade when it is beaten.
+- A bug fixed (F-10): a journey saved before today with the arena in an
+  older shape is brought up to date as it loads: the door sealed again
+  while the Lampeater lives, its gloamlings and wisps given, or, beaten
+  long ago with Leap never learnt, Leap's find laid on its tile.
+- Decisions: D-1001, D-1002.
+
 ## 0.3.437 (2026-11-20)
 - Nothing in the game changed: the planning board's picks are read back
   and written up. The 97 kept ideas make the roadmap to 1.0,
@@ -35,7 +46,3 @@ Entry format:
 ## 0.3.436 (2026-11-19)
 - The planning board. Nothing in the game changes. The big planning run's 141 ideas are now cards on a private page that works on a phone: each one marked Keep, Maybe or Drop, with an optional note, and the picks saved for Claude to read back an area or two a sitting. Each card also shows Claude's recommendation, its button marked with a dot, and a box for the owner's own answer stays open beside the pick. A script builds the cards from the planning files' idea, check and recommendation lines.
 - Decisions: D-997.
-
-## 0.3.435 (2026-11-19)
-- The big planning run. Nothing in the game changes. A team of agents wrote a brief of where the game stands, then 141 ideas for its future up to 1.0 in eight areas, checked each against the decisions, and drew a proposed roadmap; nothing is decided until the owner picks it on the planning board, next.
-- Decisions: none (the run follows D-996).

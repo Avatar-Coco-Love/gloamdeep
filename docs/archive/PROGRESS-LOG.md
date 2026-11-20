@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-19, 0.3.435, The big planning run.** Nothing in the game
+  changed: a brief, eight areas' 141 ideas, a cross-check and a proposed
+  roadmap, in `docs/planning/`; the board is next. D-996.
 - **2026-11-19, 0.3.434, Planning the planning.** Nothing in the game
   changed: how the big planning run will work, the owner's picks, in
   `PLANNING.md`; the run itself is next, in a fresh conversation. D-996.

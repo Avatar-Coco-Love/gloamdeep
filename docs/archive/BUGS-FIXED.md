@@ -3,6 +3,20 @@
 Bugs from `docs/BUGS.md`, moved here word for word once fixed (D-852),
 newest first, each with the version that fixed it. Grep only.
 
+Fixed in 0.3.438 (D-1001):
+
+- **F-10 · Older saves' arenas are never brought up to date.** The save
+  format stayed at 37 (`save.js:33`), so an arena kept in an older save
+  keeps its old shape: from 0.3.394, with all 4 braziers lit, the door
+  is open and the Lampeater alive, so the hero walks down past the fight
+  and never gets Leap; from 0.3.395 to 0.3.403, a Lampeater beaten
+  before Leap was given leaves no find, so that journey can never learn
+  Leap; before 0.3.413, the fight starts with no gloamlings until the
+  hero leaves by a fall. Fixes: an upgrade step to format 38 lays Leap's
+  find where it fell, or seals the door, cools the braziers and gives
+  the brood, as `wholeAgain` does; or the same three checks each time
+  the hero comes into the arena.
+
 Fixed in 0.3.394 (D-952):
 
 - **F-6 · A catch at half owes no extra snuff.** When the blow that takes

@@ -11,7 +11,7 @@ import { kindle } from '../src/core/bagturn.js';
 import { fall } from '../src/core/fall.js';
 import { arrive, fresh } from '../src/core/stairs.js';
 import { withTile } from '../src/core/room.js';
-import { LAMPEATER_AT, startingBrood } from '../src/core/arena.js';
+import { LAMPEATER_AT, arenaOwn } from '../src/core/arena.js';
 import { hallWarns, doorAfterLeap } from '../src/core/beaten.js';
 
 const K = get('sealedDoor').letter, M = get('openDoor').letter, J = get('brazier').letter;
@@ -48,10 +48,10 @@ test('the 4 braziers lit no longer open the door while it lives', () => {
   assert.ok(!has(next, J) && has(next, K));
 });
 
-test('walked out of unbeaten, it is whole again on its own tile, the braziers cold, the gloamlings crawled out gone, its own 4 back (D-971)', () => {
+test('walked out of unbeaten, it is whole again on its own tile, the braziers cold, the gloamlings crawled out gone, its own 4 and 2 wisps back (D-971, D-1002)', () => {
   const s0 = lastBlow(3), s = { ...s0, enemies: s0.enemies.map((e) => (e.id === 'lampeater' ? { ...e, x: 3, y: 9, caught: 1 } : e)), room: withTile(s0.room, 2, 5, get('brazierLit')) };
   const away = arrive(s, 'elsewhere', fresh(arenaPlace(3), 3), { x: 1, y: 1 }), kept = away.elsewhere[s.place];
-  assert.deepEqual(kept.enemies, [{ id: 'lampeater', ...LAMPEATER_AT, met: true }, ...startingBrood()]);
+  assert.deepEqual(kept.enemies, [{ id: 'lampeater', ...LAMPEATER_AT, met: true }, ...arenaOwn()]);
   assert.ok(!kept.room.map.some((row) => row.includes(get('brazierLit').letter)));
 });
 

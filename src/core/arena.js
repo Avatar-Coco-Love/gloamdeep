@@ -22,6 +22,14 @@ export const LAMPEATER_AT = { x: 6, y: 6 };
 // back with it whole again after a fall or a doorway (wholeAgain)
 const BROOD_AT = [{ x: 1, y: 5, bowl: { x: 2, y: 5 } }, { x: 11, y: 5, bowl: { x: 10, y: 5 } }, { x: 1, y: 11, bowl: { x: 2, y: 11 } }, { x: 11, y: 11, bowl: { x: 10, y: 11 } }];
 export const startingBrood = () => BROOD_AT.map(({ x, y, bowl }) => ({ id: 'gloamling', x, y, met: true, ash: { ...bowl, turn: -1 } }));
+// § the lure wisps (3.04, D-939, D-1002): 2 of today's lure wisps, on the tiles either side of the
+// Lampeater's, marked as the arena's own as its gloamlings are (`ash` on their own tile, turn -1):
+// they drop nothing, never follow the hero out, fade when it is beaten and are back whole after a
+// fall or a doorway. Each lures toward the Lampeater only (`lure`, creatureturn.js), never a gloamling
+const WISPS_AT = [{ x: LAMPEATER_AT.x - 1, y: LAMPEATER_AT.y }, { x: LAMPEATER_AT.x + 1, y: LAMPEATER_AT.y }];
+const startingWisps = () => WISPS_AT.map(({ x, y }) => ({ id: 'lureWisp', x, y, met: true, lure: 'lampeater', ash: { x, y, turn: -1 } }));
+// Every creature of the arena's own at the start of the fight: its gloamlings and its wisps
+export const arenaOwn = () => [...startingBrood(), ...startingWisps()];
 
 // The seal hall, its way in at the bottom; `,` the old seal's stones, `j` a cold brazier, `q` a
 // pillar, `k` the sealed door, `>` the stairs down. The gap in the bottom edge is cut at the opening.
@@ -48,11 +56,11 @@ const set = (map, x, y, id) => { map[y] = map[y].slice(0, x) + get(id).letter + 
 const empty = (map, start) => ({ map, start, lights: [], items: [], enemies: [], people: [] });
 
 // (cell) → the arena as a generated room is: its map, the hero's start just inside its one
-// opening, at the bottom, the Lampeater in it, standing (D-941), and its 4 gloamlings (D-971)
+// opening, at the bottom, the Lampeater in it, standing (D-941), its 4 gloamlings (D-971) and 2 wisps (D-1002)
 export function arenaRoom(cell) {
   const { at } = cell.doors[0], map = lettered(SEAL_HALL);
   set(map, at, cell.rows - 1, 'floor');
-  return { ...empty(map, { x: at, y: cell.rows - 2 }), enemies: [{ id: 'lampeater', ...LAMPEATER_AT }, ...startingBrood()] };
+  return { ...empty(map, { x: at, y: cell.rows - 2 }), enemies: [{ id: 'lampeater', ...LAMPEATER_AT }, ...arenaOwn()] };
 }
 
 // § hallway: (cell) → the hallway as a generated room is. Its road follows a path from the tile
