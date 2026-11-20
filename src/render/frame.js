@@ -3,6 +3,8 @@
 // the shown hero and enemies and takes the turns before each frame.
 import { TILE, W, SCREEN_H, view, roomView, fitTitle, fitCards, fitRoomSize, edgeIn, setCloseUp } from './screen.js';
 import { drawRoom, drawBeyond, drawFloor } from './tiles.js';
+import { patchRoom } from './repaint.js';
+import { repaintOf } from './patch.js';
 import { shotAt, risenAt, rising } from './cutscene.js';
 import { drawRipples } from './water.js';
 import { drawRoosts } from './roosts.js';
@@ -90,6 +92,7 @@ export function createFrame(app, ui) {
   // as big as the whole room; the camera shows the screen's part of it (D-195).
   const base = document.createElement('canvas');
   let drawnRoom = null, doors = []; // the room drawn into `base`, and its doorways (D-225)
+  let drawn = null, ground; // where and from what, and the woods' grass under its trees, for a patch (F-9, D-1003)
   // Past a small room's edge its rock or trees go on (D-403): drawn onto `around`, mx tiles
   // past the sides and my past the top and bottom, enough to reach the screen's edges
   const around = document.createElement('canvas');
@@ -97,7 +100,7 @@ export function createFrame(app, ui) {
   const lineClock = createLineClock(); // the line's seconds (B-009)
   const bossBar = createBossBar(); // the Lampeater's name and hearts (D-959)
   let heldKey = null; // what the room under a card was last drawn from (S3, D-686)
-  onWipe(() => { drawnRoom = null; heldKey = null; }); // both drawn again on the next frame (D-588)
+  onWipe(() => { drawnRoom = drawn = null; heldKey = null; }); // both drawn again on the next frame (D-588)
   onCheck(() => drawnRoom !== null && blankAt(base, 0, 0));
   let wide = null, mx = 0, my = 0;
   const past = (size, shown) => Math.ceil(Math.max(0, shown - size * TILE) / 2 / TILE) + 2; // + 2 covers the camera's margin (D-441)
@@ -192,11 +195,16 @@ export function createFrame(app, ui) {
     const cut = app.cutscene && !travel && !fall ? shotAt(app.cutscene, t, still(), shown) : null; // the Lampeater's cutscene (Q-112, D-957)
     setCloseUp(cut?.close ?? 0); // zoomed in while it plays
     fitRoomSize(s.room.cols, s.room.rows, !still()); // a narrow (upright: short) room zooms in to fill the long side, with a margin (D-441), gliding there (D-448)
-    if (s.room !== drawnRoom) {
-      drawnRoom = s.room; doors = doorways(s.place, s.room, s.seed);
-      base.width = drawnRoom.cols * TILE; base.height = drawnRoom.rows * TILE;
-      drawRoom(base.getContext('2d'), drawnRoom, mouthOf(s.seed).look);
-      wide = widen(drawnRoom, doors); mx = my = 0;
+    if (s.room !== drawnRoom) { // only what changed, so a chop or dig doesn't stall the screen (patch.js, F-9, D-1003)
+      const now = { room: s.room, place: s.place, seed: s.seed }, how = repaintOf(drawn, now);
+      drawnRoom = s.room; drawn = now;
+      if (how === 'all') {
+        doors = doorways(s.place, s.room, s.seed);
+        base.width = drawnRoom.cols * TILE; base.height = drawnRoom.rows * TILE;
+        ground = drawRoom(base.getContext('2d'), drawnRoom, mouthOf(s.seed).look);
+        wide = widen(drawnRoom, doors); mx = my = 0;
+      } else if (how === 'room') ground = drawRoom(base.getContext('2d'), drawnRoom, mouthOf(s.seed).look);
+      else if (how !== 'none') patchRoom(base.getContext('2d'), drawnRoom, ground, how);
     }
     if (past(wide.cols, roomView.w) > mx || past(wide.rows, roomView.h) > my) { // a new room, or a wider screen
       mx = past(wide.cols, roomView.w); my = past(wide.rows, roomView.h);

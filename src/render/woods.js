@@ -72,10 +72,29 @@ export function drawWoods(c, room, mouth = 'arch') {
   for (let y = 0; y < room.rows * T; y++) for (let x = 0; x < w; x++) grass(put, x, y);
   paintPond(room, put, shade);
   paintMouths(room, d, put, shade, mouth); // the cave mouth, in its look (D-744), and the rock (D-211, D-738), the trees in front
+  const ground = new Uint8ClampedArray(d); // kept, so a chop or dig repaints only its tiles (patchWoods, F-9)
   for (let ty = 0; ty < room.rows; ty++) for (let tx = 0; tx < room.cols; tx++) {
     if (tileAt(room, tx, ty).id === 'tree') paintTree(put, shade, tx, ty);
   }
   c.putImageData(img, 0, 0);
+  return ground;
+}
+
+// § patch (F-9, D-1003): the tiles of `box`, { x, y, w, h }, painted again from `ground`,
+// drawWoods' pixels before its trees, and the trees on them and round them, as drawWoods paints
+// them, top row first, so the picture is the same to the pixel. Only for tiles away from water,
+// the cave mouth and rock, whose ground reads the tiles round it (patch.js)
+export function patchWoods(c, room, ground, box) {
+  const RW = room.cols * T, X = box.x * T, Y = box.y * T, w = box.w * T, h = box.h * T;
+  const img = c.createImageData(w, h), d = img.data;
+  for (let y = 0; y < h; y++) { const at = ((Y + y) * RW + X) * 4; d.set(ground.subarray(at, at + w * 4), y * w * 4); }
+  const inside = (x, y) => x >= X && y >= Y && x < X + w && y < Y + h;
+  const put = (x, y, hex) => { if (!inside(x, y)) return; const [r, g, b] = rgb(hex), i = ((y - Y) * w + x - X) * 4; d[i] = r; d[i + 1] = g; d[i + 2] = b; d[i + 3] = 255; };
+  const shade = (x, y, k) => { if (!inside(x, y)) return; const i = ((y - Y) * w + x - X) * 4; d[i] *= k; d[i + 1] *= k; d[i + 2] *= k; };
+  for (let ty = box.y - 1; ty <= box.y + box.h; ty++) for (let tx = box.x - 1; tx <= box.x + box.w; tx++) {
+    if (tileAt(room, tx, ty).id === 'tree') paintTree(put, shade, tx, ty);
+  }
+  c.putImageData(img, X, Y);
 }
 
 // § pond: the pond at home (D-503), the cave pool's water with a dark grassy lip under its
