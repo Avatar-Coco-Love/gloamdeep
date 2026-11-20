@@ -6,6 +6,13 @@
 // tools/release.js once a newer version is in (D-982); stage 0.2's are in history-0.2.js and its split
 // files.
 export const HISTORY_03 = [
+  { v: '0.3.441', date: '2026-11-20', title: 'The Bladder Tank', lines: [
+    "New: the Bladder Tank, the lantern's first tank. Make it at the workbench's GEAR tab, its last slot, from 2 Oil Bladder and 2 Copper Ore, then choose it in the bag and press Fit: it goes in the lantern, and no turn passes.",
+    "With it fitted the lantern holds a quarter more oil: a full tank lasts 75 turns instead of 60, on top of the wick, charms and the rest. The oil past a plain tank's worth is kept in reserve: the light reaches no further.",
+    "The oil bar runs on to 13 segments, each still a tenth of a plain tank, so a flask fills as many as before. Flasks poured by themselves pour a little sooner, once none would spill, and you wake from a fall with the bigger tank full.",
+    "The Oil Bladder now says what it is for: \"An oil bladder. Two make a tank.\"",
+    "Decisions: D-1005.",
+  ] },
   { v: '0.3.440', date: '2026-11-20', title: 'The Lampeater\'s bar on top', lines: [
     "In the Lampeater's fight, its name and health bar sit top middle, away from the hero and the text line; on an upright phone, just below your hearts and pause.",
     "The round map steps aside while the arena is sealed, and the creature list leaves out the Lampeater, since the bar shows it. Its gloamlings are still listed. Both come back once the fight ends.",

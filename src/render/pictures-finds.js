@@ -105,6 +105,12 @@ const COPPER_WICK = { mirror: false, rows: [
   '', '', '', '', '', '.......kk.......', '......knnk......', '......kaak......', '......kaAk......', '.....kkaAkk.....',
   '....kooooOOk....', '....kOooOOOk....', '....kooooOOk....', '.....kaAAAk.....', '......kkkk......', ''] };
 
+// § bladder tank: an oil bladder's amber sac, bound round its middle with a strap, a pale
+// copper cap at its neck (D-1005, Claude's draft)
+const BLADDER_TANK = { mirror: false, rows: [
+  '', '', '', '......kkkk......', '.....kaAAAk.....', '......kNNk......', '....kkoooOkk....', '...koywoooOOk...',
+  '..koyyoooooOOk..', '..kNNNNNNNNNNk..', '..kooooooooOOk..', '..koooooooOOOk..', '...kOooooOOOk...', '....kOOOOOOk....', '.....kkkkkk.....', ''] };
+
 // § rat hide vest: a sleeveless brown vest, grey fur at the shoulders, laced up the
 // front in the rat tail's pink (D-484)
 const RAT_VEST = { mirror: false, rows: [
@@ -316,6 +322,7 @@ export {
   POND_MINNOW,
   BLIND_CAVEFISH,
   COPPER_WICK,
+  BLADDER_TANK,
   RAT_VEST,
   SHELL_VEST,
   RAT_TAIL,

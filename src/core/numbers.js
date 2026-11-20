@@ -7,6 +7,7 @@ import { LANTERN_HIT } from './turn.js';
 import { healOf, pourOf } from './boon.js';
 import { maxHealth, turnOil } from './state.js';
 import { grown } from './upgrades.js';
+import { tankOf } from './parts.js';
 import { drinkKey, givesOf, shareLeft, LONGEST } from './lasting.js';
 
 const TANK = Math.round(1 / OIL.burn); // a full lantern's turns, with nothing to slow it
@@ -34,6 +35,7 @@ export function itemNumbers(entry) {
   if (wear.echo) add('eye', 'Senses creatures', many(wear.echo, 'tile'));
   if (wear.fang) add('heart', 'A beaten one heals', oneIn(wear.fang));
   if (part.burn) add('drop', 'Full lantern lasts', lasts(part.burn * TANK));
+  if (part.holds) add('drop', 'Full lantern lasts', many(Math.round(part.holds * TANK), 'turn')); // a bigger tank (D-1005)
   if (part.wide) add('star', 'Strike zone', `${part.wide}x wider`);
   if (entry.quick) add('pick', 'Breaks rock in', 'half the bumps');
   if (entry.glow) add('sun', 'Light reaches', `+${many(entry.glow.reach, 'tile')}`);
@@ -85,8 +87,8 @@ export function refills(state, entry) {
   }
   if (entry.oil) {
     const add = pourOf(state, entry), now = state.oil, free = !entry.byHand && grown(state, 'quickPour'); // Quick Pour: a flask passes no turn (D-816)
-    const burnt = free ? now : turnOil(state), after = Math.min(1, burnt + add); // a pour's turn burns first (D-247, D-912)
-    out.push({ kind: 'oil', now, after, lost: burnt + add - after, max: 1 });
+    const burnt = free ? now : turnOil(state), tank = tankOf(state), after = Math.min(tank, burnt + add); // a pour's turn burns first (D-247, D-912)
+    out.push({ kind: 'oil', now, after, lost: burnt + add - after, max: tank }); // a bigger tank's max past 1 (D-1005)
   }
   return out;
 }

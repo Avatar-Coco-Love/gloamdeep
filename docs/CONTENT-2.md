@@ -18,9 +18,10 @@ Moved from `CONTENT.md` word for word at 0.3.15; the rest of the finds are there
 | `rod` | the Wooden Rod: in the Tool slot; bumping water casts, a woods pond or a cave pool | 1 | never | the workbench: 2 Wood, 2 Spider Silk | D-608, D-609, D-610, D-618 |
 | `pondMinnow` | the first fish: poured, 15% oil, by hand only; Eat: 1 heart; sold to the peddler for 1 coin | 20 | never | caught at any woods pond with the rod | D-608, D-610, D-611, D-615, D-616, D-734 |
 | `blindCavefish` | the cave pools' fish: poured, 20% oil, by hand only; Eat: 1 heart; sells for 2 coins; strike zone a fifth | 20 | never | caught at any cave pool with the rod | D-618 |
-| `copperOre` | the first ore: the wick, the charms | 20 | never | a copper vein | D-480 |
+| `copperOre` | the first ore: the wick, the tank, the charms | 20 | never | a copper vein | D-480 |
 | `boneHook` | Fit in the bag, only with the rod carried: tied to the rod for good, the strike meter's zone half again as wide | 1 | never | the workbench's BUILD tab: 3 Rat Bone, 1 Spider Silk | D-799, D-807 |
 | `copperWick` | Fit in the bag: the lantern's wick, a full tank lasting 75 turns, not 60 | 1 | never | the workbench: 3 Copper Ore, 1 Wood | D-483 |
+| `bladderTank` | Fit in the bag: the lantern's tank, holding 1.25 tanks, 75 turns, the light no further past 1; the oil bar 13 segments | 1 | never | the workbench's GEAR tab: 2 Oil Bladder, 2 Copper Ore | D-1005 |
 | `ratVest` | Wear in the bag: the armour, each bite 1 in 4 to glance off and hurt nothing | 1 | never | the workbench: 4 Rat Tail, 1 Wood | D-484 |
 | `shellVest` | Wear in the bag: the armour, each bite or tail strike of 2 or more hurting 1 less, never below 1 | 1 | never | the workbench's GEAR tab: 4 Crab Shell, 1 Wood | D-799, D-801 |
 | `wispCharm` | Wear in the bag: a charm, rare drops about 1 in 5, not 1 in 10 | 1 | never | the workbench: 3 Gloam Wisp, 1 Copper Ore | D-486 |

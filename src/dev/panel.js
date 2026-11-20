@@ -6,6 +6,7 @@ import { roomCode } from '../core/roomcode.js';
 import { SPOTS, spotLabel, readSpot, writeSpot } from '../core/spots.js';
 import { depthOf } from '../core/room.js';
 import { BUILDS } from '../core/bossbench.js';
+import { tankOf } from '../core/parts.js';
 import { setPixelText, setPixelIcon } from './pixeltext.js';
 import { thumbOf } from '../render/thumbs.js';
 
@@ -159,7 +160,7 @@ export function buildPanel(panel, opts, saved, game) {
   const endless = button('Endless oil', () => game.set(game.setEndless(!game.get().endless)), 'dev-switch');
   endless.setAttribute('aria-pressed', 'false');
   let shownEndless = false;
-  oil.append(setter, row(button('Refill', () => game.set(game.setOil(1))), button('Empty', () => game.set(game.setOil(0)), 'dev-undo')), row(endless));
+  oil.append(setter, row(button('Refill', () => game.set(game.setOil(Infinity))), button('Empty', () => game.set(game.setOil(0)), 'dev-undo')), row(endless));
   let shownOil = null;
 
   // § hero: Refill hearts, back to full health; no turn passes (D-154). God mode, a
@@ -231,6 +232,7 @@ export function buildPanel(panel, opts, saved, game) {
       if (state.oil === shownOil) return;
       shownOil = state.oil;
       const pct = Math.round(state.oil * 100);
+      slider.max = Math.round(tankOf(state) * 100); // a bigger tank's oil past 100% (D-1005)
       slider.value = pct;
       setPixelText(amount, pct + '%');
     },

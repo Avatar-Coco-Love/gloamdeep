@@ -24,7 +24,7 @@ import { featTurn, tally } from './core/feats.js';
 import { loadProfiles, saveProfiles, playing, withRecords, withPlayed, withBestiary, withGoals } from './core/profile.js';
 import { booked } from './core/bestiary.js';
 import { goalsAfter, doneLine, GOLD_TURNS } from './core/goals.js';
-import { fit } from './core/parts.js';
+import { fit, tankOf } from './core/parts.js';
 import { wear } from './core/worn.js';
 import { takeOff, lookGear } from './core/gear.js';
 import { loadJourney, saveJourney } from './core/save.js';
@@ -516,7 +516,7 @@ const dev = createDev(stage, roomCanvas, { // on for everyone (D-086)
     return resetRoom(state, p.room, p.start, p.lights, p.enemies, p.items, p.people);
   },
   forget: () => forget(app.state),
-  setOil: (oil) => setOil(app.state, oil),
+  setOil: (oil) => setOil(app.state, oil, tankOf(app.state)), // the slider and Refill, a share of the lantern's tank (D-1005)
   heal: () => ({ ...app.state, health: maxHealth(app.state) }),
   setGod: (on) => ({ ...app.state, god: on }), // bites take no hearts (D-625)
   setLeap: (on) => ({ ...app.state, leap: on || undefined }), // chapter 1's found ability, on this journey (D-962)

@@ -18,12 +18,12 @@ const beat = (seed, more = {}) => step({ ...makeState(room), seed, hero: { x: 5,
   enemies: [{ id: 'rat', x: 5, y: 10, health: 1 }], ...more }, 'up');
 const fanged = (n) => n.events.some((e) => e.type === 'fang');
 
-test("the Fang Charm is the GEAR tab's last slot: 1 Bat Fang and 1 Copper Ore, dim with too few", () => {
+test("the Fang Charm is the GEAR tab's slot before the Bladder Tank (D-1005): 1 Bat Fang and 1 Copper Ore, dim with too few", () => {
   const c = get('fangCharm');
   assert.equal(c.name, 'Fang Charm'); assert.equal(c.max, 1); assert.deepEqual(c.wear, { slot: 'charm', fang: 0.25 });
-  const slot = benchMakes([{ id: 'batFang', n: 1 }, { id: 'copperOre', n: 1 }], 6, [], benchTabOf('gear').makes).at(-1);
+  const slot = benchMakes([{ id: 'batFang', n: 1 }, { id: 'copperOre', n: 1 }], 6, [], benchTabOf('gear').makes).at(-2);
   assert.deepEqual(slot, { item: 'fangCharm', cost: [{ id: 'batFang', n: 1, have: 1 }, { id: 'copperOre', n: 1, have: 1 }], dim: false });
-  assert.equal(benchMakes([{ id: 'copperOre', n: 1 }], 6, [], benchTabOf('gear').makes).at(-1).dim, true);
+  assert.equal(benchMakes([{ id: 'copperOre', n: 1 }], 6, [], benchTabOf('gear').makes).at(-2).dim, true);
 });
 
 test('Make takes its cost, a turn; too few or one worn is free', () => {

@@ -138,9 +138,9 @@ const allSettings = (s, deviceReduced, journey, mode) => [
 // the lantern's parts, armour and charms; a 4 × 3 grid each. BENCH_MAKES, every one, BUILD's first.
 export const BENCH_TABS = [
   { id: 'build', text: 'BUILD', makes: ['chest', 'pick', 'moleClawPick', 'bed', 'pouch', 'bigBag', 'gardenBed', 'rod', 'shelf', 'furBedroll', 'boneHook', 'shovel'] },
-  { id: 'gear', text: 'GEAR', makes: ['copperWick', 'ratVest', 'shellVest', 'wispCharm', 'heartCharm', 'centipedeCharm', 'echoCharm', 'fangCharm'] },
+  { id: 'gear', text: 'GEAR', makes: ['copperWick', 'ratVest', 'shellVest', 'wispCharm', 'heartCharm', 'centipedeCharm', 'echoCharm', 'fangCharm', 'bladderTank'] },
 ];
-export const BENCH_MAKES = BENCH_TABS.flatMap((t) => t.makes); // the stone pick (D-480), the copper wick (D-483), the rat hide vest (D-484), the wisp charm (D-486), the heart charm (D-487), the bed (D-488), the Pouch and Big Bag (D-545), the garden bed (D-562), the rod (D-608), the centipede charm (D-656), the shelf (D-689), the shell vest (D-801), the fur bedroll (D-803), the fang charm (D-809), the bone hook (D-807), the mole claw pick, after the stone pick (D-810)
+export const BENCH_MAKES = BENCH_TABS.flatMap((t) => t.makes); // the stone pick (D-480), the copper wick (D-483), the rat hide vest (D-484), the wisp charm (D-486), the heart charm (D-487), the bed (D-488), the Pouch and Big Bag (D-545), the garden bed (D-562), the rod (D-608), the centipede charm (D-656), the shelf (D-689), the shell vest (D-801), the fur bedroll (D-803), the fang charm (D-809), the bone hook (D-807), the mole claw pick, after the stone pick (D-810), the bladder tank, last, every other slot kept (D-1005)
 export const benchTabOf = (id) => BENCH_TABS.find((t) => t.id === id) ?? BENCH_TABS[0];
 export const BENCH_COLS = 4;
 export const BENCH_SLOTS = 12;

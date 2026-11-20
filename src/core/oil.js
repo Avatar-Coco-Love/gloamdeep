@@ -11,7 +11,9 @@ export const OIL = { start: 1, burn: 1 / 60 };
 export const burnOil = (oil, burn = OIL.burn) => (oil - burn > 1e-9 ? oil - burn : 0);
 
 // § reach: 1.6 tiles plus 3.6 per full tank; an empty lantern is a 0.9-tile ember (D-015).
-export const reach = (oil) => (oil > 0 ? 1.6 + 3.6 * oil : 0.9) * TILE_SIZE;
+// Oil past a plain tank (a bigger tank's, D-1005) is reserve: the light reaches no further.
+export const reach = (oil) => (oil > 0 ? 1.6 + 3.6 * Math.min(1, oil) : 0.9) * TILE_SIZE;
 
-// § set: (state, amount) → new state, for the dev Refill and Empty buttons (D-066)
-export const setOil = (state, oil) => ({ ...state, oil: Math.max(0, Math.min(1, oil)) });
+// § set: (state, amount, the tank's size) → new state, for the dev Refill and Empty buttons (D-066);
+// `tank`, how many plain tanks the lantern holds (parts.js tankOf, D-1005)
+export const setOil = (state, oil, tank = 1) => ({ ...state, oil: Math.max(0, Math.min(tank, oil)) });

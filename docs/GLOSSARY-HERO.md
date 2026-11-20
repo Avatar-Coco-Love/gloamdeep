@@ -31,6 +31,8 @@ as that page neared 8 KB.
   first of each below.
 - **Copper Wick, Fit:** the first lantern part, in its wick slot; Fit,
   in the bag, puts a part in the lantern, free (D-483).
+- **Bladder Tank, reserve:** the first tank, in its tank slot: 1.25 tanks
+  of oil; the oil past a plain tank is reserve, the light no further (D-1005).
 - **Rat Hide Vest, Wear, glance:** the first armour; Wear, in the bag,
   puts it on, free; worn, a bite may glance off and hurt nothing (D-484).
 - **Shell Vest, blunt:** the second armour, from Crab Shell, worn in the

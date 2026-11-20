@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.440 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.441 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
 The owner playtests the build; their ideas and changes from it come first
-(D-1003). Then `ROADMAP.md`'s Now, step 2, the tank; the Lampeater's polish
-(its cutscenes, `OPEN-QUESTIONS-3.md`) later.
+(D-1003). Then the Lampeater's polish, `ROADMAP.md`'s Now, step 1 (its
+cutscenes, `OPEN-QUESTIONS-3.md`), as the owner asked; then step 3.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -20,6 +20,7 @@ The owner playtests the build; their ideas and changes from it come first
 - The roadmap's build order, Claude's from 8.01 and the synthesis
   (`ROADMAP.md`, 0.3.437); the board's own picks, Claude's (0.3.436).
 - The Lampeater's beaten line and its find's look, Claude's drafts (D-992).
+- The Bladder Tank's lines, picture and slot, Claude's drafts (D-1005).
 - How hard the Lampeater should be (Q-111): 12 hearts for now (D-950);
   with its 2 wisps (D-1002) Lean 21%, Middling 72%, Strong 97% (35%,
   84%, 94% before); again after each step (D-972).
@@ -35,8 +36,7 @@ when merged, with its version, and move ticked steps there at each audit.
 The rest of the scope, proposed (D-482; may change):
 - [ ] 26 Filling the surface: more flowers (Q-092); its done parts, and
   19 Lore's, moved to `archive/PROGRESS-LOG.md` (D-981)
-- [ ] 27 The lantern's tank slot (D-991), after the Lampeater's polish
-  or step 26; its part, recipe and numbers the owner's picks
+- [x] 27 The lantern's tank slot (D-991): the Bladder Tank, 0.3.441 (D-1005)
 
 **Next audit: 0.3.473** (D-518, D-995).
 
@@ -45,6 +45,9 @@ later are in `RESEARCH-2.md` (D-699) and `RESEARCH-PLANNING.md`, and the
 owner's wish list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-20, 0.3.441, The Bladder Tank.** The lantern's first tank, 2 Oil
+  Bladder and 2 Copper Ore: 75 turns, the extra in reserve, the oil bar 13
+  segments. D-1005. Playtest: https://claude.ai/artifact/XA79YE2CZwWuT51CWcJfZi
 - **2026-11-20, 0.3.440, The Lampeater's bar on top.** Its name and
   bar move top middle; the round map and its row in the creature list
   step aside in the fight. D-1004. Playtest: https://claude.ai/artifact/Kn2MEbzd7AK9kbqZpBdrGh
@@ -52,7 +55,3 @@ owner's wish list in `RESEARCH.md`.
   dig repaints only its tiles (848 ms to 64 ms on the slow phone). The
   Lampeater's phases kept; its polish waits for playtesting. D-1003.
   Playtest: https://claude.ai/artifact/QsNSmUnt8FMCH2RDVNQwpP
-- **2026-11-20, 0.3.438, The lure wisps.** F-10 fixed: older saves'
-  arenas brought up to date (save format 38). Two lure wisps in the
-  arena, drifting toward the Lampeater. D-1001, D-1002. Playtest:
-  https://claude.ai/artifact/T4QtAL4GUrDZE2pR4GiQva

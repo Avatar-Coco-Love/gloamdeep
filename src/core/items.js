@@ -174,6 +174,11 @@ export const ITEMS = {
   // so a full tank lasts 75 turns, not 60. Oil alone still sets the reach (D-014).
   copperWick: { id: 'copperWick', kind: 'item', name: 'Copper Wick', bag: true, max: 1, look: 'copperWickLook', full: 'copperWickFull',
     bench: { of: { copperOre: 3, wood: 1 }, says: 'wickMake', short: 'wickShort' }, part: { slot: 'wick', burn: 1 / 75 }, fits: 'wickFit' },
+  // The first tank (D-1005), the Oil Bladder's first use (D-940's plan): made at the workbench's
+  // GEAR tab, never found. Fitted, the lantern holds `part.holds` tanks: 75 turns, not 60. The
+  // oil past a plain tank is kept in reserve; the light reaches no further for it (oil.js).
+  bladderTank: { id: 'bladderTank', kind: 'item', name: 'Bladder Tank', bag: true, max: 1, look: 'bladderTankLook', full: 'bladderTankFull',
+    bench: { of: { oilBladder: 2, copperOre: 2 }, says: 'tankMake', short: 'tankShort' }, part: { slot: 'tank', holds: 1.25 }, fits: 'tankFit' },
   // The first armour piece (D-484), leatherwork: made at the workbench, never found. Wear, in the
   // bag, puts it on, free, in the hero's `wear.slot`, with its `wears` line; worn, each bite has a
   // `wear.glance` chance to glance off and hurt nothing (creatureturn.js).

@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-20, 0.3.438, The lure wisps.** F-10 fixed: older saves'
+  arenas brought up to date (save format 38). Two lure wisps in the
+  arena, drifting toward the Lampeater. D-1001, D-1002. Playtest:
+  https://claude.ai/artifact/T4QtAL4GUrDZE2pR4GiQva
 - **2026-11-20, 0.3.437, The roadmap.** Nothing in the game changed: the
   board's 97 kept ideas make `ROADMAP.md`, the 44 others
   `RESEARCH-PLANNING.md`. D-998 to D-1000.

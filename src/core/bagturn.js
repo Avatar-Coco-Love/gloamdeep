@@ -26,7 +26,7 @@ import { endTurn } from './endturn.js';
 import { costOf, recipeOf } from './bagmake.js';
 import { thrift, keptSay } from './thrift.js';
 import { burnOil, OIL } from './oil.js';
-import { isFitted } from './parts.js';
+import { isFitted, tankOf } from './parts.js';
 import { isWorn } from './worn.js';
 import { campCorner, campTiles } from './camp.js';
 import { openVault } from './vault.js';
@@ -43,10 +43,10 @@ export function pour(state, i) {
   const bag = bagTake(state.bag, i), dev = devPour(state, state.bag[i].id, bag); // one spawned counts in no Records (D-720)
   if (grown(state, 'quickPour') && isFlask(state.bag[i].id)) {
     const poured = note(fresh(state), 'pour', { id: state.bag[i].id, by: 'hand', ...dev.mark });
-    return say({ ...poured, ...dev.rest, bag, oil: Math.min(1, state.oil + pourOf(state, entry)) }, 'flaskPour');
+    return say({ ...poured, ...dev.rest, bag, oil: Math.min(tankOf(state), state.oil + pourOf(state, entry)) }, 'flaskPour');
   }
   const next = note(passTurn(state), 'pour', { id: state.bag[i].id, by: 'hand', ...dev.mark });
-  return endTurn(state, { ...next, ...dev.rest, bag, oil: Math.min(1, next.oil + pourOf(state, entry)) });
+  return endTurn(state, { ...next, ...dev.rest, bag, oil: Math.min(tankOf(state), next.oil + pourOf(state, entry)) });
 }
 
 // § make in the bag: MAKE on the bag's Make tab (D-787) makes find `from`'s recipe's `into`, its
@@ -304,10 +304,10 @@ export function look(state, i) {
 // It adds a `pour` event, by itself, to the turn's.
 export function pourByItself(before, after) {
   if (after.turn === before.turn || after.fell !== before.fell) return after;
-  const i = after.bag.findIndex((s) => isFlask(s.id) && after.oil + pourOf(after, get(s.id)) <= 1 + 1e-9);
+  const i = after.bag.findIndex((s) => isFlask(s.id) && after.oil + pourOf(after, get(s.id)) <= tankOf(after) + 1e-9);
   if (i < 0) return after;
   const bag = bagTake(after.bag, i), dev = devPour(after, after.bag[i].id, bag);
-  const poured = note({ ...after, ...dev.rest, bag, oil: Math.min(1, after.oil + pourOf(after, get(after.bag[i].id))) }, 'pour', { id: after.bag[i].id, by: 'self', ...dev.mark });
+  const poured = note({ ...after, ...dev.rest, bag, oil: Math.min(tankOf(after), after.oil + pourOf(after, get(after.bag[i].id))) }, 'pour', { id: after.bag[i].id, by: 'self', ...dev.mark });
   const other = after.line?.turn === after.turn && !['oilLow', 'oilEmpty'].includes(after.line.id);
   return other ? poured : say(poured, 'flaskPour');
 }

@@ -4,6 +4,17 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.438 (2026-11-20)
+- Two lure wisps now drift in the Lampeater's arena, either side of it at
+  the start. As you come near, each drifts toward the Lampeater, showing
+  where it lurks in the dark. They are the arena's own, as its gloamlings
+  are: no Wisp Glass, and they fade when it is beaten.
+- A bug fixed (F-10): a journey saved before today with the arena in an
+  older shape is brought up to date as it loads: the door sealed again
+  while the Lampeater lives, its gloamlings and wisps given, or, beaten
+  long ago with Leap never learnt, Leap's find laid on its tile.
+- Decisions: D-1001, D-1002.
+
 ## 0.3.437 (2026-11-20)
 - Nothing in the game changed: the planning board's picks are read back
   and written up. The 97 kept ideas make the roadmap to 1.0,
