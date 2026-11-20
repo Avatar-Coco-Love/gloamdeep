@@ -43,17 +43,8 @@ F-9 found while measuring the light again, F-10 by the bug hunt over
 the code from 0.3.394 to 0.3.432, both checked with small scripts.
 Which to fix, and when, is the owner's pick; each fix is still the
 owner's pick at its step. The fixes offered are Claude's and the hunt's,
-the first one recommended. F-10 is fixed in 0.3.438 (D-1001) and kept in
-`archive/BUGS-FIXED.md`.
-
-- **F-9 · A bump on the surface stalls the screen.** Each chop or dig
-  bump, and anything else that changes the room (the first turn's
-  `day` too), repaints the whole woods room and its border
-  (`frame.js:195-205`, `drawRoom`, `drawBeyond`): about 0.1 s on
-  Claude's machine, 0.4 s on the simulated slow phone. It is why
-  perf.js's surface walk read 57 ms (H-73): it was chopping a tree.
-  Fixes: repaint only the tiles that changed, and their neighbours; or
-  keep the grass and rock painted once and draw the changed tiles over.
+the first one recommended. F-10 is fixed in 0.3.438 (D-1001), F-9 in
+0.3.439 (D-1003), both kept in `archive/BUGS-FIXED.md`.
 
 Seen but not confirmed: a beating blow that also brings a level shows
 "Level N." in place of "The Lampeater fades. Something glows."

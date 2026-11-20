@@ -6,6 +6,11 @@
 // tools/release.js once a newer version is in (D-982); stage 0.2's are in history-0.2.js and its split
 // files.
 export const HISTORY_03 = [
+  { v: '0.3.439', date: '2026-11-20', title: 'A chop without a stall', lines: [
+    "A bug fixed (F-9): chopping a tree or digging out a stump on the surface no longer stalls the screen. Only the tiles that changed are painted again, not the whole woods and its border; the picture is the same. On a slow phone a chop's pause goes from almost a second to a blink.",
+    "The Lampeater's phases stay as they are. Its polish waits while the owner playtests, for new ideas.",
+    "Decisions: D-1003.",
+  ] },
   { v: '0.3.438', date: '2026-11-20', title: 'The lure wisps', lines: [
     "Two lure wisps now drift in the Lampeater's arena, either side of it at the start. As you come near, each drifts toward the Lampeater, showing where it lurks in the dark. They are the arena's own, as its gloamlings are: no Wisp Glass, and they fade when it is beaten.",
     "A bug fixed (F-10): a journey saved before today with the arena in an older shape is brought up to date as it loads: the door sealed again while the Lampeater lives, its gloamlings and wisps given, or, beaten long ago with Leap never learnt, Leap's find laid on its tile.",

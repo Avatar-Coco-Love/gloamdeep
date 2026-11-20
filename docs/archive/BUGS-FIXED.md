@@ -3,6 +3,17 @@
 Bugs from `docs/BUGS.md`, moved here word for word once fixed (D-852),
 newest first, each with the version that fixed it. Grep only.
 
+Fixed in 0.3.439 (D-1003):
+
+- **F-9 · A bump on the surface stalls the screen.** Each chop or dig
+  bump, and anything else that changes the room (the first turn's
+  `day` too), repaints the whole woods room and its border
+  (`frame.js:195-205`, `drawRoom`, `drawBeyond`): about 0.1 s on
+  Claude's machine, 0.4 s on the simulated slow phone. It is why
+  perf.js's surface walk read 57 ms (H-73): it was chopping a tree.
+  Fixes: repaint only the tiles that changed, and their neighbours; or
+  keep the grass and rock painted once and draw the changed tiles over.
+
 Fixed in 0.3.438 (D-1001):
 
 - **F-10 · Older saves' arenas are never brought up to date.** The save

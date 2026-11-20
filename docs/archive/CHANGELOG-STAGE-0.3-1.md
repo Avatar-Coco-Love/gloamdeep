@@ -4,6 +4,10 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.436 (2026-11-19)
+- The planning board. Nothing in the game changes. The big planning run's 141 ideas are now cards on a private page that works on a phone: each one marked Keep, Maybe or Drop, with an optional note, and the picks saved for Claude to read back an area or two a sitting. Each card also shows Claude's recommendation, its button marked with a dot, and a box for the owner's own answer stays open beside the pick. A script builds the cards from the planning files' idea, check and recommendation lines.
+- Decisions: D-997.
+
 ## 0.3.435 (2026-11-19)
 - The big planning run. Nothing in the game changes. A team of agents wrote a brief of where the game stands, then 141 ideas for its future up to 1.0 in eight areas, checked each against the decisions, and drew a proposed roadmap; nothing is decided until the owner picks it on the planning board, next.
 - Decisions: none (the run follows D-996).

@@ -92,7 +92,7 @@ before), Middling 72% (84%), Strong 97% (94%).
 steps are done, the owner has ideas for its phases, how the cutscenes
 work, and gloamlings at the start of the fight, among others; to be asked
 for then. Asked at 0.3.413 (D-971): the gloamlings at the start, its new
-ways and Leap as a find, in 6 steps; 8 with the flanking and the guards (D-972); step 7, the find and card, is D-992; the cutscenes and the rest asked after step 8, the sound (D-992). Step 8, the sound, is D-994; the lure wisps are D-1002 (0.3.438); its phases and the cutscenes are the owner's picks to come next, their ideas asked then.
+ways and Leap as a find, in 6 steps; 8 with the flanking and the guards (D-972); step 7, the find and card, is D-992; the cutscenes and the rest asked after step 8, the sound (D-992). Step 8, the sound, is D-994; the lure wisps are D-1002 (0.3.438); its phases and the cutscenes are the owner's picks to come next, their ideas asked then. At 0.3.439 (D-1003) the phases stay as they are and the polish waits: the owner wants to playtest first, for new ideas and changes. The owner's note: UI changes will be needed, such as where the boss's health shows, maybe some UI hidden for a while to make room for the boss's information.
 
 **Q-114 · Where falling ground goes** (raised 2026-11-17, D-967) The
 boss fight has no falling ground; the owner saved it for another time.

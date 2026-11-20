@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.438 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.439 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The Lampeater's polish goes on (D-1002): its phases, then its cutscenes,
-the owner's ideas asked first (`OPEN-QUESTIONS-3.md`, its polish). Then
-`ROADMAP.md`'s Now, step 2.
+The owner playtests the build; their ideas and changes from it come first
+(D-1003). Then `ROADMAP.md`'s Now, step 2, the tank; the Lampeater's polish
+(its cutscenes, room for its health and name, `OPEN-QUESTIONS-3.md`) later.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -23,7 +23,6 @@ the owner's ideas asked first (`OPEN-QUESTIONS-3.md`, its polish). Then
 - How hard the Lampeater should be (Q-111): 12 hearts for now (D-950);
   with its 2 wisps (D-1002) Lean 21%, Middling 72%, Strong 97% (35%,
   84%, 94% before); again after each step (D-972).
-- When to fix the audit's F-9 (`BUGS.md`, D-995); F-10 is fixed (D-1001).
 - Any time: a sound for the vault door and the rune wall opening (D-895,
   D-929); sound on an older iPhone, when one is to hand (H-22, D-868).
 - Every other open question, each at its own time or step: `OPEN-QUESTIONS*.md`
@@ -46,6 +45,10 @@ later are in `RESEARCH-2.md` (D-699) and `RESEARCH-PLANNING.md`, and the
 owner's wish list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-20, 0.3.439, A chop without a stall.** F-9 fixed: a chop or
+  dig repaints only its tiles (848 ms to 64 ms on the slow phone). The
+  Lampeater's phases kept; its polish waits for playtesting. D-1003.
+  Playtest: https://claude.ai/artifact/QsNSmUnt8FMCH2RDVNQwpP
 - **2026-11-20, 0.3.438, The lure wisps.** F-10 fixed: older saves'
   arenas brought up to date (save format 38). Two lure wisps in the
   arena, drifting toward the Lampeater. D-1001, D-1002. Playtest:
@@ -53,6 +56,3 @@ owner's wish list in `RESEARCH.md`.
 - **2026-11-20, 0.3.437, The roadmap.** Nothing in the game changed: the
   board's 97 kept ideas make `ROADMAP.md`, the 44 others
   `RESEARCH-PLANNING.md`. D-998 to D-1000.
-- **2026-11-19, 0.3.436, The planning board.** Nothing in the game
-  changed: `tools/board.js` turns the 141 ideas into cards on a private
-  board with Claude's recommendations and the owner's answers (`PLANNING.md`). D-997.
