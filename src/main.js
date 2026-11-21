@@ -57,7 +57,7 @@ import { createSlots } from './slots.js';
 import { createHearing } from './hearing.js';
 import { createTouch } from './input/touch.js';
 import { goFullScreen } from './input/fullscreen.js';
-import { cutOver } from './render/cutscene.js';
+import { cutOver, END } from './render/cutscene.js';
 import { createFrame, FADE_MS } from './render/frame.js';
 import { createSound, dripsIn, dripGap, musicOf } from './render/sound.js';
 import { quietHere, bossTuneHere, doorAfterLeap } from './core/beaten.js';
@@ -316,10 +316,17 @@ function tryStep(dir) {
     app.cutscene = { start: performance.now(), door: { x: sealed.x, y: sealed.y }, boss: boss ? { x: boss.x, y: boss.y } : { x: sealed.x, y: sealed.y } };
     app.walk = app.padDir = app.hold = app.queued = null; // a walk or a held key ends: nothing goes on after it by itself
   }
+  const ended = events.find((e) => e.type === 'fade' && e.first); // the Lampeater beaten the first time on a journey: its end (D-1014)
+  const fell1 = ended && before.enemies.find((e) => e.id === 'lampeater');
+  if (fell1) {
+    const brood = before.enemies.filter((e) => e !== fell1 && !state.enemies.some((n) => n.x === e.x && n.y === e.y && n.id === e.id)); // the arena's own, crumbling with it
+    app.cutscene = { start: performance.now(), end: true, boss: { ...fell1 }, brood };
+    app.walk = app.padDir = app.hold = app.queued = null;
+  }
   const woke = events.find((e) => e.type === 'stoneWake'); // the rune kindles (D-591), not a mimic's wake (D-368)
   if (woke && !still()) app.kindle = { x: woke.x, y: woke.y, start: performance.now() };
   // Experience earned shows as it rises over the hero; after stairs, once the new room shows (D-245)
-  if (state.xp > before.xp || has(events, 'fang')) app.gain = { n: state.xp - before.xp, at: app.travel?.mid ?? performance.now(), heart: has(events, 'fang') }; // and a heart back from the Fang Charm (D-809)
+  if (state.xp > before.xp || has(events, 'fang')) app.gain = { n: state.xp - before.xp, at: app.travel?.mid ?? (app.cutscene?.end ? app.cutscene.start + END.end : performance.now()), heart: has(events, 'fang') }; // and a heart back from the Fang Charm (D-809)
   // Stepping onto the woken home plate with no boon held offers the boon card (D-596); the step that wakes it only wakes it (D-603)
   if (has(events, 'learn')) { app.walk = app.padDir = app.hold = app.queued = null; screens.show('ability'); } // Leap's find stepped on: its card (D-992)
   else if (!went && !fell && stepOffersBoons(before, state)) { app.walk = null; screens.openBoons(); }

@@ -5,7 +5,7 @@ import { TILE, W, SCREEN_H, view, roomView, fitTitle, fitCards, fitRoomSize, edg
 import { drawRoom, drawBeyond, drawFloor } from './tiles.js';
 import { patchRoom } from './repaint.js';
 import { repaintOf } from './patch.js';
-import { shotAt, risenAt, rising } from './cutscene.js';
+import { shotAt, risenAt, rising, SINK, CRUMBLE } from './cutscene.js';
 import { drawRipples } from './water.js';
 import { drawRoosts } from './roosts.js';
 import { drawHero, drawItems, drawEnemies, drawGlows, drawRelics, drawShelfRelics, drawGlobs, drawPeople, wearLook } from './sprites.js';
@@ -145,6 +145,17 @@ export function createFrame(app, ui) {
     const h = Math.round(TILE * k);
     if (h > 0) rc.drawImage(base, x * TILE, y * TILE, TILE, h, x * TILE, y * TILE + TILE - h, TILE, h);
   }
+  // § gone (D-1014): in the Lampeater's end, it and its brood, kept from before the last blow, drawn
+  // as they go: its body sinking SINK into the floor as it fades, the others dropping as they crumble
+  let ghostAt = (e) => e;
+  function drawGone(c, draw, cut) {
+    const { boss, brood } = app.cutscene, fade = cut.fade;
+    if (fade >= 1) return;
+    c.save(); c.globalAlpha = 1 - fade;
+    ghostAt = (e) => ({ x: e.x, y: e.y + fade * (e === boss ? SINK : CRUMBLE) });
+    draw([...brood, boss]);
+    c.restore();
+  }
   // § bars (D-957): the cutscene's black bars, k of the way in, top and bottom, an eighth of the screen each
   function drawBars(k) {
     const h = Math.round(view.h / 8 * k);
@@ -244,7 +255,8 @@ export function createFrame(app, ui) {
         drawRoosts(rc, s.room, t, still()); // a tree with a flyer in it shakes now and then (D-922)
         drawKindle(rc, app.kindle, t); // the woken rune lighting bottom up (D-591)
         if (!still()) drawCrumble(rc, app.quake, s.room, t); // the seal stones crack, then fall into the Gap (D-965)
-        drawItems(rc, s.items, t, still());
+        drawItems(rc, cut?.end && cut.find < 1 ? s.items.filter((it) => it.id !== 'leapFind') : s.items, t, still()); // in its end, Leap's find shows where it fell (D-1014)
+        if (cut?.end && cut.find > 0 && cut.find < 1) { rc.save(); rc.globalAlpha = cut.find; drawItems(rc, s.items.filter((it) => it.id === 'leapFind'), t, still()); rc.restore(); }
         const beaming = app.beam?.arriving && t < app.beam.start + BEAM_MS ? app.beam.id : null; // hidden until beamed in
         drawPeople(rc, (s.people || []).filter((p) => p.id !== beaming), s.hero); // forward, or turned to face the hero near (D-490, D-501)
         drawBeam(rc, app.beam, s.hero, t); // a freed person beamed home, or beamed in at home (D-496)
@@ -253,6 +265,7 @@ export function createFrame(app, ui) {
         drawHero(rc, sx + nx, sy + ny - lift, !!bitten && t < bitten.until, lying);
         // § enemies: shaded by the light like the floor, so seen in memory's dim light too (D-153)
         drawEnemies(rc, s.enemies, t, still(), hit && t < hit.until ? hit.enemies : [], foeAt, s.hero, app.sunk, app.crawl); // a snapcap opens beside the hero (D-543); a warden's fists sink with a jolt (D-937); gloamlings rise from a snuffed bowl (D-949)
+        if (cut?.end) drawGone(rc, (es) => drawEnemies(rc, es, t, still(), [], ghostAt), cut); // its end: it sinks and fades, its brood crumbling (D-1014)
         drawChips(rc, app.sunk, t); drawSpark(rc, app.spark, t); // its stone chips, and a blow that rang off its stone (D-937)
       });
       // Full daylight needs no lantern (D-025, D-209); dusk dims the sky and the lights show more (D-217)
@@ -274,6 +287,7 @@ export function createFrame(app, ui) {
         drawFires(rc, s.room, t, still(), s.enemies.filter((e) => e.breath).map((e) => e.breath), s.enemies.filter((e) => e.snuffed && s.turn - e.snuffed.turn < 2).map((e) => e.snuffed)); // a burning campfire's flames and coals (D-757); a brazier breathed on, or just snuffed (D-947)
         drawCalls(rc, s.enemies.filter((e) => e.call).map((e) => e.call), t, still()); // a cold brazier the Lampeater calls from (D-974)
         drawGlows(rc, s.enemies, t, still(), hit && t < hit.until ? hit.enemies : [], foeAt, (e) => !!get(e.id)?.burns && litAt(s, e.x, e.y), cut && ((e) => (e.id === 'lampeater' ? cut : null))); // the lure wisp's own glow, seen in the dark (D-649); the Lampeater burning in light (D-944)
+        if (cut?.end) drawGone(rc, (es) => drawGlows(rc, es, t, still(), [], ghostAt, () => false, (e) => (e.id === 'lampeater' ? cut : null)), cut); // their eyes and glows go with them (D-1014)
         if (lightOn) drawEchoes(rc, echoed(s), t, still(), foeAt); // the Echo Charm's pale outlines, near creatures in the dark (D-805)
         drawRelics(rc, s.items, t, still()); // a relic's own violet glow, seen in the dark (D-692)
         drawShelfRelics(rc, s.room, t, still()); // and a relic's on the shelf (D-693)

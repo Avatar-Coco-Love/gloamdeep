@@ -17,6 +17,9 @@ word for word at 0.3.72, the ninth audit (D-617), as that page neared 8 KB.
 - **Talking with the spark** (the owner, 2026-11-20, on 5.04): dialogue
   with different options, and new buttons for the companion. The talk
   card's look is settled (D-1010).
+- **Boss rematches** (the owner, 2026-11-21, D-1014): something in a beaten
+  boss's arena the hero goes up to, to choose whether to fight a harder
+  version of it.
 - **Light-shy creatures**: some fear or are hurt by light, so the lantern
   is a tool in a fight (Golden Krone Hotel).
 - **Creature materials** (the owner, 2026-10-26, D-372): beaten creatures

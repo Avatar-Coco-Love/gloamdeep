@@ -2959,3 +2959,28 @@ Offered too: 3 hearts or 1; gentler on the first day only; keep no mole on
 day 1. Claude's calls: the number lives in the mole's registry entry
 (`dayHealth`), its name tag counts 2 of 2, and its Bestiary words add "a
 woods mole by day, half that" (a draft, the owner may change it).
+
+**D-1010 · 2026-11-21 · Cards on the smallest phones, and the talk card**
+(the owner's picks, all recommended but the talk card's foot, the owner's
+own; 6.06, 6.07, B-013) 6.06 (the text line never covers the hero) was
+already built at 0.3.427 (D-988), checked again in play: ticked. 6.07:
+every card's buttons are measured at the smallest phones' views, 176 ×
+264 upright (320 × 480 CSS px) and 312 × 176 sideways (320 × 568), and
+at 176 × 221 (a small PC window), each a 22 game px tap; a test keeps it
+so. Only the stash chest's card failed: upright on a short card the bag's
+slots ran over DECONSTRUCT, and STORE with a bigger bag. There, and only
+there, both stand in the title strip in place of STASH CHEST,
+DECONSTRUCT at the left and STORE beside the round cross, as the bag
+card's STORE (D-558); and its chosen stack's name, like its hint (B-012),
+is left out where it would pass the card's foot. Offered too: smaller
+slots there; leave it. The bag card at 176 × 221 with a 9 or 12 slot
+bag is too short for its slots, buttons and words: B-014, a later step
+(offered too: squeeze the gaps; scroll). Dialogue with choices (5.04,
+"Talking with the spark") will use a talk card in the pixel font (D-031):
+low on the screen, the speaker's name in ember, at most three rows of
+words a page, then the answers as whole sentences on tall lines, the
+chosen one gold with the menus' flame. It reaches the screen's foot,
+the arrow pad and the corner buttons hidden while talking (the owner's
+idea); sideways the words stand left and the answers right, so it stays
+low under the hero. Offered too: a card in the middle; one-word buttons.
+D-1007 and D-1008 move to `archive/DECISIONS-SURFACE.md`, word for word.

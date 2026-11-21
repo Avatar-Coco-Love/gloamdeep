@@ -4,6 +4,16 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.447 (2026-11-21)
+- The bag's slots can scroll now, when they don't all fit on the card: drag
+  them, or flick them and they glide, slow and come to rest with whole rows
+  showing. A thin bar beside them shows where you are, gold while they
+  move, and can be dragged too. The mouse wheel moves them a row, and the
+  arrow keys bring the chosen slot's row into view.
+- On every screen tried so far a bag of 12 fits, so you won't see it yet:
+  it switches on by itself only where the slots don't fit.
+- Decisions: D-1011. B-014's bag card half fixed.
+
 ## 0.3.446 (2026-11-21)
 - On a small phone held upright, the stash chest's DECONSTRUCT and STORE
   buttons now stand at the top of its card, beside the close button, in

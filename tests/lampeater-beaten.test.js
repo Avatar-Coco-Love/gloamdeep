@@ -111,3 +111,12 @@ test('the seal is first only once a journey, a fall and the way back in after it
   const again = step({ ...s, sealSeen: after.sealSeen }, 'up').events.find((e) => e.type === 'seal');
   assert.equal(again.first, false);
 });
+
+// § its end (D-1014): the last blow's `fade` event is first only once a journey, as the seal's is
+test('beaten, its end is first only the first time on a journey', () => {
+  const s = step(lastBlow(), 'up'), fade = s.events.find((e) => e.type === 'fade');
+  assert.deepEqual([fade.id, fade.first, s.fadeSeen], ['lampeater', true, true]);
+  const again = step({ ...lastBlow(), fadeSeen: true }, 'up').events.find((e) => e.type === 'fade');
+  assert.equal(again.first, false);
+  assert.equal(bench({ ...newJourney(3), fadeSeen: true }, 'middling').fadeSeen, false);
+});
