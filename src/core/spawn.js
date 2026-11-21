@@ -43,7 +43,7 @@ export function spawn(state, id, x, y) {
 }
 
 // § bring: there is one of each person, so Spawn moves them here from any room they stand
-// in, standing as at home, already greeted: a bump of one who buys opens their trade (H-48)
+// in, standing as at home, already greeted: a bump of one who buys opens their trade (H-48), from the Peddler's talk box (D-1017)
 function bring(state, id, x, y) {
   const away = (p) => (p.people || []).some((q) => q.id === id) ? { ...p, people: p.people.filter((q) => q.id !== id) } : p;
   const elsewhere = Object.fromEntries(Object.entries(state.elsewhere || {}).map(([k, p]) => [k, away(p)]));

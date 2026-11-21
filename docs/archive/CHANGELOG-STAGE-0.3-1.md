@@ -4,6 +4,18 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.450 (2026-11-21)
+- The Lampeater has a cutscene for its end. The first time on a journey
+  you beat it, the black bars slide in and the camera glides to where it
+  fell. Its eyes flare one last time, its body sinks and fades as its
+  gloamlings and wisps crumble, and Leap's gold mark shows where it fell.
+  Then the camera goes back to you, about 3 seconds in all, with "The
+  Lampeater fades. Something glows." As with the way in's cutscene,
+  nothing can be skipped or pressed while it plays, and with reduced
+  motion the shots cut instead of gliding. The experience you earn shows
+  over you once it ends.
+- Decisions: D-1014.
+
 ## 0.3.449 (2026-11-21)
 - On the peddler's card, his grid scrolls too when its slots don't all
   fit, the same way as the bag and the stash chest: drag or flick them,

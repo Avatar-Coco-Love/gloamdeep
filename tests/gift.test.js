@@ -19,7 +19,7 @@ test('his first bump at home with room gives one Homestone, his gift line, free,
   assert.equal(one.people[0].gifted, true);
   const two = step(one, 'right');
   assert.equal(carried(two.bag, 'homestone'), 1);
-  assert.equal(shownLine(two).text, LINES.peddlerHome.texts[0]);
+  assert.equal(shownLine(two).text, LINES.peddlerChat.texts[0]); // then his talk box's lines (D-1017)
 });
 
 test('a full bag: his waiting line, nothing given, the gift kept; with room later, given then', () => {

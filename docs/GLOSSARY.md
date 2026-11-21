@@ -60,7 +60,8 @@ went with them, and came back word for word at 0.3.234 (D-784):
 ### People
 - **Peddler:** the first person, found trapped in a ring of rubble on
   depth 3; freed by digging one heap, he stands at home by the home waystone (D-855),
-  and is the first vendor: bumped there, his card opens and he buys
+  and is the first vendor: bumped there, his card opens (from his talk box's
+  SHOP since D-1017) and he buys
   creature materials and sells a flask and a torch (D-471, D-490,
   D-491, D-492, D-494, D-495).
 - **Trade coins (coins):** earned only by selling to a vendor, each find

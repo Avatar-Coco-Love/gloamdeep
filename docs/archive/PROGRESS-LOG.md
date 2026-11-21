@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-21, 0.3.450, The Lampeater's end, a cutscene.** The first
+  time it is beaten: on it, its eyes flare, it fades, Leap's mark shows;
+  the polish's first step. D-1014. Playtest: https://claude.ai/artifact/ERUUiJQyUx9Xry2oJR4fQP
 - **2026-11-21, 0.3.449, The peddler's grid scrolls.** As the bag's and
   the chest's, where his slots don't fit, ending where the price still
   fits; D-1011 done. D-1013. Playtest: https://claude.ai/artifact/CXbzgkS8tf4nRjuEMrCTbD
