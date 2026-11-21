@@ -54,11 +54,11 @@ the fall; a save made during the cutscene never plays it again.
 
 ## Found at the roadmap's steps
 
-**B-014 · 2026-11-21 · The bag card and the chest's too short for a big bag, in a small window**
+**B-014 · 2026-11-21 · The chest's card too short for a big bag, in a small window**
 Found at 6.07 (0.3.446, D-1010), not seen in play: at 176 × 221 game
 px, upright, which a small PC window gives but no phone measured does,
-a bag of 9 or 12 slots doesn't fit. On the bag card its slots leave
-MAKE and DROP a 10 px tap, not 22, and the chosen find's words fall
-below the card; on the stash chest's card the bag's last row runs off
-its foot. Offered: squeeze the gaps; scroll the part under the gear
-rows. A later step.
+a bag of 9 or 12 slots doesn't fit. On the stash chest's card the bag's
+last row runs off its foot. The bag card's half was fixed at 0.3.447:
+its slots scroll there (D-1011); the chest's card is the next step of
+D-1011. Measured at 0.3.447: no window or phone tried gave a view under
+300 game px tall upright, so this may never show in play.

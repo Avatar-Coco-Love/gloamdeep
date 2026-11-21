@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-20, 0.3.444, Herbs and mushrooms rooted.** The healing herb,
+  the oilcap and the heartcap stand in a tuft of earth, as the flowers do,
+  no longer floating. D-1008. Playtest: https://claude.ai/artifact/Nz475K7cbw3Ce8xQRHfLwq
 - **2026-11-20, 0.3.443, The Glowcup, and rooted flowers.** The second
   flower, in about half the rooms from depth 1 down; flowers stand on their
   tiles, no longer floating. D-1007. Playtest: https://claude.ai/artifact/WpZ863f1WVT3nD9v38mZ9F,

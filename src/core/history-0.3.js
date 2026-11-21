@@ -6,6 +6,11 @@
 // tools/release.js once a newer version is in (D-982); stage 0.2's are in history-0.2.js and its split
 // files.
 export const HISTORY_03 = [
+  { v: '0.3.447', date: '2026-11-21', title: 'The bag\'s slots scroll', lines: [
+    "The bag's slots can scroll now, when they don't all fit on the card: drag them, or flick them and they glide, slow and come to rest with whole rows showing. A thin bar beside them shows where you are, gold while they move, and can be dragged too. The mouse wheel moves them a row, and the arrow keys bring the chosen slot's row into view.",
+    "On every screen tried so far a bag of 12 fits, so you won't see it yet: it switches on by itself only where the slots don't fit.",
+    "Decisions: D-1011. B-014's bag card half fixed.",
+  ] },
   { v: '0.3.446', date: '2026-11-21', title: 'Cards on the smallest phones', lines: [
     "On a small phone held upright, the stash chest's DECONSTRUCT and STORE buttons now stand at the top of its card, beside the close button, in place of the words STASH CHEST, so the bag's slots no longer lie over them. On every other screen the card is as before.",
     "The chosen stack's name on that card no longer runs below its edge.",

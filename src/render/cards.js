@@ -40,6 +40,8 @@ import { tileAt } from '../core/room.js';
 import { shownSeed, canGoBack } from '../core/explorer.js';
 import { playing, slotName } from '../core/profile.js';
 import { shopOf, newShop } from '../core/feats.js';
+import { bagWindow, drawBagBar } from './bagscroll.js';
+import { stepScroll } from './scroll.js';
 import { cloakOf, eyesOf, trimOf, clothesOf, lampOf, headOf } from '../core/looks.js';
 import { PAUSE_MENU, pauseFacts, stationMakes, stationTitle, STATION_NONE, SURE_MENU, ENDED_MENU, ENDED_HEADING } from '../core/menu.js';
 
@@ -128,7 +130,10 @@ export function createCards(app, ui) {
       else if (app.screen === 'map') drawMap(hc, view.w, view.h, app.view, t, still(), screens.turns()); // a card on the room (D-395)
       else if (app.screen === 'bag') {
         const entry = get(state.bag[app.chosen]?.id), refill = refills(state, entry), sips = draughtTurns(state, entry);
-        drawBag(hc, view.w, view.h, state.bag, app.chosen, kitOf(state), kitRow(state), state.health >= maxHealth(state), state.told, bagSize(state), chestsNear(state).length > 0, t, still(), state.poisoned > 0, makesOf(state, app.chosen), canSleepOut(state), refill, sips); // hearts or oil, or a draught's turns, now and after (D-908, D-909) // a card on the room (D-385), its STORE with a chest in reach (D-558)
+        const win = bagWindow(view.w, view.h, bagSize(state)), sc = app.bagScroll; // its slots' window, gliding on (D-1011)
+        if (sc) stepScroll(sc, t, win.max, win.pitch);
+        drawBag(hc, view.w, view.h, state.bag, app.chosen, kitOf(state), kitRow(state), state.health >= maxHealth(state), state.told, bagSize(state), chestsNear(state).length > 0, t, still(), state.poisoned > 0, makesOf(state, app.chosen), canSleepOut(state), refill, sips, { win, y: sc?.y ?? 0 }); // hearts or oil, or a draught's turns, now and after (D-908, D-909) // a card on the room (D-385), its STORE with a chest in reach (D-558)
+        drawBagBar(hc, win, sc?.y ?? 0, sc?.lit ?? 0);
         if (!hidesPicture(entry, state.line, refill, sips)) textLine.draw(hc, line, t, still()); // over the card, so a line said in the bag shows ("Only on the surface."); not the chosen find's look line over its "Now" picture (H-69)
       }
       else if (app.screen === 'make') {

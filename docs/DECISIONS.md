@@ -169,3 +169,20 @@ the arrow pad and the corner buttons hidden while talking (the owner's
 idea); sideways the words stand left and the answers right, so it stays
 low under the hero. Offered too: a card in the middle; one-word buttons.
 D-1007 and D-1008 move to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-1011 · 2026-11-21 · Grids that scroll, first the bag's** (the owner's
+picks, from a mock-up they tried; B-014, the bag card's half) Any grid of
+squares with pictures (the bag, a chest, the peddler's wares) may scroll
+on its own when it doesn't fit its card. The peddler keeps its Sell and
+Buy tabs (offered too: his wares and the bag side by side). A flick
+glides on and slows; it settles with whole rows showing, a gentle snap
+(offered too: no snap); a thin bar beside the slots shows only when there
+is more to see, gold while it moves, and can be dragged. A drag past an
+end gives a little and springs back; a touch on a gliding grid only stops
+it; a sideways swipe still moves the gold frame; the wheel moves a row a
+notch, and an arrow or a tap keeps the chosen row in view. First the bag
+card: upright, its window ends where the chosen find's name and count fit
+above DROP; sideways, at the card's foot. Every screen measured fits a
+12-slot bag, so it shows nowhere today; kept, switched on by itself
+when a grid outgrows its card (offered too: always show fewer rows; park
+it). The chest's card and the peddler's come next.

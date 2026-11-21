@@ -279,6 +279,9 @@ export function createScreens(app, ui) {
   const onPoint = (px, py, held) => { cards[app.screen]?.tap(px, py, held); };
   // The mouse wheel, by > 0 down: true where the card used it (the look card's choices, D-701)
   const onWheel = (by) => !!cards[app.screen]?.wheel?.(by);
+  // A press that may drag the open card's scrolling grid, and the drag itself (D-1011)
+  const grabs = (x, y) => !!cards[app.screen]?.grabs?.(x, y);
+  const onScroll = (phase, x, y, t) => !!cards[app.screen]?.scroll?.(phase, x, y, t);
 
   // § chip: the profile in play on the title, its name and deepest depth (D-401)
   const chip = () => chipOf(slotName(inPlay(app.profiles), app.profiles.current), inPlay(app.profiles).records.deepest);
@@ -287,5 +290,5 @@ export function createScreens(app, ui) {
 
   // § journey ends: a Hardcore fall's page, Same world picked (MO2, D-344)
   const endJourney = () => show('ended');
-  return { turnBagTab, turnBenchTab, turnSettingsTab, show, endJourney, onWheel, openSleepOut, openQuests, openSlots, slotsBack, openPanel, openTrade, openTravel, openBoons, openStrike, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, space, onMapScreen, onTitle, menuOf, askOf, turns, chip };
+  return { turnBagTab, turnBenchTab, turnSettingsTab, show, endJourney, onWheel, grabs, onScroll, openSleepOut, openQuests, openSlots, slotsBack, openPanel, openTrade, openTravel, openBoons, openStrike, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, space, onMapScreen, onTitle, menuOf, askOf, turns, chip };
 }
