@@ -51,7 +51,7 @@ owner's wish list in `RESEARCH.md`.
 ## Log (last 3)
 - **2026-11-21, 0.3.449, The peddler's grid scrolls.** As the bag's and
   the chest's, where his slots don't fit, ending where the price still
-  fits; D-1011 done. D-1013. Playtest: PLAYTEST
+  fits; D-1011 done. D-1013. Playtest: https://claude.ai/artifact/CXbzgkS8tf4nRjuEMrCTbD
 - **2026-11-21, 0.3.448, The chest card's bag slots scroll.** As the bag
   card's, where they don't fit, ending where the name still fits; B-014
   fixed. D-1012. Playtest: https://claude.ai/artifact/64gD5HFTMrDt3huXYspbPR
