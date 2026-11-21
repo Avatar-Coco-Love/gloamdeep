@@ -117,31 +117,6 @@ chapter 1 is done; 8.15 and 8.16 at 0.4.0, with 8.06's count. The
 privacy page says nothing is sent; play notes only if decided later
 (7.11, D-993). Music is new from chapter 2 only (8.11, D-837 to D-841).
 
-**D-1010 · 2026-11-21 · Cards on the smallest phones, and the talk card**
-(the owner's picks, all recommended but the talk card's foot, the owner's
-own; 6.06, 6.07, B-013) 6.06 (the text line never covers the hero) was
-already built at 0.3.427 (D-988), checked again in play: ticked. 6.07:
-every card's buttons are measured at the smallest phones' views, 176 ×
-264 upright (320 × 480 CSS px) and 312 × 176 sideways (320 × 568), and
-at 176 × 221 (a small PC window), each a 22 game px tap; a test keeps it
-so. Only the stash chest's card failed: upright on a short card the bag's
-slots ran over DECONSTRUCT, and STORE with a bigger bag. There, and only
-there, both stand in the title strip in place of STASH CHEST,
-DECONSTRUCT at the left and STORE beside the round cross, as the bag
-card's STORE (D-558); and its chosen stack's name, like its hint (B-012),
-is left out where it would pass the card's foot. Offered too: smaller
-slots there; leave it. The bag card at 176 × 221 with a 9 or 12 slot
-bag is too short for its slots, buttons and words: B-014, a later step
-(offered too: squeeze the gaps; scroll). Dialogue with choices (5.04,
-"Talking with the spark") will use a talk card in the pixel font (D-031):
-low on the screen, the speaker's name in ember, at most three rows of
-words a page, then the answers as whole sentences on tall lines, the
-chosen one gold with the menus' flame. It reaches the screen's foot,
-the arrow pad and the corner buttons hidden while talking (the owner's
-idea); sideways the words stand left and the answers right, so it stays
-low under the hero. Offered too: a card in the middle; one-word buttons.
-D-1007 and D-1008 move to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-1011 · 2026-11-21 · Grids that scroll, first the bag's** (the owner's
 picks, from a mock-up they tried; B-014, the bag card's half) Any grid of
 squares with pictures (the bag, a chest, the peddler's wares) may scroll
@@ -181,4 +156,21 @@ Claude's calls: one scroll for both tabs, the grid the bag's shape on
 each (D-548); picking a ware or a slot brings its row into view; it
 switches on only on a short upright window (176 × 264 and smaller), so
 on every phone measured the card looks as before. D-1009 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-1014 · 2026-11-21 · The Lampeater's end, a cutscene** (the owner's
+picks, both recommended, from a [page of sketches](https://claude.ai/artifact/BxhPDkuCvmqHcqT2KexMwM);
+the Lampeater's polish, roadmap Now step 1) The first time on a journey
+the Lampeater is beaten, a cutscene of about 3 s, as the way in's (D-957):
+the black bars slide in and the controls fade as the camera glides from
+the hero to where it fell; its eyes flare one last time; its body sinks
+and fades as its gloamlings and wisps crumble; Leap's find shows where it
+fell; then back out to the hero, and its line, "The Lampeater fades.
+Something glows." (offered too: the door sinking open; a brazier going out
+at each phase; a longer way in showing its brood; every time). No skip,
+no sound, the shots cut with reduced motion. Claude's calls: about 3 s;
+on a later beating, none; `fadeSeen` marks it seen, a save during it never
+plays it again; the "+" of experience waits for its end. The owner's idea,
+kept for later (`RESEARCH-2.md`): a rematch, something in the arena the
+hero goes up to and asks for a harder Lampeater. D-1010 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.

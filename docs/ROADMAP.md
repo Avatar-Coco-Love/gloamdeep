@@ -17,7 +17,8 @@ first-hour goals (6.04). A gentler first mole, not none (6.05).
 
 ## Now: finish chapter 1, reach 0.4.0 (in this order, 8.01)
 1. The Lampeater's polish (D-992, D-994), with 3.04 Lure wisps that show
-   where it lurks (S, D-939, not built yet)
+   where it lurks (S, D-939), built, 0.3.438 (D-1002); its end's
+   cutscene, 0.3.450 (D-1014)
 2. 1.01 The first tank, drafted (S): step 27 (D-991); built, the Bladder
    Tank, 0.3.441 (D-1005)
 3. 1.05 The hero at the Lampeater's door (S), then tune the boss

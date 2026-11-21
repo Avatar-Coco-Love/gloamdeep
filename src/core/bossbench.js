@@ -2,7 +2,7 @@
 // way in, on depth 8, so the first step up seals it behind them (D-958), the arena as it begins (the Lampeater whole, the braziers cold), carrying one
 // of three rough builds of what a player has by then. `half` starts it at half its hearts (6 of 12) with
 // 3 braziers lit, its first phase counted done (D-978), for the second half of the fight. No turn passes and
-// nothing is spent; pressed again it starts over, the cutscene unseen again (`sealSeen`, D-958). tools/bossrun.js starts here.
+// nothing is spent; pressed again it starts over, the cutscenes unseen again (`sealSeen`, D-958; `fadeSeen`, D-1014). tools/bossrun.js starts here.
 // `below` starts it lower, for the whole way up (D-960): the dev sheet's Boss tab and the playtest's #lampeater link put the
 // hero in the room before the hallway, one tile below its way into it, that room's creatures gone, the hallway fresh and the
 // arena kept as above, waiting. Plain data, no drawing.
@@ -43,7 +43,7 @@ export function bench(state, id = 'middling', half = false, below = false) {
   }
   if (state.place === place) away.place = 'bench'; // standing in it already: left as if from elsewhere
   const bag = Object.entries(b.bag).reduce((acc, [item, n]) => { for (let k = 0; k < n; k++) acc = bagAdd(acc, item); return acc; }, []);
-  const kit = { ...away, sealSeen: false, held: b.held, tool: null, worn: b.armour ? { armour: [b.armour] } : {}, grown: { ...b.grown }, bag, oil: OIL.start, lit: true, boon: null, poisoned: null, ward: null, glow: null, shade: null, spitproof: null };
+  const kit = { ...away, sealSeen: false, fadeSeen: false, held: b.held, tool: null, worn: b.armour ? { armour: [b.armour] } : {}, grown: { ...b.grown }, bag, oil: OIL.start, lit: true, boon: null, poisoned: null, ward: null, glow: null, shade: null, spitproof: null };
   let out;
   if (below) {
     // The room before the hallway, straight below it, and the tile just inside its way up into it (region.js, D-940)

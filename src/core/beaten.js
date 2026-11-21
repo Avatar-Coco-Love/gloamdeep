@@ -68,10 +68,11 @@ export function openWayIn(place, seed, room, enemies) {
 
 // § beaten (D-953, D-992): (state) → the state with each gloamling left crumbled away, once the
 // Lampeater is beaten this action; its `sure` find, Leap's, lies where it fell (enemies.js), and the
-// door stays sealed till that is taken and its card closed (doorAfterLeap); else the same state
+// door stays sealed till that is taken and its card closed (doorAfterLeap); else the same state.
+// Its `fade` event's `first`, the first time on this journey (`fadeSeen`), plays its end (D-1014)
 export function lampeaterBeaten(state) {
   if (!inArena(state) || state.enemies.some((e) => e.id === BOSS) || !state.events.some((e) => e.type === 'beat' && e.id === BOSS)) return state;
-  return { ...state, enemies: state.enemies.filter((e) => !e.ash) };
+  return note({ ...state, enemies: state.enemies.filter((e) => !e.ash), fadeSeen: true }, 'fade', { id: BOSS, first: !state.fadeSeen }); // its end's cutscene the first time on a journey (D-1014)
 }
 
 // § the door after Leap (D-971, D-992): (state) → in the arena with the Lampeater beaten and Leap

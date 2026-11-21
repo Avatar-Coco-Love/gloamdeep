@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-21, 0.3.447, The bag's slots scroll.** Where they don't fit,
+  they glide, snap gently to whole rows and show a thin bar; no screen
+  needs it yet. D-1011. Playtest: https://claude.ai/artifact/1DSG6R1giA9X9cWtsv8k9B
 - **2026-11-21, 0.3.446, Cards on the smallest phones.** The stash chest's
   buttons rise to its title strip on a small upright phone; 6.06 ticked;
   the talk card planned. D-1010. Playtest: https://claude.ai/artifact/JsEyTahYGhKa35Ums7dago

@@ -387,10 +387,10 @@ const HOT_EYES = { lampeater: spriteCanvas({ ...LAMPEATER, rows: LAMPEATER.rows.
 function drawFlare(c, e, p, up, swell) {
   const body = SPRITES[e.id], w = body.width, h = Math.round(body.height * (1 + FLARE.tall * swell));
   const x = Math.round(p.x * 16), foot = Math.round(p.y * 16) - 2 + 15 - lowest(body) + body.height;
-  c.save();
-  c.globalAlpha = FLARE.body * up; c.drawImage(body, x, foot - h, w, h);
-  c.globalAlpha = 1; c.drawImage(GLOW_EYES[e.id], x, foot - h, w, h);
-  c.globalAlpha = up; c.drawImage(HOT_EYES[e.id], x, foot - h, w, h);
+  c.save(); const a = c.globalAlpha; // as faint as it is drawn, in its end (D-1014)
+  c.globalAlpha = a * FLARE.body * up; c.drawImage(body, x, foot - h, w, h);
+  c.globalAlpha = a; c.drawImage(GLOW_EYES[e.id], x, foot - h, w, h);
+  c.globalAlpha = a * up; c.drawImage(HOT_EYES[e.id], x, foot - h, w, h);
   c.restore();
 }
 // § drinking (D-946): one `drinking` at the light's edge, a thread of light from the middle of the lit

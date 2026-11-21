@@ -24,6 +24,18 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.450 (2026-11-21)
+- The Lampeater has a cutscene for its end. The first time on a journey
+  you beat it, the black bars slide in and the camera glides to where it
+  fell. Its eyes flare one last time, its body sinks and fades as its
+  gloamlings and wisps crumble, and Leap's gold mark shows where it fell.
+  Then the camera goes back to you, about 3 seconds in all, with "The
+  Lampeater fades. Something glows." As with the way in's cutscene,
+  nothing can be skipped or pressed while it plays, and with reduced
+  motion the shots cut instead of gliding. The experience you earn shows
+  over you once it ends.
+- Decisions: D-1014.
+
 ## 0.3.449 (2026-11-21)
 - On the peddler's card, his grid scrolls too when its slots don't all
   fit, the same way as the bag and the stash chest: drag or flick them,
@@ -42,13 +54,3 @@ Entry format:
 - Only a very short upright window needs it; on every phone tried the
   card looks as before.
 - Decisions: D-1012. B-014 fixed.
-
-## 0.3.447 (2026-11-21)
-- The bag's slots can scroll now, when they don't all fit on the card: drag
-  them, or flick them and they glide, slow and come to rest with whole rows
-  showing. A thin bar beside them shows where you are, gold while they
-  move, and can be dragged too. The mouse wheel moves them a row, and the
-  arrow keys bring the chosen slot's row into view.
-- On every screen tried so far a bag of 12 fits, so you won't see it yet:
-  it switches on by itself only where the slots don't fit.
-- Decisions: D-1011. B-014's bag card half fixed.

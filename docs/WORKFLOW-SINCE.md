@@ -49,3 +49,6 @@ line here (D-741). Each audit moves the lines into the right sections.
   sizes and read the view it gives: the bag's scroll was built for 176 ×
   264, which no window tried gives (all were 300 or more tall), so it
   shows nowhere yet; the owner kept it (0.3.447).
+- When the owner wants examples before giving their own ideas, a page of
+  looping sketches built only from decided pieces lets them pick fast;
+  they chose one of four at once (0.3.450).

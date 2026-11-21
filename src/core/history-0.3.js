@@ -6,6 +6,10 @@
 // tools/release.js once a newer version is in (D-982); stage 0.2's are in history-0.2.js and its split
 // files.
 export const HISTORY_03 = [
+  { v: '0.3.450', date: '2026-11-21', title: 'The Lampeater\'s end, a cutscene', lines: [
+    "The Lampeater has a cutscene for its end. The first time on a journey you beat it, the black bars slide in and the camera glides to where it fell. Its eyes flare one last time, its body sinks and fades as its gloamlings and wisps crumble, and Leap's gold mark shows where it fell. Then the camera goes back to you, about 3 seconds in all, with \"The Lampeater fades. Something glows.\" As with the way in's cutscene, nothing can be skipped or pressed while it plays, and with reduced motion the shots cut instead of gliding. The experience you earn shows over you once it ends.",
+    "Decisions: D-1014.",
+  ] },
   { v: '0.3.449', date: '2026-11-21', title: 'The peddler\'s grid scrolls', lines: [
     "On the peddler's card, his grid scrolls too when its slots don't all fit, the same way as the bag and the stash chest: drag or flick them, use the wheel or the arrows, or drag the thin bar beside them. Upright, they stop where the chosen thing's name, count and price still fit above SELL or BUY.",
     "Only a very short upright window needs it; on every phone tried the card looks as before.",
