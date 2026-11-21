@@ -51,6 +51,8 @@ export const HOME_LINES = {
   peddlerLeaving: { text: '"Thank you! I\'ll head for the surface."', warn: false, kind: 'speech' }, // the turns up, he goes home (D-496); the old freed line, drafted for the playtest
   peddlerGreets: { text: '"There you are, friend! Welcome!"', warn: false, kind: 'speech' }, // at home, the hero first within 2 tiles (D-496), drafted for the playtest
   peddlerHome: { texts: ['"You dug me out. I won\'t forget it."', '"Home at last. My legs still shake."'], warn: false, kind: 'speech' }, // at home in the woods (D-492), drafted for the playtest; "I'll have wares soon" dropped, as he sells at home (D-684)
+  peddlerGift: { text: '"A gift, friend: a Homestone!"', warn: false, kind: 'speech' }, // his first bump at home with room: a Homestone (D-1016), Claude's draft
+  peddlerGiftWaits: { text: '"Make room, friend. I have a gift."', warn: false, kind: 'speech' }, // the same, no room: kept for a later bump (D-1016), Claude's draft
   rubbleDig: { text: 'You pull rocks off the heap.', warn: false }, // rubble with no one behind it, the first bump (D-491), drafted
   rubbleShift: { text: 'The heap shifts.', warn: false }, // the second
   rubbleClear: { text: 'The rubble falls away.', warn: false }, // the third: cleared, nothing taken

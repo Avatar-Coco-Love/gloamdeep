@@ -265,7 +265,7 @@ function tryStep(dir) {
   else if (dir.feed !== undefined) app.state = feed(app.state, dir.feed.x, dir.feed.y); // guano on the sprout, one turn (D-569)
   else if (dir.sleepOut) app.state = sleepOut(app.state); // the moon button's Yes: until morning, no bed (D-758)
   else if (dir.take !== undefined) app.state = takeDown(app.state, dir.take.x, dir.take.y); // the bench or an empty stash chest back into the bag, one turn (WB3, D-323; CH5)
-  else if (buyerAt(before, before.hero.x + DIRS[dir][0], before.hero.y + DIRS[dir][1])) { app.state = step(app.state, dir); screens.openTrade(); return; } // bumping the peddler at home: his line and his card, free (D-494)
+  else if (buyerAt(before, before.hero.x + DIRS[dir][0], before.hero.y + DIRS[dir][1])) { const was = app.state; app.state = step(app.state, dir); if (!has(eventsSince(was, app.state), 'take')) screens.openTrade(); return; } // bumping the peddler at home: his line and his card, free (D-494); his gift given, the card shut that bump (D-1016)
   else if (campAsks(before, dir)) { screens.openSleepOut(); return; } // a set-down bedroll from dusk asks Sleep here until morning?, free (D-804)
   else if (panelBeside(before, dir)) { const at = panelBeside(before, dir), says = roomTileAt(app.state.room, at.x, at.y).says; if (says) app.state = say(app.state, says); screens.openPanel(at); return; } // bumping the bench or a stash chest opens its panel, free (WB3, CH3); a tile's `says` line with it, cold ashes' (D-757)
   else {

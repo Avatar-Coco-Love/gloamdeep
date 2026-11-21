@@ -24,6 +24,15 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.452 (2026-11-21)
+- New: the Peddler's gift. Home on the surface, the first time you bump
+  him with room in your bag, he gives you a Homestone, free. His card
+  stays shut that time; your next bump opens it.
+- With a full bag, or 3 Homestones already carried, he says he has a
+  gift and his card opens as ever. He keeps it for a later bump when you
+  have room.
+- Decisions: D-1016.
+
 ## 0.3.451 (2026-11-21)
 - New: the Homestone, a way home. Once the home waystone is woken, the
   workbench's GEAR tab makes one from 5 Duskstar and 5 Stone. USE it in
@@ -44,13 +53,3 @@ Entry format:
   motion the shots cut instead of gliding. The experience you earn shows
   over you once it ends.
 - Decisions: D-1014.
-
-## 0.3.449 (2026-11-21)
-- On the peddler's card, his grid scrolls too when its slots don't all
-  fit, the same way as the bag and the stash chest: drag or flick them,
-  use the wheel or the arrows, or drag the thin bar beside them. Upright,
-  they stop where the chosen thing's name, count and price still fit
-  above SELL or BUY.
-- Only a very short upright window needs it; on every phone tried the
-  card looks as before.
-- Decisions: D-1013.
