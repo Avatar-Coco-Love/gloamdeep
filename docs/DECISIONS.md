@@ -117,16 +117,6 @@ chapter 1 is done; 8.15 and 8.16 at 0.4.0, with 8.06's count. The
 privacy page says nothing is sent; play notes only if decided later
 (7.11, D-993). Music is new from chapter 2 only (8.11, D-837 to D-841).
 
-**D-1009 · 2026-11-20 · A gentler first mole** (the owner's picks, all
-recommended; 6.05, D-999; H-71's ruling again; supersedes D-986) Every
-woods mole by day on the surface has 2 hearts, not 4: 2 lantern swings or
-1 knife blow. From depth 5 down the mole keeps its 4 (D-541). The start
-room has its mole on a journey's first day again, as D-781 had it.
-Offered too: 3 hearts or 1; gentler on the first day only; keep no mole on
-day 1. Claude's calls: the number lives in the mole's registry entry
-(`dayHealth`), its name tag counts 2 of 2, and its Bestiary words add "a
-woods mole by day, half that" (a draft, the owner may change it).
-
 **D-1010 · 2026-11-21 · Cards on the smallest phones, and the talk card**
 (the owner's picks, all recommended but the talk card's foot, the owner's
 own; 6.06, 6.07, B-013) 6.06 (the text line never covers the hero) was
@@ -179,4 +169,16 @@ raised to the title strip (D-1010), upright on a small window; the
 chest's own 12 slots fit every screen, so they don't scroll; at least one
 row always shows; the scroll's handling moved to one helper the bag card
 shares, ready for the peddler's. D-1006 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-1013 · 2026-11-21 · The peddler's grid scrolls** (the owner's pick,
+recommended; D-1011's last step) On the peddler's card, where the grid's
+slots don't all fit, they scroll as the bag card's do. Upright, the window
+ends where the chosen thing's name, its "carried" line and the price line
+still fit above SELL or BUY (offered too: as the bag card, the name and
+count only; down to the card's foot). Sideways, at the card's foot.
+Claude's calls: one scroll for both tabs, the grid the bag's shape on
+each (D-548); picking a ware or a slot brings its row into view; it
+switches on only on a short upright window (176 × 264 and smaller), so
+on every phone measured the card looks as before. D-1009 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.

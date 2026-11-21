@@ -24,6 +24,16 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.449 (2026-11-21)
+- On the peddler's card, his grid scrolls too when its slots don't all
+  fit, the same way as the bag and the stash chest: drag or flick them,
+  use the wheel or the arrows, or drag the thin bar beside them. Upright,
+  they stop where the chosen thing's name, count and price still fit
+  above SELL or BUY.
+- Only a very short upright window needs it; on every phone tried the
+  card looks as before.
+- Decisions: D-1013.
+
 ## 0.3.448 (2026-11-21)
 - On the stash chest's card, the bag's slots scroll too when they don't
   all fit, the same way as on the bag card: drag or flick them, use the
@@ -42,15 +52,3 @@ Entry format:
 - On every screen tried so far a bag of 12 fits, so you won't see it yet:
   it switches on by itself only where the slots don't fit.
 - Decisions: D-1011. B-014's bag card half fixed.
-
-## 0.3.446 (2026-11-21)
-- On a small phone held upright, the stash chest's DECONSTRUCT and STORE
-  buttons now stand at the top of its card, beside the close button, in
-  place of the words STASH CHEST, so the bag's slots no longer lie over
-  them. On every other screen the card is as before.
-- The chosen stack's name on that card no longer runs below its edge.
-- Behind the scenes: every card's buttons are checked on the smallest
-  phones' screens, and the text line's step (it never covers the hero)
-  is ticked, built back at 0.3.427. The plan for talking with choices is
-  set: a card low on the screen, in the game's own letters.
-- Decisions: D-1010.

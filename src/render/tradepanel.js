@@ -8,10 +8,12 @@
 // D-916: on both tabs, left out where it and the price line would reach the button), and what he pays for one, or that he doesn't buy it, or what one costs and,
 // when it can't be bought, why; SELL or BUY in the bottom right corner, dim when it can't.
 // A tap picks a slot or turns a tab, so a stray one never sells or buys; the button, Enter
-// or Space sell or buy one; the cross closes it.
+// or Space sell or buy one; the cross closes it. Where the grid's slots don't all fit, they
+// show through a window that scrolls (tradescroll.js, D-1011, D-1013).
 import { drawText, textWidth } from './font.js';
 import { drawMarker } from './menu.js';
-import { bagShape, cardAt, drawCard, drawSlot, drawButton, frame, slotAt, gridAt, inCard, onCross, wrapWords, detailAt, BUTTON, PAD, LINE_H, TAP_PAD, onButton } from './bag.js';
+import { bagShape, cardAt, drawCard, drawSlot, drawButton, frame, slotAt, gridAt, inCard, onCross, wrapWords, detailAt, BUTTON, PAD, LINE_H, TAP_PAD, onButton, SLOT_GAP } from './bag.js';
+import { TRADE_TOP } from './tradescroll.js';
 import { bagSize, carried } from '../core/bag.js';
 import { coins, priceOf, priceWords, wares, cantBuy, costWords } from '../core/trade.js';
 import { get } from '../core/registry.js';
@@ -32,12 +34,14 @@ function tabXs(card) {
 
 // What a tap at x, y on the room's canvas, `vw` × `vh`, picks: { slot: i } for a slot of the
 // open tab's grid, { tab } for a tab, 'act' (Sell or Buy), 'close' (the round cross), or null;
-// outside the card, 'out'. tab: the one open; size: the bag's slots, its grid's shape on both tabs (D-548)
-export function tradeAt(x, y, vw, vh, tab = 'sell', size = 6) {
+// outside the card, 'out'. tab: the one open; size: the bag's slots, its grid's shape on both tabs (D-548);
+// win and sy: the grid's window (tradescroll.js) and how far it is scrolled; only a slot showing is picked
+export function tradeAt(x, y, vw, vh, tab = 'sell', size = 6, win = null, sy = 0) {
   const shape = bagShape(size), card = cardAt(vw, vh, shape.detail), b = card.button;
   if (!inCard(card, x, y)) return 'out';
   if (onCross(card, x, y)) return 'close';
-  const i = gridAt(card, x, y, undefined, shape.cols, tab === 'buy' ? wares().length : size, undefined, shape.slot);
+  const half = SLOT_GAP / 2, inWin = y >= card.y + TRADE_TOP - half && y < card.y + TRADE_TOP + (win ? win.h : shape.h) + half;
+  const i = inWin ? gridAt(card, x, y + (win?.max ? sy : 0), undefined, shape.cols, tab === 'buy' ? wares().length : size, undefined, shape.slot) : -1;
   if (i >= 0) return { slot: i };
   if (onButton(b, BUTTON.w, x, y)) return 'act';
   const xs = tabXs(card);
@@ -47,9 +51,11 @@ export function tradeAt(x, y, vw, vh, tab = 'sell', size = 6) {
 
 // c: the room's canvas, `vw` × `vh`; state: the game's, for its bag and coins; chosen: a slot
 // of the open tab's grid, or -1 for the tabs; spriteOf: a slot's sprite (sprites.js); tab: the
-// one open; t and still: the flame's time and prefers-reduced-motion
-export function drawTradePanel(c, vw, vh, state, chosen, spriteOf, tab = 'sell', t = 0, still = true) {
-  const shape = bagShape(bagSize(state)), card = drawCard(c, vw, vh, 'PEDDLER', shape.split, true, shape.tallSplit), { x, y, w } = card, { bag } = state, xs = tabXs(card), buying = tab === 'buy';
+// one open; t and still: the flame's time and prefers-reduced-motion; scroll: { win, y }, the
+// grid's window (tradescroll.js) and how far it is scrolled (D-1013)
+export function drawTradePanel(c, vw, vh, state, chosen, spriteOf, tab = 'sell', t = 0, still = true, scroll = null) {
+  const shape = bagShape(bagSize(state)), win = scroll?.win, wh = win ? win.h : shape.h, tallSplit = TRADE_TOP + wh + 12; // upright, the line under the window
+  const card = drawCard(c, vw, vh, 'PEDDLER', shape.split, true, tallSplit), { x, y, w } = card, { bag } = state, xs = tabXs(card), buying = tab === 'buy';
   TABS.forEach((s, i) => {
     if (s.id !== tab) { drawText(c, s.text, xs[i], y + TABS_Y, GREY); return; }
     drawText(c, s.text, xs[i], y + TABS_Y, GOLD);
@@ -60,11 +66,15 @@ export function drawTradePanel(c, vw, vh, state, chosen, spriteOf, tab = 'sell',
   drawText(c, 'COINS', x + PAD, y + COINS_Y, GREY);
   drawText(c, String(coins(state)), x + PAD + textWidth('COINS') + 6, y + COINS_Y, GOLD);
   const shown = buying ? wares().map((w) => ({ id: w.id, n: 1 })) : bag;
-  for (let i = 0; i < shape.size; i++) { const s = slotAt(card, i, undefined, shape.cols, undefined, shape.slot); drawSlot(c, s.x, s.y, shown[i], i === chosen, spriteOf, shape.slot); }
+  const wy = y + TRADE_TOP, oy = win?.max ? Math.round(scroll.y) : 0; // through its window (D-1013)
+  c.save();
+  if (win?.max) { c.beginPath(); c.rect(x + PAD - 1, wy, shape.w + 2, wh); c.clip(); }
+  for (let i = 0; i < shape.size; i++) { const s = slotAt(card, i, undefined, shape.cols, undefined, shape.slot), sy = s.y - oy; if (sy < wy + wh && sy + shape.slot > wy) drawSlot(c, s.x, sy, shown[i], i === chosen, spriteOf, shape.slot); }
+  c.restore();
   const picked = shown[chosen];
   drawButton(c, card.button.x, card.button.y, buying ? 'BUY' : 'SELL', buying ? !!cantBuy(state, chosen) : !(picked && priceOf(picked.id)));
   if (!picked) return;
-  const { dx, dy } = detailAt(card, vw, vh, shape.detail, undefined, shape.tallSplit), dw = x + w - PAD - dx; // upright, under the slots (D-505)
+  const { dx, dy } = detailAt(card, vw, vh, shape.detail, undefined, tallSplit), dw = x + w - PAD - dx; // upright, under the slots (D-505)
   drawText(c, get(picked.id).name, dx, dy, CORE);
   drawText(c, `${buying ? carried(bag, picked.id) : picked.n} carried`, dx, dy + LINE_H, GREY);
   const entry = get(picked.id), rows = tradeNumbers(picked.id), lines = wrapWords(buying ? costWords(state, chosen) : priceWords(picked.id), dw);

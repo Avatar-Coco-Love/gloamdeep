@@ -34,6 +34,8 @@ const { drawChestPanel } = await import(R + 'render/chestpanel.js');
 const { CHEST_BAG } = await import(R + 'core/chest.js');
 const { drawTradePanel } = await import(R + 'render/tradepanel.js');
 const { wares } = await import(R + 'core/trade.js');
+const { tradeWindow } = await import(R + 'render/tradescroll.js');
+const { bagSize } = await import(R + 'core/bag.js');
 const { drawBoons, boonsLayout } = await import(R + 'render/boons.js');
 const H = await import(R + 'render/history.js');
 const { HISTORY, loadHistory } = await import(R + 'core/history.js');
@@ -119,9 +121,10 @@ test("the peddler's card fits with every thing chosen, its pictures too, on Sell
     const card = B.cardAt(vw, vh, B.bagShape(size).detail), L = `${vw}×${vh} trade ${size}`;
     for (const id of Object.keys(ITEMS)) {
       const state = { bag: [{ id, n: 99 }], coins: 1, health: 2, oil: 0.3, boon: null, grown: {}, held: 'knife', bagSlots: size };
-      bad.push(...fits(`${L} sell ${id}`, card, () => drawTradePanel(any, vw, vh, state, 0, spriteOf, 'sell', 0, true)));
+      bad.push(...fits(`${L} sell ${id}`, card, () => drawTradePanel(any, vw, vh, state, 0, spriteOf, 'sell', 0, true, { win: tradeWindow(vw, vh, size), y: 0 })));
     }
-    wares().forEach((w, i) => bad.push(...fits(`${L} buy ${w.id}`, card, () => drawTradePanel(any, vw, vh, { bag: [], coins: 0, health: 2, oil: 0.3, boon: null, grown: {}, held: null }, i, spriteOf, 'buy', 0, true))));
+    const buyer = { bag: [], coins: 0, health: 2, oil: 0.3, boon: null, grown: {}, held: null };
+    wares().forEach((w, i) => bad.push(...fits(`${L} buy ${w.id}`, card, () => drawTradePanel(any, vw, vh, buyer, i, spriteOf, 'buy', 0, true, { win: tradeWindow(vw, vh, bagSize(buyer)), y: 0 }))));
   }
   none(bad);
 });

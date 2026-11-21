@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-21, 0.3.446, Cards on the smallest phones.** The stash chest's
+  buttons rise to its title strip on a small upright phone; 6.06 ticked;
+  the talk card planned. D-1010. Playtest: https://claude.ai/artifact/JsEyTahYGhKa35Ums7dago
 - **2026-11-20, 0.3.445, A gentler first mole.** The woods moles by day
   have 2 hearts, not 4, and the start room has one on day 1 again. D-1009.
   Playtest: https://claude.ai/artifact/RqEeVvH2uP6c43qxGMDc9o

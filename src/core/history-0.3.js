@@ -6,6 +6,11 @@
 // tools/release.js once a newer version is in (D-982); stage 0.2's are in history-0.2.js and its split
 // files.
 export const HISTORY_03 = [
+  { v: '0.3.449', date: '2026-11-21', title: 'The peddler\'s grid scrolls', lines: [
+    "On the peddler's card, his grid scrolls too when its slots don't all fit, the same way as the bag and the stash chest: drag or flick them, use the wheel or the arrows, or drag the thin bar beside them. Upright, they stop where the chosen thing's name, count and price still fit above SELL or BUY.",
+    "Only a very short upright window needs it; on every phone tried the card looks as before.",
+    "Decisions: D-1013.",
+  ] },
   { v: '0.3.448', date: '2026-11-21', title: 'The chest card\'s bag slots scroll', lines: [
     "On the stash chest's card, the bag's slots scroll too when they don't all fit, the same way as on the bag card: drag or flick them, use the wheel or the arrows, or drag the thin bar beside them. They stop where the chosen find's name and count still fit below.",
     "Only a very short upright window needs it; on every phone tried the card looks as before.",
