@@ -50,6 +50,8 @@ at 0.3.245 (D-797), as that page neared 8 KB.
   plate; woken, its rune is lit violet (D-589, D-591). Others sleep at the
   top of each band of floors, depths 2, 5 and 8, then every 4th depth,
   12, 16, 20… (D-579, D-592, D-594). On a woken plate, the travel card goes to another (D-593).
+  Each takes its place's look: mossy stones at home, grey boulders in the
+  cave, rooted earth stones in the warren, obelisks in the dungeon (D-1021).
 - **Homestone:** a chip of waystone, made at the workbench once the home
   waystone is woken; USE, in the bag, carries the hero onto the home plate,
   one way, used up, barred with a creature near; at most 3 carried (D-1015).

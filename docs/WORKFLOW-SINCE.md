@@ -60,3 +60,7 @@ line here (D-741). Each audit moves the lines into the right sections.
   public one with tips by setup, not by person. Asked how long it really
   had to be, the honest answer (2 pages, a third if wanted) kept it short
   (0.3.455).
+- A big wish (looks plus an effect) became two steps by asking the order
+  first; the looks' mock-up was the real game with the draft drawing swapped
+  in, and a first try that read as a chest was redrawn before the owner saw
+  it, so every pick was the draft (0.3.457).

@@ -117,21 +117,6 @@ chapter 1 is done; 8.15 and 8.16 at 0.4.0, with 8.06's count. The
 privacy page says nothing is sent; play notes only if decided later
 (7.11, D-993). Music is new from chapter 2 only (8.11, D-837 to D-841).
 
-**D-1016 · 2026-11-21 · The Peddler's gift** (the owner's idea and
-picks, all recommended) Home on the surface, the Peddler gives one
-Homestone (D-1015) on the first bump with room in the bag: his gift line,
-free, the Homestone in the bag, and his card shut that bump (offered too:
-his card opening after it). With no room, 3 Homestones carried counting
-as none (offered too: a 4th past the cap), he says he has a gift and
-his card opens as ever; the gift waits for a later bump with room
-(offered too: nothing said). The owner's idea, in steps: this one first,
-then a talk box on a bump, one of its choices Shop, then gifts now and
-then (offered too: the box first; both at once). Claude's calls: the
-waiting line on every bump with no room; a Peddler made by the dev tools
-has his gift too; a save's Peddler already home gives it on the next
-bump; his two lines Claude's drafts. D-1012 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-1017 · 2026-11-21 · The Peddler's talk box** (the owner's picks;
 D-1016's second step) Home on the surface, a bump on the Peddler opens
 his talk box: the ask card's glass, PEDDLER in ember, his face (his
@@ -180,3 +165,22 @@ fights, your lights a map of your journey, the surface answers the deep,
 other players' light, light-routing puzzles, and the bait as the player's
 own pull. Nothing in them is decided. D-1015 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-1021 · 2026-11-21 · A waystone look for each place** (the owner's
+wish and picks, all recommended, from the mock-up; the first part of the
+roadmap's 2.13, builds on D-592, D-594, D-620) Each waystone takes the
+look of the place it stands in: home keeps its mossy stones in the grass;
+the cave's grey rock (depth 2) has rough grey boulders, wider and lower,
+no moss, pebbles at their feet and chipped grey flagstones; the warren's
+earth (depth 5) brown standing stones with two pale roots wrapped across
+each and dirt heaped at the foot; the dungeon (8 and down) cut obelisks on
+a plinth, notches carved down the face, in its cold colours, with neat
+square flagstones. The plate and flagstones take the place's colours; the
+woken rune is the same violet everywhere (offered too: colours only; new
+shapes; one grey plate everywhere; for the dungeon, square pillars with an
+iron band, or notches lit violet). The mines', caverns' and ruins' stones
+come with those chapters. The trip's effect is next, its own step: violet
+motes leave and gather, the far stone shown empty between, about 2 s, a
+tap skips, a quick fade with reduced motion (the owner's picks, all
+recommended). Pixels and colours Claude's, from the mock-up. D-1016 moves
+to `archive/DECISIONS-SURFACE.md`, word for word.

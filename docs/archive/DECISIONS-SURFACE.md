@@ -3063,3 +3063,18 @@ lines and picture (a grey chip with the home rune in violet) Claude's
 drafts. The owner's wish, kept for its step (2.13): each waystone a look
 of its own by where it stands. D-1011 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-1016 · 2026-11-21 · The Peddler's gift** (the owner's idea and
+picks, all recommended) Home on the surface, the Peddler gives one
+Homestone (D-1015) on the first bump with room in the bag: his gift line,
+free, the Homestone in the bag, and his card shut that bump (offered too:
+his card opening after it). With no room, 3 Homestones carried counting
+as none (offered too: a 4th past the cap), he says he has a gift and
+his card opens as ever; the gift waits for a later bump with room
+(offered too: nothing said). The owner's idea, in steps: this one first,
+then a talk box on a bump, one of its choices Shop, then gifts now and
+then (offered too: the box first; both at once). Claude's calls: the
+waiting line on every bump with no room; a Peddler made by the dev tools
+has his gift too; a save's Peddler already home gives it on the next
+bump; his two lines Claude's drafts. D-1012 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
