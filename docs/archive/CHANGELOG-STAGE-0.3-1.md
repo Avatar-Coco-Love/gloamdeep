@@ -4,6 +4,18 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.446 (2026-11-21)
+- On a small phone held upright, the stash chest's DECONSTRUCT and STORE
+  buttons now stand at the top of its card, beside the close button, in
+  place of the words STASH CHEST, so the bag's slots no longer lie over
+  them. On every other screen the card is as before.
+- The chosen stack's name on that card no longer runs below its edge.
+- Behind the scenes: every card's buttons are checked on the smallest
+  phones' screens, and the text line's step (it never covers the hero)
+  is ticked, built back at 0.3.427. The plan for talking with choices is
+  set: a card low on the screen, in the game's own letters.
+- Decisions: D-1010.
+
 ## 0.3.445 (2026-11-20)
 - A gentler first mole: every mole that comes out by day in the woods
   round home has 2 hearts now, not 4. Two lantern swings or one knife

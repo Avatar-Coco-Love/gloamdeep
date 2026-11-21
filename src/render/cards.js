@@ -42,6 +42,7 @@ import { playing, slotName } from '../core/profile.js';
 import { shopOf, newShop } from '../core/feats.js';
 import { bagWindow, drawBagBar } from './bagscroll.js';
 import { chestWindow } from './chestscroll.js';
+import { tradeWindow } from './tradescroll.js';
 import { stepScroll } from './scroll.js';
 import { cloakOf, eyesOf, trimOf, clothesOf, lampOf, headOf } from '../core/looks.js';
 import { PAUSE_MENU, pauseFacts, stationMakes, stationTitle, STATION_NONE, SURE_MENU, ENDED_MENU, ENDED_HEADING } from '../core/menu.js';
@@ -154,7 +155,10 @@ export function createCards(app, ui) {
         textLine.draw(hc, line, t, still()); // "Your bag is full."
       }
       else if (app.screen === 'trade') {
-        drawTradePanel(hc, view.w, view.h, state, app.chosen, spriteOf, app.tab, t, still()); // a card on the room (D-494), its tabs (D-495)
+        const win = tradeWindow(view.w, view.h, bagSize(state)), sc = app.tradeScroll; // the grid's window, gliding on (D-1013)
+        if (sc) stepScroll(sc, t, win.max, win.pitch);
+        drawTradePanel(hc, view.w, view.h, state, app.chosen, spriteOf, app.tab, t, still(), { win, y: sc?.y ?? 0 }); // a card on the room (D-494), its tabs (D-495)
+        drawBagBar(hc, win, sc?.y ?? 0, sc?.lit ?? 0);
         textLine.draw(hc, line, t, still()); // his home line, said as it opens
       }
       else dev.draw(rc, state, cam);

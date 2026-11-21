@@ -2949,3 +2949,13 @@ trim (draft); sideways "GEAR" stays when both labels fit, else only
 "LANTERN"; the arrows reach the row, sideways along the gear row's line,
 upright a row between; the parts' Look lines kept as they are.
 D-1003 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-1009 · 2026-11-20 · A gentler first mole** (the owner's picks, all
+recommended; 6.05, D-999; H-71's ruling again; supersedes D-986) Every
+woods mole by day on the surface has 2 hearts, not 4: 2 lantern swings or
+1 knife blow. From depth 5 down the mole keeps its 4 (D-541). The start
+room has its mole on a journey's first day again, as D-781 had it.
+Offered too: 3 hearts or 1; gentler on the first day only; keep no mole on
+day 1. Claude's calls: the number lives in the mole's registry entry
+(`dayHealth`), its name tag counts 2 of 2, and its Bestiary words add "a
+woods mole by day, half that" (a draft, the owner may change it).
