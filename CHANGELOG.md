@@ -24,6 +24,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.455 (2026-11-21)
+- Docs: the public guide, "Building a Game with an AI Partner", is
+  kept in docs/guide: its 3-page PDF, its post image and their sources.
+  Nothing in the game changes.
+- Decisions: D-1019.
+
 ## 0.3.454 (2026-11-21)
 - New: the Peddler's gifts now and then. Every 3 days after his last
   gift, he has another: an Oil Flask or a Torch. Bump him and his talk
@@ -41,12 +47,3 @@ Entry format:
 - His lines take turns by day; past depth 3, and once the Lampeater is
   beaten, a line about each joins them. By night he has his own line.
 - Decisions: D-1017.
-
-## 0.3.452 (2026-11-21)
-- New: the Peddler's gift. Home on the surface, the first time you bump
-  him with room in your bag, he gives you a Homestone, free. His card
-  stays shut that time; your next bump opens it.
-- With a full bag, or 3 Homestones already carried, he says he has a
-  gift and his card opens as ever. He keeps it for a later bump when you
-  have room.
-- Decisions: D-1016.

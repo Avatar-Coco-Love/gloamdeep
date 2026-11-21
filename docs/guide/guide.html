@@ -1,0 +1,180 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>Building a Game with an AI Partner</title>
+<style>
+@page { size: letter; margin: 0.5in 0.55in; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: "DejaVu Sans", Helvetica, Arial, sans-serif; color: #1f2328; font-size: 10.2pt; line-height: 1.45; margin: 0; }
+h1 { font-size: 20pt; margin: 0 0 2px; color: #3b2a14; letter-spacing: -0.3px; }
+.sub { color: #6b5a40; font-size: 10pt; margin-bottom: 10px; }
+.lead { background: #fbf3e2; border-left: 4px solid #d9952b; padding: 8px 12px; border-radius: 4px; margin-bottom: 12px; }
+.lead b { color: #3b2a14; }
+h2 { font-size: 12.5pt; color: #3b2a14; margin: 12px 0 6px; padding-bottom: 3px; border-bottom: 1.5px solid #e8d7b5; }
+.habits { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; }
+.habit { display: flex; gap: 8px; break-inside: avoid; }
+.num { flex: 0 0 22px; height: 22px; border-radius: 50%; background: #d9952b; color: #fff; font-weight: bold; text-align: center; line-height: 22px; font-size: 9.5pt; }
+.habit b { color: #3b2a14; }
+.extra { margin-top: 8px; font-size: 9.2pt; color: #444; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; }
+.card { border: 1px solid #e8d7b5; border-radius: 6px; padding: 7px 10px; background: #fffdf8; }
+.card h3 { margin: 0 0 4px; font-size: 11pt; color: #3b2a14; }
+.card .who { font-size: 8.6pt; color: #8a6d3b; margin-bottom: 6px; }
+.card ul { margin: 0; padding-left: 15px; }
+.card li { margin-bottom: 2px; }
+.page2 { font-size: 9.1pt; line-height: 1.38; }
+pre { break-inside: avoid; }
+code { font-family: "DejaVu Sans Mono", monospace; font-size: 8.4pt; background: #f3ead8; padding: 0 3px; border-radius: 3px; }
+pre { font-family: "DejaVu Sans Mono", monospace; font-size: 7.8pt; line-height: 1.3; background: #2b2418; color: #f4ead6; padding: 10px 12px; border-radius: 6px; margin: 6px 0; white-space: pre; columns: 2; column-gap: 18px; }
+.page2 { break-before: page; }
+.foot { margin-top: 8px; font-size: 9pt; color: #444; }
+</style></head><body>
+</head><body>
+<h1>Building a Game with an AI Partner</h1>
+<div class="sub">A field guide from five weeks and 700+ small steps &middot; November 2026</div>
+
+<div class="lead"><b>The short version:</b> the AI proposes, you decide, and every step is small enough to check, even from a phone. That one rule took my game, <i>Gloamdeep</i>, from an empty folder to version 0.3.454 in about five weeks: roughly 730 pull requests and 1,000 written decisions, every one of them mine. An AI coding assistant is a fast, tireless builder with <b>no memory between conversations</b>. Everything below does two things: it keeps the AI from guessing, and it gives the AI a memory made of small files. It works with any engine and any AI coding tool.</div>
+
+<h2>Ten habits that made the biggest difference</h2>
+<div class="habits">
+<div class="habit"><div class="num">1</div><div><b>Propose before building.</b> The AI says what it found, gives 2&ndash;3 options with one recommended, and waits for your pick. Nothing gets built on a guess.</div></div>
+<div class="habit"><div class="num">2</div><div><b>Multiple choice, always.</b> You get options to tap, plus "your own answer." It's fast to answer, you keep the last word, and the recommended pick is usually right.</div></div>
+<div class="habit"><div class="num">3</div><div><b>It never invents.</b> It never makes up mechanics, names, story or numbers. Anything undecided goes in an open-questions file, and the AI asks you. The game stays yours.</div></div>
+<div class="habit"><div class="num">4</div><div><b>One small visible change per step.</b> "The hero can move one tile." Small decisions can be grouped, but never a new mechanic plus a new system at once.</div></div>
+<div class="habit"><div class="num">5</div><div><b>Write every decision down</b> with an ID, a date and the reason (D-001&hellip;). Never edit an old one; a new one replaces it. "Why is it like this?" always has an answer.</div></div>
+<div class="habit"><div class="num">6</div><div><b>A project memory in small files.</b> A rules file the AI reads first, a progress file with "Next up," a decisions log and a glossary. Each file stays under 8 KB, and a test checks that.</div></div>
+<div class="habit"><div class="num">7</div><div><b>Fresh conversation for each step.</b> Long chats get slow and muddled. A fresh start reads the progress file and only the docs the next step needs.</div></div>
+<div class="habit"><div class="num">8</div><div><b>See it before you accept it.</b> For each visible change, a build you can play right away. Sounds get a board of buttons. Art gets 3 mock-ups side by side.</div></div>
+<div class="habit"><div class="num">9</div><div><b>Measure, don't guess.</b> Check the real screen size, time the slow part, and replay the bug before offering a fix. Several "obvious" fixes turned out wrong once measured.</div></div>
+<div class="habit"><div class="num">10</div><div><b>Turn repeated chores into tools.</b> When hand-done bookkeeping slipped, it became a small script plus a test that fails when the step is skipped.</div></div>
+</div>
+<div class="extra"><b>Two more worth stealing:</b> an <b>audit every 40 versions</b> that trims the docs and archives old material, deleting nothing; and a <b>lessons file</b> where each step adds one line about working together.</div>
+<div class="extra"><b>Set the pace on day one.</b> Agree on the pace in your first conversation and write it down as a decision. Mine started as "slow and tiny." That was too slow on day one, so I changed it the next day.</div>
+
+<div class="page2">
+<h2 style="margin-top:0">Tips by setup</h2>
+<p style="margin:0 0 6px">Pick the cards that match how you work; most people fit two or three.</p>
+<div class="cols">
+<div class="card">
+<h3>If you're new to code</h3>
+<div class="who">Safety nets come first</div>
+<ul>
+<li><b>Use version control (git) from day one.</b> Every step can then be undone. A free GitHub account is enough.</li>
+<li><b>Never let the AI change your main copy directly.</b> It works on a branch, and you merge once you've tried it.</li>
+<li><b>Ask it to explain terms</b> the first time they come up. Put that rule in your rules file.</li>
+</ul>
+</div>
+<div class="card">
+<h3>If your AI runs on its own for long stretches</h3>
+<div class="who">Background agents, overnight runs, several agents at once</div>
+<ul>
+<li><b>One "Next up" line it must follow.</b> When a choice is yours, it asks and stops instead of choosing for you.</li>
+<li><b>Fresh sessions per step,</b> not one endless chat. The memory files carry the context.</li>
+<li><b>Plan the method before big runs.</b> Settle how you'll review the results, and ask for them in a strict one-line format a script can check.</li>
+</ul>
+</div>
+<div class="card">
+<h3>If you work from a phone</h3>
+<div class="who">Cloud AI sessions, a PC that stays off</div>
+<ul>
+<li><b>Put the project online</b> (GitHub, for example) so a cloud AI can work on it while your PC stays off.</li>
+<li><b>Make answers tappable:</b> every reply ends with 2&ndash;4 numbered options. You can answer with just "2".</li>
+<li><b>Keep replies short:</b> "handoff in 5 lines or fewer."</li>
+<li><b>Have a playable build on your phone</b> before you accept a change. Many engines can export to a web page.</li>
+</ul>
+</div>
+<div class="card">
+<h3>If your engine saves binary files</h3>
+<div class="who">For example, Unreal assets, or Unity without text mode</div>
+<ul>
+<li><b>The AI can't read binary files,</b> so keep what matters in text: rules and tuning in code, config or data tables exported to CSV/JSON, and design notes in Markdown.</li>
+<li><b>Turn on text formats where the engine has them.</b> Unity can save assets as text. Godot scenes and RPG Maker MZ data are already text.</li>
+<li><b>Close the editor before pulling the AI's changes,</b> or the editor may save over them.</li>
+<li><b>Let it prove things:</b> run the engine's tests from the command line, with a test added for each fix.</li>
+</ul>
+</div>
+</div>
+
+<h2>Copy this to start</h2>
+<p style="margin:0 0 4px">Save it at the root of your project under the name your tool reads, such as <code>CLAUDE.md</code> for Claude Code or <code>AGENTS.md</code> for Codex. Make the files it names, then fill in the bracketed part.</p>
+<pre># [Game name]: notes for the AI
+
+## I lead. Work in tiny steps.
+- Propose before building: what you found,
+  2-3 options, recommendation first.
+  Wait for my pick.
+- Ask as multiple choice (2-4 options,
+  recommended first). I can always give
+  my own answer.
+- One small visible change per step.
+- Never invent mechanics, story, names or
+  numbers not in docs/DECISIONS.md. Add
+  gaps to docs/OPEN-QUESTIONS.md and ask.
+- Plain words. Explain technical terms
+  the first time.
+
+## Start of every conversation
+1. Pull the latest main.
+2. Read docs/PROGRESS.md (Next up, waiting
+   on me, last 3 logs).
+3. Read only the docs Next up names.
+
+## Records
+- Every decision: ID, date, why. Never
+  edit one; supersede it.
+- Keep every doc under 8 KB. Archive old
+  material, never delete.
+- One word, one meaning: docs/GLOSSARY.md
+
+## Handoff
+- Never push to main. One pull request
+  per step; I merge.
+- Give me a way to try it before
+  I accept it.
+- Handoff in 5 lines or fewer.
+
+## Hard rules
+- [engine, folders, what must stay text,
+  how to run tests]</pre>
+</div>
+
+<div class="page2">
+<h2 style="margin-top:0">Lessons from bugs and growth</h2>
+<p style="margin:0 0 10px">These are lessons from building the game itself rather than from working with the AI. Most of them apply to any engine.</p>
+<div class="cols">
+<div class="card">
+<h3>What bugs taught me</h3>
+<div class="who">Each one cost time once</div>
+<ul>
+<li><b>Old saves must always load.</b> A save from an older version gets upgraded, never thrown away. Every change to the world or the save asks: "what does an older save see?"</li>
+<li><b>Each random roll gets its own seed.</b> Two things rolled from the same number quietly depend on each other. In my game, one roll ended up hinting at another.</li>
+<li><b>Other players find what you don't.</b> A friend's playtest found a freeze. The fix came with a safety net: an error in one frame is logged once, and the game keeps going.</li>
+<li><b>Docs drift from the code.</b> One audit found five docs that no longer matched the code, and a later one found nine more. Audits now check the docs against the code.</li>
+<li><b>Keep the tests fast.</b> Slow tests get run less. Mine went from 59 to 35 seconds by building test data once and splitting the slowest test.</li>
+<li><b>Hunt bugs on a schedule.</b> At each audit, a helper reads the new code and checks each finding with a small script. I pick which to fix, and each fix is its own small step with a test.</li>
+</ul>
+</div>
+<div class="card">
+<h3>How the game grew</h3>
+<div class="who">Stages, groundwork and seeing the whole</div>
+<ul>
+<li><b>In stages.</b> The first stage was planning only: decisions and art studies, no game. Then came the foundation, one small visible step at a time. Each later stage began with a plan I picked.</li>
+<li><b>A playtest of the whole sets the next plan.</b> After the foundation, I played it through. The caves felt boxy and samey, so the next stage began with natural caves.</li>
+<li><b>Groundwork first.</b> Before a big feature, a few steps that change nothing on screen, such as upgrading old saves. Then the feature comes quickly and safely.</li>
+<li><b>Only what works shows.</b> A button appears once its feature exists. Nothing is greyed out as a promise.</li>
+<li><b>Dev tools in every build.</b> Spawn anything, jump to any level, god mode, and saved test spots that reload a moment of play. A playtest goes straight to the thing being tried.</li>
+<li><b>Plan the whole before the parts.</b> The full scope was drawn up as multiple-choice questions, and each big feature is planned as numbered steps first.</li>
+</ul>
+</div>
+</div>
+<h2>Design habits</h2>
+<div class="habits">
+<div class="habit"><div class="num">A</div><div><b>Mock-ups before art.</b> New looks are shown as pictures first, then built, then checked against the mock-up. Mock-ups reuse the game's own sprites.</div></div>
+<div class="habit"><div class="num">B</div><div><b>One frozen look.</b> The art study you love is never edited. Style rules are drawn from it.</div></div>
+<div class="habit"><div class="num">C</div><div><b>The story in one place before quests.</b> A single lore file came first, so every character's lines and every quest build on it.</div></div>
+<div class="habit"><div class="num">D</div><div><b>Outside reviews are ideas, not decisions.</b> Suggestions go into a research file, and none of them counts as decided until you pick it.</div></div>
+<div class="habit"><div class="num">E</div><div><b>Plan for the end early.</b> Start the store checklist long before release, and build each piece when it's due, so nothing blocks launch.</div></div>
+<div class="habit"><div class="num">F</div><div><b>Research beside building.</b> Helper agents research while the main conversation builds, but only one conversation builds at a time.</div></div>
+</div>
+</div>
+</body></html>

@@ -56,3 +56,7 @@ line here (D-741). Each audit moves the lines into the right sections.
   the game's own card code, three variants side by side, settled it in
   one pick. A new card screen joins `onTitle`'s list in `screens.js` too,
   or it draws as the title menu (0.3.453).
+- The playbook became a guide for others: first for two friends, then a
+  public one with tips by setup, not by person. Asked how long it really
+  had to be, the honest answer (2 pages, a third if wanted) kept it short
+  (0.3.455).
