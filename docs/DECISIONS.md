@@ -186,3 +186,9 @@ once; the mark drawn with him, under the light, and over him for his
 first gift too; dev Grow brings his next gift due; his two lines
 Claude's drafts. D-1014 moves to `archive/DECISIONS-SURFACE.md`, word
 for word.
+
+**D-1019 (2026-11-21).** The public guide, "Building a Game with an AI
+Partner", is kept in `docs/guide/`: its 3-page PDF, its post image and
+the two HTML pages that rebuild them (offered too: the sources only; Drive
+only). They are outside the game, like `tools/`, so the rule of no image
+files (D-425) still holds for the game itself.

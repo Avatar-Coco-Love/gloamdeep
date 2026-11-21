@@ -15,13 +15,13 @@ test('the page names its card: title, line, picture and its size', () => {
   assert.deepEqual([tag('og:image:width'), tag('og:image:height')], ['1200', '630']);
 });
 
-test('share.png is a 1200 × 630 PNG, the one image file in the repo', () => {
+test('share.png is a 1200 × 630 PNG, the one image file in the repo outside docs/guide (D-1019)', () => {
   const png = readFileSync('share.png');
   assert.equal(png.toString('latin1', 1, 4), 'PNG');
   assert.deepEqual([png.readUInt32BE(16), png.readUInt32BE(20)], [1200, 630]); // IHDR's width and height
   const images = (dir) => readdirSync(dir, { withFileTypes: true }).flatMap((d) => {
     const path = dir === '.' ? d.name : `${dir}/${d.name}`;
-    if (d.isDirectory()) return ['.git', 'node_modules'].includes(path) ? [] : images(path);
+    if (d.isDirectory()) return ['.git', 'node_modules', 'docs/guide'].includes(path) ? [] : images(path);
     return /\.(png|jpe?g|gif|webp|svg)$/i.test(path) ? [path] : [];
   });
   assert.deepEqual(images('.'), ['share.png']);

@@ -22,6 +22,7 @@ smallest file that answers the question.
 | `docs/RESEARCH.md` | the owner's wish list; ideas kept in `RESEARCH-2.md`; games and talks in `RESEARCH-GAMES.md`; travel and boons in `RESEARCH-TRAVEL.md`; research pages and their suggestions in `RESEARCH-PAGES.md`; the planning board's maybes and drops in `RESEARCH-PLANNING.md`; the systems looking ahead in `RESEARCH-SYSTEMS.md` | when proposing a feature |
 | `docs/PUZZLES.md` | every puzzle and pressure idea kept, by family (L, P, C, G, K, T, W; D-889); more in `-2` and `-3` | before proposing a puzzle |
 | `docs/DESIGN.md`, `VISION.md` | the design brief; the pitch, inspirations, pillars | before proposing a feature |
+| `docs/guide/` | the public guide on working with an AI: its PDF, post image and sources (D-1019) | sharing or rebuilding the guide |
 | `docs/WORLD.md` | regions, ways between rooms (D-170); the map and the starting region in `-2` | world, region or map steps |
 | `docs/regions/` | one rule sheet per region | only the region a step touches |
 | `docs/ART-DIRECTION.md` | the visual rules from the style study; generated places' colours in `-2`; colours only the code had in `-3` | before any drawing code |

@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-21, 0.3.452, The Peddler's gift.** His first bump at home
+  with room gives a Homestone. D-1016.
+  Playtest: https://claude.ai/artifact/4VQSgSXk4CnStSy5bAAwkB
 - **2026-11-21, 0.3.451, The Homestone, a way home.** Made at the
   workbench once the home waystone is woken, 5 Duskstar and 5 Stone, at
   most 3; USE: onto the home plate, one way. D-1015. Playtest: https://claude.ai/artifact/3WVPWCRLczgVZ3znbbBcGL
