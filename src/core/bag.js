@@ -17,13 +17,13 @@ export const most = (id) => get(id)?.max ?? 1;
 
 // The list `bag` (the bag's or a chest's, `slots` long) with one more of item
 // `id`: on its first stack with room, else in a new slot, so a kind can fill
-// several (D-333), but only 1 of a kind whose most is 1 (D-320); null when
+// several (D-333), but only 1 of a kind whose most is 1 (D-320), and one stack of a `oneStack` kind; null when
 // there is none. `form`, when given, is the look
 // the stack shows from now on (D-314).
 export function bagAdd(bag, id, form, slots = BAG_SLOTS) {
   const i = bag.findIndex((s) => s.id === id && s.n < most(id)), shown = form === undefined ? {} : { form };
   if (i >= 0) return bag.map((s, j) => (j === i ? { ...s, n: s.n + 1, ...shown } : s));
-  if (most(id) === 1 && bag.some((s) => s.id === id)) return null;
+  if ((most(id) === 1 || get(id)?.oneStack) && bag.some((s) => s.id === id)) return null; // one stack only: the Homestone's 3 (D-1015)
   return bag.length < slots ? [...bag, { id, n: 1, ...shown }] : null;
 }
 

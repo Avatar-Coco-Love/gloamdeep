@@ -33,3 +33,9 @@ the Venom Sac's row since names the centipede too (D-654).
 | `glowGland` | with 1 Wood makes a Glow Lamp (D-808) | 20 | never | a beaten spit grub, about 1 in 10 (1 in 5 with the charm), its own coin | D-688 |
 | `ember` | 1 more ember to spend in Growth, never in the bag; "An ember! Spend it in Growth." | 1 | never | on a vault's plinth, 1 vault in 4 (`vault.js`); a step takes one lying on a floor (the dev spawn) | D-896 |
 | `leapFind` | Leap, learnt for the journey, never in the bag; its card opens, and closed, the arena's door sinks open | 1 | never | the Lampeater's `sure` find, where it fell; a step takes it, used up | D-971, D-992 |
+
+## Made at the workbench (`src/core/items.js`)
+
+| id | What it does | Stack | Grows back | Where, or how made | Decisions |
+| --- | --- | --- | --- | --- | --- |
+| `homestone` | USE in the bag: to the home waystone's plate, used up, free as waystone travel; barred with a creature awake beside or chasing; one stack only | 3 | never | the workbench's GEAR tab, once the home waystone is woken: 5 Duskstar, 5 Stone | D-1015 |

@@ -332,4 +332,10 @@ export const ITEMS = {
   // button's icon. Stepped on, it is used up: Leap is learnt for the journey (`learns`), never in the
   // bag, and the card opens (render/abilitycard.js); closed, the door sinks open (beaten.js, doorAfterLeap)
   leapFind: { id: 'leapFind', kind: 'item', name: 'Leap', learns: 'leap', says: 'leapFound', look: 'leapFindLook' },
+  // § homestone (D-1015): a chip of waystone, made on the workbench's GEAR tab once the home
+  // waystone is woken (`bench.after`, recall.js), never found; at most 3 carried. USE, in the
+  // bag, spends one: to the home waystone's plate, free, as travel by waystone (recall.js)
+  homestone: { id: 'homestone', kind: 'item', name: 'Homestone', bag: true, max: 3, oneStack: true, look: 'homestoneLook', full: 'homestoneFull',
+    eats: 'homestoneUse', verb: 'USE', home: true,
+    bench: { of: { duskstar: 5, stone: 5 }, says: 'homestoneMake', short: 'homestoneShort', after: 'homeWoken' } },
 };

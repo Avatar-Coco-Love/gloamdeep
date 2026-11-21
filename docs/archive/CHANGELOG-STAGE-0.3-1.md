@@ -4,6 +4,15 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.448 (2026-11-21)
+- On the stash chest's card, the bag's slots scroll too when they don't
+  all fit, the same way as on the bag card: drag or flick them, use the
+  wheel or the arrows, or drag the thin bar beside them. They stop where
+  the chosen find's name and count still fit below.
+- Only a very short upright window needs it; on every phone tried the
+  card looks as before.
+- Decisions: D-1012. B-014 fixed.
+
 ## 0.3.447 (2026-11-21)
 - The bag's slots can scroll now, when they don't all fit on the card: drag
   them, or flick them and they glide, slow and come to rest with whole rows

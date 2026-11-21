@@ -19,9 +19,9 @@ const worn = { charm: ['centipedeCharm'] };
 test("the Centipede Charm is on the GEAR tab, before the Echo and Fang Charms (D-690, D-800, D-805, D-809): 3 Centipede Leg and 1 Copper Ore, dim with too few", () => {
   const c = get('centipedeCharm');
   assert.equal(c.name, 'Centipede Charm'); assert.equal(c.max, 1);
-  const slot = benchMakes([{ id: 'centipedeLeg', n: 3 }, { id: 'copperOre', n: 1 }], 6, [], benchTabOf('gear').makes).at(-4);
+  const slot = benchMakes([{ id: 'centipedeLeg', n: 3 }, { id: 'copperOre', n: 1 }], 6, [], benchTabOf('gear').makes).at(-5);
   assert.deepEqual(slot, { item: 'centipedeCharm', cost: [{ id: 'centipedeLeg', n: 3, have: 3 }, { id: 'copperOre', n: 1, have: 1 }], dim: false });
-  assert.equal(benchMakes([{ id: 'centipedeLeg', n: 2 }, { id: 'copperOre', n: 1 }], 6, [], benchTabOf('gear').makes).at(-4).dim, true);
+  assert.equal(benchMakes([{ id: 'centipedeLeg', n: 2 }, { id: 'copperOre', n: 1 }], 6, [], benchTabOf('gear').makes).at(-5).dim, true);
 });
 
 test('Make takes its cost, a turn; too few or one worn is free', () => {

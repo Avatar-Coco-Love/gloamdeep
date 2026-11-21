@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-21, 0.3.448, The chest card's bag slots scroll.** As the bag
+  card's, where they don't fit, ending where the name still fits; B-014
+  fixed. D-1012. Playtest: https://claude.ai/artifact/64gD5HFTMrDt3huXYspbPR
 - **2026-11-21, 0.3.447, The bag's slots scroll.** Where they don't fit,
   they glide, snap gently to whole rows and show a thin bar; no screen
   needs it yet. D-1011. Playtest: https://claude.ai/artifact/1DSG6R1giA9X9cWtsv8k9B

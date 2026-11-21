@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.450 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.451 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -26,6 +26,7 @@ the owner's ideas for its phases, then the next cutscene, if any (D-1014).
 - The mole's Bestiary words, "a woods mole by day, half that", Claude's draft (D-1009).
 - Where the chest card's raised buttons stand, Claude's (D-1010).
 - The Lampeater's end: about 3 s, none on a later beating, the "+" waiting for its end, Claude's (D-1014).
+- The Homestone's lines and picture, its GEAR slot, a chest's one stack, Claude's (D-1015).
 - The bag's scroll: its bar's place and gold, the window's foot (the name and count above DROP), the glide's speed and the snap's spring, Claude's, from the mock-up (D-1011); the chest card's: only with its buttons raised, one row at least (D-1012); the peddler's: one scroll for both tabs (D-1013).
 - How hard the Lampeater should be (Q-111): 12 hearts for now (D-950);
   with its 2 wisps (D-1002) Lean 21%, Middling 72%, Strong 97% (35%,
@@ -51,12 +52,12 @@ later are in `RESEARCH-2.md` (D-699) and `RESEARCH-PLANNING.md`, and the
 owner's wish list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-21, 0.3.451, The Homestone, a way home.** Made at the
+  workbench once the home waystone is woken, 5 Duskstar and 5 Stone, at
+  most 3; USE: onto the home plate, one way. D-1015. Playtest: https://claude.ai/artifact/3WVPWCRLczgVZ3znbbBcGL
 - **2026-11-21, 0.3.450, The Lampeater's end, a cutscene.** The first
   time it is beaten: on it, its eyes flare, it fades, Leap's mark shows;
   the polish's first step. D-1014. Playtest: https://claude.ai/artifact/ERUUiJQyUx9Xry2oJR4fQP
 - **2026-11-21, 0.3.449, The peddler's grid scrolls.** As the bag's and
   the chest's, where his slots don't fit, ending where the price still
   fits; D-1011 done. D-1013. Playtest: https://claude.ai/artifact/CXbzgkS8tf4nRjuEMrCTbD
-- **2026-11-21, 0.3.448, The chest card's bag slots scroll.** As the bag
-  card's, where they don't fit, ending where the name still fits; B-014
-  fixed. D-1012. Playtest: https://claude.ai/artifact/64gD5HFTMrDt3huXYspbPR

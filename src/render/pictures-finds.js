@@ -128,6 +128,12 @@ const BLADDER_TANK = { mirror: false, rows: [
   '', '', '', '......kkkk......', '.....kaAAAk.....', '......kNNk......', '....kkoooOkk....', '...koywoooOOk...',
   '..koyyoooooOOk..', '..kNNNNNNNNNNk..', '..kooooooooOOk..', '..koooooooOOOk..', '...kOooooOOOk...', '....kOOOOOOk....', '.....kkkkkk.....', ''] };
 
+// § homestone: a flat grey chip of waystone, the home plate's rune cut in it in the woken
+// violet, moss at its foot (D-1015, Claude's draft)
+const HOMESTONE = { mirror: false, rows: [
+  '', '', '.....kkkkkk.....', '....kHHHHLLk....', '...kHHLPPLLMk...', '...kHLLPLLLMk...', '..kHLLPPLPLMMk..', '..kHLLLPLLLMMk..',
+  '..kLLLLLPLLMMk..', '..kLLLLPPLMMDk..', '..kgLLLLLLMMDk..', '...kggLLMMMDk...', '....kgMMMDDk....', '.....kkkkkk.....', '', ''] };
+
 // § glass pane: the lantern's empty Glass slot, drawn faintly there (1.02, D-1006): a pane of
 // glass in a cap and base of the lantern's trim, a streak of light across it (draft)
 const GLASS_PANE = { mirror: false, rows: [
@@ -350,6 +356,7 @@ export {
   BLIND_CAVEFISH,
   COPPER_WICK,
   BLADDER_TANK,
+  HOMESTONE,
   GLASS_PANE,
   RAT_VEST,
   SHELL_VEST,
