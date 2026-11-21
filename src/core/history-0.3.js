@@ -6,6 +6,12 @@
 // tools/release.js once a newer version is in (D-982); stage 0.2's are in history-0.2.js and its split
 // files.
 export const HISTORY_03 = [
+  { v: '0.3.446', date: '2026-11-21', title: 'Cards on the smallest phones', lines: [
+    "On a small phone held upright, the stash chest's DECONSTRUCT and STORE buttons now stand at the top of its card, beside the close button, in place of the words STASH CHEST, so the bag's slots no longer lie over them. On every other screen the card is as before.",
+    "The chosen stack's name on that card no longer runs below its edge.",
+    "Behind the scenes: every card's buttons are checked on the smallest phones' screens, and the text line's step (it never covers the hero) is ticked, built back at 0.3.427. The plan for talking with choices is set: a card low on the screen, in the game's own letters.",
+    "Decisions: D-1010.",
+  ] },
   { v: '0.3.445', date: '2026-11-20', title: 'A gentler first mole', lines: [
     "A gentler first mole: every mole that comes out by day in the woods round home has 2 hearts now, not 4. Two lantern swings or one knife blow beat it, so a new hero who strikes as it comes up takes one bite, not three. From depth 5 down the mole is as tough as ever.",
     "The start room has its mole on a journey's first day again, the gentle one. Its name tag counts 2 hearts, and its Bestiary page says so.",

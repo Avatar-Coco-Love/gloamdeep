@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-20, 0.3.443, The Glowcup, and rooted flowers.** The second
+  flower, in about half the rooms from depth 1 down; flowers stand on their
+  tiles, no longer floating. D-1007. Playtest: https://claude.ai/artifact/WpZ863f1WVT3nD9v38mZ9F,
+  map preview: https://claude.ai/artifact/UwfX6sjEKdFeEZiVDPyd3g
 - **2026-11-20, 0.3.442, The lantern's slots, shown.** A LANTERN row in
   the bag: Wick, Tank and Glass, beside the gear sideways, under it
   upright. D-1006. Playtest: https://claude.ai/artifact/17ApC7dUEjT8xCYDREBysP

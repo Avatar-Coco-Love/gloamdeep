@@ -21,7 +21,8 @@ first-hour goals (6.04). A gentler first mole, not none (6.05).
 2. 1.01 The first tank, drafted (S): step 27 (D-991); built, the Bladder
    Tank, 0.3.441 (D-1005)
 3. 1.05 The hero at the Lampeater's door (S), then tune the boss
-4. 6.05 Gentler first mole (S), built, 0.3.445 (D-1009); 6.06 Text line never covers the hero (S)
+4. 6.05 Gentler first mole (S), built, 0.3.445 (D-1009); 6.06 Text line never covers the hero (S), built
+   at 0.3.427 (D-988), ticked 0.3.446 (D-1010)
 5. 3.05 The Lampeater's material and trophy (S)
 6. 3.02 A boss field in the registry (S)
 7. 1.03 A chapter 1 pacing bot (M), with 1.04 An oil budget a floor (S)
@@ -43,7 +44,7 @@ first-hour goals (6.04). A gentler first mole, not none (6.05).
 12. Small helps: 1.02 The lantern's three slots, shown (S), built,
     0.3.442 (D-1006); 1.06 Always
     an ember's worth to buy (S); 1.07 The fall card (M); 6.07
-    Smallest-view check for cards (S)
+    Smallest-view check for cards (S), built, 0.3.446 (D-1010)
 13. Saves early: 7.01 Save export to a code (S), 7.02 Save import from a
     code (S), 7.04 Ask the phone to keep the save (S)
 

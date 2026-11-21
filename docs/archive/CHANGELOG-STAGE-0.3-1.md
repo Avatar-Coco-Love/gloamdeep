@@ -4,6 +4,19 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.443 (2026-11-20)
+- New: the Glowcup, the second flower, a deep teal cup round a pale green
+  heart on a stem with two long leaves. One grows in about half the rooms
+  of every floor from depth 1 down, never in a vault, the arena or its
+  hallway, and never behind a Gap. It only looks bright: it gives no light.
+- Walk onto one to put it in the bag, in stacks of 20, for crafts later.
+  Picked, it comes back a day later on another floor tile of the room, as
+  the duskstar does. Each has its own slight shade and faces its own way.
+- Flowers are rooted now: the duskstar and the glowcup stand on their own
+  tile, still, their stem in a tuft of earth with a grass blade either
+  side, no longer lifted and bobbing over a shadow. Other finds still bob.
+- Decisions: D-1007.
+
 ## 0.3.442 (2026-11-20)
 - New: the lantern's three slots, Wick, Tank and Glass, show in the bag,
   a LANTERN row beside the gear row on a phone held sideways, under it on

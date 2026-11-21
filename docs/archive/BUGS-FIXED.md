@@ -3,6 +3,15 @@
 Bugs from `docs/BUGS.md`, moved here word for word once fixed (D-852),
 newest first, each with the version that fixed it. Grep only.
 
+Fixed in 0.3.446 (D-1010):
+
+**B-013 · 2026-11-18 · DECONSTRUCT under the bag's slots, on the smallest view**
+Found while testing H-68 (0.3.426), not seen in play: on the stash
+chest's card on the smallest upright view (176 × 221 game px), the
+bag's last rows of slots lie over DECONSTRUCT, so most taps on it pick
+a slot. A phone's view is bigger; whether any phone gets so small is
+not known. To look into at its own step.
+
 Fixed in 0.3.439 (D-1003):
 
 - **F-9 · A bump on the surface stalls the screen.** Each chop or dig

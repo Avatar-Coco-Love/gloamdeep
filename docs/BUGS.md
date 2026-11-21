@@ -52,11 +52,13 @@ Seen but not confirmed: a beating blow that also brings a level shows
 last heart on the step that picks up the find may open the card over
 the fall; a save made during the cutscene never plays it again.
 
-## Found at the third health check's steps
+## Found at the roadmap's steps
 
-**B-013 · 2026-11-18 · DECONSTRUCT under the bag's slots, on the smallest view**
-Found while testing H-68 (0.3.426), not seen in play: on the stash
-chest's card on the smallest upright view (176 × 221 game px), the
-bag's last rows of slots lie over DECONSTRUCT, so most taps on it pick
-a slot. A phone's view is bigger; whether any phone gets so small is
-not known. To look into at its own step.
+**B-014 · 2026-11-21 · The bag card and the chest's too short for a big bag, in a small window**
+Found at 6.07 (0.3.446, D-1010), not seen in play: at 176 × 221 game
+px, upright, which a small PC window gives but no phone measured does,
+a bag of 9 or 12 slots doesn't fit. On the bag card its slots leave
+MAKE and DROP a 10 px tap, not 22, and the chosen find's words fall
+below the card; on the stash chest's card the bag's last row runs off
+its foot. Offered: squeeze the gaps; scroll the part under the gear
+rows. A later step.

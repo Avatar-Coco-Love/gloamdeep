@@ -4,14 +4,14 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.445 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.446 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
 The owner playtests the build; their ideas and changes from it come first
 (D-1003). The Lampeater's polish waits, as the owner asked (D-1006); the
-next content before it is the owner's pick: `ROADMAP.md`'s Now, step 4's
-6.06 (the text line never covers the hero) or step 12's other small helps.
+next content before it is the owner's pick: `ROADMAP.md`'s Now, step 12's
+1.06 (always an ember's worth to buy) or 1.07 (the fall card), or B-014.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -25,6 +25,7 @@ next content before it is the owner's pick: `ROADMAP.md`'s Now, step 4's
 - The empty glass's pane picture and the lantern row's labels and arrows, Claude's (D-1006).
 - The Glowcup's lines and its tuft of earth, Claude's drafts (D-1007); the herbs' and mushrooms' open tuft, Claude's (D-1008).
 - The mole's Bestiary words, "a woods mole by day, half that", Claude's draft (D-1009).
+- Where the chest card's raised buttons stand, Claude's (D-1010).
 - How hard the Lampeater should be (Q-111): 12 hearts for now (D-950);
   with its 2 wisps (D-1002) Lean 21%, Middling 72%, Strong 97% (35%,
   84%, 94% before); again after each step (D-972).
@@ -49,13 +50,12 @@ later are in `RESEARCH-2.md` (D-699) and `RESEARCH-PLANNING.md`, and the
 owner's wish list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-21, 0.3.446, Cards on the smallest phones.** The stash chest's
+  buttons rise to its title strip on a small upright phone; 6.06 ticked;
+  the talk card planned. D-1010. Playtest: https://claude.ai/artifact/JsEyTahYGhKa35Ums7dago
 - **2026-11-20, 0.3.445, A gentler first mole.** The woods moles by day
   have 2 hearts, not 4, and the start room has one on day 1 again. D-1009.
   Playtest: https://claude.ai/artifact/RqEeVvH2uP6c43qxGMDc9o
 - **2026-11-20, 0.3.444, Herbs and mushrooms rooted.** The healing herb,
   the oilcap and the heartcap stand in a tuft of earth, as the flowers do,
   no longer floating. D-1008. Playtest: https://claude.ai/artifact/Nz475K7cbw3Ce8xQRHfLwq
-- **2026-11-20, 0.3.443, The Glowcup, and rooted flowers.** The second
-  flower, in about half the rooms from depth 1 down; flowers stand on their
-  tiles, no longer floating. D-1007. Playtest: https://claude.ai/artifact/WpZ863f1WVT3nD9v38mZ9F,
-  map preview: https://claude.ai/artifact/UwfX6sjEKdFeEZiVDPyd3g

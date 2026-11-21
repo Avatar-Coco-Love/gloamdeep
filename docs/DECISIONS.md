@@ -135,39 +135,6 @@ trim (draft); sideways "GEAR" stays when both labels fit, else only
 upright a row between; the parts' Look lines kept as they are.
 D-1003 moves to `archive/DECISIONS-SURFACE.md`, word for word.
 
-**D-1007 · 2026-11-20 · The Glowcup, and rooted flowers** (the owner's
-picks, all recommended, from a [mock-up](https://claude.ai/artifact/T15W9fCHJBLpK6kx15BcNx);
-step 26, part of Q-092; the owner's words: "Flowers are rooted to the
-Earth.") The second flower is look B of three, the **Glowcup**: a deep
-teal cup round a pale green heart, two long leaves; it only looks bright,
-giving no light (offered too: a pale bell; a stone rose). One grows in
-about half the rooms of every floor from depth 1 down, the heartcap's odds
-(offered too: every room; 1 in 4). Walked onto, it goes in the bag for
-crafts later; picked, it comes back a day later on another floor tile of
-its room, as the duskstar. Flowers are rooted: on their own tile, still,
-the stem in a tuft of earth, a grass blade either side, with no shadow
-(offered too: herbs, or every growing thing, rooted as well). Claude's
-calls: never in a vault, the arena, its hallway or beyond a Gap, nor on a
-waystone's ring; stacks of 20; its own shade and way it faces, as the
-duskstar; its lines ("You pick a glowcup." and two more); one tuft on grass
-and cave floor alike; an older save's rooms never entered get theirs.
-D-1004 moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
-**D-1008 · 2026-11-20 · Herbs and mushrooms rooted** (the owner's
-words: "Let's root the herbs and mushrooms too, so they stand on the ground
-like the flowers."; one of D-1007's offers) The healing herb, the oilcap
-and the heartcap are rooted as the flowers are: on their own tile, still,
-their foot on the tile's bottom row in a tuft of earth, with no shadow:
-a herb's with a grass blade either side, a mushroom's earth alone, outside
-too (changed after the playtest, the owner's pick: "Underground, the
-mushroom doesn't need any grass on the side"; offered too: no blades
-underground only, for mushrooms or for everything). Claude's calls: their
-tuft is open in the middle, so their own foot shows (the flowers' keeps
-its stem); a herb
-mimic asleep and a snapcap shut stand rooted too, as the finds they copy,
-lifted over a shadow again once they show themselves; other finds still
-bob. D-1005 moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-1009 · 2026-11-20 · A gentler first mole** (the owner's picks, all
 recommended; 6.05, D-999; H-71's ruling again; supersedes D-986) Every
 woods mole by day on the surface has 2 hearts, not 4: 2 lantern swings or
@@ -177,3 +144,28 @@ Offered too: 3 hearts or 1; gentler on the first day only; keep no mole on
 day 1. Claude's calls: the number lives in the mole's registry entry
 (`dayHealth`), its name tag counts 2 of 2, and its Bestiary words add "a
 woods mole by day, half that" (a draft, the owner may change it).
+
+**D-1010 · 2026-11-21 · Cards on the smallest phones, and the talk card**
+(the owner's picks, all recommended but the talk card's foot, the owner's
+own; 6.06, 6.07, B-013) 6.06 (the text line never covers the hero) was
+already built at 0.3.427 (D-988), checked again in play: ticked. 6.07:
+every card's buttons are measured at the smallest phones' views, 176 ×
+264 upright (320 × 480 CSS px) and 312 × 176 sideways (320 × 568), and
+at 176 × 221 (a small PC window), each a 22 game px tap; a test keeps it
+so. Only the stash chest's card failed: upright on a short card the bag's
+slots ran over DECONSTRUCT, and STORE with a bigger bag. There, and only
+there, both stand in the title strip in place of STASH CHEST,
+DECONSTRUCT at the left and STORE beside the round cross, as the bag
+card's STORE (D-558); and its chosen stack's name, like its hint (B-012),
+is left out where it would pass the card's foot. Offered too: smaller
+slots there; leave it. The bag card at 176 × 221 with a 9 or 12 slot
+bag is too short for its slots, buttons and words: B-014, a later step
+(offered too: squeeze the gaps; scroll). Dialogue with choices (5.04,
+"Talking with the spark") will use a talk card in the pixel font (D-031):
+low on the screen, the speaker's name in ember, at most three rows of
+words a page, then the answers as whole sentences on tall lines, the
+chosen one gold with the menus' flame. It reaches the screen's foot,
+the arrow pad and the corner buttons hidden while talking (the owner's
+idea); sideways the words stand left and the answers right, so it stays
+low under the hero. Offered too: a card in the middle; one-word buttons.
+D-1007 and D-1008 move to `archive/DECISIONS-SURFACE.md`, word for word.

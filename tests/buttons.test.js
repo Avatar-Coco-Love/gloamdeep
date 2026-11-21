@@ -6,11 +6,13 @@ import assert from 'node:assert/strict';
 import { bagAt, bagShape, cardAt, storeAt, sortAt, onButton, BUTTON, BUTTON_PAD, DROP_W, SORT_W, STORE_W as BAG_STORE_W } from '../src/render/bag.js';
 import { makeCardAt } from '../src/render/makecard.js';
 import { benchAt, take, TAKE_W } from '../src/render/benchpanel.js';
-import { chestAt, store, STORE_W } from '../src/render/chestpanel.js';
+import { chestAt, chestButtons, raised, STORE_W } from '../src/render/chestpanel.js';
 import { tradeAt } from '../src/render/tradepanel.js';
 
 const TALL = 22; // game px: 44 px at a zoom of 2
-const VIEWS = [[195, 422], [176, 221], [422, 195], [340, 200]]; // upright, the smallest upright, sideways, a squarer one
+// upright, the smallest upright (a small PC window), the smallest upright and sideways phones
+// (320 × 480 and 320 × 568 CSS px, 6.07), sideways, a squarer one
+const VIEWS = [[195, 422], [176, 221], [176, 264], [312, 176], [422, 195], [340, 200]];
 // The rows at column x where `at(x, y)` gives `want`, all in one run
 function band(at, x, want, h) {
   const ys = []; for (let y = 0; y < h; y++) if (at(x, y) === want) ys.push(y);
@@ -45,8 +47,11 @@ test('the make, bench, chest and trade cards: each button 44 px tall to tap (H-6
     assert.ok(band((x, y) => makeCardAt(x, y, vw, vh), mid(card.button, BUTTON.w), 'make', vh) >= TALL, `${vw}x${vh} make card`);
     assert.ok(band((x, y) => benchAt(x, y, vw, vh), mid(card.button, BUTTON.w), 'make', vh) >= TALL, `${vw}x${vh} bench make`);
     assert.ok(band((x, y) => benchAt(x, y, vw, vh), mid(take(card), TAKE_W), 'take', vh) >= TALL, `${vw}x${vh} bench take`);
-    if (vh !== 221) assert.ok(band((x, y) => chestAt(x, y, vw, vh), mid(take(card), TAKE_W), 'take', vh) >= TALL, `${vw}x${vh} chest take`); // on the smallest upright view the bag's slots lie over it (B-013)
-    assert.ok(band((x, y) => chestAt(x, y, vw, vh), mid(store(card), STORE_W), 'store', vh) >= TALL, `${vw}x${vh} chest store`);
+    for (const size of [6, 9, 12]) { // the bag's slots never over DECONSTRUCT or STORE (B-013, 6.07)
+      const { t, st } = chestButtons(card, vw, vh, size), at = (x, y) => chestAt(x, y, vw, vh, size);
+      assert.ok(band(at, mid(t, TAKE_W), 'take', vh) >= TALL, `${vw}x${vh} chest take, bag ${size}`);
+      assert.ok(band(at, mid(st, STORE_W), 'store', vh) >= TALL, `${vw}x${vh} chest store, bag ${size}`);
+    }
     const tc = cardAt(vw, vh, bagShape(6).detail);
     assert.ok(band((x, y) => tradeAt(x, y, vw, vh), mid(tc.button, BUTTON.w), 'act', vh) >= TALL, `${vw}x${vh} sell`);
   }
@@ -61,4 +66,10 @@ test('the chosen find\'s look line hides while its picture shows; any other line
   assert.equal(hidesPicture(glow, { id: 'onlySurface' }, [], sips), false, 'another line shows');
   assert.equal(hidesPicture(glow, { id: glow.look }, [], null), false, 'no picture: the look line shows');
   assert.equal(hidesPicture(null, { id: glow.look }), false);
+});
+
+// 6.07: the chest's buttons rise into the title strip only where the bag's slots would reach them
+test('the chest card: DECONSTRUCT and STORE in the title strip only on a card too short (6.07, B-013)', () => {
+  for (const [vw, vh] of [[176, 221], [176, 264]]) assert.ok(raised(vw, vh, 6) && raised(vw, vh, 12), `${vw}x${vh} raised`);
+  for (const [vw, vh] of [[195, 422], [176, 312], [422, 195], [312, 176]]) assert.ok(!raised(vw, vh, 12), `${vw}x${vh} at the foot`);
 });
