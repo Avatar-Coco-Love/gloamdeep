@@ -117,18 +117,6 @@ chapter 1 is done; 8.15 and 8.16 at 0.4.0, with 8.06's count. The
 privacy page says nothing is sent; play notes only if decided later
 (7.11, D-993). Music is new from chapter 2 only (8.11, D-837 to D-841).
 
-**D-1012 · 2026-11-21 · The chest card's bag slots scroll** (the owner's
-pick, recommended; D-1011's next step, B-014's other half) On the stash
-chest's card, where the bag's slots don't all fit, they scroll as the bag
-card's do. The window ends where the chosen find's name and count still
-fit under it, as on the bag card (offered too: down to the card's foot,
-the name left out). Claude's calls: only with DECONSTRUCT and STORE
-raised to the title strip (D-1010), upright on a small window; the
-chest's own 12 slots fit every screen, so they don't scroll; at least one
-row always shows; the scroll's handling moved to one helper the bag card
-shares, ready for the peddler's. D-1006 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-1013 · 2026-11-21 · The peddler's grid scrolls** (the owner's pick,
 recommended; D-1011's last step) On the peddler's card, where the grid's
 slots don't all fit, they scroll as the bag card's do. Upright, the window
@@ -177,4 +165,19 @@ already, or the home stone asleep, its own line, kept and free; its
 lines and picture (a grey chip with the home rune in violet) Claude's
 drafts. The owner's wish, kept for its step (2.13): each waystone a look
 of its own by where it stands. D-1011 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-1016 · 2026-11-21 · The Peddler's gift** (the owner's idea and
+picks, all recommended) Home on the surface, the Peddler gives one
+Homestone (D-1015) on the first bump with room in the bag: his gift line,
+free, the Homestone in the bag, and his card shut that bump (offered too:
+his card opening after it). With no room, 3 Homestones carried counting
+as none (offered too: a 4th past the cap), he says he has a gift and
+his card opens as ever; the gift waits for a later bump with room
+(offered too: nothing said). The owner's idea, in steps: this one first,
+then a talk box on a bump, one of its choices Shop, then gifts now and
+then (offered too: the box first; both at once). Claude's calls: the
+waiting line on every bump with no room; a Peddler made by the dev tools
+has his gift too; a save's Peddler already home gives it on the next
+bump; his two lines Claude's drafts. D-1012 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.

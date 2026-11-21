@@ -53,6 +53,7 @@ at 0.3.245 (D-797), as that page neared 8 KB.
 - **Homestone:** a chip of waystone, made at the workbench once the home
   waystone is woken; USE, in the bag, carries the hero onto the home plate,
   one way, used up, barred with a creature near; at most 3 carried (D-1015).
+  The Peddler, home, gives one once, on a bump with room (D-1016).
 - **Boon:** a small help picked, 1 of 3, at the home waystone as the
   hero sets out; it lasts until back in the stone's room or a fall
   (D-583, D-753). Stepping

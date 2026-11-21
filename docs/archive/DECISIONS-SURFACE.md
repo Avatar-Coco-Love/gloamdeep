@@ -3001,3 +3001,15 @@ above DROP; sideways, at the card's foot. Every screen measured fits a
 12-slot bag, so it shows nowhere today; kept, switched on by itself
 when a grid outgrows its card (offered too: always show fewer rows; park
 it). The chest's card and the peddler's come next.
+
+**D-1012 · 2026-11-21 · The chest card's bag slots scroll** (the owner's
+pick, recommended; D-1011's next step, B-014's other half) On the stash
+chest's card, where the bag's slots don't all fit, they scroll as the bag
+card's do. The window ends where the chosen find's name and count still
+fit under it, as on the bag card (offered too: down to the card's foot,
+the name left out). Claude's calls: only with DECONSTRUCT and STORE
+raised to the title strip (D-1010), upright on a small window; the
+chest's own 12 slots fit every screen, so they don't scroll; at least one
+row always shows; the scroll's handling moved to one helper the bag card
+shares, ready for the peddler's. D-1006 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
