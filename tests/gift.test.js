@@ -46,3 +46,54 @@ test('only at home: trapped behind rubble or freed and waiting, no gift', () => 
   const waiting = step({ ...home(), people: [{ id: 'peddler', x: 2, y: 1, leaves: 99 }] }, 'right');
   assert.equal(carried(waiting.bag, 'homestone'), 0);
 });
+
+// § later gifts (D-1018): one of his wares each 3 days from the last, in his talk box
+const given = (p = {}, more = {}) => ({ ...home([], { gifted: true, giftAt: 0, ...p }), ...more });
+const wares = ['flask', 'bagTorch'];
+const got = (s) => wares.reduce((n, id) => n + carried(s.bag, id), 0);
+
+test('3 days after his last gift, a bump gives one of his wares with its line, free, a take event', () => {
+  const s = given({}, { turn: 900 }), one = step(s, 'right');
+  assert.equal(got(one), 1);
+  assert.equal(one.turn, s.turn);
+  assert.ok([LINES.peddlerGiftFlask.text, LINES.peddlerGiftTorch.text].includes(shownLine(one).text));
+  assert.equal(has(eventsSince(s, one), 'take'), true);
+  assert.equal(one.people[0].giftAt, 900);
+  assert.equal(one.people[0].given, 1);
+  const two = step(one, 'right');
+  assert.equal(got(two), 1); // the next waits 3 days more
+  assert.equal(shownLine(two).text, LINES.peddlerChat.texts[0]);
+});
+
+test('before 3 days, no gift: his talk lines', () => {
+  const one = step(given({}, { turn: 899 }), 'right');
+  assert.equal(got(one), 0);
+});
+
+test('a full bag: his waiting line, kept, the same ware given later with room', () => {
+  const s = given({}, { turn: 1000, bag: full() }), one = step(s, 'right');
+  assert.equal(shownLine(one).text, LINES.peddlerGiftWaits.text);
+  assert.equal(one.people[0].given, undefined);
+  const roomy = step({ ...one, bag: [] }, 'right'), again = step({ ...s, bag: [] }, 'right');
+  assert.deepEqual(roomy.bag, again.bag);
+  assert.equal(got(roomy), 1);
+});
+
+test('the seed picks each gift; over many, both wares come', () => {
+  let s = given({}, { turn: 900 }); const seen = new Set();
+  for (let k = 0; k < 12; k++) { const was = s.bag; s = step({ ...s, bag: [], turn: s.turn + 900 }, 'right'); seen.add(s.bag[0]?.id); assert.notEqual(s.bag, was); }
+  assert.deepEqual([...seen].sort(), ['bagTorch', 'flask']);
+});
+
+test('a save from before, gifted with no time kept: a gift waits at once', () => {
+  const one = step(home([], { gifted: true }), 'right');
+  assert.equal(got(one), 1);
+});
+
+test('dev Grow brings his next gift due, no turn passing; none before his first', async () => {
+  const { giftsDue, giftReady } = await import('../src/core/gift.js');
+  const s = given({}, { turn: 50 }), due = giftsDue(s);
+  assert.equal(giftReady(due, due.people[0]), true);
+  assert.equal(due.turn, 50);
+  assert.equal(giftsDue(home()).people[0].giftAt, undefined);
+});

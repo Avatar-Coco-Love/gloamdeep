@@ -10,7 +10,7 @@ import { dayChats, chats, TALK_MENU, talkOf } from '../src/core/chat.js';
 import { get } from '../src/core/registry.js';
 import { talkCard } from '../src/input/cards/talk.js';
 
-const home = (more = {}) => ({ ...makeState(makeRoom(['#####', '#...#', '#####']), { x: 1, y: 1 }), people: [{ id: 'peddler', x: 2, y: 1, home: true, gifted: true }], ...more });
+const home = (more = {}) => ({ ...makeState(makeRoom(['#####', '#...#', '#####']), { x: 1, y: 1 }), people: [{ id: 'peddler', x: 2, y: 1, home: true, gifted: true, giftAt: 0 }], ...more });
 const said = (s) => shownLine(s).text;
 
 test('only a person at home with chat lines talks: the Peddler at home, not trapped or freed', () => {

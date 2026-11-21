@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-21, 0.3.451, The Homestone, a way home.** Made at the
+  workbench once the home waystone is woken, 5 Duskstar and 5 Stone, at
+  most 3; USE: onto the home plate, one way. D-1015. Playtest: https://claude.ai/artifact/3WVPWCRLczgVZ3znbbBcGL
 - **2026-11-21, 0.3.450, The Lampeater's end, a cutscene.** The first
   time it is beaten: on it, its eyes flare, it fades, Leap's mark shows;
   the polish's first step. D-1014. Playtest: https://claude.ai/artifact/ERUUiJQyUx9Xry2oJR4fQP

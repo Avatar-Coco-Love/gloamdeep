@@ -42,6 +42,8 @@ import { padShown, marksShown } from '../core/settings.js';
 import { jabAt } from './jab.js';
 import { drawMark, drawDots, drawAlert, drawGain } from './walk.js';
 import { drawFloat, drawBite } from './float.js';
+import { drawGiftMarks } from './giftmark.js';
+import { giftWaiting } from '../core/gift.js';
 import { drawDoors } from './doors.js';
 import { LANTERN, LANTERN_AT } from '../core/light.js';
 import { flasksIn } from '../core/bag.js';
@@ -259,6 +261,7 @@ export function createFrame(app, ui) {
         if (cut?.end && cut.find > 0 && cut.find < 1) { rc.save(); rc.globalAlpha = cut.find; drawItems(rc, s.items.filter((it) => it.id === 'leapFind'), t, still()); rc.restore(); }
         const beaming = app.beam?.arriving && t < app.beam.start + BEAM_MS ? app.beam.id : null; // hidden until beamed in
         drawPeople(rc, (s.people || []).filter((p) => p.id !== beaming), s.hero); // forward, or turned to face the hero near (D-490, D-501)
+        drawGiftMarks(rc, (s.people || []).filter((p) => p.id !== beaming && giftWaiting(s, p)), t, still()); // a gift waiting: the ember parcel over them (D-1018)
         drawBeam(rc, app.beam, s.hero, t); // a freed person beamed home, or beamed in at home (D-496)
         const lift = leapLift(app.leapArc, shown); // a leap's hop, its shadow left on the ground (D-962)
         if (lift) { rc.fillStyle = 'rgba(0,0,0,.35)'; rc.fillRect(sx + nx + 4, sy + ny + 14, 8, 2); }

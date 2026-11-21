@@ -234,7 +234,7 @@ test('his home spot skips the hero\'s tile and a creature\'s, taking the next op
 });
 
 test('at home a bump says his everyday talk lines in turn, free (D-1017)', () => {
-  const s = { ...makeState(makeRoom(['#####', '#...#', '#####']), { x: 1, y: 1 }), people: [{ id: 'peddler', x: 2, y: 1, home: true, gifted: true }] }; // his gift given (D-1016)
+  const s = { ...makeState(makeRoom(['#####', '#...#', '#####']), { x: 1, y: 1 }), people: [{ id: 'peddler', x: 2, y: 1, home: true, gifted: true, giftAt: 0 }] }; // his gift given (D-1016)
   const one = step(s, 'right'), two = step(one, 'right');
   assert.equal(one.turn, s.turn);
   assert.equal(shownLine(one).text, LINES.peddlerChat.texts[0]);
@@ -243,7 +243,7 @@ test('at home a bump says his everyday talk lines in turn, free (D-1017)', () =>
 
 test('at home, he never says he will have wares soon; an old save mid-line on a dropped home line wraps round (D-684)', () => {
   assert.equal([...LINES.peddlerHome.texts, ...LINES.peddlerChat.texts].some((t) => /wares soon/.test(t)), false);
-  const s = { ...makeState(makeRoom(['#####', '#...#', '#####']), { x: 1, y: 1 }), people: [{ id: 'peddler', x: 2, y: 1, home: true, gifted: true }] };
+  const s = { ...makeState(makeRoom(['#####', '#...#', '#####']), { x: 1, y: 1 }), people: [{ id: 'peddler', x: 2, y: 1, home: true, gifted: true, giftAt: 0 }] };
   const old = { ...s, line: { id: 'peddlerHome', turn: s.turn, i: 2 } }; // an old save, mid-line on the dropped third
   assert.equal(shownLine(old).text, LINES.peddlerHome.texts[0]);
 });

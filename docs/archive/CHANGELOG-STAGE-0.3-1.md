@@ -4,6 +4,15 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.451 (2026-11-21)
+- New: the Homestone, a way home. Once the home waystone is woken, the
+  workbench's GEAR tab makes one from 5 Duskstar and 5 Stone. USE it in
+  the bag and it carries you onto the home waystone's plate, as waystone
+  travel does: free, and the creatures there can't move before you do.
+  It goes one way only, and is used up. Not with a creature so near.
+- You can carry at most 3 Homestones.
+- Decisions: D-1015.
+
 ## 0.3.450 (2026-11-21)
 - The Lampeater has a cutscene for its end. The first time on a journey
   you beat it, the black bars slide in and the camera glides to where it
