@@ -2,7 +2,7 @@
 
 `RESEARCH.md` continued. "Ideas the owner wants kept for later" moved here
 word for word at 0.3.72, the ninth audit (D-617), as that page neared 8 KB.
-**Nothing here is decided.**
+**Nothing here is decided.** New ideas go to `RESEARCH-3.md` (D-1020).
 
 ## Ideas the owner wants kept for later
 - **Creatures show their next move** (Hoplite, Into the Breach). To try:

@@ -4,6 +4,14 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.453 (2026-11-21)
+- New: the Peddler's talk box. Home on the surface, bumping him opens a
+  small card with his face and a line, and two buttons: SHOP opens his
+  card, BYE goes back to play.
+- His lines take turns by day; past depth 3, and once the Lampeater is
+  beaten, a line about each joins them. By night he has his own line.
+- Decisions: D-1017.
+
 ## 0.3.452 (2026-11-21)
 - New: the Peddler's gift. Home on the surface, the first time you bump
   him with room in your bag, he gives you a Homestone, free. His card
