@@ -6,6 +6,10 @@
 // tools/release.js once a newer version is in (D-982); stage 0.2's are in history-0.2.js and its split
 // files.
 export const HISTORY_03 = [
+  { v: '0.3.456', date: '2026-11-21', title: 'Ideas from how it will be special', lines: [
+    "Docs: ideas from \"how will it be special?\" are kept for later in a new page, docs/RESEARCH-3.md: light decides the boss fights, your lights a map of your journey, the surface answers the deep, other players' light, light-routing puzzles, and the bait as the player's own pull. Nothing in the game changes.",
+    "Decisions: D-1020.",
+  ] },
   { v: '0.3.455', date: '2026-11-21', title: 'The public guide kept', lines: [
     "Docs: the public guide, \"Building a Game with an AI Partner\", is kept in docs/guide: its 3-page PDF, its post image and their sources. Nothing in the game changes.",
     "Decisions: D-1019.",

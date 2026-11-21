@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.455 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.456 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -53,11 +53,10 @@ later are in `RESEARCH-2.md` (D-699) and `RESEARCH-PLANNING.md`, and the
 owner's wish list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-21, 0.3.456, Ideas from how it will be special.** Kept in
+  `RESEARCH-3.md`, nothing decided. D-1020.
 - **2026-11-21, 0.3.455, The public guide kept.** Its PDF, post image
   and sources in `docs/guide/`. D-1019.
 - **2026-11-21, 0.3.454, The Peddler's gifts now and then.** An Oil
   Flask or a Torch each 3 days, in his talk box; a parcel over him. D-1018.
   Playtest: https://claude.ai/artifact/6dsEkFLUptM5WWWDKFLRzZ
-- **2026-11-21, 0.3.453, The Peddler's talk box.** His face, a line,
-  SHOP, BYE. D-1017.
-  Playtest: https://claude.ai/artifact/TdgcNn7ViAuy94o9VHSZVE

@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-21, 0.3.453, The Peddler's talk box.** His face, a line,
+  SHOP, BYE. D-1017.
+  Playtest: https://claude.ai/artifact/TdgcNn7ViAuy94o9VHSZVE
 - **2026-11-21, 0.3.452, The Peddler's gift.** His first bump at home
   with room gives a Homestone. D-1016.
   Playtest: https://claude.ai/artifact/4VQSgSXk4CnStSy5bAAwkB

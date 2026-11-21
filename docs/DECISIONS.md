@@ -117,27 +117,6 @@ chapter 1 is done; 8.15 and 8.16 at 0.4.0, with 8.06's count. The
 privacy page says nothing is sent; play notes only if decided later
 (7.11, D-993). Music is new from chapter 2 only (8.11, D-837 to D-841).
 
-**D-1015 · 2026-11-21 · The Homestone, a way home** (the owner's idea and
-picks, all recommended but the cost and the carry, the owner's own) A
-thing made to go home, the Homestone: one use, one way, onto the home
-waystone's plate, the stairs' fade, as travel by waystone (D-593): free,
-no oil burnt, the creatures there not acting before the hero's first
-move. Instant (offered too: held 3 turns, a hit breaking it), and barred
-with a creature awake beside the hero or chasing them, with its line
-(offered too: always working; a portal back; once a trip, recharged at
-home). Made at the workbench, its recipe showing once the home waystone
-is woken (offered too: the bag's Make tab; the mortar), from 5 Duskstar
-and 5 Stone (offered too: 3 or 8 Duskstar), at most 3 carried (offered
-too: 4 or 5; one only), so it stays special and the waystones the way
-back down. The owner's wish: it is not easy to get hold of, never used
-willy-nilly. Claude's calls: the GEAR tab, its last slot; one stack of
-3, a chest holding one stack too; USE in the bag, never dim; at home
-already, or the home stone asleep, its own line, kept and free; its
-lines and picture (a grey chip with the home rune in violet) Claude's
-drafts. The owner's wish, kept for its step (2.13): each waystone a look
-of its own by where it stands. D-1011 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-1016 · 2026-11-21 · The Peddler's gift** (the owner's idea and
 picks, all recommended) Home on the surface, the Peddler gives one
 Homestone (D-1015) on the first bump with room in the bag: his gift line,
@@ -187,8 +166,17 @@ first gift too; dev Grow brings his next gift due; his two lines
 Claude's drafts. D-1014 moves to `archive/DECISIONS-SURFACE.md`, word
 for word.
 
-**D-1019 (2026-11-21).** The public guide, "Building a Game with an AI
-Partner", is kept in `docs/guide/`: its 3-page PDF, its post image and
+**D-1019 · 2026-11-21 · The public guide kept** The public guide,
+"Building a Game with an AI Partner", is kept in `docs/guide/`: its 3-page PDF, its post image and
 the two HTML pages that rebuild them (offered too: the sources only; Drive
 only). They are outside the game, like `tools/`, so the rule of no image
 files (D-425) still holds for the game itself.
+
+**D-1020 · 2026-11-21 · Ideas from "how will it be special?"** (the
+owner's wish) Asked what makes Gloamdeep unique and how far it can go,
+Claude's ideas from that talk are kept for later in a new page,
+`RESEARCH-3.md`, as `RESEARCH-2.md` is near 8 KB: light decides the boss
+fights, your lights a map of your journey, the surface answers the deep,
+other players' light, light-routing puzzles, and the bait as the player's
+own pull. Nothing in them is decided. D-1015 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

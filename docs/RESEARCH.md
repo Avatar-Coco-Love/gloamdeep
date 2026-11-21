@@ -72,7 +72,7 @@ items: collectables, craftables, weapons and more. Where they stand:
 talks to hear, and the sources.
 
 ## Ideas the owner wants kept for later
-Moved to `RESEARCH-2.md` word for word at 0.3.72 (D-617); new ones go there.
+Moved to `RESEARCH-2.md` word for word at 0.3.72 (D-617); new ones go to `RESEARCH-3.md` (D-1020).
 
 ## Ideas shown, not picked (2026-10-21)
 - A shrine or lit brazier on some floors where you pick one boon.
