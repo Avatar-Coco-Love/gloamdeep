@@ -9,8 +9,9 @@ import { get } from '../../core/registry.js';
 import { bagAt, twoButtons, gearChosen, cardAt } from '../../render/bag.js';
 import { bagTabAt } from '../../render/bagtabs.js';
 import { view } from '../../render/screen.js';
-import { bagWindow, grabsAt, barTo, rowSpan } from '../../render/bagscroll.js';
-import { scroller, grab, drag, release, letGo, nudge, keepInView, settle, snap } from '../../render/scroll.js';
+import { bagWindow, rowSpan } from '../../render/bagscroll.js';
+import { scroller, keepInView } from '../../render/scroll.js';
+import { gridScroll } from './gridscroll.js';
 
 export function bagCard(app, ui, show, c) {
   const { useChosen, moveBag, canStore, pickStore, storeNear, pickSort, sortBag, dropChosen, pickGear, pickSlot, turnBagTab } = c;
@@ -33,18 +34,7 @@ export function bagCard(app, ui, show, c) {
     else if (at?.gear !== undefined) pickGear(at.gear);
     else if (at) { pickSlot(at.slot); inView(); } // a row half showing glides into view
   }
-  // § scroll (D-1011): the press, drag and lift on the slots' window or its bar
-  const grabs = (x, y) => !!grabsAt(win(), x, y);
-  function scroll(phase, x, y, t) {
-    const w = win(), s = sc();
-    if (phase === 'down') { s.bar = grabsAt(w, x, y) === 'bar'; if (s.bar) { s.moving = false; s.v = 0; s.y = barTo(w, y); } else grab(s, y, t); return false; }
-    if (s.bar) { if (phase === 'move') s.y = barTo(w, y); else { s.bar = false; settle(s, snap(s.y, w.max, w.pitch)); } return phase === 'let'; } // a tap on the bar's track only moves it
-    if (phase === 'move') drag(s, y, t, w.max);
-    else if (phase === 'up') release(s, w.max, w.pitch);
-    else if (phase === 'let') return letGo(s, w.max, w.pitch);
-    return false;
-  }
-  const wheel = (by) => { const w = win(); if (!w.max) return false; nudge(sc(), by, w.max, w.pitch); return true; };
+  const { grabs, scroll, wheel } = gridScroll(win, sc); // § scroll (D-1011), gridscroll.js
   const close = () => show('play'); // Esc or P
   // C makes (D-309), E eats a minnow (D-615), X drops (D-546)
   const chosen = () => { const s = app.state.bag[app.chosen]; return s && get(s.id); };

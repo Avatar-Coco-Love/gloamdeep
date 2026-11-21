@@ -30,7 +30,7 @@ const COLS = 4, TOP = 28; // the chest's grid, 4 × 3, its top under the card's 
 export const SPLIT = PAD + COLS * (SLOT + SLOT_GAP) - SLOT_GAP + 12; // the line between the chest and the bag
 // The bag's words, grid and the chosen stack's name: right of the line sideways; upright,
 // under the line across the card, at the card's left (D-505); its grid the bag's shape (D-548)
-function sides(vw, vh, size = BAG_SLOTS) {
+export function sides(vw, vh, size = BAG_SLOTS) {
   const tall = isTall(vw, vh), x = tall ? PAD : SPLIT + 13, label = tall ? TALL_SPLIT + 10 : TOP, shape = bagShape(size);
   return { x, label, grid: label + 12, name: label + 12 + shape.h + 10, shape };
 }
@@ -50,14 +50,16 @@ export function chestButtons(card, vw, vh, size = BAG_SLOTS) {
 
 // What a tap at x, y on the room's canvas, `vw` × `vh`, picks: { slot: i } for a chest slot
 // (0 to 11) or a bag slot (CHEST_BAG + i), 'take' (Deconstruct), 'store' (D-556), 'close' (the round cross),
-// or null; outside the card, 'out'
-export function chestAt(x, y, vw, vh, size = BAG_SLOTS) {
+// or null; outside the card, 'out'. win and sy: the bag's slots' window (chestscroll.js) and
+// how far it is scrolled; only a bag slot showing in it is picked (D-1011)
+export function chestAt(x, y, vw, vh, size = BAG_SLOTS, win = null, sy = 0) {
   const card = cardAt(vw, vh), { t, st } = chestButtons(card, vw, vh, size), b = sides(vw, vh, size);
   if (!inCard(card, x, y)) return 'out';
   if (onCross(card, x, y)) return 'close';
   const i = gridAt(card, x, y, TOP, COLS, CHEST_SLOTS);
   if (i >= 0) return { slot: i };
-  const j = gridAt(card, x, y, b.grid, b.shape.cols, size, b.x, b.shape.slot);
+  const half = SLOT_GAP / 2, inWin = y >= card.y + b.grid - half && y < card.y + b.grid + (win ? win.h : b.shape.h) + half;
+  const j = inWin ? gridAt(card, x, y + (win?.max ? sy : 0), b.grid, b.shape.cols, size, b.x, b.shape.slot) : -1;
   if (j >= 0) return { slot: CHEST_BAG + j };
   if (onButton(t, TAKE_W, x, y)) return 'take';
   if (onButton(st, STORE_W, x, y)) return 'store';
@@ -66,13 +68,18 @@ export function chestAt(x, y, vw, vh, size = BAG_SLOTS) {
 
 // c: the room's canvas, `vw` × `vh`; stash, bag: [{ id, n, form? }]; chosen: a chest slot,
 // CHEST_BAG + a bag slot, CHEST_TAKE or CHEST_STORE; spriteOf: a slot's sprite (sprites.js);
-// picsOf: an entry's pictures' facts, { held, refill, sips } (D-917)
-export function drawChestPanel(c, vw, vh, stash, bag, chosen, spriteOf, t, still, size = BAG_SLOTS, picsOf = () => ({})) {
+// picsOf: an entry's pictures' facts, { held, refill, sips } (D-917); scroll: { win, y }, the
+// bag's slots' window (chestscroll.js) and how far it is scrolled (D-1011)
+export function drawChestPanel(c, vw, vh, stash, bag, chosen, spriteOf, t, still, size = BAG_SLOTS, picsOf = () => ({}), scroll = null) {
   const up = raised(vw, vh, size), card = drawCard(c, vw, vh, up ? '' : 'STASH CHEST', SPLIT, true, TALL_SPLIT), { x, y, w } = card, b = sides(vw, vh, size);
   const { t: at, st } = chestButtons(card, vw, vh, size);
   for (let i = 0; i < CHEST_SLOTS; i++) { const s = slotAt(card, i, TOP, COLS); drawSlot(c, s.x, s.y, stash[i], i === chosen, spriteOf); }
   drawText(c, 'BAG', x + b.x, y + b.label, GREY);
-  for (let i = 0; i < size; i++) { const s = slotAt(card, i, b.grid, b.shape.cols, b.x, b.shape.slot); drawSlot(c, s.x, s.y, bag[i], CHEST_BAG + i === chosen, spriteOf, b.shape.slot); }
+  const win = scroll?.win, wh = win ? win.h : b.shape.h, wy = y + b.grid, oy = win?.max ? Math.round(scroll.y) : 0; // through its window (D-1011)
+  c.save();
+  if (win?.max) { c.beginPath(); c.rect(x + b.x - 1, wy, b.shape.w + 2, wh); c.clip(); }
+  for (let i = 0; i < size; i++) { const s = slotAt(card, i, b.grid, b.shape.cols, b.x, b.shape.slot), sy = s.y - oy; if (sy < wy + wh && sy + b.shape.slot > wy) drawSlot(c, s.x, sy, bag[i], CHEST_BAG + i === chosen, spriteOf, b.shape.slot); }
+  c.restore();
   drawButton(c, at.x, at.y, TAKE, false, TAKE_W);
   if (chosen === CHEST_TAKE) drawMarker(c, at.x - 7, at.y + 4, t, still);
   drawButton(c, st.x, st.y, STORE, false, STORE_W);
@@ -82,7 +89,7 @@ export function drawChestPanel(c, vw, vh, stash, bag, chosen, spriteOf, t, still
   if (!s) return;
   const dx = x + b.x, dw = x + w - PAD - dx;
   const lines = [[`${get(s.id).name}, ${s.n} in the ${out ? 'chest' : 'bag'}`, CORE], [`Tap to move to the ${out ? 'bag' : 'chest'}.`, GREY]];
-  let ly = y + b.name;
+  let ly = y + b.name - b.shape.h + wh; // under the window
   // a line level with STORE ends left of it, on a short card with a big bag; the hint is left out
   // where any of its lines would pass the card's foot (D-743, B-012)
   const foot = y + card.h - 6, bar = up ? { x: dx + dw + 6, y: foot + 5 } : st; // raised, STORE leaves the foot clear

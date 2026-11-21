@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-20, 0.3.445, A gentler first mole.** The woods moles by day
+  have 2 hearts, not 4, and the start room has one on day 1 again. D-1009.
+  Playtest: https://claude.ai/artifact/RqEeVvH2uP6c43qxGMDc9o
 - **2026-11-20, 0.3.444, Herbs and mushrooms rooted.** The healing herb,
   the oilcap and the heartcap stand in a tuft of earth, as the flowers do,
   no longer floating. D-1008. Playtest: https://claude.ai/artifact/Nz475K7cbw3Ce8xQRHfLwq

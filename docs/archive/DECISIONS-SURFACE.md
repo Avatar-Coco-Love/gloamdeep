@@ -2931,3 +2931,21 @@ its stem); a herb
 mimic asleep and a snapcap shut stand rooted too, as the finds they copy,
 lifted over a shadow again once they show themselves; other finds still
 bob. D-1005 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-1006 · 2026-11-20 · The lantern's slots, shown** (the owner's picks,
+both recommended, from mock-ups; the roadmap's 1.02, picked as the next
+content before the Lampeater, its polish saved for later; builds D-459,
+D-483) The lantern's three slots, Wick, Tank and Glass, show as a LANTERN
+row in the bag: beside the gear row sideways, under it upright, the bag's
+slots a row lower there (offered too: a LANTERN tab of its own; the slots
+only in a part's own words). An empty slot shows its kind faintly, as the
+gear row's; the empty Glass a plain pane outline (offered too: the Gloam
+Eye, faint; an empty frame). Offered as the next step too: a second
+flower; a gentler first mole; a new creature for depths 1 to 7. Claude's
+calls: a lantern slot chosen shows its part's name, slot, numbers and Look
+line, as a gear slot's; nothing comes off, Fit still swaps a part; the
+pane's picture, a pane of glass between a cap and base of the lantern's
+trim (draft); sideways "GEAR" stays when both labels fit, else only
+"LANTERN"; the arrows reach the row, sideways along the gear row's line,
+upright a row between; the parts' Look lines kept as they are.
+D-1003 moves to `archive/DECISIONS-SURFACE.md`, word for word.

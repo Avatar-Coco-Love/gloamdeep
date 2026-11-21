@@ -3,6 +3,7 @@
 // and "carried" line still fit above DROP; sideways, at the card's foot. A bag that fits
 // shows as before, with no bar. The thin bar stands just right of the slots, lit gold while it
 // moves; a finger can drag it too. bag.js draws and picks the slots through the window it's given.
+// The stash chest's card has its own window for the bag's slots (chestscroll.js), and the same helpers.
 import { bagShape, bagTop, cardAt, isTall, PAD, SLOT_GAP, LINE_H } from './bag.js';
 
 const GOLD = '#ffd66b', CORE = '#efe6cc', LINE = 'rgba(239,230,204,.16)';
@@ -18,18 +19,18 @@ export function bagWindow(vw, vh, size) {
   const shape = bagShape(size), card = cardAt(vw, vh, shape.detail), top = bagTop(vw, vh), pitch = shape.slot + SLOT_GAP;
   const foot = isTall(vw, vh) ? card.drop.y - card.y - WORDS_ROOM : card.h - 4;
   const rows = Math.ceil(size / shape.cols), fit = Math.max(1, Math.min(rows, Math.floor((foot - top + SLOT_GAP) / pitch)));
-  return { top, h: fit * pitch - SLOT_GAP, pitch, max: (rows - fit) * pitch, full: shape.h, shape, card };
+  return { top, left: PAD, h: fit * pitch - SLOT_GAP, pitch, max: (rows - fit) * pitch, full: shape.h, shape, card };
 }
-const barX = (win) => win.card.x + PAD + win.shape.w + BAR_GAP;
+const barX = (win) => win.card.x + win.left + win.shape.w + BAR_GAP; // left: the slots' left inside the card
 const thumbH = (win) => Math.max(THUMB_MIN, Math.round(win.h * win.h / win.full));
 
 // § where: 'grid' or 'bar' where a drag may start, or null
 export function grabsAt(win, x, y) {
   if (!win.max) return null;
-  const { card, top, h, shape } = win, bx = barX(win);
+  const { card, top, h, shape, left } = win, bx = barX(win);
   if (y < card.y + top || y >= card.y + top + h) return null;
   if (x >= bx - BAR_TAP && x < bx + BAR_W + BAR_TAP) return 'bar';
-  return x >= card.x + PAD && x < card.x + PAD + shape.w ? 'grid' : null;
+  return x >= card.x + left && x < card.x + left + shape.w ? 'grid' : null;
 }
 // The scroll that puts the bar's thumb's middle at y
 export function barTo(win, y) {
