@@ -31,6 +31,7 @@ import { isWorn } from './worn.js';
 import { campCorner, campTiles } from './camp.js';
 import { openVault } from './vault.js';
 import { inArena } from './beaten.js';
+import { goHome } from './recall.js';
 
 // § pour: a flask from bag slot i into the lantern, never above full, even
 // into a full one (D-078). It passes a turn like a wait, so the oil burns first
@@ -109,9 +110,11 @@ function growBag(state, id, recipe, { from, to }) {
 // the Ward Draught (`ward`) ends poisoned before the turn and wards off poison (D-795);
 // the Spitproof Draught (`spitproof`) turns the spit grub's globs aside (D-802);
 // the Shade Draught (`shade`) lets creatures notice the hero only near (D-806).
+// The Homestone (`home`) carries the hero to the home waystone, free (recall.js, D-1015).
 export function eat(state, i) {
   const entry = state.bag[i] && get(state.bag[i].id);
   if (!entry?.eats) return state;
+  if (entry.home) return goHome(state, i);
   if (entry.cures) return cure(state, i, entry);
   if (entry.glow) return glow(state, i, entry);
   if (entry.slow) return glow(state, i, entry, slowing);

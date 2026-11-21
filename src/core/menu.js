@@ -138,7 +138,7 @@ const allSettings = (s, deviceReduced, journey, mode) => [
 // the lantern's parts, armour and charms; a 4 × 3 grid each. BENCH_MAKES, every one, BUILD's first.
 export const BENCH_TABS = [
   { id: 'build', text: 'BUILD', makes: ['chest', 'pick', 'moleClawPick', 'bed', 'pouch', 'bigBag', 'gardenBed', 'rod', 'shelf', 'furBedroll', 'boneHook', 'shovel'] },
-  { id: 'gear', text: 'GEAR', makes: ['copperWick', 'ratVest', 'shellVest', 'wispCharm', 'heartCharm', 'centipedeCharm', 'echoCharm', 'fangCharm', 'bladderTank'] },
+  { id: 'gear', text: 'GEAR', makes: ['copperWick', 'ratVest', 'shellVest', 'wispCharm', 'heartCharm', 'centipedeCharm', 'echoCharm', 'fangCharm', 'bladderTank', 'homestone'] },
 ];
 export const BENCH_MAKES = BENCH_TABS.flatMap((t) => t.makes); // the stone pick (D-480), the copper wick (D-483), the rat hide vest (D-484), the wisp charm (D-486), the heart charm (D-487), the bed (D-488), the Pouch and Big Bag (D-545), the garden bed (D-562), the rod (D-608), the centipede charm (D-656), the shelf (D-689), the shell vest (D-801), the fur bedroll (D-803), the fang charm (D-809), the bone hook (D-807), the mole claw pick, after the stone pick (D-810), the bladder tank, last, every other slot kept (D-1005)
 export const benchTabOf = (id) => BENCH_TABS.find((t) => t.id === id) ?? BENCH_TABS[0];
@@ -159,8 +159,10 @@ export const STATION_NONE = 'Nothing to make here yet.';
 export const stationTitle = (tile) => tile.title || 'WORKBENCH';
 const shown = (id, known) => Object.keys(get(id).bench.of).every((at) => known.has(at));
 // The workbench's, on its open tab (D-800); the mortar has no tabs
+// A workbench recipe with `bench.after` shows once `known` holds it: the Homestone's 'homeWoken' (recall.js, D-1015)
+const opened = (id, known) => !get(id).bench.after || known.has(get(id).bench.after);
 export const stationMakes = (tile, bag, size, stored, known = new Set(), tab = 'build') => (tile.makes
-  ? benchMakes(bag, size, stored, tile.makes.filter((id) => shown(id, known))) : benchMakes(bag, size, stored, benchTabOf(tab).makes));
+  ? benchMakes(bag, size, stored, tile.makes.filter((id) => shown(id, known))) : benchMakes(bag, size, stored, benchTabOf(tab).makes.filter((id) => opened(id, known))));
 // The arrows on the card: the grid, Down from its bottom row to Deconstruct, Up from it back
 export function moveBench(i, dir) {
   if (i === BENCH_TAKE) return dir === 'up' ? BENCH_SLOTS - BENCH_COLS : i;

@@ -3,6 +3,7 @@
 import { HISTORY_00 } from './history-0.0.js';
 import { HISTORY_01 } from './history-0.1.js';
 import { HISTORY_03 } from './history-0.3.js';
+import { HISTORY_03_8 } from './history-0.3-8.js';
 import { HISTORY_03_7 } from './history-0.3-7.js';
 import { HISTORY_03_6 } from './history-0.3-6.js';
 import { HISTORY_03_5 } from './history-0.3-5.js';
@@ -15,4 +16,4 @@ import { HISTORY_02_3 } from './history-0.2-3.js';
 import { HISTORY_02_2 } from './history-0.2-2.js';
 import { HISTORY_02_1 } from './history-0.2-1.js';
 
-export const VERSIONS = [...HISTORY_03, ...HISTORY_03_7, ...HISTORY_03_6, ...HISTORY_03_5, ...HISTORY_03_4, ...HISTORY_03_3, ...HISTORY_03_2, ...HISTORY_03_1, ...HISTORY_02, ...HISTORY_02_3, ...HISTORY_02_2, ...HISTORY_02_1, ...HISTORY_01, ...HISTORY_00];
+export const VERSIONS = [...HISTORY_03, ...HISTORY_03_8, ...HISTORY_03_7, ...HISTORY_03_6, ...HISTORY_03_5, ...HISTORY_03_4, ...HISTORY_03_3, ...HISTORY_03_2, ...HISTORY_03_1, ...HISTORY_02, ...HISTORY_02_3, ...HISTORY_02_2, ...HISTORY_02_1, ...HISTORY_01, ...HISTORY_00];

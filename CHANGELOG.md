@@ -24,6 +24,15 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.451 (2026-11-21)
+- New: the Homestone, a way home. Once the home waystone is woken, the
+  workbench's GEAR tab makes one from 5 Duskstar and 5 Stone. USE it in
+  the bag and it carries you onto the home waystone's plate, as waystone
+  travel does: free, and the creatures there can't move before you do.
+  It goes one way only, and is used up. Not with a creature so near.
+- You can carry at most 3 Homestones.
+- Decisions: D-1015.
+
 ## 0.3.450 (2026-11-21)
 - The Lampeater has a cutscene for its end. The first time on a journey
   you beat it, the black bars slide in and the camera glides to where it
@@ -45,12 +54,3 @@ Entry format:
 - Only a very short upright window needs it; on every phone tried the
   card looks as before.
 - Decisions: D-1013.
-
-## 0.3.448 (2026-11-21)
-- On the stash chest's card, the bag's slots scroll too when they don't
-  all fit, the same way as on the bag card: drag or flick them, use the
-  wheel or the arrows, or drag the thin bar beside them. They stop where
-  the chosen find's name and count still fit below.
-- Only a very short upright window needs it; on every phone tried the
-  card looks as before.
-- Decisions: D-1012. B-014 fixed.

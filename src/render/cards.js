@@ -1,5 +1,6 @@
 // § cards: the title's screens and the cards over play, each frame (split from frame.js, H-99).
 // It changes nothing in the game; frame.js draws the room under them.
+import { benchKnown } from '../core/recall.js';
 import { view } from './screen.js';
 import { spriteOf, heroIn, SPRITES } from './sprites.js';
 import { canSleepOut } from '../core/sleepout.js';
@@ -20,7 +21,7 @@ import { drawMap } from './map.js';
 import { drawBag, hidesPicture } from './bag.js';
 import { drawBenchPanel } from './benchpanel.js';
 import { drawMakeCard } from './makecard.js';
-import { bagMakes, makeFor, knownOf, stationFor } from '../core/bagmake.js';
+import { bagMakes, makeFor, stationFor } from '../core/bagmake.js';
 import { get } from '../core/registry.js';
 import { refills, draughtTurns } from '../core/numbers.js';
 import { drawChestPanel } from './chestpanel.js';
@@ -144,7 +145,7 @@ export function createCards(app, ui) {
       }
       else if (app.screen === 'bench') {
         const station = tileAt(state.room, app.bench.x, app.bench.y); // the workbench or the mortar (D-786)
-        drawBenchPanel(hc, view.w, view.h, stationMakes(station, state.bag, bagSize(state), nearStacks(state), knownOf(state), app.benchTab), app.chosen, spriteOf, state.told, t, still(), stationTitle(station), STATION_NONE, station.makes ? null : app.benchTab, picsOf(state)); // a card on the room (D-387)
+        drawBenchPanel(hc, view.w, view.h, stationMakes(station, state.bag, bagSize(state), nearStacks(state), benchKnown(state), app.benchTab), app.chosen, spriteOf, state.told, t, still(), stationTitle(station), STATION_NONE, station.makes ? null : app.benchTab, picsOf(state)); // a card on the room (D-387)
         textLine.draw(hc, line, t, still()); // "You make a stash chest."
       }
       else if (app.screen === 'chest') {

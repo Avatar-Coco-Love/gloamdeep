@@ -16,9 +16,9 @@ import { segsOf, panelW, panelWidest } from '../src/render/panelsize.js';
 const start = (bag) => ({ ...makeState(makeRoom(FIRST_ROOM)), bag });
 const tanked = (oil, bag = []) => ({ ...start(bag), parts: { tank: 'bladderTank' }, oil });
 
-test('the Bladder Tank is the GEAR tab\'s last slot: 2 Oil Bladder and 2 Copper Ore, dim with too few', () => {
+test('the Bladder Tank is the GEAR tab\'s slot before the Homestone (D-1015): 2 Oil Bladder and 2 Copper Ore, dim with too few', () => {
   assert.equal(get('bladderTank').name, 'Bladder Tank');
-  const gear = (bag) => benchMakes(bag, 6, [], benchTabOf('gear').makes).at(-1);
+  const gear = (bag) => benchMakes(bag, 6, [], benchTabOf('gear').makes).at(-2);
   assert.deepEqual(gear([{ id: 'oilBladder', n: 2 }, { id: 'copperOre', n: 2 }]), { item: 'bladderTank', cost: [{ id: 'oilBladder', n: 2, have: 2 }, { id: 'copperOre', n: 2, have: 2 }], dim: false });
   assert.equal(gear([{ id: 'oilBladder', n: 1 }, { id: 'copperOre', n: 2 }]).dim, true);
 });

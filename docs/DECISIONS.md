@@ -117,23 +117,6 @@ chapter 1 is done; 8.15 and 8.16 at 0.4.0, with 8.06's count. The
 privacy page says nothing is sent; play notes only if decided later
 (7.11, D-993). Music is new from chapter 2 only (8.11, D-837 to D-841).
 
-**D-1011 · 2026-11-21 · Grids that scroll, first the bag's** (the owner's
-picks, from a mock-up they tried; B-014, the bag card's half) Any grid of
-squares with pictures (the bag, a chest, the peddler's wares) may scroll
-on its own when it doesn't fit its card. The peddler keeps its Sell and
-Buy tabs (offered too: his wares and the bag side by side). A flick
-glides on and slows; it settles with whole rows showing, a gentle snap
-(offered too: no snap); a thin bar beside the slots shows only when there
-is more to see, gold while it moves, and can be dragged. A drag past an
-end gives a little and springs back; a touch on a gliding grid only stops
-it; a sideways swipe still moves the gold frame; the wheel moves a row a
-notch, and an arrow or a tap keeps the chosen row in view. First the bag
-card: upright, its window ends where the chosen find's name and count fit
-above DROP; sideways, at the card's foot. Every screen measured fits a
-12-slot bag, so it shows nowhere today; kept, switched on by itself
-when a grid outgrows its card (offered too: always show fewer rows; park
-it). The chest's card and the peddler's come next.
-
 **D-1012 · 2026-11-21 · The chest card's bag slots scroll** (the owner's
 pick, recommended; D-1011's next step, B-014's other half) On the stash
 chest's card, where the bag's slots don't all fit, they scroll as the bag
@@ -173,4 +156,25 @@ on a later beating, none; `fadeSeen` marks it seen, a save during it never
 plays it again; the "+" of experience waits for its end. The owner's idea,
 kept for later (`RESEARCH-2.md`): a rematch, something in the arena the
 hero goes up to and asks for a harder Lampeater. D-1010 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-1015 · 2026-11-21 · The Homestone, a way home** (the owner's idea and
+picks, all recommended but the cost and the carry, the owner's own) A
+thing made to go home, the Homestone: one use, one way, onto the home
+waystone's plate, the stairs' fade, as travel by waystone (D-593): free,
+no oil burnt, the creatures there not acting before the hero's first
+move. Instant (offered too: held 3 turns, a hit breaking it), and barred
+with a creature awake beside the hero or chasing them, with its line
+(offered too: always working; a portal back; once a trip, recharged at
+home). Made at the workbench, its recipe showing once the home waystone
+is woken (offered too: the bag's Make tab; the mortar), from 5 Duskstar
+and 5 Stone (offered too: 3 or 8 Duskstar), at most 3 carried (offered
+too: 4 or 5; one only), so it stays special and the waystones the way
+back down. The owner's wish: it is not easy to get hold of, never used
+willy-nilly. Claude's calls: the GEAR tab, its last slot; one stack of
+3, a chest holding one stack too; USE in the bag, never dim; at home
+already, or the home stone asleep, its own line, kept and free; its
+lines and picture (a grey chip with the home rune in violet) Claude's
+drafts. The owner's wish, kept for its step (2.13): each waystone a look
+of its own by where it stands. D-1011 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.

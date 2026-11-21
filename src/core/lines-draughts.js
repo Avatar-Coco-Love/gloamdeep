@@ -49,4 +49,12 @@ export const DRAUGHT_LINES = {
   emberTake: { text: 'An ember! Spend it in Growth.', warn: false }, // a vault's ember taken (D-896)
   emberLook: { texts: ['An ember, still warm.', 'It glows in your palm.'], warn: false }, // (D-896)
   plinthBare: { texts: ['A bare stone plinth.', 'Something rested here once.'], warn: false }, // the vault's plinth, its prize taken, a sentence a bump (D-896)
+  // § the Homestone (D-1015), Claude's drafts
+  homestoneMake: { text: 'You make a Homestone.', warn: false }, // the workbench's GEAR tab, a turn
+  homestoneShort: { text: 'You need 5 Duskstar and 5 Stone.', warn: false }, // too few, free
+  homestoneFull: { text: "You can't carry more Homestones.", warn: false }, // 3 carried, free
+  homestoneUse: { text: 'The Homestone carries you home.', warn: false }, // USE in the bag: on the home plate
+  homestoneHere: { text: 'You are home already.', warn: false }, // in the home waystone's room, free, kept
+  homestoneAsleep: { text: 'The home waystone sleeps.', warn: false }, // its stone not woken, free, kept
+  homestoneLook: { texts: ['A chip of waystone.', 'Use it: back to the home waystone.', 'Only one way: home.'], warn: false },
 };

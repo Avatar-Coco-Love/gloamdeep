@@ -2,10 +2,11 @@
 // and cards of a set-down workbench, stash chest, bed and the peddler (D-247, WB2, WB3,
 // CH4, D-387, D-494, D-495, D-546, D-554). Split from screens.js at the eighth audit
 // (D-570): `app` and `ui` as there, `show` to open a screen, and `menuOf` for a card's lines.
+import { benchKnown } from '../core/recall.js';
 import { tileAt } from '../core/room.js';
 import { stationMakes, stationTitle, STATION_NONE, BENCH_TAKE, SURE_MENU, BENCH_TABS, benchTabOf } from '../core/menu.js';
 import { bagSize, bagCols } from '../core/bag.js';
-import { bagMakes, makeFor, knownOf } from '../core/bagmake.js';
+import { bagMakes, makeFor } from '../core/bagmake.js';
 import { NONE_YET } from '../render/makecard.js';
 import { setSides, DIRS, noSleepOut } from '../core/turn.js';
 import { get } from '../core/registry.js';
@@ -95,8 +96,9 @@ export function createCardScreens(app, ui, show, menuOf) {
       return;
     }
     if (entry?.eats && (!make || entry.oil)) { // a minnow's second button eats (D-615)
+      const was = app.state.place;
       ui.eat(app.chosen);
-      if (app.fall) { show('play'); return; } // a bite in that turn felled the hero
+      if (app.fall || app.state.place !== was) { show('play'); return; } // a bite in that turn felled the hero, or the Homestone carried them home (D-1015)
       if (!app.state.bag[app.chosen]) app.chosen = Math.max(0, app.state.bag.length - 1); // the last one eaten
       spoken.textContent = slotWords(app.chosen);
       return;
@@ -196,7 +198,7 @@ export function createCardScreens(app, ui, show, menuOf) {
   }
   const costWords = (m) => `${get(m.item).name}, ${m.cost.map((c) => `${c.n} ${get(c.id).name}, you have ${c.have}`).join(' and ')}${m.dim ? ', too few' : ''}`;
   const station = () => tileAt(app.state.room, app.bench.x, app.bench.y); // the workbench or the mortar (D-786)
-  const stationNow = () => stationMakes(station(), app.state.bag, bagSize(app.state), nearStacks(app.state), knownOf(app.state), app.benchTab);
+  const stationNow = () => stationMakes(station(), app.state.bag, bagSize(app.state), nearStacks(app.state), benchKnown(app.state), app.benchTab);
   const tabWords = () => (station().makes ? '' : `${benchTabOf(app.benchTab).text[0]}${benchTabOf(app.benchTab).text.slice(1).toLowerCase()} tab. `); // the workbench's (D-800)
   const benchWords = () => { const name = station().name, makes = stationNow(); return `${name}. ${tabWords()}${makes.length ? makes.map((m) => `${costWords(m)}. `).join('') : `${STATION_NONE} `}Make, Deconstruct ${stationTitle(station()).toLowerCase()}, or Close.`; };
   // § bench tabs (D-800): the workbench's other tab, or `tab`, opened on its first slot; the
