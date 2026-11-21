@@ -52,3 +52,7 @@ line here (D-741). Each audit moves the lines into the right sections.
 - When the owner wants examples before giving their own ideas, a page of
   looping sketches built only from decided pieces lets them pick fast;
   they chose one of four at once (0.3.450).
+- Asked about a look, the owner wanted to see it first: a mock-up drawn by
+  the game's own card code, three variants side by side, settled it in
+  one pick. A new card screen joins `onTitle`'s list in `screens.js` too,
+  or it draws as the title menu (0.3.453).

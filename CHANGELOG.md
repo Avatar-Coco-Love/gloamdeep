@@ -24,6 +24,14 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.453 (2026-11-21)
+- New: the Peddler's talk box. Home on the surface, bumping him opens a
+  small card with his face and a line, and two buttons: SHOP opens his
+  card, BYE goes back to play.
+- His lines take turns by day; past depth 3, and once the Lampeater is
+  beaten, a line about each joins them. By night he has his own line.
+- Decisions: D-1017.
+
 ## 0.3.452 (2026-11-21)
 - New: the Peddler's gift. Home on the surface, the first time you bump
   him with room in your bag, he gives you a Homestone, free. His card
@@ -41,15 +49,3 @@ Entry format:
   It goes one way only, and is used up. Not with a creature so near.
 - You can carry at most 3 Homestones.
 - Decisions: D-1015.
-
-## 0.3.450 (2026-11-21)
-- The Lampeater has a cutscene for its end. The first time on a journey
-  you beat it, the black bars slide in and the camera glides to where it
-  fell. Its eyes flare one last time, its body sinks and fades as its
-  gloamlings and wisps crumble, and Leap's gold mark shows where it fell.
-  Then the camera goes back to you, about 3 seconds in all, with "The
-  Lampeater fades. Something glows." As with the way in's cutscene,
-  nothing can be skipped or pressed while it plays, and with reduced
-  motion the shots cut instead of gliding. The experience you earn shows
-  over you once it ends.
-- Decisions: D-1014.

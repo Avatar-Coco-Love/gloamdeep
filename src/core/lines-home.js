@@ -53,6 +53,10 @@ export const HOME_LINES = {
   peddlerHome: { texts: ['"You dug me out. I won\'t forget it."', '"Home at last. My legs still shake."'], warn: false, kind: 'speech' }, // at home in the woods (D-492), drafted for the playtest; "I'll have wares soon" dropped, as he sells at home (D-684)
   peddlerGift: { text: '"A gift, friend: a Homestone!"', warn: false, kind: 'speech' }, // his first bump at home with room: a Homestone (D-1016), Claude's draft
   peddlerGiftWaits: { text: '"Make room, friend. I have a gift."', warn: false, kind: 'speech' }, // the same, no room: kept for a later bump (D-1016), Claude's draft
+  peddlerChat: { texts: ['"What\'ll it be, friend?"', '"Good to see your light again."', '"Buying or selling today?"'], warn: false, kind: 'speech' }, // his talk box by day, taking turns (D-1017), Claude's drafts
+  peddlerNight: { text: '"Late, but I\'m awake. What\'ll it be?"', warn: false, kind: 'speech' }, // his talk box by night (D-1017), Claude's draft
+  peddlerDeep: { text: '"Deeper than I got? Mind your oil."', warn: false, kind: 'speech' }, // by day, the hero past depth 3, now and then (D-1017), Claude's draft
+  peddlerBeaten: { text: '"The Lampeater\'s quiet. Your doing?"', warn: false, kind: 'speech' }, // by day, the Lampeater beaten, now and then (D-1017), Claude's draft
   rubbleDig: { text: 'You pull rocks off the heap.', warn: false }, // rubble with no one behind it, the first bump (D-491), drafted
   rubbleShift: { text: 'The heap shifts.', warn: false }, // the second
   rubbleClear: { text: 'The rubble falls away.', warn: false }, // the third: cleared, nothing taken

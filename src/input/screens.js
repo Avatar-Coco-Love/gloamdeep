@@ -87,6 +87,7 @@ import { START_PICK } from '../core/growth.js';
 import { setVersionGap } from '../render/bag.js';
 import { chestWords, stashAt } from '../core/chest.js';
 import { tradeWords } from '../core/trade.js';
+import { TALK_MENU, talkWords } from '../core/chat.js';
 import { stonesOf, stoneName, stoneNote } from '../core/travel.js';
 import { offer, boonRow } from '../core/boon.js';
 import { view } from '../render/screen.js';
@@ -117,11 +118,11 @@ export function createScreens(app, ui) {
   const { spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, sleepButton, boonButton, leapButton, reduceMotion } = ui;
   const version = document.getElementById('version');
   const menuOf = (sc) => (sc === 'title' ? titleMenu(app.saved) : sc === 'paused' ? PAUSE_MENU : sc === 'sure' || sc === 'drop' ? SURE_MENU : sc === 'mode' ? MODE_MENU : sc === 'ended' ? ENDED_MENU
-    : sc === 'ways' ? easeMenu(app.state.mode) : sc === 'easier' || sc === 'sleepOut' ? SURE_MENU : sc === 'bed' ? bedMenu() : sc === 'travel' ? travelMenu() : sc === 'boons' ? boonsMenu()
+    : sc === 'ways' ? easeMenu(app.state.mode) : sc === 'easier' || sc === 'sleepOut' ? SURE_MENU : sc === 'talk' ? TALK_MENU : sc === 'bed' ? bedMenu() : sc === 'travel' ? travelMenu() : sc === 'boons' ? boonsMenu()
     : app.pageFrom === 'paused' ? settingsMenu(app.settings, reduceMotion.matches, app.journeySeed, app.state.mode, app.settingsTab, app.soundList) : settingsMenu(app.settings, reduceMotion.matches, null, null, app.settingsTab, app.soundList));
   const exploring = () => app.screen === 'explore' || (app.screen === 'seed' && app.padFrom === 'explore');
   // The boons card (D-712) is on the title's scene only over a Journal opened from the title
-  const onTitle = () => ['slots', 'name', 'cloak', 'drop', 'title', 'sure', 'mode', 'ended'].includes(app.screen) || exploring() || (app.screen === 'aboutBoons' ? app.boonsFrom === 'journal' && app.pageFrom === 'title' : !['play', 'paused', 'map', 'bag', 'make', 'place', 'bench', 'chest', 'trade', 'bed', 'sleepOut', 'travel', 'boons', 'strike', 'opening', 'ability'].includes(app.screen) && app.pageFrom === 'title');
+  const onTitle = () => ['slots', 'name', 'cloak', 'drop', 'title', 'sure', 'mode', 'ended'].includes(app.screen) || exploring() || (app.screen === 'aboutBoons' ? app.boonsFrom === 'journal' && app.pageFrom === 'title' : !['play', 'paused', 'map', 'bag', 'make', 'place', 'bench', 'chest', 'trade', 'bed', 'sleepOut', 'talk', 'travel', 'boons', 'strike', 'opening', 'ability'].includes(app.screen) && app.pageFrom === 'title');
   const menuTop = () => (onTitle() ? titleTop(menuOf(app.screen).length) : pauseTop(menuOf(app.screen).length, app.screen === 'settings'));
   // § asks (D-400): the ask card's question and note for Start over?, Delete …? and Play …?
   // The garden bed's card shows Plant and Deconstruct, Plant dim when it can't be planted (D-566),
@@ -141,6 +142,8 @@ export function createScreens(app, ui) {
   // § the strike card (D-614): opened on the pull, its clock started
   // § sleeping out (D-758): the moon button's ask, No picked
   function openSleepOut() { app.queued = null; show('sleepOut', SURE_MENU.findIndex((l) => l.id === 'no')); }
+  // § the talk box (D-1017): a person at home, bumped, Shop picked
+  function openTalk(id) { app.queued = null; app.talker = id; show('talk', 0); }
   function openStrike() { app.queued = null; app.strike = { start: performance.now() }; show('strike'); }
   function openBoons() { app.queued = null; app.offer = offer(app.state); show('boons', 0); app.scroll = 0; }
   const askWords = (sc) => `${askOf(sc).join(' ')} ${menuOf(sc).filter((l) => !l.dim).map((l) => l.text).join(' or ')}.`; // Yes or No., or the garden bed's
@@ -161,7 +164,7 @@ export function createScreens(app, ui) {
       : next === 'howto' ? howtoWords(app.page, app.settings, !!app.state?.leap) : next === 'bag' ? bagWords() : next === 'make' ? makeWords() : next === 'history' ? HISTORY_WORDS()
       : next === 'journal' ? journalPageWords() : next === 'slots' ? slotsWords() : next === 'name' ? nameWords() : next === 'cloak' ? lookWords()
       : next === 'ways' ? waysWords() : next === 'easier' || next === 'drop' || next === 'bed' || next === 'sleepOut' ? askWords(next)
-      : next === 'title' ? WORDS[app.saved ? 'saved' : 'title'] : next === 'place' ? placeWords() : next === 'bench' ? benchWords() : next === 'chest' ? chestWords(stashAt(app.state, app.bench.x, app.bench.y)) : next === 'trade' ? tradeWords(app.state) : next === 'travel' ? travelWords() : next === 'boons' ? boonsWords() : next === 'opening' ? openingWords() : next === 'aboutBoons' ? aboutBoonsWords() : next === 'ability' ? abilityWords() : WORDS[next];
+      : next === 'title' ? WORDS[app.saved ? 'saved' : 'title'] : next === 'place' ? placeWords() : next === 'bench' ? benchWords() : next === 'chest' ? chestWords(stashAt(app.state, app.bench.x, app.bench.y)) : next === 'trade' ? tradeWords(app.state) : next === 'talk' ? talkWords(app.state, app.talker) : next === 'travel' ? travelWords() : next === 'boons' ? boonsWords() : next === 'opening' ? openingWords() : next === 'aboutBoons' ? aboutBoonsWords() : next === 'ability' ? abilityWords() : WORDS[next];
   }
   const backTo = (id) => () => show(app.pageFrom, menuOf(app.pageFrom).findIndex((l) => l.id === id));
   // § settings tabs (D-820): the next tab, or `tab`, opened on its first line, kept as Settings closes
@@ -285,10 +288,10 @@ export function createScreens(app, ui) {
 
   // § chip: the profile in play on the title, its name and deepest depth (D-401)
   const chip = () => chipOf(slotName(inPlay(app.profiles), app.profiles.current), inPlay(app.profiles).records.deepest);
-  const cards = makeCards(app, ui, show, { pickMake, makeChosen, turnBagTab, pickBench, turnBenchTab, takeDownBench, pickChest, tradeChosen, moveTrade, turnTrade, pickTrade, useChosen, moveBag, canStore, pickStore, storeNear, pickSort, sortBag, dropChosen, pickGear, pickSlot, setToward, tapSide, menuOf, askOf, shelveBed, kindleBed, sitBed, stokeBed, plantBed, pickBed, feedBed, titleAt, closeDrop, closeEasier, chip, menuTop, closeSettings, turnSettingsTab, openSoundList, closeWays, pickWay, openSlots, openJournal, openHowTo, openExplorer, openPad, openWays, openHistory, closeHowTo, closeHistory, closeJournal, journalPageWords, slotsBack, linesNow, slotsWords, openName, openCloak, pressName, closeName, pressLook, moveLookBy, scrollLookBy, closeCloak, pressKey, closePad, pressBar, closeExplorer, panMap, turnFloor, tapStairs, win, mapCardAt }); // the card table (D-573, D-575, D-576, D-577, D-578)
+  const cards = makeCards(app, ui, show, { pickMake, makeChosen, turnBagTab, pickBench, turnBenchTab, takeDownBench, pickChest, tradeChosen, moveTrade, turnTrade, pickTrade, openTrade, useChosen, moveBag, canStore, pickStore, storeNear, pickSort, sortBag, dropChosen, pickGear, pickSlot, setToward, tapSide, menuOf, askOf, shelveBed, kindleBed, sitBed, stokeBed, plantBed, pickBed, feedBed, titleAt, closeDrop, closeEasier, chip, menuTop, closeSettings, turnSettingsTab, openSoundList, closeWays, pickWay, openSlots, openJournal, openHowTo, openExplorer, openPad, openWays, openHistory, closeHowTo, closeHistory, closeJournal, journalPageWords, slotsBack, linesNow, slotsWords, openName, openCloak, pressName, closeName, pressLook, moveLookBy, scrollLookBy, closeCloak, pressKey, closePad, pressBar, closeExplorer, panMap, turnFloor, tapStairs, win, mapCardAt }); // the card table (D-573, D-575, D-576, D-577, D-578)
   const onMapScreen = () => app.screen === 'map' || app.screen === 'explore';
 
   // § journey ends: a Hardcore fall's page, Same world picked (MO2, D-344)
   const endJourney = () => show('ended');
-  return { turnBagTab, turnBenchTab, turnSettingsTab, show, endJourney, onWheel, grabs, onScroll, openSleepOut, openQuests, openSlots, slotsBack, openPanel, openTrade, openTravel, openBoons, openStrike, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, space, onMapScreen, onTitle, menuOf, askOf, turns, chip };
+  return { turnBagTab, turnBenchTab, turnSettingsTab, show, endJourney, onWheel, grabs, onScroll, openSleepOut, openQuests, openSlots, slotsBack, openPanel, openTrade, openTalk, openTravel, openBoons, openStrike, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, space, onMapScreen, onTitle, menuOf, askOf, turns, chip };
 }

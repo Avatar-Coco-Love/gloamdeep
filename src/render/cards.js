@@ -13,6 +13,8 @@ import { drawHistory } from './history.js';
 import { drawJournal } from './journal.js';
 import { drawSlots } from './slots.js';
 import { drawAskCard } from './askcard.js';
+import { drawTalkCard } from './talkcard.js';
+import { talkOf } from '../core/chat.js';
 import { drawOpening } from './openingcard.js';
 import { drawAbility } from './abilitycard.js';
 import { ABOUT_BOONS, ABOUT_BOONS_BUTTON } from '../core/opening.js';
@@ -121,6 +123,7 @@ export function createCards(app, ui) {
       else if (app.screen === 'opening') drawOpening(hc, view.w, view.h); // a new journey's first words, on the room (D-628)
       else if (app.screen === 'ability') drawAbility(hc, view.w, view.h); // Leap learnt, its card on the room (D-992)
       else if (app.screen === 'boons') drawBoons(hc, view.w, view.h, app.offer || [], app.chosen); // the boon card, three cards in a row (D-603)
+      else if (app.screen === 'talk') drawTalkCard(hc, view.w, view.h, ...talkOf(state, app.talker), SPRITES[`${app.talker}Forward`], screens.menuOf('talk'), app.chosen); // the talk box on the room, his face big (D-1017)
       else if (app.screen === 'easier' || app.screen === 'bed' || app.screen === 'sleepOut') {
         drawAskCard(hc, view.w, view.h, ...screens.askOf(app.screen), screens.menuOf(app.screen), app.chosen); // the ask card on the room (D-400); the bed's by day (D-488), the garden bed's (D-566)
         if (app.screen === 'bed' && saysOver(state, app.bench)) textLine.draw(hc, line, t, still()); // a campfire's or the miners' camp's first words, over their card (H-33)

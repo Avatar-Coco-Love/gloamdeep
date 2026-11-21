@@ -16,7 +16,7 @@ export const PEOPLE = {
   // `wares`, { itemId: price } in coins, never running out (D-495). Named at its own step.
   // Freed, he waits 5 turns, or 3 after each bump, never sooner, then heads home (D-496, D-878).
   // At home, his first bump with room gives his `gift`, one Homestone, once (gift.js, D-1016).
-  peddler: { id: 'peddler', kind: 'npc', name: 'Peddler', calls: 'peddlerCalls', digging: 'peddlerDigging', freed: 'peddlerFreed', waiting: 'peddlerWaiting', leaving: 'peddlerLeaving', waits: [5, 3], home: 'peddlerHome', greeting: 'peddlerGreets', gift: 'homestone', gives: 'peddlerGift', giftWaits: 'peddlerGiftWaits', buys: true, wares: { flask: 3, bagTorch: 2 } },
+  peddler: { id: 'peddler', kind: 'npc', name: 'Peddler', calls: 'peddlerCalls', digging: 'peddlerDigging', freed: 'peddlerFreed', waiting: 'peddlerWaiting', leaving: 'peddlerLeaving', waits: [5, 3], home: 'peddlerHome', greeting: 'peddlerGreets', gift: 'homestone', gives: 'peddlerGift', giftWaits: 'peddlerGiftWaits', chat: { day: 'peddlerChat', night: 'peddlerNight', deep: 'peddlerDeep', beaten: 'peddlerBeaten' }, buys: true, wares: { flask: 3, bagTorch: 2 } },
 };
 
 // The person standing on x, y, or undefined

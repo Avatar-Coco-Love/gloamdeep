@@ -6,6 +6,11 @@
 // tools/release.js once a newer version is in (D-982); stage 0.2's are in history-0.2.js and its split
 // files.
 export const HISTORY_03 = [
+  { v: '0.3.453', date: '2026-11-21', title: 'The Peddler\'s talk box', lines: [
+    "New: the Peddler's talk box. Home on the surface, bumping him opens a small card with his face and a line, and two buttons: SHOP opens his card, BYE goes back to play.",
+    "His lines take turns by day; past depth 3, and once the Lampeater is beaten, a line about each joins them. By night he has his own line.",
+    "Decisions: D-1017.",
+  ] },
   { v: '0.3.452', date: '2026-11-21', title: 'The Peddler\'s gift', lines: [
     "New: the Peddler's gift. Home on the surface, the first time you bump him with room in your bag, he gives you a Homestone, free. His card stays shut that time; your next bump opens it.",
     "With a full bag, or 3 Homestones already carried, he says he has a gift and his card opens as ever. He keeps it for a later bump when you have room.",

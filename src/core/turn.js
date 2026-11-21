@@ -53,6 +53,7 @@ export { sleepOut, canSleepOut, noSleepOut, warm, campAsks } from './sleepout.js
 import { noSleepOut, chased } from './sleepout.js';
 import { litAt } from './sight.js';
 import { hasGift, bumpGift } from './gift.js';
+import { chats, bumpChat } from './chat.js';
 export { sit, canSit, stoke, canStoke } from './fireside.js';
 export { pour, makeFrom, makeAt, eat, hold, setDown, takeDown, shelve, canShelve, kindle, canKindle, plant, canPlant, pick, canPick, feed, canFeed, panelBeside, setSides, look, pourByItself, sortTheBag } from './bagturn.js';
 
@@ -95,6 +96,7 @@ export function step(state, dir) {
   const person = personAt(state, x, y);
   if (person?.leaves !== undefined) return talk(state, person); // freed and waiting: their waiting lines, free, and they leave `waits[1]` turns after (D-496)
   if (hasGift(person)) return bumpGift(state, person); // at home, a gift not yet given: given, or kept for a bump with room (D-1016)
+  if (chats(person)) return bumpChat(state, person); // at home with a talk box: its line, free; the box opens (main.js, D-1017)
   if (person) return say(state, get(person.id)[person.home ? 'home' : 'calls']); // a person speaks, free (D-490); at home, their home lines (D-492)
   if (digsStump(state, x, y)) return digStump(state, x, y); // the shovel held: a stump dug out, the hero staying put (D-926)
   let next = note(passTurn({ ...state, hero: { x, y } }), 'step');

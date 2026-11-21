@@ -3013,3 +3013,16 @@ chest's own 12 slots fit every screen, so they don't scroll; at least one
 row always shows; the scroll's handling moved to one helper the bag card
 shares, ready for the peddler's. D-1006 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-1013 · 2026-11-21 · The peddler's grid scrolls** (the owner's pick,
+recommended; D-1011's last step) On the peddler's card, where the grid's
+slots don't all fit, they scroll as the bag card's do. Upright, the window
+ends where the chosen thing's name, its "carried" line and the price line
+still fit above SELL or BUY (offered too: as the bag card, the name and
+count only; down to the card's foot). Sideways, at the card's foot.
+Claude's calls: one scroll for both tabs, the grid the bag's shape on
+each (D-548); picking a ware or a slot brings its row into view; it
+switches on only on a short upright window (176 × 264 and smaller), so
+on every phone measured the card looks as before. D-1009 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+

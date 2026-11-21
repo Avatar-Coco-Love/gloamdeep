@@ -32,6 +32,7 @@ import { bench } from './core/bossbench.js';
 import { openRows } from './core/growth.js';
 import { moveStack, storeMatching, storeNearby } from './core/chest.js';
 import { buyerAt, sell, buy } from './core/trade.js';
+import { chats } from './core/chat.js';
 import { easeMode } from './core/menu.js';
 import { remember, rememberAll, forget } from './core/fog.js';
 import { inDaylight, passTime } from './core/daytime.js';
@@ -265,7 +266,7 @@ function tryStep(dir) {
   else if (dir.feed !== undefined) app.state = feed(app.state, dir.feed.x, dir.feed.y); // guano on the sprout, one turn (D-569)
   else if (dir.sleepOut) app.state = sleepOut(app.state); // the moon button's Yes: until morning, no bed (D-758)
   else if (dir.take !== undefined) app.state = takeDown(app.state, dir.take.x, dir.take.y); // the bench or an empty stash chest back into the bag, one turn (WB3, D-323; CH5)
-  else if (buyerAt(before, before.hero.x + DIRS[dir][0], before.hero.y + DIRS[dir][1])) { const was = app.state; app.state = step(app.state, dir); if (!has(eventsSince(was, app.state), 'take')) screens.openTrade(); return; } // bumping the peddler at home: his line and his card, free (D-494); his gift given, the card shut that bump (D-1016)
+  else if (buyerAt(before, before.hero.x + DIRS[dir][0], before.hero.y + DIRS[dir][1])) { const p = buyerAt(before, before.hero.x + DIRS[dir][0], before.hero.y + DIRS[dir][1]), was = app.state; app.state = step(app.state, dir); if (!has(eventsSince(was, app.state), 'take')) { if (chats(p)) screens.openTalk(p.id); else screens.openTrade(); } return; } // bumping the peddler at home: his line and his card, free (D-494); his gift given, the card shut that bump (D-1016); his talk box, Shop opening his card (D-1017)
   else if (campAsks(before, dir)) { screens.openSleepOut(); return; } // a set-down bedroll from dusk asks Sleep here until morning?, free (D-804)
   else if (panelBeside(before, dir)) { const at = panelBeside(before, dir), says = roomTileAt(app.state.room, at.x, at.y).says; if (says) app.state = say(app.state, says); screens.openPanel(at); return; } // bumping the bench or a stash chest opens its panel, free (WB3, CH3); a tile's `says` line with it, cold ashes' (D-757)
   else {
@@ -488,7 +489,7 @@ const onDir = (dir, how) => {
 };
 const onPoint = (px, py, held) => {
   if (app.screen === 'play') stepToward(px, py, held); // held: from a finger held still (D-408)
-  else if (!held) screens.onPoint(...(['map', 'explore', 'bag', 'make', 'bench', 'chest', 'trade', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'mode', 'ways', 'slots', 'name', 'cloak', 'sure', 'drop', 'easier', 'bed', 'sleepOut', 'travel', 'boons', 'strike', 'opening', 'aboutBoons', 'ability', 'title'].includes(app.screen) ? toLayer([px, py]) : [px, py])); // the cards and the title are on the screen layer (D-385, D-387 to D-391, D-393 to D-401, D-444)
+  else if (!held) screens.onPoint(...(['map', 'explore', 'bag', 'make', 'bench', 'chest', 'trade', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'mode', 'ways', 'slots', 'name', 'cloak', 'sure', 'drop', 'easier', 'bed', 'sleepOut', 'talk', 'travel', 'boons', 'strike', 'opening', 'aboutBoons', 'ability', 'title'].includes(app.screen) ? toLayer([px, py]) : [px, py])); // the cards and the title are on the screen layer (D-385, D-387 to D-391, D-393 to D-401, D-444)
 };
 const onWait = () => { if (app.screen === 'play') { app.walk = null; tryStep('wait'); } else if (!screens.onMapScreen()) screens.space(); };
 // Tab frames the first plaque, then the next, then none (CL2); on the bag's card, its other tab (D-787); the workbench's too (D-800); Settings' next (D-820)
