@@ -24,6 +24,15 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.457 (2026-11-21)
+- Each waystone now looks like the place it stands in. Home keeps its
+  mossy stones in the grass. In the cave (depth 2) they are rough grey
+  boulders with pebbles at their feet; in the warren (depth 5) brown
+  stones wrapped in pale roots, with dirt heaped round them; in the
+  dungeon (depth 8 and down) tall cut obelisks on a plinth, with neat
+  square flagstones. The plate's violet rune is the same everywhere.
+- Decisions: D-1021. D-1016 moved to the archive, word for word.
+
 ## 0.3.456 (2026-11-21)
 - Docs: ideas from "how will it be special?" are kept for later in a
   new page, docs/RESEARCH-3.md: light decides the boss fights, your
@@ -37,13 +46,3 @@ Entry format:
   kept in docs/guide: its 3-page PDF, its post image and their sources.
   Nothing in the game changes.
 - Decisions: D-1019.
-
-## 0.3.454 (2026-11-21)
-- New: the Peddler's gifts now and then. Every 3 days after his last
-  gift, he has another: an Oil Flask or a Torch. Bump him and his talk
-  box opens with his gift line, and it goes into your bag, free.
-- While he has a gift for you, a small ember parcel bobs over his head.
-  It stays still with reduced motion.
-- With no room in your bag, he says he has a gift and keeps it for later.
-- Dev tools: Grow also brings his next gift due at once.
-- Decisions: D-1018.

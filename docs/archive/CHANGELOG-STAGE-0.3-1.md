@@ -4,6 +4,16 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.454 (2026-11-21)
+- New: the Peddler's gifts now and then. Every 3 days after his last
+  gift, he has another: an Oil Flask or a Torch. Bump him and his talk
+  box opens with his gift line, and it goes into your bag, free.
+- While he has a gift for you, a small ember parcel bobs over his head.
+  It stays still with reduced motion.
+- With no room in your bag, he says he has a gift and keeps it for later.
+- Dev tools: Grow also brings his next gift due at once.
+- Decisions: D-1018.
+
 ## 0.3.453 (2026-11-21)
 - New: the Peddler's talk box. Home on the surface, bumping him opens a
   small card with his face and a line, and two buttons: SHOP opens his

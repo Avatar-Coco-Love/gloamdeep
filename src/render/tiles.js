@@ -145,9 +145,9 @@ const DRAW = {
   // The home waystone (D-589): on the woods' grass or a cave's rock, drawn whole first, as a deposit
   // is; elsewhere on that room's floor. Its flagstones' rounded corners show that ground (D-620)
   standingStone: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawStandingStone(c, room, x, y); },
-  waystonePath: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawWaystonePath(c, x, y); },
-  waystonePlate: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawWaystonePlate(c, x, y); },
-  wokenPlate: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawWaystonePlate(c, x, y, true); }, // its rune lit (D-591)
+  waystonePath: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawWaystonePath(c, x, y, room); },
+  waystonePlate: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawWaystonePlate(c, x, y, false, room); },
+  wokenPlate: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawWaystonePlate(c, x, y, true, room); }, // its rune lit (D-591)
   campfire: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawDeposit(c, x, y, SPRITES.campfire); }, // its flames after the light (D-757)
   campfireEmbers: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawDeposit(c, x, y, SPRITES.campfireEmbers); },
   campfireAshes: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawDeposit(c, x, y, SPRITES.campfireAshes); },

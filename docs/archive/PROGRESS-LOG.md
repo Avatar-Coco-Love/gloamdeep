@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-21, 0.3.454, The Peddler's gifts now and then.** An Oil
+  Flask or a Torch each 3 days, in his talk box; a parcel over him. D-1018.
+  Playtest: https://claude.ai/artifact/6dsEkFLUptM5WWWDKFLRzZ
 - **2026-11-21, 0.3.453, The Peddler's talk box.** His face, a line,
   SHOP, BYE. D-1017.
   Playtest: https://claude.ai/artifact/TdgcNn7ViAuy94o9VHSZVE

@@ -6,6 +6,10 @@
 // tools/release.js once a newer version is in (D-982); stage 0.2's are in history-0.2.js and its split
 // files.
 export const HISTORY_03 = [
+  { v: '0.3.457', date: '2026-11-21', title: 'A waystone look for each place', lines: [
+    "Each waystone now looks like the place it stands in. Home keeps its mossy stones in the grass. In the cave (depth 2) they are rough grey boulders with pebbles at their feet; in the warren (depth 5) brown stones wrapped in pale roots, with dirt heaped round them; in the dungeon (depth 8 and down) tall cut obelisks on a plinth, with neat square flagstones. The plate's violet rune is the same everywhere.",
+    "Decisions: D-1021. D-1016 moved to the archive, word for word.",
+  ] },
   { v: '0.3.456', date: '2026-11-21', title: 'Ideas from how it will be special', lines: [
     "Docs: ideas from \"how will it be special?\" are kept for later in a new page, docs/RESEARCH-3.md: light decides the boss fights, your lights a map of your journey, the surface answers the deep, other players' light, light-routing puzzles, and the bait as the player's own pull. Nothing in the game changes.",
     "Decisions: D-1020.",

@@ -60,7 +60,7 @@ first-hour goals (6.04). A gentler first mole, not none (6.05).
    miners' tale in the old mines (M); 8.11 Music and the sound of the
    dark (S, chapters 2 on; chapter 1 has music, D-837 to D-841)
 3. Along the way: 2.12 Old secrets for new abilities (M); 2.13 A waystone
-   look for each chapter (S); 4.12 Found recipe pages (M); 4.13 Each
+   look for each chapter (S), chapter 1's places built, 0.3.457 (D-1021); 4.12 Found recipe pages (M); 4.13 Each
    chapter's plants at home (M); 6.08 Teaching goal for each new system
    (M); 6.11 Colour-blind friendly marks (M); 7.08 Speed check each
    chapter (S); 5.12 When to learn who the keeper is (S); 5.09 The
