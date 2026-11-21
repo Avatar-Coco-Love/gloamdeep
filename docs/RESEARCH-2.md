@@ -15,7 +15,8 @@ word for word at 0.3.72, the ninth audit (D-617), as that page neared 8 KB.
   on the planning board's 1.12): more mods to the lamp over the game, and
   new light tech, such as a flashlight, directional light or coloured light.
 - **Talking with the spark** (the owner, 2026-11-20, on 5.04): dialogue
-  with different options, and new buttons for the companion.
+  with different options, and new buttons for the companion. The talk
+  card's look is settled (D-1010).
 - **Light-shy creatures**: some fear or are hurt by light, so the lantern
   is a tool in a fight (Golden Krone Hotel).
 - **Creature materials** (the owner, 2026-10-26, D-372): beaten creatures

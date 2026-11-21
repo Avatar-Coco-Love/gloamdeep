@@ -38,3 +38,10 @@ line here (D-741). Each audit moves the lines into the right sections.
 - Listing the options not picked in a decision ("offered too: herbs rooted
   as well") let the owner come back for one later in a single line, with
   nothing left to ask (0.3.444).
+- A roadmap step can be built already: 6.06 was done at 0.3.427, before
+  the roadmap was written. Grep the decisions and play it before proposing;
+  then the step is a tick, and the conversation takes the next (0.3.446).
+- Measure what real phones give before fixing "the smallest view": the
+  smallest phones were 176 × 264 and 312 × 176, not the 176 × 221 the bug
+  named, and an offer made before checking the card's space was wrong
+  once, so check before offering (0.3.446).

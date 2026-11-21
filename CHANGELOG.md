@@ -24,6 +24,18 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.446 (2026-11-21)
+- On a small phone held upright, the stash chest's DECONSTRUCT and STORE
+  buttons now stand at the top of its card, beside the close button, in
+  place of the words STASH CHEST, so the bag's slots no longer lie over
+  them. On every other screen the card is as before.
+- The chosen stack's name on that card no longer runs below its edge.
+- Behind the scenes: every card's buttons are checked on the smallest
+  phones' screens, and the text line's step (it never covers the hero)
+  is ticked, built back at 0.3.427. The plan for talking with choices is
+  set: a card low on the screen, in the game's own letters.
+- Decisions: D-1010.
+
 ## 0.3.445 (2026-11-20)
 - A gentler first mole: every mole that comes out by day in the woods
   round home has 2 hearts now, not 4. Two lantern swings or one knife
@@ -41,16 +53,3 @@ Entry format:
 - A herb mimic asleep and a snapcap shut stand rooted too, just like the
   finds they copy. Other finds still bob.
 - Decisions: D-1008.
-
-## 0.3.443 (2026-11-20)
-- New: the Glowcup, the second flower, a deep teal cup round a pale green
-  heart on a stem with two long leaves. One grows in about half the rooms
-  of every floor from depth 1 down, never in a vault, the arena or its
-  hallway, and never behind a Gap. It only looks bright: it gives no light.
-- Walk onto one to put it in the bag, in stacks of 20, for crafts later.
-  Picked, it comes back a day later on another floor tile of the room, as
-  the duskstar does. Each has its own slight shade and faces its own way.
-- Flowers are rooted now: the duskstar and the glowcup stand on their own
-  tile, still, their stem in a tuft of earth with a grass blade either
-  side, no longer lifted and bobbing over a shadow. Other finds still bob.
-- Decisions: D-1007.

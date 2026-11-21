@@ -2898,3 +2898,36 @@ sac with a copper cap (draft); flasks pour by themselves once none would
 spill, so sooner; waking from a fall, the bigger tank full; the dev
 slider and Refill reach its top; the boss bench's builds fit no tank.
 D-1001 and D-1002 move to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-1007 · 2026-11-20 · The Glowcup, and rooted flowers** (the owner's
+picks, all recommended, from a [mock-up](https://claude.ai/artifact/T15W9fCHJBLpK6kx15BcNx);
+step 26, part of Q-092; the owner's words: "Flowers are rooted to the
+Earth.") The second flower is look B of three, the **Glowcup**: a deep
+teal cup round a pale green heart, two long leaves; it only looks bright,
+giving no light (offered too: a pale bell; a stone rose). One grows in
+about half the rooms of every floor from depth 1 down, the heartcap's odds
+(offered too: every room; 1 in 4). Walked onto, it goes in the bag for
+crafts later; picked, it comes back a day later on another floor tile of
+its room, as the duskstar. Flowers are rooted: on their own tile, still,
+the stem in a tuft of earth, a grass blade either side, with no shadow
+(offered too: herbs, or every growing thing, rooted as well). Claude's
+calls: never in a vault, the arena, its hallway or beyond a Gap, nor on a
+waystone's ring; stacks of 20; its own shade and way it faces, as the
+duskstar; its lines ("You pick a glowcup." and two more); one tuft on grass
+and cave floor alike; an older save's rooms never entered get theirs.
+D-1004 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-1008 · 2026-11-20 · Herbs and mushrooms rooted** (the owner's
+words: "Let's root the herbs and mushrooms too, so they stand on the ground
+like the flowers."; one of D-1007's offers) The healing herb, the oilcap
+and the heartcap are rooted as the flowers are: on their own tile, still,
+their foot on the tile's bottom row in a tuft of earth, with no shadow:
+a herb's with a grass blade either side, a mushroom's earth alone, outside
+too (changed after the playtest, the owner's pick: "Underground, the
+mushroom doesn't need any grass on the side"; offered too: no blades
+underground only, for mushrooms or for everything). Claude's calls: their
+tuft is open in the middle, so their own foot shows (the flowers' keeps
+its stem); a herb
+mimic asleep and a snapcap shut stand rooted too, as the finds they copy,
+lifted over a shadow again once they show themselves; other finds still
+bob. D-1005 moves to `archive/DECISIONS-SURFACE.md`, word for word.
