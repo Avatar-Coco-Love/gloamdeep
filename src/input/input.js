@@ -10,6 +10,7 @@ const KEYS = {
   arrowleft: 'left', a: 'left', arrowright: 'right', d: 'right',
 };
 const SWIPE_PX = 24; // a finger moving this far (CSS px) is a swipe, not a tap
+const DRAG_PX = 8; // on a grid that scrolls, this far starts a drag (D-1011)
 const HOLD_MS = 250; // a still finger held this long walks to the tile under it, as a tap does (D-408)
 
 // onHover(x, y) as the mouse moves with no button down (D-604); onDir(dir, how) for keys and swipes, how being 'swipe' for a swipe (the Swipe switch, D-189, D-408); onPoint(x, y, held) for taps, and
@@ -22,8 +23,12 @@ const HOLD_MS = 250; // a still finger held this long walks to the tile under it
 // repeats() true where a held Space repeats: only in play, so off it one press picks once, as Enter does (D-669).
 // onWheel(by) for a mouse wheel's notch, by 1 down or -1 up, which returns true when it used it (D-701).
 // guarded(x, y), in CSS px, true where a tap or held finger reports nothing: round the arrow pad (D-422); a swipe from there still steps.
+// grabs(x, y), in game px, true where a press may drag what is under it, a scrolling grid (D-1011): there a
+// sideways move is still a swipe, but an up or down one reports onScroll('move', x, y, t) as it goes and
+// onScroll('up', x, y, t) when it lifts; onScroll('down', ...) as it presses, and onScroll('let', ...) for
+// a lift with no drag, a tap then only where that returns false (a touch that stopped a glide isn't one).
 // kind() the way of playing last used: 'touch', 'mouse' or 'keyboard' (How to play opened on it, D-193, till Basics came first, D-507).
-export function createInput(area, canvas, { onDir, onPoint, onHover = () => {}, onHold = () => {}, onLantern, onLeap = () => {}, onWait, onChoose, onPause, onMap, onBag, onFloor, onType, onTab, onWheel = () => false, holds = () => true, repeats = () => true, guarded = () => false }) {
+export function createInput(area, canvas, { onDir, onPoint, onHover = () => {}, onHold = () => {}, onLantern, onLeap = () => {}, onWait, onChoose, onPause, onMap, onBag, onFloor, onType, onTab, onWheel = () => false, grabs = () => false, onScroll = () => false, holds = () => true, repeats = () => true, guarded = () => false }) {
   let kind = 'touch'; // phone first, until something is pressed
   addEventListener('keydown', (ev) => {
     if (ev.ctrlKey || ev.metaKey || ev.altKey) return;
@@ -53,13 +58,14 @@ export function createInput(area, canvas, { onDir, onPoint, onHover = () => {}, 
     const r = canvas.getBoundingClientRect();
     return [(p.x - r.left) / r.width * canvas.width, (p.y - r.top) / r.height * canvas.height];
   };
-  const end = () => { if (press) { clearTimeout(press.timer); if (press.held) onHold(null); } press = null; };
+  const end = () => { if (press) { clearTimeout(press.timer); if (press.held) onHold(null); if (press.dragging) onScroll('up', ...gamePoint(press), performance.now()); } press = null; };
 
   area.addEventListener('pointerdown', (ev) => {
     kind = ev.pointerType === 'mouse' ? 'mouse' : 'touch'; setWay(kind);
     if (press || (ev.pointerType === 'mouse' && ev.button !== 0)) return;
     area.setPointerCapture(ev.pointerId);
     press = { id: ev.pointerId, x0: ev.clientX, y0: ev.clientY, x: ev.clientX, y: ev.clientY, swiped: false, held: false, guard: guarded(ev.clientX, ev.clientY) };
+    if (!press.guard && grabs(...gamePoint(press))) { press.grab = true; onScroll('down', ...gamePoint(press), ev.timeStamp); }
     press.timer = setTimeout(() => { if (press && !press.swiped && !press.guard && holds()) { press.held = true; onPoint(...gamePoint(press), true); } }, HOLD_MS);
   });
   area.addEventListener('pointermove', (ev) => {
@@ -68,12 +74,16 @@ export function createInput(area, canvas, { onDir, onPoint, onHover = () => {}, 
     press.x = ev.clientX; press.y = ev.clientY;
     if (press.held) { onHold(gamePoint(press)); return; }
     const dx = press.x - press.x0, dy = press.y - press.y0;
+    if (press.dragging) { onScroll('move', ...gamePoint(press), ev.timeStamp); return; }
+    if (press.grab && !press.swiped && Math.abs(dy) > Math.abs(dx) && Math.hypot(dx, dy) >= DRAG_PX) { press.dragging = true; onScroll('move', ...gamePoint(press), ev.timeStamp); return; }
     if (press.swiped || press.held || Math.hypot(dx, dy) < SWIPE_PX) return;
     press.swiped = true;
     onDir(Math.abs(dx) >= Math.abs(dy) ? (dx > 0 ? 'right' : 'left') : (dy > 0 ? 'down' : 'up'), 'swipe');
   });
   area.addEventListener('pointerup', (ev) => {
     if (!press || ev.pointerId !== press.id) return;
+    if (press.dragging) { press.dragging = false; onScroll('up', ...gamePoint(press), ev.timeStamp); end(); return; }
+    if (press.grab && onScroll('let', ...gamePoint(press), ev.timeStamp)) { end(); return; }
     if (!press.swiped && !press.held && !press.guard) { onPoint(...gamePoint(press)); ghost = ev.pointerType !== 'mouse'; }
     end();
   });

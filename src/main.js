@@ -496,7 +496,7 @@ const onTab = () => {
 };
 const onChoose = () => { if (app.screen === 'play') { if (onWokenPlate(app.state)) tryStep('wait'); } else if (!screens.onMapScreen()) screens.choose(); }; // Enter on a woken plate: the travel card (D-593)
 const input = createInput(stage, canvas, {
-  onDir, onPoint: pressed(onPoint), onHover: (x, y) => onHover(x, y), onHold: (p) => { if (app.hold) app.hold = p; }, onLantern: switchIt, onLeap: getLeap, onWait: pressed(onWait), onChoose: pressed(onChoose), onPause: screens.pause, onMap: screens.toggleMap, onBag: screens.toggleBag, onFloor: screens.turnMap, onType: screens.onType, onTab: pressed(onTab), onWheel: screens.onWheel,
+  onDir, onPoint: pressed(onPoint), onHover: (x, y) => onHover(x, y), onHold: (p) => { if (app.hold) app.hold = p; }, onLantern: switchIt, onLeap: getLeap, onWait: pressed(onWait), onChoose: pressed(onChoose), onPause: screens.pause, onMap: screens.toggleMap, onBag: screens.toggleBag, onFloor: screens.turnMap, onType: screens.onType, onTab: pressed(onTab), onWheel: screens.onWheel, grabs: (x, y) => screens.grabs(...toLayer([x, y])), onScroll: (phase, x, y, t) => screens.onScroll(phase, ...toLayer([x, y]), t), // a card's scrolling grid, on the screen layer (D-1011)
   holds: () => app.screen === 'play', // off play a slow press is a tap (D-661)
   repeats: () => app.screen === 'play', // off play a held Space picks once (D-669)
   guarded: (x, y) => app.screen === 'play' && arrowPad.guards(x, y), // the ring round the arrow pad (D-422)

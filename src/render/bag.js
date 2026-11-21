@@ -167,7 +167,9 @@ export const onCross = ({ close }, x, y) => Math.hypot(x - close.x, y - close.y)
 // 'drop' (Drop, when `filled`: a filled slot is chosen, D-546), { gear: g } (a gear slot, D-554),
 // 'act' too for Take off, when `off` (a Weapon or Tool chosen, filled),
 // 'store' and 'sort' (the title strip's buttons, D-558, D-559), 'close' (the round cross), or null; outside the card, 'out'. size: the bag's slots (D-548)
-export function bagAt(x, y, vw, vh, two = false, wide = false, filled = false, size = BAG_SLOTS, off = false, store = false, rest = false) {
+// win and sy: where the slots don't all fit, their window (bagscroll.js's bagWindow) and how far
+// it is scrolled; only a slot showing in it is picked (D-1011)
+export function bagAt(x, y, vw, vh, two = false, wide = false, filled = false, size = BAG_SLOTS, off = false, store = false, rest = false, win = null, sy = 0) {
   const shape = bagShape(size), card = cardAt(vw, vh, shape.detail), { button, make, set } = card, drop = rest ? card.restDrop : card.drop;
   if (!inCard(card, x, y)) return 'out';
   if (onCross(card, x, y)) return 'close';
@@ -175,7 +177,8 @@ export function bagAt(x, y, vw, vh, two = false, wide = false, filled = false, s
   if (store && onButton(st, STORE_W, x, y, 3, 2)) return 'store';
   const so = sortAt(card, store);
   if (onButton(so, SORT_W, x, y, TAP_PAD, store ? 3 : 2)) return 'sort';
-  const tall = isTall(vw, vh), i = gridAt(card, x, y, bagTop(vw, vh), shape.cols, size, PAD, shape.slot);
+  const tall = isTall(vw, vh), top = bagTop(vw, vh), half = SLOT_GAP / 2, inWin = y >= card.y + top - half && y < card.y + top + (win ? win.h : shape.h) + half;
+  const i = inWin ? gridAt(card, x, y + (win?.max ? sy : 0), top, shape.cols, size, PAD, shape.slot) : -1;
   if (i >= 0) return { slot: i };
   const g = gearAt(card, x, y, tall);
   if (g >= 0) return { gear: g };
@@ -265,7 +268,8 @@ export function drawCard(c, vw, vh, title, split = SPLIT_X, crossed = true, spli
 // empty slot (gear.js); full: whether the hero is at full health, or, given
 // `poisoned`, an antidote's Drink is dim when the hero isn't poisoned (D-655); told: the state's told
 // lines (D-297); size: the bag's slots (D-548); store: whether its STORE shows, with t and
-// still for its marker when chosen (D-558); SORT always shows (D-559); makes: what the chosen
+// still for its marker when chosen (D-558); SORT always shows (D-559); scroll: where the
+// slots don't all fit, { win, y }, their window (bagscroll.js) and how far it is scrolled (D-1011); makes: what the chosen
 // find's MAKE makes, for the line above it, "Makes an Oil flask", or null (D-787); refill: the
 // chosen find's hearts or oil now and after, refills' (core/numbers.js, D-908); sips: a chosen
 // draught's turns now and after, draughtTurns' (D-909), or null
@@ -273,8 +277,8 @@ export function drawCard(c, vw, vh, title, split = SPLIT_X, crossed = true, spli
 // line while the card shows its "Now" and "After" picture, a draught's turns or its hearts or
 // oil (D-908, D-909); the text line is not drawn over the card then, as the picture says it
 export const hidesPicture = (entry, line, refill = [], sips = null) => !!entry?.look && line?.id === entry.look && (!!sips || refill.length > 0);
-export function drawBag(c, vw, vh, bag, chosen, spriteOf, gear = [], full = false, told = {}, size = BAG_SLOTS, store = false, t = 0, still = true, poisoned = false, makes = null, sleepy = false, refill = [], sips = null) {
-  const shape = bagShape(size), top = bagTop(vw, vh), tall = isTall(vw, vh), tallSplit = shape.tallSplit + top - GRID_Y;
+export function drawBag(c, vw, vh, bag, chosen, spriteOf, gear = [], full = false, told = {}, size = BAG_SLOTS, store = false, t = 0, still = true, poisoned = false, makes = null, sleepy = false, refill = [], sips = null, scroll = null) {
+  const shape = bagShape(size), top = bagTop(vw, vh), tall = isTall(vw, vh), win = scroll?.win, wh = win ? win.h : shape.h, tallSplit = top + wh + 12; // upright, the line under the window (D-1011)
   const card = { ...drawCard(c, vw, vh, '', shape.split, true, tallSplit, GRID_Y - 4), drop: cardAt(vw, vh, shape.detail).drop }, { x, y, w } = card;
   drawBagTabs(c, card, 'bag'); // BAG and MAKE in the title row (D-787)
   if (store) {
@@ -286,7 +290,11 @@ export function drawBag(c, vw, vh, bag, chosen, spriteOf, gear = [], full = fals
   drawButton(c, so.x, so.y, SORT, false, SORT_W);
   if (chosen === BAG_SORT) drawMarker(c, so.x - 7, so.y + 4, t, still); // nor for bag[BAG_SORT]
   drawGear(c, card, gear, spriteOf, gearChosen(chosen), tall);
-  for (let i = 0; i < size; i++) { const s = slotAt(card, i, top, shape.cols, PAD, shape.slot); drawSlot(c, s.x, s.y, bag[i], i === chosen, spriteOf, shape.slot); }
+  const wy = y + top, oy = win?.max ? Math.round(scroll.y) : 0; // through its window, scrolled a whole game pixel at a time (D-1011)
+  c.save();
+  if (win?.max) { c.beginPath(); c.rect(x + PAD - 1, wy, shape.w + 2, wh); c.clip(); }
+  for (let i = 0; i < size; i++) { const s = slotAt(card, i, top, shape.cols, PAD, shape.slot), sy = s.y - oy; if (sy < wy + wh && sy + shape.slot > wy) drawSlot(c, s.x, sy, bag[i], i === chosen, spriteOf, shape.slot); }
+  c.restore();
   const { dx, dy } = detailAt(card, vw, vh, shape.detail, GRID_Y, tallSplit), dw = x + w - PAD - dx; // upright, under the slots, the card's width (D-505)
   const g = gearChosen(chosen);
   if (g >= 0) { drawGearWords(c, card, g, gear[g], dx, dy, dw, told, gear[0] ?? null, spriteOf); return; }

@@ -4,6 +4,15 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.444 (2026-11-20)
+- Herbs and mushrooms are rooted now, as the flowers are: the healing herb,
+  the oilcap and the heartcap stand on their own tile, still, their foot in
+  a tuft of earth, no longer lifted and bobbing over a shadow. A herb has a
+  grass blade either side; a mushroom stands in earth alone.
+- A herb mimic asleep and a snapcap shut stand rooted too, just like the
+  finds they copy. Other finds still bob.
+- Decisions: D-1008.
+
 ## 0.3.443 (2026-11-20)
 - New: the Glowcup, the second flower, a deep teal cup round a pale green
   heart on a stem with two long leaves. One grows in about half the rooms

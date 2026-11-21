@@ -45,3 +45,7 @@ line here (D-741). Each audit moves the lines into the right sections.
   smallest phones were 176 × 264 and 312 × 176, not the 176 × 221 the bug
   named, and an offer made before checking the card's space was wrong
   once, so check before offering (0.3.446).
+- Before building a fix for a small screen, open the game at real window
+  sizes and read the view it gives: the bag's scroll was built for 176 ×
+  264, which no window tried gives (all were 300 or more tall), so it
+  shows nowhere yet; the owner kept it (0.3.447).

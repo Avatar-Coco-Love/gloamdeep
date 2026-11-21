@@ -3,6 +3,18 @@
 Bugs from `docs/BUGS.md`, moved here word for word once fixed (D-852),
 newest first, each with the version that fixed it. Grep only.
 
+Half fixed in 0.3.447 (D-1011), the bag card's: the entry as it stood,
+narrowed to the chest's card in `docs/BUGS.md`:
+
+**B-014 · 2026-11-21 · The bag card and the chest's too short for a big bag, in a small window**
+Found at 6.07 (0.3.446, D-1010), not seen in play: at 176 × 221 game
+px, upright, which a small PC window gives but no phone measured does,
+a bag of 9 or 12 slots doesn't fit. On the bag card its slots leave
+MAKE and DROP a 10 px tap, not 22, and the chosen find's words fall
+below the card; on the stash chest's card the bag's last row runs off
+its foot. Offered: squeeze the gaps; scroll the part under the gear
+rows. A later step.
+
 Fixed in 0.3.446 (D-1010):
 
 **B-013 · 2026-11-18 · DECONSTRUCT under the bag's slots, on the smallest view**
