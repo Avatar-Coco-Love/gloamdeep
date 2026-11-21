@@ -64,3 +64,6 @@ line here (D-741). Each audit moves the lines into the right sections.
   first; the looks' mock-up was the real game with the draft drawing swapped
   in, and a first try that read as a chest was redrawn before the owner saw
   it, so every pick was the draft (0.3.457).
+- An effect's mock-up drew with the game's own hero and stones and let the
+  owner flip between styles; then a save built in code (both stones woken)
+  let a script film the real trip, its skip and reduced motion (0.3.458).

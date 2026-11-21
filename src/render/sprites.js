@@ -188,6 +188,7 @@ function markPattern(cv, def, cloak) {
 const bittenIn = (clothes, lamp = DEFAULT_LAMP, head = DEFAULT_HEAD) => (BITTEN[`${clothes}/${lamp}/${head}`] ??= spriteCanvas(dressed(clothes, lamp, head), PAL.p));
 let worn = SPRITES.hero, wornBitten = bittenIn(DEFAULT_CLOTHES);
 export function wearLook(cloak, eyes, trim, clothes, lamp, head) { worn = heroIn(cloak, eyes, trim, clothes, lamp, head); wornBitten = bittenIn(clothes, lamp, head); }
+export const wornHero = () => worn; // the hero as they look now, for the waystone trip's sparks (D-1022)
 
 // § shadow: a small dark oval under a sprite (study line 345)
 export function drawShadow(c, x, y, w) {

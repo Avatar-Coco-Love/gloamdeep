@@ -6,6 +6,10 @@
 // tools/release.js once a newer version is in (D-982); stage 0.2's are in history-0.2.js and its split
 // files.
 export const HISTORY_03 = [
+  { v: '0.3.458', date: '2026-11-21', title: 'The waystone trip', lines: [
+    "A trip by waystone now has its own moment, about 2 seconds. The hero breaks into violet sparks that drift up like embers, the room fades, the far stone stands empty with its plate glowing, then the sparks drift down and settle back into the hero. A tap or a key skips it. With reduced motion it is a quick fade instead.",
+    "Decisions: D-1022. D-1017 moved to the archive, word for word.",
+  ] },
   { v: '0.3.457', date: '2026-11-21', title: 'A waystone look for each place', lines: [
     "Each waystone now looks like the place it stands in. Home keeps its mossy stones in the grass. In the cave (depth 2) they are rough grey boulders with pebbles at their feet; in the warren (depth 5) brown stones wrapped in pale roots, with dirt heaped round them; in the dungeon (depth 8 and down) tall cut obelisks on a plinth, with neat square flagstones. The plate's violet rune is the same everywhere.",
     "Decisions: D-1021. D-1016 moved to the archive, word for word.",

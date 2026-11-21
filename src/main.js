@@ -60,6 +60,7 @@ import { createHearing } from './hearing.js';
 import { createTouch } from './input/touch.js';
 import { goFullScreen } from './input/fullscreen.js';
 import { cutOver, END } from './render/cutscene.js';
+import { tripTimes } from './render/trip.js';
 import { createFrame, FADE_MS } from './render/frame.js';
 import { createSound, dripsIn, dripGap, musicOf } from './render/sound.js';
 import { quietHere, bossTuneHere, doorAfterLeap } from './core/beaten.js';
@@ -300,7 +301,9 @@ function tryStep(dir) {
   keepRecords(events, before);
   if (fell) fallDown(fallView(before, state)); // the floor's other rooms too, for the round map (D-557)
   const went = !fell && state.place !== before.place;
-  if (went && !still()) { // the hero walks onto the stairs as the old room fades (D-135)
+  const byStone = went && has(events, 'travel'); // by waystone: the trip's sparks, or with reduced motion the stairs' quick fade (D-1022)
+  if (byStone) { app.travel = { from: before, ...tripTimes(performance.now(), still()) }; app.walk = app.padDir = app.hold = app.queued = null; }
+  else if (went && !still()) { // the hero walks onto the stairs as the old room fades (D-135)
     const now = performance.now();
     const knock = events.find((e) => e.type === 'knock'); // slammed out through a doorway: the old room shows the slide to its edge (D-887)
     app.travel = { from: { ...before, hero: knock?.to ?? to }, mid: now + FADE_MS, end: now + 2 * FADE_MS };
@@ -328,7 +331,7 @@ function tryStep(dir) {
   const woke = events.find((e) => e.type === 'stoneWake'); // the rune kindles (D-591), not a mimic's wake (D-368)
   if (woke && !still()) app.kindle = { x: woke.x, y: woke.y, start: performance.now() };
   // Experience earned shows as it rises over the hero; after stairs, once the new room shows (D-245)
-  if (state.xp > before.xp || has(events, 'fang')) app.gain = { n: state.xp - before.xp, at: app.travel?.mid ?? (app.cutscene?.end ? app.cutscene.start + END.end : performance.now()), heart: has(events, 'fang') }; // and a heart back from the Fang Charm (D-809)
+  if (state.xp > before.xp || has(events, 'fang')) app.gain = { n: state.xp - before.xp, at: (app.travel?.trip ? app.travel.end : app.travel?.mid) ?? (app.cutscene?.end ? app.cutscene.start + END.end : performance.now()), heart: has(events, 'fang') }; // and a heart back from the Fang Charm (D-809)
   // Stepping onto the woken home plate with no boon held offers the boon card (D-596); the step that wakes it only wakes it (D-603)
   if (has(events, 'learn')) { app.walk = app.padDir = app.hold = app.queued = null; screens.show('ability'); } // Leap's find stepped on: its card (D-992)
   else if (!went && !fell && stepOffersBoons(before, state)) { app.walk = null; screens.openBoons(); }
@@ -639,8 +642,16 @@ requestAnimationFrame(loop);
 // § no skip (Q-112, D-957): while the cutscene plays, every press, tap, click and key is
 // stopped before anything hears it, so it can't be skipped or anything opened by accident;
 // a release still goes through, so nothing stays held
+// § skip (D-1022): the waystone trip's sparks end at a new tap or key, the hero at once on the far
+// plate; that press, and the rest of its tap, does nothing else
+let skipSwallow = 0;
+const skipsTrip = (type, ev) => (type === 'pointerdown' || (type === 'keydown' && !ev.repeat));
 for (const type of ['pointerdown', 'mousedown', 'touchstart', 'keydown', 'wheel', 'click']) {
-  addEventListener(type, (ev) => { if (app.cutscene) { ev.stopImmediatePropagation(); if (ev.cancelable) ev.preventDefault(); } }, { capture: true, passive: false });
+  addEventListener(type, (ev) => {
+    const trip = app.travel?.trip;
+    if (trip && skipsTrip(type, ev)) { app.travel.mid = app.travel.end = 0; skipSwallow = performance.now() + 400; } // update() puts the hero there and ends it
+    if (app.cutscene || trip || performance.now() < skipSwallow) { ev.stopImmediatePropagation(); if (ev.cancelable) ev.preventDefault(); }
+  }, { capture: true, passive: false });
 }
 
 // § bench link

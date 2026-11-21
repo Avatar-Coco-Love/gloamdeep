@@ -2,6 +2,8 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-21, 0.3.455, The public guide kept.** Its PDF, post image
+  and sources in `docs/guide/`. D-1019.
 - **2026-11-21, 0.3.454, The Peddler's gifts now and then.** An Oil
   Flask or a Torch each 3 days, in his talk box; a parcel over him. D-1018.
   Playtest: https://claude.ai/artifact/6dsEkFLUptM5WWWDKFLRzZ

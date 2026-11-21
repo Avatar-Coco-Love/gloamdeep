@@ -3078,3 +3078,20 @@ waiting line on every bump with no room; a Peddler made by the dev tools
 has his gift too; a save's Peddler already home gives it on the next
 bump; his two lines Claude's drafts. D-1012 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-1017 · 2026-11-21 · The Peddler's talk box** (the owner's picks;
+D-1016's second step) Home on the surface, a bump on the Peddler opens
+his talk box: the ask card's glass, PEDDLER in ember, his face (his
+forward sprite at twice its size, in a thin frame) and his line beside
+it, SHOP and BYE along its foot, SHOP picked (offered too: no face; a
+small one; a list card; TALK; a dim GIFT). SHOP opens his card; BYE, the
+cross, Esc or a tap outside shut it. His lines, Claude's drafts: by day
+"What'll it be, friend?", "Good to see your light again." and "Buying
+or selling today?" in turn, with "Deeper than I got? Mind your oil."
+past depth 3 and "The Lampeater's quiet. Your doing?" once it is beaten
+on the journey each taking a turn among them; by night "Late, but I'm
+awake. What'll it be?" (offered too: his greeting; a plain note).
+Claude's calls: the three longer drafts shortened to fit the text line;
+his gift bump as D-1016, its waiting line in the box; his two old home
+lines no longer said. D-1013 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.
