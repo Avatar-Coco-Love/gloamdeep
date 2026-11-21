@@ -9,6 +9,8 @@
 // `home` lines (D-492); the hero leaving the room first, they go home too. There they beam in
 // as the hero comes, and say their `greeting` line once, the hero near (D-496). Plain data, no drawing.
 
+import { DAY_TURNS } from './daytime.js';
+
 export const PEOPLE = {
   // The first person, a peddler trapped by a ring of rubble on depth 3 (step 12a, D-490):
   // freed in 12b (D-491), at home in 12c (D-492), the first vendor in step 13 (D-471):
@@ -16,7 +18,7 @@ export const PEOPLE = {
   // `wares`, { itemId: price } in coins, never running out (D-495). Named at its own step.
   // Freed, he waits 5 turns, or 3 after each bump, never sooner, then heads home (D-496, D-878).
   // At home, his first bump with room gives his `gift`, one Homestone, once (gift.js, D-1016).
-  peddler: { id: 'peddler', kind: 'npc', name: 'Peddler', calls: 'peddlerCalls', digging: 'peddlerDigging', freed: 'peddlerFreed', waiting: 'peddlerWaiting', leaving: 'peddlerLeaving', waits: [5, 3], home: 'peddlerHome', greeting: 'peddlerGreets', gift: 'homestone', gives: 'peddlerGift', giftWaits: 'peddlerGiftWaits', chat: { day: 'peddlerChat', night: 'peddlerNight', deep: 'peddlerDeep', beaten: 'peddlerBeaten' }, buys: true, wares: { flask: 3, bagTorch: 2 } },
+  peddler: { id: 'peddler', kind: 'npc', name: 'Peddler', calls: 'peddlerCalls', digging: 'peddlerDigging', freed: 'peddlerFreed', waiting: 'peddlerWaiting', leaving: 'peddlerLeaving', waits: [5, 3], home: 'peddlerHome', greeting: 'peddlerGreets', gift: 'homestone', gives: 'peddlerGift', giftWaits: 'peddlerGiftWaits', gifts: { flask: 'peddlerGiftFlask', bagTorch: 'peddlerGiftTorch' }, giftEvery: 3 * DAY_TURNS, chat: { day: 'peddlerChat', night: 'peddlerNight', deep: 'peddlerDeep', beaten: 'peddlerBeaten' }, buys: true, wares: { flask: 3, bagTorch: 2 } },
 };
 
 // The person standing on x, y, or undefined

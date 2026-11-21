@@ -3026,3 +3026,19 @@ switches on only on a short upright window (176 × 264 and smaller), so
 on every phone measured the card looks as before. D-1009 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
 
+**D-1014 · 2026-11-21 · The Lampeater's end, a cutscene** (the owner's
+picks, both recommended, from a [page of sketches](https://claude.ai/artifact/BxhPDkuCvmqHcqT2KexMwM);
+the Lampeater's polish, roadmap Now step 1) The first time on a journey
+the Lampeater is beaten, a cutscene of about 3 s, as the way in's (D-957):
+the black bars slide in and the controls fade as the camera glides from
+the hero to where it fell; its eyes flare one last time; its body sinks
+and fades as its gloamlings and wisps crumble; Leap's find shows where it
+fell; then back out to the hero, and its line, "The Lampeater fades.
+Something glows." (offered too: the door sinking open; a brazier going out
+at each phase; a longer way in showing its brood; every time). No skip,
+no sound, the shots cut with reduced motion. Claude's calls: about 3 s;
+on a later beating, none; `fadeSeen` marks it seen, a save during it never
+plays it again; the "+" of experience waits for its end. The owner's idea,
+kept for later (`RESEARCH-2.md`): a rematch, something in the arena the
+hero goes up to and asks for a harder Lampeater. D-1010 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

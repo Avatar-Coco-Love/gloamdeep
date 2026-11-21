@@ -4,13 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.453 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.454 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
 The owner playtests the build; their ideas and changes come first
-(D-1003); then the Peddler's gifts now and then (D-1016's third step).
-Then the Lampeater's polish goes on (`ROADMAP.md`'s Now, step 1):
+(D-1003). Then the Lampeater's polish goes on (`ROADMAP.md`'s Now, step 1):
 the owner's ideas for its phases, then the next cutscene, if any (D-1014).
 
 ## Waiting on the owner
@@ -28,7 +27,7 @@ the owner's ideas for its phases, then the next cutscene, if any (D-1014).
 - Where the chest card's raised buttons stand, Claude's (D-1010).
 - The Lampeater's end: about 3 s, none on a later beating, the "+" waiting for its end, Claude's (D-1014).
 - The Homestone's lines and picture, its GEAR slot, a chest's one stack, the Peddler's gift lines, Claude's (D-1015, D-1016).
-- The talk box's lines, Claude's drafts (D-1017).
+- The talk box's lines, Claude's drafts (D-1017); the later gifts' lines, the parcel's picture and Claude's calls (D-1018).
 - The bag's scroll: its bar's place and gold, the window's foot (the name and count above DROP), the glide's speed and the snap's spring, Claude's, from the mock-up (D-1011); the chest card's: only with its buttons raised, one row at least (D-1012); the peddler's: one scroll for both tabs (D-1013).
 - How hard the Lampeater should be (Q-111): 12 hearts for now (D-950);
   with its 2 wisps (D-1002) Lean 21%, Middling 72%, Strong 97% (35%,
@@ -54,12 +53,12 @@ later are in `RESEARCH-2.md` (D-699) and `RESEARCH-PLANNING.md`, and the
 owner's wish list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-21, 0.3.454, The Peddler's gifts now and then.** An Oil
+  Flask or a Torch each 3 days, in his talk box; a parcel over him. D-1018.
+  Playtest: https://claude.ai/artifact/6dsEkFLUptM5WWWDKFLRzZ
 - **2026-11-21, 0.3.453, The Peddler's talk box.** His face, a line,
   SHOP, BYE. D-1017.
   Playtest: https://claude.ai/artifact/TdgcNn7ViAuy94o9VHSZVE
 - **2026-11-21, 0.3.452, The Peddler's gift.** His first bump at home
   with room gives a Homestone. D-1016.
   Playtest: https://claude.ai/artifact/4VQSgSXk4CnStSy5bAAwkB
-- **2026-11-21, 0.3.451, The Homestone, a way home.** Made at the
-  workbench once the home waystone is woken, 5 Duskstar and 5 Stone, at
-  most 3; USE: onto the home plate, one way. D-1015. Playtest: https://claude.ai/artifact/3WVPWCRLczgVZ3znbbBcGL

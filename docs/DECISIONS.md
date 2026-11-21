@@ -117,23 +117,6 @@ chapter 1 is done; 8.15 and 8.16 at 0.4.0, with 8.06's count. The
 privacy page says nothing is sent; play notes only if decided later
 (7.11, D-993). Music is new from chapter 2 only (8.11, D-837 to D-841).
 
-**D-1014 · 2026-11-21 · The Lampeater's end, a cutscene** (the owner's
-picks, both recommended, from a [page of sketches](https://claude.ai/artifact/BxhPDkuCvmqHcqT2KexMwM);
-the Lampeater's polish, roadmap Now step 1) The first time on a journey
-the Lampeater is beaten, a cutscene of about 3 s, as the way in's (D-957):
-the black bars slide in and the controls fade as the camera glides from
-the hero to where it fell; its eyes flare one last time; its body sinks
-and fades as its gloamlings and wisps crumble; Leap's find shows where it
-fell; then back out to the hero, and its line, "The Lampeater fades.
-Something glows." (offered too: the door sinking open; a brazier going out
-at each phase; a longer way in showing its brood; every time). No skip,
-no sound, the shots cut with reduced motion. Claude's calls: about 3 s;
-on a later beating, none; `fadeSeen` marks it seen, a save during it never
-plays it again; the "+" of experience waits for its end. The owner's idea,
-kept for later (`RESEARCH-2.md`): a rematch, something in the arena the
-hero goes up to and asks for a harder Lampeater. D-1010 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-1015 · 2026-11-21 · The Homestone, a way home** (the owner's idea and
 picks, all recommended but the cost and the carry, the owner's own) A
 thing made to go home, the Homestone: one use, one way, onto the home
@@ -186,3 +169,20 @@ Claude's calls: the three longer drafts shortened to fit the text line;
 his gift bump as D-1016, its waiting line in the box; his two old home
 lines no longer said. D-1013 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
+
+**D-1018 · 2026-11-21 · The Peddler's gifts now and then** (the owner's
+picks, all recommended; D-1016's third step) After his first gift, the
+Peddler has another every 3 days (900 turns) from the last one taken
+(offered too: once a day; once a trip; by chance): one of his wares, an
+Oil Flask or a Torch, the seed picking which (offered too: coins; common
+materials; a mix). It is given in his talk box: his gift line there, the
+thing in the bag, free, SHOP and BYE as ever (offered too: as the first
+gift, the box shut; a GIFT button). While a gift waits, a small ember
+parcel with a bone ribbon floats over his head, bobbing a pixel each
+second, still with reduced motion (offered too: a soft glow; no mark).
+Claude's calls: no room, his waiting line in the box, the same ware kept
+for later; a save from before, his first gift given, has one waiting at
+once; the mark drawn with him, under the light, and over him for his
+first gift too; dev Grow brings his next gift due; his two lines
+Claude's drafts. D-1014 moves to `archive/DECISIONS-SURFACE.md`, word
+for word.

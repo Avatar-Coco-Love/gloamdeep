@@ -72,7 +72,8 @@ tools to be chosen together later.
   mouth there leads back into the crypt (D-211). TIME: +10 and +50
   move the clock only; the status line shows the turn of the day (D-217).
   Grow, beside them, makes every planted garden bed's time up, one in this
-  room growing at once; no turn passes (D-567). Code: `src/core/garden.js`.
+  room growing at once, and brings the Peddler's next gift due (D-1018);
+  no turn passes (D-567). Code: `src/core/garden.js`, `src/core/gift.js`.
   TIME comes second, under Reset room, so Grow shows on every screen (D-882).
 - Copy room: the room and the hero's tile to the clipboard as one line,
   to hand to Claude (D-051, D-052). Code: `src/core/roomcode.js`.

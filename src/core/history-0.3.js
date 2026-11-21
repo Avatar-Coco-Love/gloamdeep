@@ -6,6 +6,13 @@
 // tools/release.js once a newer version is in (D-982); stage 0.2's are in history-0.2.js and its split
 // files.
 export const HISTORY_03 = [
+  { v: '0.3.454', date: '2026-11-21', title: 'The Peddler\'s gifts now and then', lines: [
+    "New: the Peddler's gifts now and then. Every 3 days after his last gift, he has another: an Oil Flask or a Torch. Bump him and his talk box opens with his gift line, and it goes into your bag, free.",
+    "While he has a gift for you, a small ember parcel bobs over his head. It stays still with reduced motion.",
+    "With no room in your bag, he says he has a gift and keeps it for later.",
+    "Dev tools: Grow also brings his next gift due at once.",
+    "Decisions: D-1018.",
+  ] },
   { v: '0.3.453', date: '2026-11-21', title: 'The Peddler\'s talk box', lines: [
     "New: the Peddler's talk box. Home on the surface, bumping him opens a small card with his face and a line, and two buttons: SHOP opens his card, BYE goes back to play.",
     "His lines take turns by day; past depth 3, and once the Lampeater is beaten, a line about each joins them. By night he has his own line.",

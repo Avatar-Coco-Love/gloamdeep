@@ -33,6 +33,7 @@ import { openRows } from './core/growth.js';
 import { moveStack, storeMatching, storeNearby } from './core/chest.js';
 import { buyerAt, sell, buy } from './core/trade.js';
 import { chats } from './core/chat.js';
+import { hasGift, giftsDue } from './core/gift.js';
 import { easeMode } from './core/menu.js';
 import { remember, rememberAll, forget } from './core/fog.js';
 import { inDaylight, passTime } from './core/daytime.js';
@@ -266,7 +267,7 @@ function tryStep(dir) {
   else if (dir.feed !== undefined) app.state = feed(app.state, dir.feed.x, dir.feed.y); // guano on the sprout, one turn (D-569)
   else if (dir.sleepOut) app.state = sleepOut(app.state); // the moon button's Yes: until morning, no bed (D-758)
   else if (dir.take !== undefined) app.state = takeDown(app.state, dir.take.x, dir.take.y); // the bench or an empty stash chest back into the bag, one turn (WB3, D-323; CH5)
-  else if (buyerAt(before, before.hero.x + DIRS[dir][0], before.hero.y + DIRS[dir][1])) { const p = buyerAt(before, before.hero.x + DIRS[dir][0], before.hero.y + DIRS[dir][1]), was = app.state; app.state = step(app.state, dir); if (!has(eventsSince(was, app.state), 'take')) { if (chats(p)) screens.openTalk(p.id); else screens.openTrade(); } return; } // bumping the peddler at home: his line and his card, free (D-494); his gift given, the card shut that bump (D-1016); his talk box, Shop opening his card (D-1017)
+  else if (buyerAt(before, before.hero.x + DIRS[dir][0], before.hero.y + DIRS[dir][1])) { const p = buyerAt(before, before.hero.x + DIRS[dir][0], before.hero.y + DIRS[dir][1]), was = app.state, first = hasGift(p); app.state = step(app.state, dir); if (!first || !has(eventsSince(was, app.state), 'take')) { if (chats(p)) screens.openTalk(p.id); else screens.openTrade(); } return; } // bumping the peddler at home: his line and his card, free (D-494); his gift given, the card shut that bump (D-1016); his talk box, Shop opening his card (D-1017); a later gift given in it (D-1018)
   else if (campAsks(before, dir)) { screens.openSleepOut(); return; } // a set-down bedroll from dusk asks Sleep here until morning?, free (D-804)
   else if (panelBeside(before, dir)) { const at = panelBeside(before, dir), says = roomTileAt(app.state.room, at.x, at.y).says; if (says) app.state = say(app.state, says); screens.openPanel(at); return; } // bumping the bench or a stash chest opens its panel, free (WB3, CH3); a tile's `says` line with it, cold ashes' (D-757)
   else {
@@ -530,7 +531,7 @@ const dev = createDev(stage, roomCanvas, { // on for everyone (D-086)
   setLeap: (on) => ({ ...app.state, leap: on || undefined }), // chapter 1's found ability, on this journey (D-962)
   setEndless: (on) => ({ ...app.state, endless: on }), // the lantern never runs down (D-626)
   passTime: (turns) => passTime(app.state, turns), // the clock only (D-217)
-  grow: () => growAll(app.state), // every planted garden bed's time up (D-567)
+  grow: () => giftsDue(growAll(app.state)), // every planted garden bed's time up (D-567), and the Peddler's next gift due (D-1018)
   goTo: (depth) => { app.jumped = true; return goToDepth(app.state, depth); }, // depth 0 is the crypt (D-212)
   bench: (build, half) => { app.jumped = true; return bench(app.state, build, half, true); }, // the boss test bench, a dev jump, from below the hallway (D-948, D-960)
   loadSpot: (s) => { app.jumped = true; app.journeySeed = s.seed; return s; }, // a test spot is a dev jump (D-627, D-232)

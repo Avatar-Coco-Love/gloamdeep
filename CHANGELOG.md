@@ -24,6 +24,16 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.454 (2026-11-21)
+- New: the Peddler's gifts now and then. Every 3 days after his last
+  gift, he has another: an Oil Flask or a Torch. Bump him and his talk
+  box opens with his gift line, and it goes into your bag, free.
+- While he has a gift for you, a small ember parcel bobs over his head.
+  It stays still with reduced motion.
+- With no room in your bag, he says he has a gift and keeps it for later.
+- Dev tools: Grow also brings his next gift due at once.
+- Decisions: D-1018.
+
 ## 0.3.453 (2026-11-21)
 - New: the Peddler's talk box. Home on the surface, bumping him opens a
   small card with his face and a line, and two buttons: SHOP opens his
@@ -40,12 +50,3 @@ Entry format:
   gift and his card opens as ever. He keeps it for a later bump when you
   have room.
 - Decisions: D-1016.
-
-## 0.3.451 (2026-11-21)
-- New: the Homestone, a way home. Once the home waystone is woken, the
-  workbench's GEAR tab makes one from 5 Duskstar and 5 Stone. USE it in
-  the bag and it carries you onto the home waystone's plate, as waystone
-  travel does: free, and the creatures there can't move before you do.
-  It goes one way only, and is used up. Not with a creature so near.
-- You can carry at most 3 Homestones.
-- Decisions: D-1015.
