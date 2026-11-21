@@ -117,24 +117,6 @@ chapter 1 is done; 8.15 and 8.16 at 0.4.0, with 8.06's count. The
 privacy page says nothing is sent; play notes only if decided later
 (7.11, D-993). Music is new from chapter 2 only (8.11, D-837 to D-841).
 
-**D-1006 · 2026-11-20 · The lantern's slots, shown** (the owner's picks,
-both recommended, from mock-ups; the roadmap's 1.02, picked as the next
-content before the Lampeater, its polish saved for later; builds D-459,
-D-483) The lantern's three slots, Wick, Tank and Glass, show as a LANTERN
-row in the bag: beside the gear row sideways, under it upright, the bag's
-slots a row lower there (offered too: a LANTERN tab of its own; the slots
-only in a part's own words). An empty slot shows its kind faintly, as the
-gear row's; the empty Glass a plain pane outline (offered too: the Gloam
-Eye, faint; an empty frame). Offered as the next step too: a second
-flower; a gentler first mole; a new creature for depths 1 to 7. Claude's
-calls: a lantern slot chosen shows its part's name, slot, numbers and Look
-line, as a gear slot's; nothing comes off, Fit still swaps a part; the
-pane's picture, a pane of glass between a cap and base of the lantern's
-trim (draft); sideways "GEAR" stays when both labels fit, else only
-"LANTERN"; the arrows reach the row, sideways along the gear row's line,
-upright a row between; the parts' Look lines kept as they are.
-D-1003 moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-1009 · 2026-11-20 · A gentler first mole** (the owner's picks, all
 recommended; 6.05, D-999; H-71's ruling again; supersedes D-986) Every
 woods mole by day on the surface has 2 hearts, not 4: 2 lantern swings or
@@ -186,3 +168,15 @@ above DROP; sideways, at the card's foot. Every screen measured fits a
 12-slot bag, so it shows nowhere today; kept, switched on by itself
 when a grid outgrows its card (offered too: always show fewer rows; park
 it). The chest's card and the peddler's come next.
+
+**D-1012 · 2026-11-21 · The chest card's bag slots scroll** (the owner's
+pick, recommended; D-1011's next step, B-014's other half) On the stash
+chest's card, where the bag's slots don't all fit, they scroll as the bag
+card's do. The window ends where the chosen find's name and count still
+fit under it, as on the bag card (offered too: down to the card's foot,
+the name left out). Claude's calls: only with DECONSTRUCT and STORE
+raised to the title strip (D-1010), upright on a small window; the
+chest's own 12 slots fit every screen, so they don't scroll; at least one
+row always shows; the scroll's handling moved to one helper the bag card
+shares, ready for the peddler's. D-1006 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

@@ -4,6 +4,15 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.445 (2026-11-20)
+- A gentler first mole: every mole that comes out by day in the woods
+  round home has 2 hearts now, not 4. Two lantern swings or one knife
+  blow beat it, so a new hero who strikes as it comes up takes one bite,
+  not three. From depth 5 down the mole is as tough as ever.
+- The start room has its mole on a journey's first day again, the gentle
+  one. Its name tag counts 2 hearts, and its Bestiary page says so.
+- Decisions: D-1009 (supersedes D-986).
+
 ## 0.3.444 (2026-11-20)
 - Herbs and mushrooms are rooted now, as the flowers are: the healing herb,
   the oilcap and the heartcap stand on their own tile, still, their foot in

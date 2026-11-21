@@ -3,6 +3,17 @@
 Bugs from `docs/BUGS.md`, moved here word for word once fixed (D-852),
 newest first, each with the version that fixed it. Grep only.
 
+Fixed in 0.3.448 (D-1012), the chest card's half:
+
+**B-014 · 2026-11-21 · The chest's card too short for a big bag, in a small window**
+Found at 6.07 (0.3.446, D-1010), not seen in play: at 176 × 221 game
+px, upright, which a small PC window gives but no phone measured does,
+a bag of 9 or 12 slots doesn't fit. On the stash chest's card the bag's
+last row runs off its foot. The bag card's half was fixed at 0.3.447:
+its slots scroll there (D-1011); the chest's card is the next step of
+D-1011. Measured at 0.3.447: no window or phone tried gave a view under
+300 game px tall upright, so this may never show in play.
+
 Half fixed in 0.3.447 (D-1011), the bag card's: the entry as it stood,
 narrowed to the chest's card in `docs/BUGS.md`:
 

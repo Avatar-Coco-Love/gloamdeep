@@ -41,6 +41,7 @@ import { shownSeed, canGoBack } from '../core/explorer.js';
 import { playing, slotName } from '../core/profile.js';
 import { shopOf, newShop } from '../core/feats.js';
 import { bagWindow, drawBagBar } from './bagscroll.js';
+import { chestWindow } from './chestscroll.js';
 import { stepScroll } from './scroll.js';
 import { cloakOf, eyesOf, trimOf, clothesOf, lampOf, headOf } from '../core/looks.js';
 import { PAUSE_MENU, pauseFacts, stationMakes, stationTitle, STATION_NONE, SURE_MENU, ENDED_MENU, ENDED_HEADING } from '../core/menu.js';
@@ -146,7 +147,10 @@ export function createCards(app, ui) {
         textLine.draw(hc, line, t, still()); // "You make a stash chest."
       }
       else if (app.screen === 'chest') {
-        drawChestPanel(hc, view.w, view.h, stashAt(state, app.bench.x, app.bench.y), state.bag, app.chosen, kitOf(state), t, still(), bagSize(state), picsOf(state)); // a card on the room (D-387)
+        const win = chestWindow(view.w, view.h, bagSize(state)), sc = app.chestScroll; // the bag's slots' window, gliding on (D-1011)
+        if (sc) stepScroll(sc, t, win.max, win.pitch);
+        drawChestPanel(hc, view.w, view.h, stashAt(state, app.bench.x, app.bench.y), state.bag, app.chosen, kitOf(state), t, still(), bagSize(state), picsOf(state), { win, y: sc?.y ?? 0 }); // a card on the room (D-387)
+        drawBagBar(hc, win, sc?.y ?? 0, sc?.lit ?? 0);
         textLine.draw(hc, line, t, still()); // "Your bag is full."
       }
       else if (app.screen === 'trade') {

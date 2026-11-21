@@ -24,6 +24,15 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.448 (2026-11-21)
+- On the stash chest's card, the bag's slots scroll too when they don't
+  all fit, the same way as on the bag card: drag or flick them, use the
+  wheel or the arrows, or drag the thin bar beside them. They stop where
+  the chosen find's name and count still fit below.
+- Only a very short upright window needs it; on every phone tried the
+  card looks as before.
+- Decisions: D-1012. B-014 fixed.
+
 ## 0.3.447 (2026-11-21)
 - The bag's slots can scroll now, when they don't all fit on the card: drag
   them, or flick them and they glide, slow and come to rest with whole rows
@@ -45,12 +54,3 @@ Entry format:
   is ticked, built back at 0.3.427. The plan for talking with choices is
   set: a card low on the screen, in the game's own letters.
 - Decisions: D-1010.
-
-## 0.3.445 (2026-11-20)
-- A gentler first mole: every mole that comes out by day in the woods
-  round home has 2 hearts now, not 4. Two lantern swings or one knife
-  blow beat it, so a new hero who strikes as it comes up takes one bite,
-  not three. From depth 5 down the mole is as tough as ever.
-- The start room has its mole on a journey's first day again, the gentle
-  one. Its name tag counts 2 hearts, and its Bestiary page says so.
-- Decisions: D-1009 (supersedes D-986).

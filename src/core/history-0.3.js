@@ -6,6 +6,11 @@
 // tools/release.js once a newer version is in (D-982); stage 0.2's are in history-0.2.js and its split
 // files.
 export const HISTORY_03 = [
+  { v: '0.3.448', date: '2026-11-21', title: 'The chest card\'s bag slots scroll', lines: [
+    "On the stash chest's card, the bag's slots scroll too when they don't all fit, the same way as on the bag card: drag or flick them, use the wheel or the arrows, or drag the thin bar beside them. They stop where the chosen find's name and count still fit below.",
+    "Only a very short upright window needs it; on every phone tried the card looks as before.",
+    "Decisions: D-1012. B-014 fixed.",
+  ] },
   { v: '0.3.447', date: '2026-11-21', title: 'The bag\'s slots scroll', lines: [
     "The bag's slots can scroll now, when they don't all fit on the card: drag them, or flick them and they glide, slow and come to rest with whole rows showing. A thin bar beside them shows where you are, gold while they move, and can be dragged too. The mouse wheel moves them a row, and the arrow keys bring the chosen slot's row into view.",
     "On every screen tried so far a bag of 12 fits, so you won't see it yet: it switches on by itself only where the slots don't fit.",
