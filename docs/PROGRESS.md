@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.460 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.461 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -20,7 +20,7 @@ cutscene, if any (D-1014).
 - The roadmap's build order, Claude's from 8.01 and the synthesis
   (`ROADMAP.md`, 0.3.437); the board's own picks, Claude's (0.3.436).
 - The waystone looks' pixels and colours, Claude's from the mock-up (D-1021); the trip's small calls (D-1022).
-- The knot's name, dark line and look, the spark's, Claude's (D-1024).
+- The knot's name, dark line and look, the spark's, Claude's (D-1024); its glow's reach, speed and violet (D-1025).
 - The Lampeater's beaten line and its find's look, Claude's drafts (D-992); the locket's words (D-1023).
 - The Bladder Tank's lines, picture and slot, Claude's drafts (D-1005).
 - The empty glass's pane picture and the lantern row's labels and arrows, Claude's (D-1006).
@@ -54,10 +54,9 @@ later are in `RESEARCH-2.md` (D-699) and `RESEARCH-PLANNING.md`, and the
 owner's wish list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-22, 0.3.461, The spark speaks in light.** D-1025.
+  Playtest: https://claude.ai/artifact/JMQ4LUuuH8bdkzCScC3ysy
 - **2026-11-22, 0.3.460, The spark freed.** D-1024.
   Playtest: https://claude.ai/artifact/Bvzj8SgnX39WxSHJEmWxSE; map preview: https://claude.ai/artifact/3p2avYEVwkrdf5mFh2SQMQ
 - **2026-11-22, 0.3.459, The locket says what it does.** D-1023.
   Playtest: https://claude.ai/artifact/CJKHQCHqDzVhRCLRjV2hSW
-- **2026-11-21, 0.3.458, The waystone trip.** Violet sparks carry the
-  hero away and gather at the far stone; a tap skips. D-1022.
-  Playtest: https://claude.ai/artifact/Mb6hNptpjv7QemWLQYtSwD

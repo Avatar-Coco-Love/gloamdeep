@@ -132,20 +132,6 @@ other players' light, light-routing puzzles, and the bait as the player's
 own pull. Nothing in them is decided. D-1015 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
 
-**D-1022 · 2026-11-21 · The waystone trip** (the owner's picks, all
-recommended, from the mock-up; D-1021's next step) A trip by waystone
-takes about 2 s. The hero breaks into their own pixels, which turn violet
-and drift up like embers (0.7 s); the room fades through the dark (0.3 s);
-the far stone stands empty, its plate glowing (0.3 s); then violet sparks
-drift down and settle into the hero, each pixel taking back its colour
-(0.7 s) (offered too: a whirl round the plate; sparks pulled into the rune;
-a longer empty stone; no fade). A new tap or key skips it, the hero at once
-on the far plate. With reduced motion, no sparks: the stairs' quick fade,
-about 0.4 s. Claude's calls: the hum as before, at the start; the
-experience "+1" shows once the hero is back; the lantern's flame goes with
-the hero; the sparks glow over the dark. D-1017 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-1023 · 2026-11-22 · The locket says what it does** (the owner's ask
 and picks, all recommended; builds D-693, D-694) Set on the shelf, the
 locket did its work unseen until a fall. Now the ask "Set the locket on
@@ -181,3 +167,24 @@ the knot as it is freed, still with reduced motion; its look and the
 knot's writhe; no sound yet; an older save's kept room gets its knot,
 or the spark freed where none fits; the dev Spark switch. D-1021 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-1025 · 2026-11-22 · The spark speaks in light** (the owner's picks,
+from the mock-up; builds D-034, D-508, D-633, D-1024) The spark must never
+feel like a fairy: it never blocks a move, says each line once, hints and
+never answers, and never calls with a sound. It speaks in light (look A):
+its glow warms nearer the First Light and cools to violet and dims near
+the gloam; it darts to things worth a look and shies from mimics; words
+only on firsts and about once a depth a broken memory of the First Light,
+in italics, no name. Later a tap opens its talk box (look B), the answers
+leaning it Curious, Careful or Bold, each a small bonus, the leaning
+always free to shift. It grows by boss gifts, a memory and a small gift
+for each boss beaten (Warmth and Hush, Claude's drafts); later still a
+warmth meter and commands (look C: SEND, HOLD, KINDLE) as their own
+system, the owner's pick over folding them into the gifts. This step: the
+glow (offered too: A alone, B, C; no growth yet; shying from mimics or
+the first fall's line first; leanings to the ideas list, or set at each
+chapter's end). Claude's calls: of the gloam, the gloamling and the
+Lampeater, seen or not, a registry mark; the chill full within a tile,
+gone past 4; about a second to turn; warmth by depth over 32 (D-635), the
+halo up to 2 pixels wider and a little brighter; its violet; with reduced
+motion at once. D-1022 moves to `archive/DECISIONS-SURFACE.md`, word for word.

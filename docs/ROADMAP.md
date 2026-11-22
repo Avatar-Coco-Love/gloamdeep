@@ -37,7 +37,8 @@ first-hour goals (6.04). A gentler first mole, not none (6.05).
     2.02 Leap gaps below depth 8 (S), 2.03 The gloam tide vault (M),
     2.04 One set piece for chapter 1 (M)
 11. The story starts: 5.04 The spark freed (M), freed and following,
-    0.3.460 (D-1024); next its glow near the First Light and the gloam; 5.06 The start and the
+    0.3.460 (D-1024); it speaks in light, its glow 0.3.461 (D-1025), its later
+    steps in `RESEARCH-3.md`; 5.06 The start and the
     story, lined up (S); 5.01 The Lore tab and Maren's first page (S);
     5.07 The story goal (S) with 8.12 A goal waiting on every return (S);
     3.06 Its story in three places (M); 5.03 Maren's empty grave (S);

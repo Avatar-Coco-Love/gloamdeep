@@ -4,6 +4,14 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.458 (2026-11-21)
+- A trip by waystone now has its own moment, about 2 seconds. The hero
+  breaks into violet sparks that drift up like embers, the room fades, the
+  far stone stands empty with its plate glowing, then the sparks drift down
+  and settle back into the hero. A tap or a key skips it. With reduced
+  motion it is a quick fade instead.
+- Decisions: D-1022. D-1017 moved to the archive, word for word.
+
 ## 0.3.457 (2026-11-21)
 - Each waystone now looks like the place it stands in. Home keeps its
   mossy stones in the grass. In the cave (depth 2) they are rough grey

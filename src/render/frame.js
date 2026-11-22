@@ -19,6 +19,7 @@ import { running, sameKey, holdsRoom } from './hold.js';
 import { drawBrackets, torchLights, drawFlames } from './torches.js';
 import { drawMotes } from './motes.js';
 import { drawKnots, drawHeldSparks, drawGuide } from './guide.js';
+import { sparkMood } from '../core/spark.js';
 import { draftTo, stayingMotes } from '../core/draft.js';
 import { drawStatus } from './hud.js';
 import { shareLeft } from '../core/lasting.js';
@@ -311,7 +312,7 @@ export function createFrame(app, ui) {
         const tripped = drawTrip(rc, travel?.trip, wornHero(), sx, sy, t); // the waystone trip's sparks and glow (D-1022)
         if (s.lit && !lying && !tripped) { rc.fillStyle = '#fff5d6'; rc.fillRect(lx, ly, 1, 1); } // the lit flame's core is always bright (study line 446), gone with the hero on a trip
         drawHeldSparks(rc, s.room, t, still()); // the spark in the knot, dim, seen in the dark (D-1024)
-        if (s.spark && !tripped && !tripHides(travel, t)) drawGuide(rc, sx + nx, sy + ny, t, still(), s.events?.find((e) => e.type === 'spark')); // freed, by the hero's shoulder, lighting nothing (D-1024)
+        if (s.spark && !tripped && !tripHides(travel, t)) drawGuide(rc, sx + nx, sy + ny, t, still(), s.events?.find((e) => e.type === 'spark'), sparkMood(s)); // freed, by the hero's shoulder, lighting nothing (D-1024), cooling near the gloam (D-1025)
         drawDoors(rc, doors, dev.revealed() ? null : s.seen, s.room.cols, t, still()); // over the light, so remembered ones show (D-225)
         const framed = list?.find((a) => foeAt(a.e) === app.framed);
         if (framed) drawFramed(rc, framed, foeAt(framed.e), cam, t, still()); // CL2, D-357

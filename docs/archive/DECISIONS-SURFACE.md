@@ -3131,3 +3131,17 @@ motes leave and gather, the far stone shown empty between, about 2 s, a
 tap skips, a quick fade with reduced motion (the owner's picks, all
 recommended). Pixels and colours Claude's, from the mock-up. D-1016 moves
 to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-1022 · 2026-11-21 · The waystone trip** (the owner's picks, all
+recommended, from the mock-up; D-1021's next step) A trip by waystone
+takes about 2 s. The hero breaks into their own pixels, which turn violet
+and drift up like embers (0.7 s); the room fades through the dark (0.3 s);
+the far stone stands empty, its plate glowing (0.3 s); then violet sparks
+drift down and settle into the hero, each pixel taking back its colour
+(0.7 s) (offered too: a whirl round the plate; sparks pulled into the rune;
+a longer empty stone; no fade). A new tap or key skips it, the hero at once
+on the far plate. With reduced motion, no sparks: the stairs' quick fade,
+about 0.4 s. Claude's calls: the hum as before, at the start; the
+experience "+1" shows once the hero is back; the lantern's flame goes with
+the hero; the sparks glow over the dark. D-1017 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

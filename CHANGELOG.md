@@ -24,6 +24,13 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.461 (2026-11-22)
+- The spark speaks in light. Near a gloamling or the Lampeater, seen or
+  not, its glow cools to violet and dims, and it warms again as they go.
+  Deeper down, nearer the First Light, its glow is a little wider and
+  brighter.
+- Decisions: D-1025. D-1022 moved to the archive, word for word.
+
 ## 0.3.460 (2026-11-22)
 - The story begins: the spark, the guide, waits on depth 2 in the first
   cave room, caught in a knot of gloam, dark threads with violet edges
@@ -42,11 +49,3 @@ Entry format:
   so does the shelf's card once the locket is on it. Looking at the locket
   in the bag says "On a shelf, it keeps your best stack." too.
 - Decisions: D-1023. D-1018 moved to the archive, word for word.
-
-## 0.3.458 (2026-11-21)
-- A trip by waystone now has its own moment, about 2 seconds. The hero
-  breaks into violet sparks that drift up like embers, the room fades, the
-  far stone stands empty with its plate glowing, then the sparks drift down
-  and settle back into the hero. A tap or a key skips it. With reduced
-  motion it is a quick fade instead.
-- Decisions: D-1022. D-1017 moved to the archive, word for word.

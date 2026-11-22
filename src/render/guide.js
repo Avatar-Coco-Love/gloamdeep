@@ -6,13 +6,21 @@
 // spark floats by the hero's shoulder, away from the lantern, not held to the grid (D-034): it
 // eases after the hero and bobs slowly, a pale warm core in a small dithered halo drawn over the
 // dark, lighting nothing (pillar 1). With reduced motion it stays still beside the hero.
-// Claude's pixels and colours, from the mock-up.
+// It speaks in light (D-1025): near the gloam it cools to violet and dims, easing over about a
+// second; deeper down, nearer the First Light, its halo grows a little warmer and wider (its
+// `mood`, core/spark.js). With reduced motion the colour changes at once.
+// Claude's pixels and colours, from the mock-ups.
 import { get } from '../core/registry.js';
 import { halo } from './sprites.js';
 
 const DARK = '#0e0c16', THREAD = '#241d33', EDGE = '#6e58a8', EDGE_LIT = '#8a72c8';
-const CORE = '#fff3c8', RAYS = '#ffe9a8', DIM = '#b9ab88';
+const DIM = '#b9ab88';
 const HALO = { reach: 5, inner: 'rgb(112,92,50)', outer: 'rgb(64,52,32)', cut: 0.3 }; // warm, dim, small
+// Cooled by the gloam (D-1025): violet, and dimmer by DIMS at the most; deeper, WIDER pixels more reach
+const COOL = { core: [236, 228, 255], rays: [200, 184, 240], inner: [78, 64, 120], outer: [44, 36, 70] };
+const WARM = { core: [255, 243, 200], rays: [255, 233, 168], inner: [112, 92, 50], outer: [64, 52, 32] };
+const DIMS = 0.4, WIDER = 2, BRIGHTER = 0.15, COOLS = 0.03;
+const mix = (k, u) => `rgb(${WARM[k].map((w, i) => Math.round(w + (COOL[k][i] - w) * u)).join(',')})`;
 const HELD_HALO = { reach: 3, inner: 'rgb(70,58,36)', outer: 'rgb(46,38,26)', cut: 0.4 };
 // The threads: loops round the middle (8, 7), each an ellipse turned by `a`, its pixels kept once
 const ARCS = [{ a: 0.2, rx: 5, ry: 3 }, { a: 1.3, rx: 5, ry: 3 }, { a: 2.4, rx: 5, ry: 2.5 }, { a: 0.8, rx: 3.5, ry: 4.5 }, { a: 2.0, rx: 4, ry: 2 }];
@@ -62,17 +70,19 @@ export function drawHeldSparks(c, room, t, still) {
 }
 
 // § freed: the spark beside the hero, hx, hy the hero's drawn tile corner in room pixels
-let at = null, came = null;
+let at = null, came = null, cool = 0;
 const SIDE = { x: 1, y: -3 }, EASE = 0.06, SNAP = 48; // by the left shoulder, the lantern on the right
-// `from`, the turn's `spark` event as it is freed: it rises from the knot's middle and drifts over
-export function drawGuide(c, hx, hy, t, still, from) {
+// `from`, the turn's `spark` event as it is freed: it rises from the knot's middle and drifts over.
+// `mood`, { chill, warmth } (core/spark.js's sparkMood): its glow eases toward the chill
+export function drawGuide(c, hx, hy, t, still, from, mood = { chill: 0, warmth: 0 }) {
   if (from && from !== came) { came = from; if (!still) at = { x: from.x * 16 + CX, y: from.y * 16 - 2 + CY }; }
   const bob = still ? 0 : Math.sin(t / 760) * 1.5, sway = still ? 0 : Math.sin(t / 1900) * 1.5;
   const want = { x: hx + SIDE.x + sway, y: hy + SIDE.y + bob };
   if (!at || still || (!from && Math.hypot(want.x - at.x, want.y - at.y) > SNAP)) at = { ...want }; // a new room: there at once
   else { at.x += (want.x - at.x) * EASE; at.y += (want.y - at.y) * EASE; }
-  const x = Math.round(at.x), y = Math.round(at.y), pulse = still ? 0.9 : 0.8 + 0.15 * Math.sin(t / 500);
-  halo(c, x, y, HALO, pulse);
-  c.fillStyle = RAYS; c.fillRect(x - 1, y, 3, 1); c.fillRect(x, y - 1, 1, 3);
-  c.fillStyle = CORE; c.fillRect(x, y, 1, 1);
+  cool = still ? mood.chill : cool + Math.max(-COOLS, Math.min(COOLS, mood.chill - cool)); // about a second either way
+  const x = Math.round(at.x), y = Math.round(at.y), pulse = (still ? 0.9 : 0.8 + 0.15 * Math.sin(t / 500)) * (1 - DIMS * cool) + BRIGHTER * mood.warmth * (1 - cool);
+  halo(c, x, y, { ...HALO, reach: HALO.reach + WIDER * mood.warmth, inner: mix('inner', cool), outer: mix('outer', cool) }, pulse);
+  c.fillStyle = mix('rays', cool); c.fillRect(x - 1, y, 3, 1); c.fillRect(x, y - 1, 1, 3);
+  c.fillStyle = mix('core', cool); c.fillRect(x, y, 1, 1);
 }
