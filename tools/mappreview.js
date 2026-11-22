@@ -82,7 +82,7 @@ dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
   <div class="frame"><canvas id="map" aria-label="The floor's map"></canvas></div>
   <ul class="legend">
     <li><i class="box"></i>a room on the way</li><li><i style="background:#ff5a4a"></i>creature</li><li><i style="background:#f39a3b"></i>flask</li>
-    <li><i style="background:#6fc06a"></i>herb</li><li><i style="background:#e0c060"></i>oilcap</li><li><i style="background:#e0607a"></i>heartcap</li><li><i style="background:#58c8b4"></i>glowcup</li><li><i class="box" style="border-color:#fff"></i>a dead end's cache</li>
+    <li><i style="background:#6fc06a"></i>herb</li><li><i style="background:#e0c060"></i>oilcap</li><li><i style="background:#e0607a"></i>heartcap</li><li><i style="background:#58c8b4"></i>glowcup</li><li><i class="box" style="border-color:#fff"></i>a dead end's cache</li><li><i style="background:#6e58a8"></i>the spark's knot</li>
     <li><i style="background:#d8d2c0"></i>other find</li><li><i style="background:#7fd8ff"></i>person</li><li><i style="background:#a58ce0"></i>stairs</li>
     <li><i style="background:#a6e0e4"></i>doorway</li><li><i style="background:#f39a3b"></i>a vault's brazier</li><li><i style="background:#a58ce0"></i>its sealed door</li><li><i style="background:#07060a;outline:1px solid #c8b4f4;outline-offset:-1px"></i>a Leap gap</li><li><i style="background:#e8c46a"></i>its archway to the room beyond</li><li><i style="background:#3f5175"></i>pool</li>
     <li><i style="background:rgba(127,216,255,.45)"></i>hall</li><li><i style="background:rgba(165,140,224,.55)"></i>large room</li>

@@ -18,6 +18,7 @@ import { drawCrumble } from './crumble.js';
 import { running, sameKey, holdsRoom } from './hold.js';
 import { drawBrackets, torchLights, drawFlames } from './torches.js';
 import { drawMotes } from './motes.js';
+import { drawKnots, drawHeldSparks, drawGuide } from './guide.js';
 import { draftTo, stayingMotes } from '../core/draft.js';
 import { drawStatus } from './hud.js';
 import { shareLeft } from '../core/lasting.js';
@@ -255,6 +256,7 @@ export function createFrame(app, ui) {
         const lit = s.lit && !dev.lightOff() && !lying; // the lantern's light on a pool below it (D-500)
         drawRipples(rc, s.room, t, still(), lit ? { x: sx + nx + LANTERN_AT.x, y: sy + ny + 14 } : null);
         drawFloat(rc, s.float, t, still()); // the line's float on the pond, bobbing (D-610)
+        drawKnots(rc, s.room, t, still()); // the knot of gloam's threads writhing (D-1024)
         drawRoosts(rc, s.room, t, still()); // a tree with a flyer in it shakes now and then (D-922)
         drawKindle(rc, app.kindle, t); // the woken rune lighting bottom up (D-591)
         if (!still()) drawCrumble(rc, app.quake, s.room, t); // the seal stones crack, then fall into the Gap (D-965)
@@ -308,6 +310,8 @@ export function createFrame(app, ui) {
         drawRing(rc, app.kindle, t); // and its ring, over the light (D-591)
         const tripped = drawTrip(rc, travel?.trip, wornHero(), sx, sy, t); // the waystone trip's sparks and glow (D-1022)
         if (s.lit && !lying && !tripped) { rc.fillStyle = '#fff5d6'; rc.fillRect(lx, ly, 1, 1); } // the lit flame's core is always bright (study line 446), gone with the hero on a trip
+        drawHeldSparks(rc, s.room, t, still()); // the spark in the knot, dim, seen in the dark (D-1024)
+        if (s.spark && !tripped && !tripHides(travel, t)) drawGuide(rc, sx + nx, sy + ny, t, still(), s.events?.find((e) => e.type === 'spark')); // freed, by the hero's shoulder, lighting nothing (D-1024)
         drawDoors(rc, doors, dev.revealed() ? null : s.seen, s.room.cols, t, still()); // over the light, so remembered ones show (D-225)
         const framed = list?.find((a) => foeAt(a.e) === app.framed);
         if (framed) drawFramed(rc, framed, foeAt(framed.e), cam, t, still()); // CL2, D-357

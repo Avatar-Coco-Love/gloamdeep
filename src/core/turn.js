@@ -35,6 +35,7 @@ import { sleep, tired } from './sleep.js';
 import { fangMend } from './fang.js';
 import { personAt } from './people.js';
 import { dig, talk } from './rescue.js';
+import { bumpKnot } from './spark.js';
 import { toolFits, bumpsFor } from './gear.js';
 import { bumpWater } from './fishing.js';
 import { takePrize } from './prize.js';
@@ -83,6 +84,7 @@ export function step(state, dir) {
     if (tile.sleeps) return tired(state) && chased(state) ? say(state, 'sleepChased') : sleep(state, x, y); // the bed (D-488), not with a creature after the hero, free, as outside (D-856)
     if (tile.camps) return say(state, noSleepOut(state) ?? 'notTired'); // the bedroll from dusk: its ask opens instead (main.js), or why not, free (D-804)
     if (tile.dig) return dig(state, x, y); // rubble, freeing the one trapped behind it (D-491)
+    if (tile.frees) return bumpKnot(state, x, y); // the knot of gloam: lit, it melts and the spark is free; dark, it holds (D-1024)
     if (minable(state.room, x, y)) return mine(state, x, y);
     if (tile.cast && state.tool === 'rod') return endTurn(state, bumpWater(state, x, y)); // the home pond or a cave pool: cast or pull, a turn (D-610, D-618)
     if (tile.prize) return takePrize(state, x, y); // a vault's prize on its plinth, a turn (D-896)

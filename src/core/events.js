@@ -56,6 +56,7 @@
 //   oilOut               the lantern guttered to an ember (D-830)
 //   snuff { id, x, y }   creature `id` breathed out the lit brazier at x, y (D-947)
 //   lastHeart            the hero is down to the last heart (D-835)
+//   spark { x, y }       the knot of gloam at x, y melted and the spark was freed (D-1024)
 //   roost { id }         a flyer, creature `id`, went into a tree beside it (D-922)
 //   unroost { id }       a chop drove creature `id` out of its tree (D-922)
 

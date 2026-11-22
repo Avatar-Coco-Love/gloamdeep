@@ -24,6 +24,18 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.460 (2026-11-22)
+- The story begins: the spark, the guide, waits on depth 2 in the first
+  cave room, caught in a knot of gloam, dark threads with violet edges
+  wound round a dim light. Bump the knot with the lantern lit and it melts:
+  "The gloam lets go. A small warm light comes to your side." With the
+  lantern off it holds: "The threads hold fast in the dark."
+- Freed, the spark floats by the hero's shoulder everywhere, a small warm
+  glow that lights nothing; the lantern stays the only light.
+- A journey already past depth 2 finds the knot waiting in that room.
+- Dev tools: a Spark switch in Hero frees the spark or takes it back.
+- Decisions: D-1024. D-1021 moved to the archive, word for word.
+
 ## 0.3.459 (2026-11-22)
 - The locket now says what it does on the shelf. Asked "Set the locket on
   the shelf?", the card says "If you fall, it keeps your best stack.", and
@@ -38,12 +50,3 @@ Entry format:
   and settle back into the hero. A tap or a key skips it. With reduced
   motion it is a quick fade instead.
 - Decisions: D-1022. D-1017 moved to the archive, word for word.
-
-## 0.3.457 (2026-11-21)
-- Each waystone now looks like the place it stands in. Home keeps its
-  mossy stones in the grass. In the cave (depth 2) they are rough grey
-  boulders with pebbles at their feet; in the warren (depth 5) brown
-  stones wrapped in pale roots, with dirt heaped round them; in the
-  dungeon (depth 8 and down) tall cut obelisks on a plinth, with neat
-  square flagstones. The plate's violet rune is the same everywhere.
-- Decisions: D-1021. D-1016 moved to the archive, word for word.

@@ -6,6 +6,13 @@
 // tools/release.js once a newer version is in (D-982); stage 0.2's are in history-0.2.js and its split
 // files.
 export const HISTORY_03 = [
+  { v: '0.3.460', date: '2026-11-22', title: 'The spark freed', lines: [
+    "The story begins: the spark, the guide, waits on depth 2 in the first cave room, caught in a knot of gloam, dark threads with violet edges wound round a dim light. Bump the knot with the lantern lit and it melts: \"The gloam lets go. A small warm light comes to your side.\" With the lantern off it holds: \"The threads hold fast in the dark.\"",
+    "Freed, the spark floats by the hero's shoulder everywhere, a small warm glow that lights nothing; the lantern stays the only light.",
+    "A journey already past depth 2 finds the knot waiting in that room.",
+    "Dev tools: a Spark switch in Hero frees the spark or takes it back.",
+    "Decisions: D-1024. D-1021 moved to the archive, word for word.",
+  ] },
   { v: '0.3.459', date: '2026-11-22', title: 'The locket says what it does', lines: [
     "The locket now says what it does on the shelf. Asked \"Set the locket on the shelf?\", the card says \"If you fall, it keeps your best stack.\", and so does the shelf's card once the locket is on it. Looking at the locket in the bag says \"On a shelf, it keeps your best stack.\" too.",
     "Decisions: D-1023. D-1018 moved to the archive, word for word.",

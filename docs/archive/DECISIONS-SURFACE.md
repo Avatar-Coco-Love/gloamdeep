@@ -3112,3 +3112,22 @@ once; the mark drawn with him, under the light, and over him for his
 first gift too; dev Grow brings his next gift due; his two lines
 Claude's drafts. D-1014 moves to `archive/DECISIONS-SURFACE.md`, word
 for word.
+
+**D-1021 · 2026-11-21 · A waystone look for each place** (the owner's
+wish and picks, all recommended, from the mock-up; the first part of the
+roadmap's 2.13, builds on D-592, D-594, D-620) Each waystone takes the
+look of the place it stands in: home keeps its mossy stones in the grass;
+the cave's grey rock (depth 2) has rough grey boulders, wider and lower,
+no moss, pebbles at their feet and chipped grey flagstones; the warren's
+earth (depth 5) brown standing stones with two pale roots wrapped across
+each and dirt heaped at the foot; the dungeon (8 and down) cut obelisks on
+a plinth, notches carved down the face, in its cold colours, with neat
+square flagstones. The plate and flagstones take the place's colours; the
+woken rune is the same violet everywhere (offered too: colours only; new
+shapes; one grey plate everywhere; for the dungeon, square pillars with an
+iron band, or notches lit violet). The mines', caverns' and ruins' stones
+come with those chapters. The trip's effect is next, its own step: violet
+motes leave and gather, the far stone shown empty between, about 2 s, a
+tap skips, a quick fade with reduced motion (the owner's picks, all
+recommended). Pixels and colours Claude's, from the mock-up. D-1016 moves
+to `archive/DECISIONS-SURFACE.md`, word for word.

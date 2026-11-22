@@ -22,6 +22,9 @@ export const DEEP_LINES = {
   glowGlandTake: { texts: ['A glow gland! A rare find.', 'It still glows a little.', 'The glow gland goes in your bag.'], warn: false }, // (D-688)
   glowGlandLook: { texts: ['A glow gland. With wood, a glow lamp.', 'A soft green light, sealed in.', 'It glows faintly in the dark.'], warn: false },
   glowGlandFull: { text: "You can't carry more glow glands.", warn: false },
+  sparkFreed: { text: 'The gloam lets go.', warn: false }, // the knot melted (D-1024); its second half follows on the same line, two rows
+  sparkWarm: { text: 'A small warm light comes to your side.', warn: false }, // (D-1024)
+  knotHolds: { text: 'The threads hold fast in the dark.', warn: false }, // bumped with the lantern dark, free (D-1024)
   locketTake: { texts: ['A locket! A relic of the old city.', 'Kept close, whatever the dark took.', 'The locket goes in your bag.'], warn: false }, // (D-691)
   locketLook: { texts: ['A locket from the old city.', 'On a shelf, it keeps your best stack.', 'A tiny flame is scratched on its face.', 'Kept close, whatever the dark took.'], warn: false },
   locketFull: { text: 'You already have the locket.', warn: false },

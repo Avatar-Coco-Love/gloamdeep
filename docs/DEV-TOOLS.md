@@ -60,7 +60,7 @@ tools to be chosen together later.
   is (D-626). Rules: `passTurn` in `src/core/state.js`, `enemiesAct`,
   `src/core/oil.js`.
 - Hero: Refill hearts, back to full health, no turn passed (D-154).
-  God mode, a switch kept in the save: bites take no hearts (D-625).
+  God mode, a switch kept in the save: bites take no hearts (D-625). Spark, a switch freeing the spark or taking it back, its knot left as it is (D-1024).
   Rules: `enemiesAct` in `src/core/creatureturn.js`.
 - Room: Go to depth, 0 to 99 with − and +, starting on 1; depth 0 is
   the crypt (D-212). It goes onto that depth's stairs up, no turn passed

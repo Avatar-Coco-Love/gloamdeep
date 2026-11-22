@@ -4,6 +4,15 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.457 (2026-11-21)
+- Each waystone now looks like the place it stands in. Home keeps its
+  mossy stones in the grass. In the cave (depth 2) they are rough grey
+  boulders with pebbles at their feet; in the warren (depth 5) brown
+  stones wrapped in pale roots, with dirt heaped round them; in the
+  dungeon (depth 8 and down) tall cut obelisks on a plinth, with neat
+  square flagstones. The plate's violet rune is the same everywhere.
+- Decisions: D-1021. D-1016 moved to the archive, word for word.
+
 ## 0.3.456 (2026-11-21)
 - Docs: ideas from "how will it be special?" are kept for later in a
   new page, docs/RESEARCH-3.md: light decides the boss fights, your

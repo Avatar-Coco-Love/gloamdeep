@@ -478,7 +478,7 @@ export function drawShelfRelics(c, room, t, still) {
   } });
 }
 // a dithered round halo at (gx, gy), its colours over the dark only ('lighten'); `cut` thins its edge
-function halo(c, gx, gy, { reach, inner, outer, cut }, pulse) {
+export function halo(c, gx, gy, { reach, inner, outer, cut }, pulse) {
   c.save(); c.globalCompositeOperation = 'lighten';
   for (let y = -reach; y <= reach; y++) for (let x = -reach; x <= reach; x++) {
     const d = Math.hypot(x, y); if (d > reach) continue;
