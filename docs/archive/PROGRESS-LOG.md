@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-21, 0.3.458, The waystone trip.** Violet sparks carry the
+  hero away and gather at the far stone; a tap skips. D-1022.
+  Playtest: https://claude.ai/artifact/Mb6hNptpjv7QemWLQYtSwD
 - **2026-11-21, 0.3.457, A waystone look for each place.** Boulders in
   the cave, rooted stones in the warren, obelisks in the dungeon. D-1021.
   Playtest: https://claude.ai/artifact/WBNRtTKf7fkDSb8m2nk5BL

@@ -84,7 +84,9 @@ with you from then on. It flies freely around you, off the grid, and
 darts toward things worth noticing. It speaks up with hints, warnings and
 lore, and you can tap it to ask about things. It glows faintly but lights
 almost nothing, and it never fights: it guides. It is not a faery: it is
-a spark of the First Light (`LORE.md`). [D-023, D-034, D-508, D-633]
+a spark of the First Light (`LORE.md`). It speaks mostly in light, its
+glow cooling near the gloam, and rarely in words. [D-023, D-034, D-508,
+D-633, D-1025]
 
 ## Look and feel
 Style study 1 is the look, and all of it stays: real light and shadows,

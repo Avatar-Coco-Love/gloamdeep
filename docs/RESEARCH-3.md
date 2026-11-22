@@ -34,3 +34,26 @@ These ideas, Claude's from that talk, the owner wants kept.
   treasure because people carry light down (`LORE.md`); the urge to go
   one floor deeper for better loot is the same pull. A thought for
   writing lore lines, Maren's pages and the fall card, not a mechanic.
+
+## The spark's later steps (D-1025)
+The owner's picks, each its own step, in no set order; the pieces in
+brackets are Claude's drafts, to be offered again when the step comes.
+- **Darting and shying**: it darts to a find worth a look and comes back;
+  it never goes near a mimic (`PUZZLES-2.md` C3).
+- **Its few words**: on firsts (the first fall, 8.04) and a broken memory
+  of the First Light about once a depth, in italics, no name
+  ("…so bright once. You couldn't look at it…").
+- **The talk box**: a tap opens it, the Peddler's look (D-1017); the spark
+  asks rather than tells ("This smell. Oil? I knew it, once.").
+- **Leanings**: each answer leans it Curious, Careful or Bold, hidden and
+  equal, always free to shift. (Curious: a glint on one secret in a lit
+  room, once a floor. Careful: a gloamling's next step at the light's
+  edge. Bold: the first hit in the dark each floor glances off.)
+- **Boss gifts**: each boss beaten brings back a memory and a small gift.
+  (Warmth: with the lantern dry, gloamlings keep a tile further off.
+  Hush: once a floor, a tap makes the gloamlings beside you flinch a turn.)
+- **Warmth and commands**, the last and largest, a system of its own:
+  pips that fill while the lantern burns, faster by lit torches, using no
+  oil (D-014); spent on SEND (a far tile marked, not lit), HOLD (a
+  gloamling won't pass its tile) and KINDLE (a torch lit from 3 tiles),
+  unlocked deeper down. Mind pillar 1: the lantern stays the star.

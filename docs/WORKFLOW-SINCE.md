@@ -73,3 +73,6 @@ line here (D-741). Each audit moves the lines into the right sections.
   on one line (lines.js's `also`), the owner's words kept (0.3.460).
 - A playtest script that reads the room and plans one step at a time gets
   past creatures in the way; a planned path of keys does not (0.3.460).
+- Mock-ups for a feel (the spark's voice, 0.3.461): 3 whole kits side by
+  side, each with its growth, let the owner mix them: A now, B later, C as
+  its own system (D-1025).

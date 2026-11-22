@@ -6,6 +6,10 @@
 // tools/release.js once a newer version is in (D-982); stage 0.2's are in history-0.2.js and its split
 // files.
 export const HISTORY_03 = [
+  { v: '0.3.461', date: '2026-11-22', title: 'The spark speaks in light', lines: [
+    "The spark speaks in light. Near a gloamling or the Lampeater, seen or not, its glow cools to violet and dims, and it warms again as they go. Deeper down, nearer the First Light, its glow is a little wider and brighter.",
+    "Decisions: D-1025. D-1022 moved to the archive, word for word.",
+  ] },
   { v: '0.3.460', date: '2026-11-22', title: 'The spark freed', lines: [
     "The story begins: the spark, the guide, waits on depth 2 in the first cave room, caught in a knot of gloam, dark threads with violet edges wound round a dim light. Bump the knot with the lantern lit and it melts: \"The gloam lets go. A small warm light comes to your side.\" With the lantern off it holds: \"The threads hold fast in the dark.\"",
     "Freed, the spark floats by the hero's shoulder everywhere, a small warm glow that lights nothing; the lantern stays the only light.",
