@@ -2,6 +2,8 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-21, 0.3.456, Ideas from how it will be special.** Kept in
+  `RESEARCH-3.md`, nothing decided. D-1020.
 - **2026-11-21, 0.3.455, The public guide kept.** Its PDF, post image
   and sources in `docs/guide/`. D-1019.
 - **2026-11-21, 0.3.454, The Peddler's gifts now and then.** An Oil
@@ -3382,6 +3384,7 @@ Moved from `PROGRESS.md` at 0.3.232, the thirteenth audit (D-782):
 - [x] 24 The surface's looks (D-739, D-744, D-745, D-747): the craggy cave mouth (0.3.196); the broken seal, the crypt's way in (0.3.197); Find the crypt (0.3.198); smooth rock edges (0.3.199); ponds (0.3.200); grass (0.3.201); trees (0.3.202)
 - [x] 25 The owner's four ideas (D-751), in order: the oil tip; the home waystone by the crypt's door; Waymark's dot on the round map's rim; motes that stay. The oil tip (0.3.203); the waystone by the crypt's door (0.3.204); Waymark's dot on the rim (0.3.205); motes that stay (0.3.206)
 - [x] 27 Sleeping out (D-758, D-759): the moon button (0.3.209); Stiff (0.3.210)
+- [x] 27 The lantern's tank slot (D-991): the Bladder Tank, 0.3.441 (D-1005)
 
 - [x] U1, U2 UI and dev tools: sideways, the dev drawer, 0.2.17, 0.2.18
 

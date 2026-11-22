@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.458 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.459 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -20,7 +20,7 @@ cutscene, if any (D-1014).
 - The roadmap's build order, Claude's from 8.01 and the synthesis
   (`ROADMAP.md`, 0.3.437); the board's own picks, Claude's (0.3.436).
 - The waystone looks' pixels and colours, Claude's from the mock-up (D-1021); the trip's small calls (D-1022).
-- The Lampeater's beaten line and its find's look, Claude's drafts (D-992).
+- The Lampeater's beaten line and its find's look, Claude's drafts (D-992); the locket's words (D-1023).
 - The Bladder Tank's lines, picture and slot, Claude's drafts (D-1005).
 - The empty glass's pane picture and the lantern row's labels and arrows, Claude's (D-1006).
 - The Glowcup's lines and its tuft of earth, Claude's drafts (D-1007); the herbs' and mushrooms' open tuft, Claude's (D-1008).
@@ -45,7 +45,6 @@ when merged, with its version, and move ticked steps there at each audit.
 The rest of the scope, proposed (D-482; may change):
 - [ ] 26 Filling the surface: more flowers (Q-092), the Glowcup 0.3.443 (D-1007); its done parts, and
   19 Lore's, moved to `archive/PROGRESS-LOG.md` (D-981)
-- [x] 27 The lantern's tank slot (D-991): the Bladder Tank, 0.3.441 (D-1005)
 
 **Next audit: 0.3.473** (D-518, D-995).
 
@@ -54,11 +53,11 @@ later are in `RESEARCH-2.md` (D-699) and `RESEARCH-PLANNING.md`, and the
 owner's wish list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-22, 0.3.459, The locket says what it does.** D-1023.
+  Playtest: https://claude.ai/artifact/CJKHQCHqDzVhRCLRjV2hSW
 - **2026-11-21, 0.3.458, The waystone trip.** Violet sparks carry the
   hero away and gather at the far stone; a tap skips. D-1022.
   Playtest: https://claude.ai/artifact/Mb6hNptpjv7QemWLQYtSwD
 - **2026-11-21, 0.3.457, A waystone look for each place.** Boulders in
   the cave, rooted stones in the warren, obelisks in the dungeon. D-1021.
   Playtest: https://claude.ai/artifact/WBNRtTKf7fkDSb8m2nk5BL
-- **2026-11-21, 0.3.456, Ideas from how it will be special.** Kept in
-  `RESEARCH-3.md`, nothing decided. D-1020.

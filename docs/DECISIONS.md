@@ -117,23 +117,6 @@ chapter 1 is done; 8.15 and 8.16 at 0.4.0, with 8.06's count. The
 privacy page says nothing is sent; play notes only if decided later
 (7.11, D-993). Music is new from chapter 2 only (8.11, D-837 to D-841).
 
-**D-1018 · 2026-11-21 · The Peddler's gifts now and then** (the owner's
-picks, all recommended; D-1016's third step) After his first gift, the
-Peddler has another every 3 days (900 turns) from the last one taken
-(offered too: once a day; once a trip; by chance): one of his wares, an
-Oil Flask or a Torch, the seed picking which (offered too: coins; common
-materials; a mix). It is given in his talk box: his gift line there, the
-thing in the bag, free, SHOP and BYE as ever (offered too: as the first
-gift, the box shut; a GIFT button). While a gift waits, a small ember
-parcel with a bone ribbon floats over his head, bobbing a pixel each
-second, still with reduced motion (offered too: a soft glow; no mark).
-Claude's calls: no room, his waiting line in the box, the same ware kept
-for later; a save from before, his first gift given, has one waiting at
-once; the mark drawn with him, under the light, and over him for his
-first gift too; dev Grow brings his next gift due; his two lines
-Claude's drafts. D-1014 moves to `archive/DECISIONS-SURFACE.md`, word
-for word.
-
 **D-1019 · 2026-11-21 · The public guide kept** The public guide,
 "Building a Game with an AI Partner", is kept in `docs/guide/`: its 3-page PDF, its post image and
 the two HTML pages that rebuild them (offered too: the sources only; Drive
@@ -180,4 +163,18 @@ on the far plate. With reduced motion, no sparks: the stairs' quick fade,
 about 0.4 s. Claude's calls: the hum as before, at the start; the
 experience "+1" shows once the hero is back; the lantern's flame goes with
 the hero; the sparks glow over the dark. D-1017 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-1023 · 2026-11-22 · The locket says what it does** (the owner's ask
+and picks, all recommended; builds D-693, D-694) Set on the shelf, the
+locket did its work unseen until a fall. Now the ask "Set the locket on
+the shelf?" says "If you fall, it keeps your best stack." in place of
+"Kept close, whatever the dark took.", and the shelf's card with the
+locket says the same in place of "The locket rests here."; the locket's
+look lines gain "On a shelf, it keeps your best stack." second of four
+(offered too: a one-time glass card; a glint on the stack it would
+keep; the words "most precious" or "the peddler prizes most"; a line
+after "You set the locket on the shelf.", too long for the strip; a
+follow-up line on the next move, a new system). Claude's calls: the look
+line without "if you fall", which doesn't fit the strip. D-1018 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.

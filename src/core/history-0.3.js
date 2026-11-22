@@ -6,6 +6,10 @@
 // tools/release.js once a newer version is in (D-982); stage 0.2's are in history-0.2.js and its split
 // files.
 export const HISTORY_03 = [
+  { v: '0.3.459', date: '2026-11-22', title: 'The locket says what it does', lines: [
+    "The locket now says what it does on the shelf. Asked \"Set the locket on the shelf?\", the card says \"If you fall, it keeps your best stack.\", and so does the shelf's card once the locket is on it. Looking at the locket in the bag says \"On a shelf, it keeps your best stack.\" too.",
+    "Decisions: D-1023. D-1018 moved to the archive, word for word.",
+  ] },
   { v: '0.3.458', date: '2026-11-21', title: 'The waystone trip', lines: [
     "A trip by waystone now has its own moment, about 2 seconds. The hero breaks into violet sparks that drift up like embers, the room fades, the far stone stands empty with its plate glowing, then the sparks drift down and settle back into the hero. A tap or a key skips it. With reduced motion it is a quick fade instead.",
     "Decisions: D-1022. D-1017 moved to the archive, word for word.",

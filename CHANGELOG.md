@@ -24,6 +24,13 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.459 (2026-11-22)
+- The locket now says what it does on the shelf. Asked "Set the locket on
+  the shelf?", the card says "If you fall, it keeps your best stack.", and
+  so does the shelf's card once the locket is on it. Looking at the locket
+  in the bag says "On a shelf, it keeps your best stack." too.
+- Decisions: D-1023. D-1018 moved to the archive, word for word.
+
 ## 0.3.458 (2026-11-21)
 - A trip by waystone now has its own moment, about 2 seconds. The hero
   breaks into violet sparks that drift up like embers, the room fades, the
@@ -40,11 +47,3 @@ Entry format:
   dungeon (depth 8 and down) tall cut obelisks on a plinth, with neat
   square flagstones. The plate's violet rune is the same everywhere.
 - Decisions: D-1021. D-1016 moved to the archive, word for word.
-
-## 0.3.456 (2026-11-21)
-- Docs: ideas from "how will it be special?" are kept for later in a
-  new page, docs/RESEARCH-3.md: light decides the boss fights, your
-  lights a map of your journey, the surface answers the deep, other
-  players' light, light-routing puzzles, and the bait as the player's own
-  pull. Nothing in the game changes.
-- Decisions: D-1020.
