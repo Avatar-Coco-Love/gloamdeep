@@ -173,7 +173,11 @@ export function buildPanel(panel, opts, saved, game) {
   const leapIt = button('Leap', () => game.set(game.setLeap(!game.get().leap)), 'dev-switch');
   leapIt.setAttribute('aria-pressed', 'false');
   let shownLeap = false;
-  section('hero', 'Hero').append(row(button('Refill hearts', () => game.set(game.heal()))), row(god), row(leapIt));
+  // Spark (D-1024): a switch freeing the spark or taking it back, its knot left as it is
+  const sparkIt = button('Spark', () => game.set(game.setSpark(!game.get().spark)), 'dev-switch');
+  sparkIt.setAttribute('aria-pressed', 'false');
+  let shownSpark = false;
+  section('hero', 'Hero').append(row(button('Refill hearts', () => game.set(game.heal()))), row(god), row(leapIt), row(sparkIt));
 
   // § share: Copy room, to hand to Claude (D-051, D-052). If the browser
   // blocks the clipboard, a box shows the code, selected, to copy by hand.
@@ -226,6 +230,7 @@ export function buildPanel(panel, opts, saved, game) {
     // Keeps the slider on the real oil, which steps and flasks change too.
     sync(state) {
       if (state.place !== shownPlace) { shownPlace = state.place; pickDepth(depthOf(state.place)); }
+      if (!!state.spark !== shownSpark) { shownSpark = !!state.spark; sparkIt.setAttribute('aria-pressed', String(shownSpark)); }
       if (!!state.leap !== shownLeap) { shownLeap = !!state.leap; leapIt.setAttribute('aria-pressed', String(shownLeap)); }
       if (!!state.god !== shownGod) { shownGod = !!state.god; god.setAttribute('aria-pressed', String(shownGod)); }
       if (!!state.endless !== shownEndless) { shownEndless = !!state.endless; endless.setAttribute('aria-pressed', String(shownEndless)); }

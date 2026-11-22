@@ -12,6 +12,7 @@ import { campCorner } from '../core/camp.js';
 import { formOf } from '../core/tiles.js';
 import { get } from '../core/registry.js';
 import { drawStandingStone, drawWaystonePath, drawWaystonePlate } from './waystone.js';
+import { drawKnotBase } from './guide.js';
 
 const px = (c, x, y, col) => { c.fillStyle = col; c.fillRect(x, y, 1, 1); };
 // How many braziers burn in the room (D-893), and the vault door's 2 notches on the lintel above
@@ -130,6 +131,7 @@ const DRAW = {
   // On the woods' grass, where it was set down; elsewhere on that room's floor (WB2, D-322)
   bench: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBench(c, x, y); },
   stash: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBench(c, x, y, SPRITES.chest); }, // the bench's way (CH2, D-329)
+  gloamKnot: (c, room, x, y) => { if (!['rock', 'earth', 'woods'].includes(room.look)) drawFloor(c, room, x, y); drawKnotBase(c, x, y); }, // its threads; their violet edges and the spark each frame (guide.js, D-1024)
   rubble: (c, room, x, y) => { if (!['rock', 'earth', 'woods'].includes(room.look)) drawFloor(c, room, x, y); drawDeposit(c, x, y, SPRITES.rubble); }, // a deposit's way (D-490)
   bedroll: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBench(c, x, y, SPRITES.bedrollLaid); }, // the bed's way (D-804)
   bedstead: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBench(c, x, y, SPRITES.bed); }, // the bench's way (D-488)

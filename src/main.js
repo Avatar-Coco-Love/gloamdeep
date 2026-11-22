@@ -532,6 +532,7 @@ const dev = createDev(stage, roomCanvas, { // on for everyone (D-086)
   heal: () => ({ ...app.state, health: maxHealth(app.state) }),
   setGod: (on) => ({ ...app.state, god: on }), // bites take no hearts (D-625)
   setLeap: (on) => ({ ...app.state, leap: on || undefined }), // chapter 1's found ability, on this journey (D-962)
+  setSpark: (on) => ({ ...app.state, spark: on }), // the spark freed or not, its knot left as it is (D-1024)
   setEndless: (on) => ({ ...app.state, endless: on }), // the lantern never runs down (D-626)
   passTime: (turns) => passTime(app.state, turns), // the clock only (D-217)
   grow: () => giftsDue(growAll(app.state)), // every planted garden bed's time up (D-567), and the Peddler's next gift due (D-1018)

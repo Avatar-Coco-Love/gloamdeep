@@ -22,6 +22,8 @@ repeated. A new colour in the code gets its line here too.
 | The locket's sliding glint | `#fffbe8` | `sprites.js:335` |
 | The lure wisp's halo (60%) | `#5a66b8` `#3a4590` | `sprites.js:304` |
 | An unlit torch's burnt head | `#2b2228` `#5a5260` | `torches.js:17` |
+| The gloam knot's threads, dark and darker violet; their creeping edge and its lit tip (D-1024) | `#0e0c16` `#241d33`; `#6e58a8` `#8a72c8` | `guide.js:13` |
+| The spark: its core, its rays, held dim; its halo and the held one's | `#fff3c8` `#ffe9a8` `#b9ab88`; `#705c32` `#403420` | `guide.js:14-16` |
 
 ## The woods and the waystone
 | What | Colours | Code |

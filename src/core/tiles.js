@@ -128,6 +128,10 @@ export const TILES = {
   // (rescue.js, D-491); it never comes back.
   rubble: { id: 'rubble', kind: 'tile', letter: 'U', name: 'Rubble', solid: true, low: true, blocksLight: false,
     dig: { hits: 3, chips: ['rubbleDig', 'rubbleShift'], breaks: 'rubbleClear' }, clinks: true },
+  // A knot of gloam holding the spark (D-1024): solid, low, light passing over it, in depth 2's
+  // room with the stairs up (spark.js). Bumped with the lantern lit it melts to floor and the
+  // spark is free; dark, it holds. Never comes back.
+  gloamKnot: { id: 'gloamKnot', kind: 'tile', letter: 'u', name: 'Gloam knot', solid: true, low: true, blocksLight: false, frees: true },
   // The waystone's tiles (D-579, D-587), set by its plan (landmarks.js): a tall standing
   // stone on each 2 × 2 corner, solid and blocking light like rock; flagstones on the cross
   // and the plate in its middle, walked on. The plate wakes as the hero steps on it (D-591), and a

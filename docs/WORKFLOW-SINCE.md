@@ -69,3 +69,7 @@ line here (D-741). Each audit moves the lines into the right sections.
   let a script film the real trip, its skip and reduced motion (0.3.458).
 - A line drafted for the strip was measured with the game's own font
   before it was offered, or the owner's pick has to be asked again (0.3.459).
+- A line picked unmeasured, too long for a row, went in as two halves said
+  on one line (lines.js's `also`), the owner's words kept (0.3.460).
+- A playtest script that reads the room and plans one step at a time gets
+  past creatures in the way; a planned path of keys does not (0.3.460).

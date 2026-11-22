@@ -23,6 +23,7 @@ import { withLooseStones } from './loosestone.js';
 import { withWoodsHerb } from './woodsherb.js';
 import { withDuskstars } from './duskstar.js';
 import { withGlowcup } from './glowcup.js';
+import { withKnot, KNOT_DEPTH } from './knot.js';
 import { around } from './landmarks.js';
 import { seedFor, rng } from './rng.js';
 import { scatter } from './scatter.js';
@@ -346,7 +347,8 @@ function madeFor(id, seed, probe = false) {
   const room = cleared && landmark ? { ...cleared, map: unpad(cleared.map, landmark.mark, landmark.at) } : cleared; // its pad floor again (D-620)
   const flowered = room && withGlowcup(cell.seed, room, landmark ? around(landmark.mark, landmark.at.x, landmark.at.y, ringOf(landmark.mark)) : []); // the dark floors' flower, in about half the rooms, placed last (D-1007)
   const cupped = flowered && lined !== cached ? clearBehind(flowered, cached.items.slice(guanoed.items.length)) : flowered; // never behind a Gap: moved to the near side (D-989)
-  return { ...(cupped || PLACES[DEEPER]), people: cupped?.people || [], depth, look };
+  const knotted = cupped && depth === KNOT_DEPTH && id === placeAt(KNOT_DEPTH) ? withKnot(cell.seed, cupped) : cupped; // the knot of gloam holding the spark, placed last (D-1024)
+  return { ...(knotted || PLACES[DEEPER]), people: knotted?.people || [], depth, look };
 }
 
 // The room beyond each edge of a hand-made place with openings, by direction (D-197),

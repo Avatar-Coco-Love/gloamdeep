@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-21, 0.3.457, A waystone look for each place.** Boulders in
+  the cave, rooted stones in the warren, obelisks in the dungeon. D-1021.
+  Playtest: https://claude.ai/artifact/WBNRtTKf7fkDSb8m2nk5BL
 - **2026-11-21, 0.3.456, Ideas from how it will be special.** Kept in
   `RESEARCH-3.md`, nothing decided. D-1020.
 - **2026-11-21, 0.3.455, The public guide kept.** Its PDF, post image

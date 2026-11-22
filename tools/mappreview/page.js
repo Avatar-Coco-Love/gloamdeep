@@ -27,6 +27,7 @@ const cached = (it) => it.once && it.id !== 'locket'; // a cache's finds; the lo
 const VAULT = { brazier: '#f39a3b', sealedDoor: '#a58ce0' }; // a vault's braziers and sealed door (D-892)
 const GAP = '#c8b4f4'; // a Leap gap's edge (D-968)
 const ARCH = '#e8c46a'; // its Archway to the place beyond (D-970)
+const KNOT = '#6e58a8', KNOT_SPARK = '#fff3c8'; // the knot of gloam, the spark in its middle (D-1024)
 const FIND_ELSE = '#d8d2c0', CREATURE = '#ff5a4a', PERSON = '#7fd8ff', WAY = '#ffd66b', CHOSEN = '#ffffff';
 // § shapes: a tint over each hall and large room (D-645), so they stand out
 const SHAPE_TINT = { 2: 'rgba(127, 216, 255, 0.16)', 4: 'rgba(165, 140, 224, 0.22)' };
@@ -52,7 +53,7 @@ function contents({ id, room }, s) {
   const p = fresh(id, s), tiles = {};
   for (let y = 0; y < room.rows; y++) for (let x = 0; x < room.cols; x++) {
     const t = tileAt(room, x, y).id;
-    if (['deposit', 'vein', 'water', 'waystonePlate', 'wokenPlate', 'stairsUp', 'stairsDown', 'brazier', 'sealedDoor', 'gap', 'archway'].includes(t)) tiles[t] = (tiles[t] || 0) + 1;
+    if (['deposit', 'vein', 'water', 'waystonePlate', 'wokenPlate', 'stairsUp', 'stairsDown', 'brazier', 'sealedDoor', 'gap', 'archway', 'gloamKnot'].includes(t)) tiles[t] = (tiles[t] || 0) + 1;
   }
   return { enemies: p.enemies, items: p.items, people: p.people || [], tiles };
 }
@@ -81,6 +82,7 @@ function numbers({ rooms, info }) {
   if (info) parts.push(`the way ${info.wayLength} rooms`, `${rooms.length - info.wayLength} side rooms`, `${info.halls} halls`, `${info.large} large rooms`, `${info.deadEnds} dead ends`, `${info.loops} loops`);
   parts.push(`${rooms.reduce((n, r) => n + r.enemies.length, 0)} creatures`, `${count((id) => id === 'flask')} flasks`, `${count((id) => id === 'herb')} herbs`, ...(count((id) => id === 'duskstar') ? [`${count((id) => id === 'duskstar')} duskstars`] : []), ...(count((id) => id === 'glowcup') ? [`${count((id) => id === 'glowcup')} glowcups`] : []),
     `${count((id) => id === 'heartcap')} heartcaps`, `${rooms.reduce((n, r) => n + r.items.filter(cached).length, 0)} cache finds`, ...(count((id) => id === 'locket') ? ['the locket'] : []), ...[rooms.filter((r) => r.tiles.gap).length].map((n) => `${n} Leap gap${n === 1 ? '' : 's'}`), `${rooms.filter((r) => r.tiles.water).length} pools`, `${tiles('deposit') + tiles('vein')} deposits`, ...(info && vaultAt(seed(), depth) ? ['a vault'] : []));
+  if (tiles('gloamKnot')) parts.push('the spark\'s knot');
   return parts;
 }
 function biomeRooms(s) {
@@ -100,6 +102,7 @@ function draw() {
     if (show.way && f.info?.way.has(r.id)) { c.strokeStyle = WAY; c.lineWidth = 2; c.strokeRect(px + 1, py + 1, w - 2, h - 2); }
     if (show.finds) for (const it of r.items) { if (it.once || it.id === 'locket') ring(c, r.x + it.x, r.y + it.y); dot(c, r.x + it.x, r.y + it.y, FIND[it.id] || FIND_ELSE, 0.6); } // a cache's finds ringed (D-650)
     if (r.tiles.gap) for (let y = 0; y < r.room.rows; y++) for (let x = 0; x < r.room.cols; x++) if (tileAt(r.room, x, y).id === 'gap') { c.fillStyle = '#07060a'; c.fillRect((r.x + x) * K, (r.y + y) * K, K, K); c.strokeStyle = GAP; c.lineWidth = 1; c.strokeRect((r.x + x) * K + 0.5, (r.y + y) * K + 0.5, K - 1, K - 1); } // a Leap gap, black, edged (D-968)
+    if (r.tiles.gloamKnot) for (let y = 0; y < r.room.rows; y++) for (let x = 0; x < r.room.cols; x++) if (tileAt(r.room, x, y).id === 'gloamKnot') { c.fillStyle = KNOT; c.fillRect((r.x + x) * K, (r.y + y) * K, K, K); c.fillStyle = KNOT_SPARK; c.fillRect((r.x + x) * K + K / 2 - 1, (r.y + y) * K + K / 2 - 1, 2, 2); } // the knot holding the spark, violet, its spark pale (D-1024)
     if (r.tiles.archway) for (let y = 0; y < r.room.rows; y++) for (let x = 0; x < r.room.cols; x++) if (tileAt(r.room, x, y).id === 'archway') { c.fillStyle = ARCH; c.fillRect((r.x + x) * K, (r.y + y) * K, K, K); } // its Archway, gold (D-970)
     if (r.tiles.sealedDoor) for (let y = 0; y < r.room.rows; y++) for (let x = 0; x < r.room.cols; x++) { const t = tileAt(r.room, x, y).id; if (VAULT[t]) dot(c, r.x + x, r.y + y, VAULT[t], 0.8); } // the vault (D-892)
     if (show.creatures) for (const e of r.enemies) dot(c, r.x + e.x, r.y + e.y, CREATURE, 0.7);

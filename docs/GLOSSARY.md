@@ -41,7 +41,8 @@ creature's, tile's or place's only its first (Cave spider) (D-870).
   lamp at the bottom, to relight. **Underhearth:** the city below, now
   the sunken ruins. **The Lightkeepers:** the order of lamplighters.
 - **Old Maren:** the hero's teacher, taken by the gloam. **The keeper:**
-  who leaves the finds (Q-084). **The spark:** the guide.
+  who leaves the finds (Q-084). **The spark:** the guide, freed from a
+  **Gloam knot** in depth 2's first room, then by the hero's side (D-1024).
 
 ## The hero
 Moved to `GLOSSARY-HERO.md` word for word at 0.3.393 (D-951).

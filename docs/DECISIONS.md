@@ -132,25 +132,6 @@ other players' light, light-routing puzzles, and the bait as the player's
 own pull. Nothing in them is decided. D-1015 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
 
-**D-1021 · 2026-11-21 · A waystone look for each place** (the owner's
-wish and picks, all recommended, from the mock-up; the first part of the
-roadmap's 2.13, builds on D-592, D-594, D-620) Each waystone takes the
-look of the place it stands in: home keeps its mossy stones in the grass;
-the cave's grey rock (depth 2) has rough grey boulders, wider and lower,
-no moss, pebbles at their feet and chipped grey flagstones; the warren's
-earth (depth 5) brown standing stones with two pale roots wrapped across
-each and dirt heaped at the foot; the dungeon (8 and down) cut obelisks on
-a plinth, notches carved down the face, in its cold colours, with neat
-square flagstones. The plate and flagstones take the place's colours; the
-woken rune is the same violet everywhere (offered too: colours only; new
-shapes; one grey plate everywhere; for the dungeon, square pillars with an
-iron band, or notches lit violet). The mines', caverns' and ruins' stones
-come with those chapters. The trip's effect is next, its own step: violet
-motes leave and gather, the far stone shown empty between, about 2 s, a
-tap skips, a quick fade with reduced motion (the owner's picks, all
-recommended). Pixels and colours Claude's, from the mock-up. D-1016 moves
-to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-1022 · 2026-11-21 · The waystone trip** (the owner's picks, all
 recommended, from the mock-up; D-1021's next step) A trip by waystone
 takes about 2 s. The hero breaks into their own pixels, which turn violet
@@ -177,4 +158,26 @@ keep; the words "most precious" or "the peddler prizes most"; a line
 after "You set the locket on the shelf.", too long for the strip; a
 follow-up line on the next move, a new system). Claude's calls: the look
 line without "if you fall", which doesn't fit the strip. D-1018 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-1024 · 2026-11-22 · The spark freed** (the owner's picks, all
+recommended, from the mock-up; the first part of the roadmap's 5.04,
+builds D-034, D-508, D-633) A knot of gloam, dark threads with violet
+edges wound round a dim spark, holds the spark in depth 2's room with
+the stairs up, which every journey walks. Bumped with the lantern lit
+it melts, a turn, and the spark is free for good: "The gloam lets go. A
+small warm light comes to your side." With the lantern off it holds:
+"The threads hold fast in the dark.", free. Freed, it floats by the
+hero everywhere and glows; brightening near the First Light and talking
+come later (offered too: a spider's web, an iron cage; depth 1, a depth 2
+side room; only the trap this step; the lines "The spark slips free and
+stays close, as if it knows you.", "The threads melt in your light. The
+spark is free."; a bump that always frees). Claude's calls: its name,
+Gloam knot; never cutting a way, 2 to 4 steps from the stairs where it
+fits, not beside them; an ember melts it, as it lights a torch; the
+line in two halves, one line, as it is too long for a row; the spark by
+the left shoulder, the lantern right, easing and bobbing, rising from
+the knot as it is freed, still with reduced motion; its look and the
+knot's writhe; no sound yet; an older save's kept room gets its knot,
+or the spark freed where none fits; the dev Spark switch. D-1021 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
