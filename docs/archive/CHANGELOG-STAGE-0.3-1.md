@@ -4,6 +4,14 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.456 (2026-11-21)
+- Docs: ideas from "how will it be special?" are kept for later in a
+  new page, docs/RESEARCH-3.md: light decides the boss fights, your
+  lights a map of your journey, the surface answers the deep, other
+  players' light, light-routing puzzles, and the bait as the player's own
+  pull. Nothing in the game changes.
+- Decisions: D-1020.
+
 ## 0.3.455 (2026-11-21)
 - Docs: the public guide, "Building a Game with an AI Partner", is
   kept in docs/guide: its 3-page PDF, its post image and their sources.

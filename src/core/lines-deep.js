@@ -23,7 +23,7 @@ export const DEEP_LINES = {
   glowGlandLook: { texts: ['A glow gland. With wood, a glow lamp.', 'A soft green light, sealed in.', 'It glows faintly in the dark.'], warn: false },
   glowGlandFull: { text: "You can't carry more glow glands.", warn: false },
   locketTake: { texts: ['A locket! A relic of the old city.', 'Kept close, whatever the dark took.', 'The locket goes in your bag.'], warn: false }, // (D-691)
-  locketLook: { texts: ['A locket from the old city.', 'A tiny flame is scratched on its face.', 'Kept close, whatever the dark took.'], warn: false },
+  locketLook: { texts: ['A locket from the old city.', 'On a shelf, it keeps your best stack.', 'A tiny flame is scratched on its face.', 'Kept close, whatever the dark took.'], warn: false },
   locketFull: { text: 'You already have the locket.', warn: false },
   locketShelfSet: { text: 'You set the locket on the shelf.', warn: false }, // (D-693)
   featReached: { text: 'Feat reached: {n}.', warn: false }, // a Feat's tier reached, its Glints paid (D-695)

@@ -18,7 +18,7 @@ test('with the locket in the bag, the shelf asks to set it there, No picked', ()
   assert.equal(canShelve(set, 3, 2), true);
   assert.equal(canShelve(shelfSet(), 3, 2), false);
   assert.deepEqual(panelBeside(set, 'right'), { x: 3, y: 2 });
-  assert.deepEqual(SHELVE_ASK, ['Set the locket on the shelf?', 'Kept close, whatever the dark took.']);
+  assert.deepEqual(SHELVE_ASK, ['Set the locket on the shelf?', 'If you fall, it keeps your best stack.']);
   assert.deepEqual(SHELVE_MENU.map((l) => l.text), ['Yes', 'No']);
   assert.equal(SHELVE_MENU.findIndex((l) => l.id === 'no'), 1);
 });
@@ -39,7 +39,7 @@ test('once set, it stays: the shelf asks Deconstruct shelf?, "The locket rests h
   assert.equal(get('locketShelf').panel, 'bed');
   assert.equal(get('locketShelf').solid, true);
   assert.equal(canShelve(on, 3, 2), false);
-  assert.deepEqual(TAKE_ASKS.locketShelf, ['Deconstruct shelf?', 'The locket rests here.']);
+  assert.deepEqual(TAKE_ASKS.locketShelf, ['Deconstruct shelf?', 'If you fall, it keeps your best stack.']);
 });
 
 test('deconstructed, the shelf and the locket go back in the bag together, or neither', () => {
