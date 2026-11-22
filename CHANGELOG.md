@@ -24,6 +24,14 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.458 (2026-11-21)
+- A trip by waystone now has its own moment, about 2 seconds. The hero
+  breaks into violet sparks that drift up like embers, the room fades, the
+  far stone stands empty with its plate glowing, then the sparks drift down
+  and settle back into the hero. A tap or a key skips it. With reduced
+  motion it is a quick fade instead.
+- Decisions: D-1022. D-1017 moved to the archive, word for word.
+
 ## 0.3.457 (2026-11-21)
 - Each waystone now looks like the place it stands in. Home keeps its
   mossy stones in the grass. In the cave (depth 2) they are rough grey
@@ -40,9 +48,3 @@ Entry format:
   players' light, light-routing puzzles, and the bait as the player's own
   pull. Nothing in the game changes.
 - Decisions: D-1020.
-
-## 0.3.455 (2026-11-21)
-- Docs: the public guide, "Building a Game with an AI Partner", is
-  kept in docs/guide: its 3-page PDF, its post image and their sources.
-  Nothing in the game changes.
-- Decisions: D-1019.

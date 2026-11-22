@@ -4,6 +4,12 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.455 (2026-11-21)
+- Docs: the public guide, "Building a Game with an AI Partner", is
+  kept in docs/guide: its 3-page PDF, its post image and their sources.
+  Nothing in the game changes.
+- Decisions: D-1019.
+
 ## 0.3.454 (2026-11-21)
 - New: the Peddler's gifts now and then. Every 3 days after his last
   gift, he has another: an Oil Flask or a Torch. Bump him and his talk

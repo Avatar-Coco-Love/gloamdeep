@@ -117,23 +117,6 @@ chapter 1 is done; 8.15 and 8.16 at 0.4.0, with 8.06's count. The
 privacy page says nothing is sent; play notes only if decided later
 (7.11, D-993). Music is new from chapter 2 only (8.11, D-837 to D-841).
 
-**D-1017 · 2026-11-21 · The Peddler's talk box** (the owner's picks;
-D-1016's second step) Home on the surface, a bump on the Peddler opens
-his talk box: the ask card's glass, PEDDLER in ember, his face (his
-forward sprite at twice its size, in a thin frame) and his line beside
-it, SHOP and BYE along its foot, SHOP picked (offered too: no face; a
-small one; a list card; TALK; a dim GIFT). SHOP opens his card; BYE, the
-cross, Esc or a tap outside shut it. His lines, Claude's drafts: by day
-"What'll it be, friend?", "Good to see your light again." and "Buying
-or selling today?" in turn, with "Deeper than I got? Mind your oil."
-past depth 3 and "The Lampeater's quiet. Your doing?" once it is beaten
-on the journey each taking a turn among them; by night "Late, but I'm
-awake. What'll it be?" (offered too: his greeting; a plain note).
-Claude's calls: the three longer drafts shortened to fit the text line;
-his gift bump as D-1016, its waiting line in the box; his two old home
-lines no longer said. D-1013 moves to `archive/DECISIONS-SURFACE.md`,
-word for word.
-
 **D-1018 · 2026-11-21 · The Peddler's gifts now and then** (the owner's
 picks, all recommended; D-1016's third step) After his first gift, the
 Peddler has another every 3 days (900 turns) from the last one taken
@@ -184,3 +167,17 @@ motes leave and gather, the far stone shown empty between, about 2 s, a
 tap skips, a quick fade with reduced motion (the owner's picks, all
 recommended). Pixels and colours Claude's, from the mock-up. D-1016 moves
 to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-1022 · 2026-11-21 · The waystone trip** (the owner's picks, all
+recommended, from the mock-up; D-1021's next step) A trip by waystone
+takes about 2 s. The hero breaks into their own pixels, which turn violet
+and drift up like embers (0.7 s); the room fades through the dark (0.3 s);
+the far stone stands empty, its plate glowing (0.3 s); then violet sparks
+drift down and settle into the hero, each pixel taking back its colour
+(0.7 s) (offered too: a whirl round the plate; sparks pulled into the rune;
+a longer empty stone; no fade). A new tap or key skips it, the hero at once
+on the far plate. With reduced motion, no sparks: the stairs' quick fade,
+about 0.4 s. Claude's calls: the hum as before, at the start; the
+experience "+1" shows once the hero is back; the lantern's flame goes with
+the hero; the sparks glow over the dark. D-1017 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

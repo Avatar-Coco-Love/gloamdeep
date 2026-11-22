@@ -35,6 +35,7 @@ repeated. A new colour in the code gets its line here too.
 | The cave's waystone: outline, lit, stone, dark, cut; slabs, mortar (D-1021) | `#14161d` `#9aa3b6` `#7a8396` `#5a6276` `#3b4152`; `#5a6276` `#4b5265`, `#23262f` | `waystone.js:17` |
 | The warren's waystone, the same; its roots, their shadow, its dirt | `#16110d` `#8e7a62` `#6a584a` `#4e4036` `#3a2f26`; `#5a4a3e` `#4e4036`, `#2a221c`; `#c4ad8a` `#2a221c`; `#2e251e` `#3d3229` | `waystone.js:18`, `:23` |
 | The dungeon's waystone | the crypt stone's, chilled as the dungeon's (ART-DIRECTION-2.md) | `waystone.js:19` |
+| The waystone trip's sparks, a paler one, the plate's glow (D-1022) | `#a58ce0` `#d8c8ff`; `rgba(190,160,255)` | `trip.js:13`, `:62` |
 | The cave mouth's path | `#3e3126` `#4a3a2c` | `mouth.js:15` |
 
 ## Water

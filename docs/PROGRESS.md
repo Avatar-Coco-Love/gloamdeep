@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.457 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.458 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The waystone trip's effect (D-1021): violet motes, the far stone empty
-between, about 2 s, a tap skips. The owner's ideas come first (D-1003). Then the Lampeater's polish goes on (`ROADMAP.md`'s Now, step 1):
-the owner's ideas for its phases, then the next cutscene, if any (D-1014).
+The Lampeater's polish goes on (`ROADMAP.md`'s Now, step 1): the
+owner's ideas come first (D-1003), for its phases, then the next
+cutscene, if any (D-1014).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -19,7 +19,7 @@ the owner's ideas for its phases, then the next cutscene, if any (D-1014).
   the archway's line, Claude's draft (D-970); the call's and wary's lines and Bestiary words, Claude's drafts (D-974, D-977); the phases' Bestiary words, Claude's draft (D-978); the Leap rows and the jump's words, Claude's drafts (D-989).
 - The roadmap's build order, Claude's from 8.01 and the synthesis
   (`ROADMAP.md`, 0.3.437); the board's own picks, Claude's (0.3.436).
-- The waystone looks' pixels and colours, Claude's from the mock-up (D-1021).
+- The waystone looks' pixels and colours, Claude's from the mock-up (D-1021); the trip's small calls (D-1022).
 - The Lampeater's beaten line and its find's look, Claude's drafts (D-992).
 - The Bladder Tank's lines, picture and slot, Claude's drafts (D-1005).
 - The empty glass's pane picture and the lantern row's labels and arrows, Claude's (D-1006).
@@ -54,10 +54,11 @@ later are in `RESEARCH-2.md` (D-699) and `RESEARCH-PLANNING.md`, and the
 owner's wish list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-21, 0.3.458, The waystone trip.** Violet sparks carry the
+  hero away and gather at the far stone; a tap skips. D-1022.
+  Playtest: https://claude.ai/artifact/Mb6hNptpjv7QemWLQYtSwD
 - **2026-11-21, 0.3.457, A waystone look for each place.** Boulders in
   the cave, rooted stones in the warren, obelisks in the dungeon. D-1021.
   Playtest: https://claude.ai/artifact/WBNRtTKf7fkDSb8m2nk5BL
 - **2026-11-21, 0.3.456, Ideas from how it will be special.** Kept in
   `RESEARCH-3.md`, nothing decided. D-1020.
-- **2026-11-21, 0.3.455, The public guide kept.** Its PDF, post image
-  and sources in `docs/guide/`. D-1019.

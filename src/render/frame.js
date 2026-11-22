@@ -8,7 +8,8 @@ import { repaintOf } from './patch.js';
 import { shotAt, risenAt, rising, SINK, CRUMBLE } from './cutscene.js';
 import { drawRipples } from './water.js';
 import { drawRoosts } from './roosts.js';
-import { drawHero, drawItems, drawEnemies, drawGlows, drawRelics, drawShelfRelics, drawGlobs, drawPeople, wearLook } from './sprites.js';
+import { drawHero, drawItems, drawEnemies, drawGlows, drawRelics, drawShelfRelics, drawGlobs, drawPeople, wearLook, wornHero } from './sprites.js';
+import { drawTrip, tripHides } from './trip.js';
 import { drawLight, flicker } from './light.js';
 import { drawBeam, BEAM_MS } from './beam.js';
 import { drawKindle, drawRing } from './kindle.js';
@@ -265,7 +266,8 @@ export function createFrame(app, ui) {
         drawBeam(rc, app.beam, s.hero, t); // a freed person beamed home, or beamed in at home (D-496)
         const lift = leapLift(app.leapArc, shown); // a leap's hop, its shadow left on the ground (D-962)
         if (lift) { rc.fillStyle = 'rgba(0,0,0,.35)'; rc.fillRect(sx + nx + 4, sy + ny + 14, 8, 2); }
-        drawHero(rc, sx + nx, sy + ny - lift, !!bitten && t < bitten.until, lying);
+        const tripping = tripHides(travel, t); // by waystone: sparks instead, over the light (D-1022)
+        if (!tripping) drawHero(rc, sx + nx, sy + ny - lift, !!bitten && t < bitten.until, lying);
         // § enemies: shaded by the light like the floor, so seen in memory's dim light too (D-153)
         drawEnemies(rc, s.enemies, t, still(), hit && t < hit.until ? hit.enemies : [], foeAt, s.hero, app.sunk, app.crawl); // a snapcap opens beside the hero (D-543); a warden's fists sink with a jolt (D-937); gloamlings rise from a snuffed bowl (D-949)
         if (cut?.end) drawGone(rc, (es) => drawEnemies(rc, es, t, still(), [], ghostAt), cut); // its end: it sinks and fades, its brood crumbling (D-1014)
@@ -304,7 +306,8 @@ export function createFrame(app, ui) {
         const motesOn = lightOn && s.lit && !lying && !travel && !fall && !dev.revealed();
         drawMotes(rc, motesOn ? draftTo(s) : null, lx, ly, lights[0]?.r || 0, still(), motesOn ? stayingMotes(s) : 0); // a draft toward the stairs down not yet seen, then a few that stay (D-581, D-605, D-755)
         drawRing(rc, app.kindle, t); // and its ring, over the light (D-591)
-        if (s.lit && !lying) { rc.fillStyle = '#fff5d6'; rc.fillRect(lx, ly, 1, 1); } // the lit flame's core is always bright (study line 446)
+        const tripped = drawTrip(rc, travel?.trip, wornHero(), sx, sy, t); // the waystone trip's sparks and glow (D-1022)
+        if (s.lit && !lying && !tripped) { rc.fillStyle = '#fff5d6'; rc.fillRect(lx, ly, 1, 1); } // the lit flame's core is always bright (study line 446), gone with the hero on a trip
         drawDoors(rc, doors, dev.revealed() ? null : s.seen, s.room.cols, t, still()); // over the light, so remembered ones show (D-225)
         const framed = list?.find((a) => foeAt(a.e) === app.framed);
         if (framed) drawFramed(rc, framed, foeAt(framed.e), cam, t, still()); // CL2, D-357
@@ -322,7 +325,7 @@ export function createFrame(app, ui) {
         rc.fillStyle = '#0e0c16'; rc.fillRect(jx > 0 ? 0 : roomView.w - 1, 0, 1, roomView.h);
       }
       // Taking stairs, the room dims to the deepest dark and back (D-135); a fall closes it the same way; the hearts and oil stay
-      const dim = travel ? Math.max(0, 1 - Math.abs(t - travel.mid) / FADE_MS) : dark;
+      const dim = travel ? Math.max(0, 1 - Math.abs(t - travel.mid) / (travel.fade ?? FADE_MS)) : dark; // a waystone trip's dark, its own (D-1022)
       if (dim > 0) {
         rc.globalAlpha = dim;
         rc.fillStyle = '#0e0c16'; rc.fillRect(0, 0, roomView.w, roomView.h);
