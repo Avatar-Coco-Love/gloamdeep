@@ -4,6 +4,13 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.459 (2026-11-22)
+- The locket now says what it does on the shelf. Asked "Set the locket on
+  the shelf?", the card says "If you fall, it keeps your best stack.", and
+  so does the shelf's card once the locket is on it. Looking at the locket
+  in the bag says "On a shelf, it keeps your best stack." too.
+- Decisions: D-1023. D-1018 moved to the archive, word for word.
+
 ## 0.3.458 (2026-11-21)
 - A trip by waystone now has its own moment, about 2 seconds. The hero
   breaks into violet sparks that drift up like embers, the room fades, the

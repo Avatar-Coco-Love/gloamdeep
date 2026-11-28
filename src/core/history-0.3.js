@@ -6,6 +6,10 @@
 // tools/release.js once a newer version is in (D-982); stage 0.2's are in history-0.2.js and its split
 // files.
 export const HISTORY_03 = [
+  { v: '0.3.462', date: '2026-11-28', title: 'A lighter restart', lines: [
+    "A lighter restart, nothing in the game changed. The next step is the hero at the Lampeater's door. Claude's earlier drafts are approved as they stand, and from now on Claude picks the small things (words, colours, looks, timings) and asks only about gameplay and story.",
+    "Decisions: D-1026. D-1019 and D-1023 moved to the archive, word for word.",
+  ] },
   { v: '0.3.461', date: '2026-11-22', title: 'The spark speaks in light', lines: [
     "The spark speaks in light. Near a gloamling or the Lampeater, seen or not, its glow cools to violet and dims, and it warms again as they go. Deeper down, nearer the First Light, its glow is a little wider and brighter.",
     "Decisions: D-1025. D-1022 moved to the archive, word for word.",

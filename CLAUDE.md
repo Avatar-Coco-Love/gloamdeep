@@ -14,8 +14,12 @@ CSS and JavaScript, with everything drawn in code; sounds come from files (D-773
   tile"). Never bundle a new mechanic with a new system.
 - **Propose before building.** Say what you found, offer 2 or 3 options with
   a recommendation (a quick mock-up or picture where it helps), and wait for
-  the owner's choice. This applies to design, art, code structure and bug
-  fixes.
+  the owner's choice. This applies to gameplay and story: mechanics,
+  numbers that change play, new names, story.
+- **Small things are Claude's** (D-1026): wording, Bestiary words,
+  colours, pixel looks, timings, code structure and bug fixes. Claude
+  picks its own recommendation without asking and lists every pick in
+  the PR and the handoff, so the owner can change any before merging.
 - **Except the health check's steps** (`HEALTH-CHECK-3*.md`, D-980): the
   owner's wish, Claude builds its own recommended fix for each finding
   without asking, keeps to what the finding and the decisions already

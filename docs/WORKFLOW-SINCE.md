@@ -76,3 +76,7 @@ line here (D-741). Each audit moves the lines into the right sections.
 - Mock-ups for a feel (the spark's voice, 0.3.461): 3 whole kits side by
   side, each with its growth, let the owner mix them: A now, B later, C as
   its own system (D-1025).
+- Back after a pause, the owner found it hard to start: the next step
+  waited on their own ideas, and 15 draft checks were piled up. Moving on
+  to a ready roadmap step, approving the pile and asking only about
+  gameplay and story made it lighter (D-1026).

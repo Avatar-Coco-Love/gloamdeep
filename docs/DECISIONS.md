@@ -117,12 +117,6 @@ chapter 1 is done; 8.15 and 8.16 at 0.4.0, with 8.06's count. The
 privacy page says nothing is sent; play notes only if decided later
 (7.11, D-993). Music is new from chapter 2 only (8.11, D-837 to D-841).
 
-**D-1019 · 2026-11-21 · The public guide kept** The public guide,
-"Building a Game with an AI Partner", is kept in `docs/guide/`: its 3-page PDF, its post image and
-the two HTML pages that rebuild them (offered too: the sources only; Drive
-only). They are outside the game, like `tools/`, so the rule of no image
-files (D-425) still holds for the game itself.
-
 **D-1020 · 2026-11-21 · Ideas from "how will it be special?"** (the
 owner's wish) Asked what makes Gloamdeep unique and how far it can go,
 Claude's ideas from that talk are kept for later in a new page,
@@ -130,20 +124,6 @@ Claude's ideas from that talk are kept for later in a new page,
 fights, your lights a map of your journey, the surface answers the deep,
 other players' light, light-routing puzzles, and the bait as the player's
 own pull. Nothing in them is decided. D-1015 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
-**D-1023 · 2026-11-22 · The locket says what it does** (the owner's ask
-and picks, all recommended; builds D-693, D-694) Set on the shelf, the
-locket did its work unseen until a fall. Now the ask "Set the locket on
-the shelf?" says "If you fall, it keeps your best stack." in place of
-"Kept close, whatever the dark took.", and the shelf's card with the
-locket says the same in place of "The locket rests here."; the locket's
-look lines gain "On a shelf, it keeps your best stack." second of four
-(offered too: a one-time glass card; a glint on the stack it would
-keep; the words "most precious" or "the peddler prizes most"; a line
-after "You set the locket on the shelf.", too long for the strip; a
-follow-up line on the next move, a new system). Claude's calls: the look
-line without "if you fall", which doesn't fit the strip. D-1018 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
 
 **D-1024 · 2026-11-22 · The spark freed** (the owner's picks, all
@@ -188,3 +168,20 @@ Lampeater, seen or not, a registry mark; the chill full within a tile,
 gone past 4; about a second to turn; warmth by depth over 32 (D-635), the
 halo up to 2 pixels wider and a little brighter; its violet; with reduced
 motion at once. D-1022 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-1026 · 2026-11-28 · A lighter restart** (the owner's picks; changes
+D-1003 and how CLAUDE.md's "Propose before building" works) Coming back
+after a pause, the owner found the next step hard to start. Three
+changes: the Lampeater's polish no longer waits for the owner's ideas,
+and the next step is the roadmap's 1.05, the hero at the Lampeater's
+door (ideas still welcome any time); every Claude draft and call listed
+under "Waiting on the owner" at 0.3.461 is approved as it stands, and any
+can still be changed by a new decision (the list, word for word, is in
+`archive/PROGRESS-LOG.md`); and fewer questions a step: Claude decides
+the small things itself (wording, Bestiary words, colours, pixel looks,
+timings, code structure, bug fixes), lists every pick in the PR and the
+handoff, and asks only about gameplay and story (mechanics, numbers that
+change play, new names, story). One PR a conversation stays, with no
+exceptions, the owner's words: careful with the context window
+(offered too: a playtest with no decisions first). D-1019 and D-1023 move
+to `archive/DECISIONS-SURFACE.md`, word for word.
