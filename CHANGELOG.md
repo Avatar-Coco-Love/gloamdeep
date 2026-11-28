@@ -24,6 +24,13 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.462 (2026-11-28)
+- A lighter restart, nothing in the game changed. The next step is the
+  hero at the Lampeater's door. Claude's earlier drafts are approved as
+  they stand, and from now on Claude picks the small things (words,
+  colours, looks, timings) and asks only about gameplay and story.
+- Decisions: D-1026. D-1019 and D-1023 moved to the archive, word for word.
+
 ## 0.3.461 (2026-11-22)
 - The spark speaks in light. Near a gloamling or the Lampeater, seen or
   not, its glow cools to violet and dims, and it warms again as they go.
@@ -42,10 +49,3 @@ Entry format:
 - A journey already past depth 2 finds the knot waiting in that room.
 - Dev tools: a Spark switch in Hero frees the spark or takes it back.
 - Decisions: D-1024. D-1021 moved to the archive, word for word.
-
-## 0.3.459 (2026-11-22)
-- The locket now says what it does on the shelf. Asked "Set the locket on
-  the shelf?", the card says "If you fall, it keeps your best stack.", and
-  so does the shelf's card once the locket is on it. Looking at the locket
-  in the bag says "On a shelf, it keeps your best stack." too.
-- Decisions: D-1023. D-1018 moved to the archive, word for word.

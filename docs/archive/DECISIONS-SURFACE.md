@@ -3145,3 +3145,23 @@ about 0.4 s. Claude's calls: the hum as before, at the start; the
 experience "+1" shows once the hero is back; the lantern's flame goes with
 the hero; the sparks glow over the dark. D-1017 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-1019 · 2026-11-21 · The public guide kept** The public guide,
+"Building a Game with an AI Partner", is kept in `docs/guide/`: its 3-page PDF, its post image and
+the two HTML pages that rebuild them (offered too: the sources only; Drive
+only). They are outside the game, like `tools/`, so the rule of no image
+files (D-425) still holds for the game itself.
+
+**D-1023 · 2026-11-22 · The locket says what it does** (the owner's ask
+and picks, all recommended; builds D-693, D-694) Set on the shelf, the
+locket did its work unseen until a fall. Now the ask "Set the locket on
+the shelf?" says "If you fall, it keeps your best stack." in place of
+"Kept close, whatever the dark took.", and the shelf's card with the
+locket says the same in place of "The locket rests here."; the locket's
+look lines gain "On a shelf, it keeps your best stack." second of four
+(offered too: a one-time glass card; a glint on the stack it would
+keep; the words "most precious" or "the peddler prizes most"; a line
+after "You set the locket on the shelf.", too long for the strip; a
+follow-up line on the next move, a new system). Claude's calls: the look
+line without "if you fall", which doesn't fit the strip. D-1018 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

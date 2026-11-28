@@ -4,33 +4,18 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.461 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.462 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The Lampeater's polish goes on (`ROADMAP.md`'s Now, step 1): the
-owner's ideas come first (D-1003), for its phases, then the next
-cutscene, if any (D-1014).
+1.05 The hero at the Lampeater's door (`ROADMAP.md`'s Now, step 3;
+`planning/1-CORE-LOOP.md`): a draft target for the LV, hearts and gear on
+reaching depth 8, then tune the Lampeater against Middling (Q-111). The
+owner's Lampeater ideas are welcome any time, not waited on (D-1026).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
   (a conversation can't delete branches; its saves are tests now).
-- The names Pillar and Seal stone, Claude's drafts (D-940); Gap, kept (D-963);
-  the archway's line, Claude's draft (D-970); the call's and wary's lines and Bestiary words, Claude's drafts (D-974, D-977); the phases' Bestiary words, Claude's draft (D-978); the Leap rows and the jump's words, Claude's drafts (D-989).
-- The roadmap's build order, Claude's from 8.01 and the synthesis
-  (`ROADMAP.md`, 0.3.437); the board's own picks, Claude's (0.3.436).
-- The waystone looks' pixels and colours, Claude's from the mock-up (D-1021); the trip's small calls (D-1022).
-- The knot's name, dark line and look, the spark's, Claude's (D-1024); its glow's reach, speed and violet (D-1025).
-- The Lampeater's beaten line and its find's look, Claude's drafts (D-992); the locket's words (D-1023).
-- The Bladder Tank's lines, picture and slot, Claude's drafts (D-1005).
-- The empty glass's pane picture and the lantern row's labels and arrows, Claude's (D-1006).
-- The Glowcup's lines and its tuft of earth, Claude's drafts (D-1007); the herbs' and mushrooms' open tuft, Claude's (D-1008).
-- The mole's Bestiary words, "a woods mole by day, half that", Claude's draft (D-1009).
-- Where the chest card's raised buttons stand, Claude's (D-1010).
-- The Lampeater's end: about 3 s, none on a later beating, the "+" waiting for its end, Claude's (D-1014).
-- The Homestone's lines and picture, its GEAR slot, a chest's one stack, the Peddler's gift lines, Claude's (D-1015, D-1016).
-- The talk box's lines, Claude's drafts (D-1017); the later gifts' lines, the parcel's picture and Claude's calls (D-1018).
-- The bag's scroll: its bar's place and gold, the window's foot (the name and count above DROP), the glide's speed and the snap's spring, Claude's, from the mock-up (D-1011); the chest card's: only with its buttons raised, one row at least (D-1012); the peddler's: one scroll for both tabs (D-1013).
 - How hard the Lampeater should be (Q-111): 12 hearts for now (D-950);
   with its 2 wisps (D-1002) Lean 21%, Middling 72%, Strong 97% (35%,
   84%, 94% before); again after each step (D-972).
@@ -38,6 +23,8 @@ cutscene, if any (D-1014).
   D-929); sound on an older iPhone, when one is to hand (H-22, D-868).
 - Every other open question, each at its own time or step: `OPEN-QUESTIONS*.md`
   (the full list moved to `archive/PROGRESS-LOG.md`, D-981).
+- Claude's small picks since 0.3.462 are listed in each PR and handoff;
+  change any with a line (D-1026).
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps are in `archive/PROGRESS-LOG.md`. Tick a step
@@ -54,9 +41,9 @@ later are in `RESEARCH-2.md` (D-699) and `RESEARCH-PLANNING.md`, and the
 owner's wish list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-28, 0.3.462, A lighter restart.** D-1026. No playtest:
+  nothing in the game changed.
 - **2026-11-22, 0.3.461, The spark speaks in light.** D-1025.
   Playtest: https://claude.ai/artifact/JMQ4LUuuH8bdkzCScC3ysy
 - **2026-11-22, 0.3.460, The spark freed.** D-1024.
   Playtest: https://claude.ai/artifact/Bvzj8SgnX39WxSHJEmWxSE; map preview: https://claude.ai/artifact/3p2avYEVwkrdf5mFh2SQMQ
-- **2026-11-22, 0.3.459, The locket says what it does.** D-1023.
-  Playtest: https://claude.ai/artifact/CJKHQCHqDzVhRCLRjV2hSW
